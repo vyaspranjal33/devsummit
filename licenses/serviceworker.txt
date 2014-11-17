@@ -1,0 +1,1 @@
+Service Worker Cache Polyfill from https://github.com/coonsta/cache-polyfill
