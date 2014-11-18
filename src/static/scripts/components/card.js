@@ -201,7 +201,7 @@ CDS.Card.prototype = {
 
   onCollapseButtonClick_: function(evt) {
 
-    CDS.History.back();
+    CDS.History.forth('../');
 
     if (typeof evt === 'undefined')
       return;
