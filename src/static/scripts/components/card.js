@@ -122,6 +122,7 @@ CDS.Card.prototype = {
 
     this.elements_.container.classList.add('card__container--scrollable');
     this.elements_.root.classList.remove('card--animatable');
+    CDS.BodyScrollbarHider.enable();
 
     if (this.runLoFiAnimations_)
       this.elements_.container.classList.remove(
@@ -250,6 +251,10 @@ CDS.Card.prototype = {
     return this.elements_.root;
   },
 
+  isExpanded: function() {
+    return this.expanded_;
+  },
+
   addEventListener: function(name, callback, addOnce) {
     if (!this.events_[name])
       throw "Unknown event type: " + name;
@@ -335,6 +340,7 @@ CDS.Card.prototype = {
 
     this.elements_.container.scrollTop = 0;
     this.elements_.container.classList.remove('card__container--scrollable');
+    CDS.BodyScrollbarHider.disable();
 
     this.elements_.contentWrapper.addEventListener('transitionend',
         this.onCollapseTransitionEnd_);

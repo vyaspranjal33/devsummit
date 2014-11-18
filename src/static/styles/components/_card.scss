@@ -147,10 +147,6 @@
   -ms-overflow-style: none;
 }
 
-.card__container--scrollable::-webkit-scrollbar {
-  display: none;
-}
-
 .card__content-wrapper {
   border-top: 136px solid $color-hotpink;
   position: relative;
