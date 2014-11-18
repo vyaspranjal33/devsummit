@@ -122,7 +122,6 @@ CDS.Card.prototype = {
 
     this.elements_.container.classList.add('card__container--scrollable');
     this.elements_.root.classList.remove('card--animatable');
-    CDS.BodyScrollbarHider.enable();
 
     if (this.runLoFiAnimations_)
       this.elements_.container.classList.remove(
@@ -202,7 +201,7 @@ CDS.Card.prototype = {
 
   onCollapseButtonClick_: function(evt) {
 
-    CDS.History.forth('../');
+    CDS.History.back();
 
     if (typeof evt === 'undefined')
       return;
@@ -281,6 +280,7 @@ CDS.Card.prototype = {
 
     // Set the expanded class
     this.elements_.root.classList.add('card--expanded');
+    this.elements_.container.classList.add('card__container--scrollable');
 
     // Read them in their expanded positions.
     this.collectProperties_(this.expandedPositions_);
@@ -340,7 +340,6 @@ CDS.Card.prototype = {
 
     this.elements_.container.scrollTop = 0;
     this.elements_.container.classList.remove('card__container--scrollable');
-    CDS.BodyScrollbarHider.disable();
 
     this.elements_.contentWrapper.addEventListener('transitionend',
         this.onCollapseTransitionEnd_);

@@ -24,7 +24,6 @@ var CDS = {};
 // @codekit-append 'helper/history.js'
 // @codekit-append 'helper/analytics.js'
 // @codekit-append 'helper/theme.js'
-// @codekit-append 'helper/body-scrollbar-hider.js'
 
 // @codekit-append 'components/button.js'
 // @codekit-append 'components/card.js'

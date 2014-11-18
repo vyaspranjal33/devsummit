@@ -42,6 +42,7 @@ CDS.History = (function() {
 
       transitioningCard = CDS.Cards[activePath];
       transitioningCard.collapse();
+
     } else if (typeof CDS.Cards[currentPath] !== 'undefined') {
 
       // Step up through the path making sure any other cards are enabled
