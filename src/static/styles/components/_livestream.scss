@@ -35,14 +35,12 @@
 
 .livestream__image {
   width: 100%;
-  height: 320px;
+  height: 380px;
   background-size: cover;
   position: relative;
 }
 
 .livestream--embedded {
-
-  margin-bottom: 4px;
 
   & .livestream__image {
     background: $color-primary;
@@ -113,13 +111,13 @@
   }
 
   .livestream__image {
-    height: 360px;
+    height: 460px;
   }
 }
 
 @media (min-width: 830px) {
   .livestream__image {
-    height: 468px;
+    height: 560px;
   }
 }
 

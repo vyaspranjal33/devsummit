@@ -17,7 +17,7 @@
 importScripts('scripts/third_party/serviceworker-cache-polyfill.js');
 
 var CACHE_NAME = 'chrome-dev-summit';
-var CACHE_VERSION = 36;
+var CACHE_VERSION = 39;
 
 self.oninstall = function(event) {
 
@@ -131,14 +131,6 @@ self.onfetch = function(event) {
 
     // Check the cache for a hit.
     caches.match(request).then(function(response) {
-
-      // Exit early if they want the index page and it's the date
-      // of the conference
-
-      if (userIsRequestingIndexPage && isTheConference()) {
-        console.log("It's the conference... Getting live index page...");
-        return fetch(request);
-      }
 
       // If we have a response return it.
       if (response)
