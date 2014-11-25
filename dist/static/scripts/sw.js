@@ -17,7 +17,7 @@
 importScripts('scripts/third_party/serviceworker-cache-polyfill.js');
 
 var CACHE_NAME = 'chrome-dev-summit';
-var CACHE_VERSION = 39;
+var CACHE_VERSION = 42;
 
 self.oninstall = function(event) {
 
@@ -113,19 +113,6 @@ self.onactivate = function(event) {
 };
 
 self.onfetch = function(event) {
-
-  function isTheConference() {
-    var today = new Date();
-    var correctDate = (today.getDate() === 19 || today.getDate() === 20);
-    var correctMonth = (today.getMonth() === 10);
-    var correctYear = (today.getFullYear() === 2014);
-
-    return correctYear && correctMonth && correctDate;
-  }
-
-  var request = event.request;
-  var requestURL = new URL(event.request.url);
-  var userIsRequestingIndexPage = (requestURL.pathname === '/devsummit/');
 
   event.respondWith(
 

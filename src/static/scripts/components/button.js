@@ -44,6 +44,9 @@ CDS.Button = (function() {
     if (frameCount > 0)
       return;
 
+    if (evt.currentTarget.dataset && evt.currentTarget.dataset.embed)
+      CDS.VideoEmbedder.embed(evt.currentTarget);
+
     if (evt.currentTarget.dataset && evt.currentTarget.dataset.url)
       window.location = evt.currentTarget.dataset.url;
 

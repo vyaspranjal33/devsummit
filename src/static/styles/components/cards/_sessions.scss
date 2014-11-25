@@ -38,7 +38,7 @@
   }
 }
 
-.session__fab {
+.session__fab{
   cursor: pointer;
   @include shadow-z2();
   overflow: hidden;
@@ -53,6 +53,13 @@
   top: 244px - 24px;
   outline: none;
 
+  -webkit-transition: -webkit-transform 0.3333s cubic-bezier(0,0,0.21,1);
+  transition: transform 0.3333s cubic-bezier(0,0,0.21,1);
+
+  &.hidden {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
 }
 
 .session__fab-inner {
@@ -62,7 +69,7 @@
   top: 0;
   position: absolute;
   overflow: hidden;
-  background-image: url(../images/icon-star.svg);
+  background: url(../images/icon-play.svg) center center no-repeat;
   -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAChUlEQVRoBdWav84xQRSHj5FISBQSjWgV7kCtULsBhcoFqF2BmxEthQtwAwq1SiIhCM28++xr2G8/y/r32nMS2V125jy/md0zM2ekRMR6n5csm81Ko9GQer0u1WpVKpWKFAoFyefzfr2bzUZWq5XM53OZzWYymUxkPB7Lfr9/ya8rjICHPx6gbbfbdjAY2O12ax81ylCWOqjrGYZTmcfgc7mc7fV6dr1eP8oceT91USd1PyEknoB0Om07nY5dLBaRIK/+QN34wNcDQu4LKJfLdjqdvsoXuzy+8BlTxG0BtVrto60epYrewHcMEdECWq2W9SJFlI+Pf49vGO6IuC6AgkmxOyL+F0DXfbPlww0Hy43H6V8BvDyfjDRhuLjXMEW82BcBhK+/jDZx4d19sF0JsRcBxOCkG4yhl/pXAKNgEh+dcIPCGByxjafGt263K6VSyV0m9ggjrEHzJ1PvnNuEW+3d17C6CaDfA81m8zz1DSpL6jnTdJixs4CkwkZxOQEpbzFil8uleC9G1L2J/H6320mxWBTDSkobPC0KM+yGZaBWg92whtVqsBsW4FoNdkP2QKvBnjocDjaTyajUcDwef8cBlfQnaEPSSavBbsiYaTXYDek+rQa7IVep1WA3JFq1Guz6J3NeykJGo5G6ToAZdn89MBwO1QkIMutfUhJP+/2+ml6ANTh++XkWUhUa0yq0+jlRpDqxhRD1qUVEqE7uusdJdXrdiVC9wREU8c2NDnzf2Z0hAF2i0LVzHqdvhFd83tiVOUfOuwIQxYv9lxsfb91mdb1CiGWc+GRvUDc+ruzCBFs8fH77EXIC3JERW+VfDZwAdyQ/n4Q/e6ROQN7hefvm321+AJNtWIdxshmHAAAAAElFTkSuQmCC);
 
   border-radius: 24px;
@@ -191,10 +198,16 @@
     position: relative;
     overflow: hidden;
     left: 50%;
+    display: table;
+    line-height: 0;
 
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
 
+    & .session__video-embed {
+      min-height: 244px;
+      max-height: 396px;
+    }
   }
 }
 
@@ -342,6 +355,10 @@
 
     & .session__header-image {
       min-height: 294px;
+
+      .session__video-embed {
+        height: 294px;
+      }
     }
 
     & .card__container > .card__content-wrapper {

@@ -73,7 +73,6 @@ CDS.Card = function(element) {
   this.onCollapseTransitionEnd_ = this.onCollapseTransitionEnd_.bind(this);
   this.onExpandTransitionEnd_ = this.onExpandTransitionEnd_.bind(this);
   this.onCardContentScroll_ = this.onCardContentScroll_.bind(this);
-  this.onKeyUp_ = this.onKeyUp_.bind(this);
   this.onWindowResize_ = this.onWindowResize_.bind(this);
   this.disableTabbingToLinks_ = this.disableTabbingToLinks_.bind(this);
 
@@ -85,7 +84,6 @@ CDS.Card = function(element) {
   this.elements_.container.addEventListener('scroll',
       this.onCardContentScroll_);
 
-  CDS.EventPublisher.add('keyup', this.onKeyUp_);
   CDS.EventPublisher.add('resize', this.onWindowResize_);
 
   this.disableTabbingToLinks_();
@@ -99,19 +97,6 @@ CDS.Card.prototype = {
       return;
 
     this.onCardContentScroll_(evt);
-  },
-
-  onKeyUp_: function(evt) {
-
-    // We only care about the user hitting escape
-    // to collapse the card down.
-    if (evt.keyCode !== 27)
-      return;
-
-    if (!this.expanded_)
-      return;
-
-    this.onCollapseButtonClick_();
   },
 
   onExpandTransitionEnd_: function(evt) {

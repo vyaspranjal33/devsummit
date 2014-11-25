@@ -25,6 +25,8 @@ CDS.Cards = (function() {
 
   function onCardChange() {
 
+    CDS.VideoEmbedder.killAllEmbeddedVideos();
+
     if (!CDS.Cards[window.location.pathname]) {
       CDS.Theme.set('#362A6C');
       return;

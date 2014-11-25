@@ -98,6 +98,19 @@ CDS.History = (function() {
     transitioningCard = null;
   }
 
+  function onKeyUp(evt) {
+
+    // We only care about the user hitting escape
+    // to collapse the card down.
+    if (evt.keyCode !== 27)
+      return;
+
+    if (typeof CDS.Cards[activePath] !== 'undefined')
+      forth('../');
+
+  }
+
+  window.addEventListener('keyup', onKeyUp);
   window.addEventListener('popstate', onPopState);
 
   return {
