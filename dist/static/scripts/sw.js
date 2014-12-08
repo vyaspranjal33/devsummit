@@ -114,6 +114,8 @@ self.onactivate = function(event) {
 
 self.onfetch = function(event) {
 
+  var request = event.request;
+
   event.respondWith(
 
     // Check the cache for a hit.

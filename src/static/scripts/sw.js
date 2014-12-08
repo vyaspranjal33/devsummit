@@ -17,7 +17,7 @@
 importScripts('scripts/third_party/serviceworker-cache-polyfill.js');
 
 var CACHE_NAME = 'chrome-dev-summit';
-var CACHE_VERSION = 42;
+var CACHE_VERSION = 43;
 
 self.oninstall = function(event) {
 
@@ -113,6 +113,8 @@ self.onactivate = function(event) {
 };
 
 self.onfetch = function(event) {
+
+  var request = event.request;
 
   event.respondWith(
 
