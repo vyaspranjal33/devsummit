@@ -173,7 +173,7 @@ module.exports = function(grunt) {
             '/**\n',
             '<%= grunt.file.read("licenses/apache-2.txt") %>',
             '<%= grunt.file.read("licenses/signals.txt") %>',
-            '<%= grunt.file.read("licenses/requestAnimationFrame.txt") %>',
+            '<%= grunt.file.read("licenses/requestanimationframe.txt") %>',
             '<%= grunt.file.read("licenses/serviceworker.txt") %>',
             '*/'].join('\n---\n')
 
