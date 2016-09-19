@@ -4,10 +4,6 @@ matrix:
     - node_js: "node"
 sudo: required
 dist: trusty
-cache:
-   directories:
-     - node_modules
-     - chrome-linux
 before_script:
   - mkdir -p vendors
   - wget https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.40.zip -nv
