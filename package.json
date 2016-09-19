@@ -1,0 +1,22 @@
+{
+  "name": "chrome-dev-summit-2016",
+  "version": "0.0.2",
+  "description": "Chrome Dev Summit 2016",
+  "main": "index.js",
+  "scripts": {
+    "test": "lighthouse",
+    "bump": "npm-bump minor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoogleChrome/devsummit/"
+  },
+  "keywords": [
+    "chrome"
+  ],
+  "author": "Paul Lewis",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "npm-bump": "0.0.20"
+  }
+}
