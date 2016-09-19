@@ -18,6 +18,7 @@ before_script:
   - export LIGHTHOUSE_CHROMIUM_PATH="$(pwd)/chrome-linux/chrome"
   - sh -e /etc/init.d/xvfb start
   - npm explore -g lighthouse -- ./lighthouse-core/scripts/download-chrome.sh
+  - $(pwd)/chrome-linux/chrome --version
 script:
   - lighthouse --output=json http://localhost:8090/devsummit --output-path=./validate/log.json
   - ./validate/checklog.js ./validate/log.json
