@@ -1,0 +1,25 @@
+application: chromedevsummit-site
+version: v20161019
+
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: /devsummit(.*)
+  script: main.app
+  secure: always
+
+- url: /devsummit/LICENSE
+  static_files: dist/LICENSE
+  expiration: "7d"
+  mime_type: text/plain
+  upload: dist/LICENSE
+  secure: always
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
