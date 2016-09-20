@@ -15,6 +15,11 @@
  * limitations under the License.
  */
 
-@import 'common/_variables';
-@import 'common/_base';
-@import 'common/header/_full';
+'use strict';
+
+import {loadStyles} from './utils';
+
+(function () {
+  console.log('CDS Site version: {{version}}');
+  loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
+})();

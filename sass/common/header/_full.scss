@@ -15,6 +15,9 @@
  * limitations under the License.
  */
 
-@import 'common/_variables';
-@import 'common/_base';
-@import 'common/header/_full';
+@import '_inline';
+
+.header {
+  color: rebeccapurple;
+}
+

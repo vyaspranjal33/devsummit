@@ -15,6 +15,23 @@
  * limitations under the License.
  */
 
-@import 'common/_variables';
-@import 'common/_base';
-@import 'common/header/_full';
+'use strict';
+
+export function loadScript (url) {
+  var script = document.createElement('script');
+  script.src = url;
+  document.head.appendChild(script);
+}
+
+export function loadStyles (url) {
+  var xhr = new XMLHttpRequest();
+  xhr.returnType = 'text';
+  xhr.onload = function () {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    document.head.appendChild(link);
+  };
+  xhr.open('get', url);
+  xhr.send();
+}
