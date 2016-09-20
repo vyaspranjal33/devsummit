@@ -40,11 +40,11 @@ def add_hash (path):
     file_hash = hashlib.sha256()
     file_path = re.sub(r'/devsummit/', './', path)
 
-    with open(file_path, 'r') as f:
-      buf = f.read(blocksize)
-      while (len(buf) > 0):
-        file_hash.update(buf)
-        buf = f.read(blocksize)
+    with open(file_path) as file_to_hash:
+        file_buffer = file_to_hash.read(blocksize)
+        while (len(file_buffer) > 0):
+            file_hash.update(file_buffer)
+            file_buffer = file_to_hash.read(blocksize)
 
     return re.sub(r'(.*?)\.(.*)$', "\\1." + file_hash.hexdigest() + ".\\2", path)
 
@@ -54,16 +54,24 @@ class MainHandler(webapp2.RequestHandler):
 
     def get_template_info(self, url):
         t = {
-          "path": url,
-          "mimetype": (None, None),
-          # Static files can be cached for a year, since there are hashes to
-          # track changes to files, and so on. And we don't cache HTML.
-          "cache": "public, max-age=31536000"
+            "path": url,
+            "mimetype": (None, None),
+            # Static files can be cached for a year, since there are hashes to
+            # track changes to files, and so on. And we don't cache HTML.
+            "cache": "public, max-age=31536000"
         }
 
         # If this is not a static file, use the base template.
-        if re.search("^static/", url) is None:
-            t["path"] = "templates/index.html"
+        if re.search(r"^static/", url) is None:
+            # Get the template based on the path the person is visiting.
+            template = re.search(r"^([^/]+)/?", url)
+
+            # For a total non-match we're looking at the root
+            if template is None:
+                t["path"] = "sections/home.html"
+            else:
+                t["path"] = "sections/" + template.group(1) + ".html"
+
             # HTML files should expire immediately.
             t["cache"] = "public, no-cache"
 
@@ -80,21 +88,22 @@ class MainHandler(webapp2.RequestHandler):
         return t
 
     def get(self, url):
+        is_partial = self.request.get('partial', None) is not None
         template_info = self.get_template_info(url)
         content_type = "text/plain"
         response = {
-          "code": 404,
-          "content": "Not found."
+            "code": 404,
+            "content": "Not found."
         }
 
         if template_info["mimetype"][0] is not None:
-            print content_type
             content_type = template_info["mimetype"][0] + "; charset=utf-8"
 
         try:
             template = JINJA_ENVIRONMENT.get_template(template_info["path"])
             response["code"] = 200
             response["content"] = template.render(
+                is_partial=is_partial,
                 version=version
             )
         except jinja2.TemplateNotFound:

@@ -10,12 +10,17 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
+{% if not is_partial %}
 <!doctype html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,minimum-scale=1.0">
   <title>Chrome Dev Summit 2016</title>
-  <link rel="stylesheet" href="{{ '/devsummit/static/styles/cds.css' | add_hash }}">
   <link rel="manifest" href="/devsummit/static/manifest.json">
+  <style>
+    {% include "static/styles/inline.css" %}
+  </style>
 </head>
 <body>
+  {% include "templates/includes/nav.partial.html" %}
+{% endif %}
