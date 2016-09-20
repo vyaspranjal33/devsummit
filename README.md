@@ -4,10 +4,10 @@ The site is based on Google AppEngine, so you'll need the [SDK and launcher](htt
 
 Once you have that, you'll need to:
 
-1. Install node.js.
-1. Install npm and sass.
-1. Run `npm install`.
-1. Run `grunt dev` during work and `grunt` to do a full build. (You can also do `grunt full` if you want to have images optimized via ImageOptim.)
+1. Launch the GAE launcher (launch a launcher is quite meta)
+2. File -> Add an existing project
+3. Point it to the cloned folder
+4. Start it and go to http://localhost:8080
 
 # License
 
