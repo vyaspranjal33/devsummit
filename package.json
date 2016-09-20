@@ -5,7 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "lighthouse",
-    "bump": "npm version patch"
+    "bump": "npm version patch",
+    "build": "npm run bump && npm run build-css && npm run build-js",
+    "build-css": "mkdirp static/styles && node-sass -r sass/cds.scss -o static/styles && npm run clean-css",
+    "build-js": "mkdirp static/styles && node-sass -r sass/cds.scss -o static/styles",
+    "watch": "parallelshell 'npm run watch-sass' 'npm run watch-js'",
+    "watch-js": "",
+    "watch-sass": "mkdirp static/styles && node-sass -wr sass/cds.scss -o static/styles",
+    "clean-css": "cleancss --s1 -o static/styles/cds.css static/styles/cds.css"
   },
   "repository": {
     "type": "git",
@@ -17,6 +24,10 @@
   "author": "Paul Lewis",
   "license": "Apache-2.0",
   "devDependencies": {
-    "npm-bump": "0.0.20"
+    "clean-css": "^3.4.19",
+    "mkdirp": "^0.5.1",
+    "node-sass": "^3.10.0",
+    "parallelshell": "^2.0.0",
+    "watchify": "^3.7.0"
   }
 }
