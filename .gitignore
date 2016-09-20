@@ -2,7 +2,5 @@
 node_modules
 .sass-cache
 *.pyc
-./2013
-./sketches
-./redirector-2013.py
-./template-2013.py
+static/scripts
+static/styles
