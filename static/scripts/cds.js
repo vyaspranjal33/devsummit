@@ -1,4 +1,4 @@
-/**
+/*!
  *
  * Copyright 2016 Google Inc. All rights reserved.
  *
@@ -14,9 +14,4 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-'use strict';
-
-(function () {
-  console.log('Hello world');
-})();
+function loadStyles(url){var xhr=new XMLHttpRequest;xhr.returnType="text";xhr.onload=function(){var link=document.createElement("link");link.rel="stylesheet";link.href=url;document.head.appendChild(link)};xhr.open("get",url);xhr.send()}(function(){console.log("CDS Site version: {{version}}");loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}')})();

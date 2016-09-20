@@ -13,15 +13,4 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
-* {
-  box-sizing: border-box; }
-
-html, body {
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  min-height: 100%; }
-
-body {
-  background: #FAFAFA; }
+ */*{box-sizing:border-box}body,html{padding:0;margin:0;width:100%;min-height:100%}body{background:#FAFAFA}.header{height:96px;background:#FFF;box-shadow:0 2px 4px rgba(0,0,0,.4);color:#663399}
