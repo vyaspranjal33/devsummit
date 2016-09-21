@@ -1,4 +1,4 @@
-application: chromedevsummit-site
+application: chromedevsummit-site-2016
 version: v20161019
 
 runtime: python27
@@ -6,6 +6,18 @@ api_version: 1
 threadsafe: true
 
 handlers:
+
+- url: /devsummit/static/third_party/(.*)
+  static_files: static/third_party/\1
+  expiration: "1d"
+  upload: static/third_party/(.*)
+  secure: always
+
+- url: /devsummit/static/images/(.*)
+  static_files: static/images/\1
+  expiration: "1d"
+  upload: static/images/(.*)
+  secure: always
 
 - url: /devsummit(.*)
   script: main.app
