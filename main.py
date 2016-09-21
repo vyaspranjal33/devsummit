@@ -93,7 +93,7 @@ class MainHandler(webapp2.RequestHandler):
         content_type = "text/plain"
         response = {
             "code": 404,
-            "content": "Not found."
+            "content": "URL not found: ", url
         }
 
         if template_info["mimetype"][0] is not None:
@@ -107,7 +107,7 @@ class MainHandler(webapp2.RequestHandler):
                 version=version
             )
         except jinja2.TemplateNotFound:
-            print "Not found."
+            print "Template not found: ", url
 
         # Make an ETag for the content
         etag = hashlib.sha256()
