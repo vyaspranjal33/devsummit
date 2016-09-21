@@ -15,9 +15,68 @@
  * limitations under the License.
  */
 
-@import '_inline';
-
 .header {
-  color: rebeccapurple;
+  background: url(/devsummit/static/images/header/header.svg) top center;
+  background-size: 100% 100%;
 }
 
+.menu__underlay {
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu__toggle-label {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.menu__toggle-label::after {
+  content: 'menu';
+}
+
+.menu__toggle:checked ~ .menu__toggle-label::after {
+  content: 'close';
+}
+
+.menu__toggle:checked ~ .menu__underlay {
+  opacity: 0.3;
+  pointer-events: auto;
+}
+
+.logo__icon {
+  background: url(/devsummit/static/images/header/chrome-logo-header.png) left center no-repeat;
+  background-size: ($baseline * 4) ($baseline * 4);
+}
+
+.logo__icon::after {
+  color: #262626;
+}
+
+@media (max-width: 423px) {
+  .logo__icon::after {
+    content: 'Chrome Dev Summit';
+  }
+}
+
+@media (min-width: 424px) {
+  .logo__icon {
+    background-size: ($baseline * 6) ($baseline * 6);
+  }
+}
+
+@media (min-width: 672px) {
+  .logo__icon::after {
+    content: 'Chrome Dev Summit';
+  }
+}
