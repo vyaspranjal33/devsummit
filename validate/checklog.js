@@ -38,7 +38,7 @@ try {
   // means those tests will fail.
   if (avg < 0.6) {
     console.log(avg);
-    console.log(pwa);
+    console.log(JSON.stringify(pwa, null, 2));
     process.exit(1);
   }
 
