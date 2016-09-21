@@ -107,7 +107,7 @@ class MainHandler(webapp2.RequestHandler):
                 version=version
             )
         except jinja2.TemplateNotFound:
-            print "Template not found: ", url
+            print "Template not found: ", template_info["path"]
 
         # Make an ETag for the content
         etag = hashlib.sha256()
