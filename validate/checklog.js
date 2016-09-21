@@ -38,6 +38,7 @@ try {
   // means those tests will fail.
   if (avg < 0.6) {
     console.log(avg);
+    console.log(pwa);
     process.exit(1);
   }
 
