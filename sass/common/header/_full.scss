@@ -27,26 +27,10 @@
 }
 
 .menu__toggle-label {
-  font-family: 'Material Icons';
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+  background: url(/devsummit/static/images/icons/ic_menu_black_24px.svg) center center no-repeat;
 }
 
-.menu__toggle-label::after {
-  content: 'menu';
-}
-
-.menu__toggle:checked ~ .menu__toggle-label::after {
-  content: 'close';
+.menu__toggle:checked ~ .menu__toggle-label {
 }
 
 .menu__toggle:checked ~ .menu__underlay {
