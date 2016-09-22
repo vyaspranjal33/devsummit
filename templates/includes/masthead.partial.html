@@ -1,54 +1,48 @@
 <div class="masthead">
 
   <svg width="100%" height="99.8%" preserveAspectRatio="xMidYMax slice" viewBox="0 0 1224 612">
-    <g clip-path="url(#mastheadclip)" x="0" y="0">
-      <rect id="imgfill" fill="#333" width="100%" height="100%" />
+    <g clip-path="url(#masthead-clip)" x="0" y="0">
+      <rect fill="#333" width="100%" height="100%" />
     </g>
   </svg>
 
   <svg width="100%" height="100%" preserveAspectRatio="xMidYMax slice" viewBox="0 0 1224 612">
-    <style>
-      @media (min-width: 960px) {
-        #img {
-          transform: translateY(2vw);
+    <foreignObject clip-path="url(#masthead-clip)" width="100%" height="100%">
+      <style>
+        #masthead-image {
+          background: url(/devsummit/static/images/masthead/homepage-masthead.jpg) center center no-repeat;
+          background-size: cover;
+          width: 1224px;
+          height: 612px;
         }
-      }
 
-      @media (min-width: 1048px) {
-        #img {
-          transform: translateY(6vw);
+        @media (min-width: 1000px) {
+          #masthead-image {
+            background-position: 0 4vw;
+          }
         }
-      }
 
-      @media (min-width: 1224px) {
-        #img {
-          transform: translateY(8vw);
+        @media (min-width: 1204px) {
+          #masthead-image {
+            background-position: 0 10vw;
+          }
         }
-      }
 
-      @media (min-width: 1496px) {
-        #img {
-          transform: translateY(10vw);
+        @media (min-width: 1320px and max-width: 1479px) {
+          #masthead-image {
+            background-position: 0 12vw;
+          }
         }
-      }
-    </style>
-
-    <g clip-path="url(#mastheadclip)" x="0" y="0">
-      <rect id="img" fill="url(#mastheadimg)" width="100%" height="100%" />
-    </g>
+      </style>
+      <div id="masthead-image"></div>
+    </foreignObject>
   </svg>
 
   <svg width="0" height="0">
     <defs>
-        <clipPath id="mastheadclip" clipPathUnits="userSpaceOnUse">
+        <clipPath id="masthead-clip" clipPathUnits="userSpaceOnUse">
           <polygon points="0 0 1224 0 1224 564 0 612"></polygon>
         </clipPath>
-
-        <pattern id="mastheadimg" patternUnits="objectBoundingBox" x="0" y="0" width="1" height="1">
-          <image width="1224" height="612" id="homepage-img" xlink:href="/devsummit/static/images/masthead/homepage-masthead.jpg" />
-        </pattern>
     </defs>
-
   </svg>
-
 </div>
