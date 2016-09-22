@@ -12,7 +12,7 @@
     "build-inline-css": "node-sass sass/inline.scss | cleancss --s1 -o static/styles/inline.css",
     "build-linked-css": "node-sass sass/cds.scss | cleancss --s1 -o static/styles/cds.css",
     "build-js": "rollup -c && uglifyjs static/scripts/cds.js -o static/scripts/cds.js --comments all",
-    "watch": "parallelshell 'npm run watch-sass' 'npm run watch-js'",
+    "watch": "npm run build && parallelshell 'npm run watch-sass' 'npm run watch-js'",
     "watch-js": "rollup -wc",
     "watch-sass": "npm run make-css-folder && node-sass -w sass/ -o static/styles",
     "release": "npm run bump && npm run build"
