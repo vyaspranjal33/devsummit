@@ -18,7 +18,12 @@
 .masthead {
   position: relative;
   height: $baseline * 34;
-  background: #555;
+}
+
+.masthead svg {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @media (min-width: 424px) {
@@ -30,5 +35,11 @@
 @media (min-width: 600px) {
   .masthead {
     height: $baseline * 58;
+  }
+}
+
+@media (min-width: 1440px) {
+  .masthead {
+    height: $baseline * 70;
   }
 }

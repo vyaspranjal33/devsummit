@@ -23,9 +23,9 @@
     return;
   }
 
-  navigator.serviceWorker.register('/devsummit/sw.js').then(registration => {
+  navigator.serviceWorker.register('/devsummit/sw.js').then(function (registration) {
     // We should also start tracking for any updates to the Service Worker.
-    registration.onupdatefound = _ => {
+    registration.onupdatefound = function () {
       console.log('A new version has been found... Installing...');
 
       // If an update is found the spec says that there is a new Service Worker
