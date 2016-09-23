@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #
-# Copyright 2007 Google Inc.
+# Copyright 2016 Google Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,6 +23,8 @@ import json
 import mimetypes
 import hashlib
 
+_SERVICE_WORKER_PATH = 'static/scripts/sw.js'
+
 # Grab the version from the package.json.
 version = None
 with open('./package.json') as f:
@@ -35,7 +37,15 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-def add_hash (path):
+def add_hash(path):
+    """Generates a hash from a file.
+
+    Args:
+      path: (string) The path to the file to generate the hash from.
+
+    Returns:
+      Returns a hash digest (string) of the file.
+    """
     blocksize = 32768
     file_hash = hashlib.sha256()
     file_path = re.sub(r'/devsummit/', './', path)
@@ -53,7 +63,7 @@ JINJA_ENVIRONMENT.filters["add_hash"] = add_hash
 class MainHandler(webapp2.RequestHandler):
 
     def get_template_info(self, url):
-        t = {
+        template_info = {
             "path": url,
             "mimetype": (None, None),
             # Static files can be cached for a year, since there are hashes to
@@ -68,36 +78,36 @@ class MainHandler(webapp2.RequestHandler):
 
             # For a total non-match we're looking at the root
             if template is None:
-                t["path"] = "sections/home.html"
+                template_info["path"] = "sections/home.html"
             else:
-                t["path"] = "sections/" + template.group(1) + ".html"
+                template_info["path"] = "sections/" + template.group(1) + ".html"
 
             # HTML files should expire immediately.
-            t["cache"] = "public, no-cache"
+            template_info["cache"] = "public, no-cache"
 
         # Strip off the hash from the path we're looking for.
-        t["path"] = re.sub(r'[a-f0-9]{64}.', '', t["path"])
+        template_info["path"] = re.sub(r'[a-f0-9]{64}.', '', template_info["path"])
 
         # Make a special exception for the Service Worker, since we serve it
         # from /devsummit/sw.js, even though the file lives elsewhere.
         if re.search("sw.js$", url) is not None:
-            t["path"] = "static/scripts/sw.js"
+            template_info["path"] = _SERVICE_WORKER_PATH
 
-        t["mimetype"] = mimetypes.guess_type(t["path"])
+        template_info["mimetype"] = mimetypes.guess_type(template_info["path"])
 
-        return t
+        return template_info
 
     def get(self, url):
-        is_partial = self.request.get('partial', None) is not None
+        is_partial = self.request.get('partial')
         template_info = self.get_template_info(url)
         content_type = "text/plain"
         response = {
             "code": 404,
-            "content": "URL not found: " + url
+            "content": "URL not found: %s" % url
         }
 
-        if template_info["mimetype"][0] is not None:
-            content_type = template_info["mimetype"][0] + "; charset=utf-8"
+        if template_info["mimetype"][0]:
+            content_type = "%s; charset=utf-8" % template_info["mimetype"][0]
 
         try:
             template = JINJA_ENVIRONMENT.get_template(template_info["path"])
