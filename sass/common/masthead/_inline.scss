@@ -112,14 +112,14 @@ svg.masthead-underlay__accent {
 
 @media (min-width: 1440px) {
   .masthead__graphic {
-    height: $baseline * 80;
+    height: $baseline * 70;
   }
 
   .masthead-underlay {
-    height: $baseline * 160;
+    height: $baseline * 140;
   }
 
   .masthead.expanded {
-    margin-bottom: $baseline * 80;
+    margin-bottom: $baseline * 70;
   }
 }

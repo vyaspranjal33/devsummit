@@ -98,7 +98,7 @@ class MainHandler(webapp2.RequestHandler):
         return template_info
 
     def get(self, url):
-        is_partial = self.request.get('partial')
+        is_partial = self.request.get('partial', None) is not None
         template_info = self.get_template_info(url)
         content_type = "text/plain"
         response = {
@@ -114,15 +114,16 @@ class MainHandler(webapp2.RequestHandler):
             response["code"] = 200
             response["content"] = template.render(
                 is_partial=is_partial,
-                version=version
+                version=version,
+                url=url
             )
         except jinja2.TemplateNotFound as template_name:
-            print ("Template not found: " + template_name +
+            print ("Template not found: " + str(template_name) +
                 " (requested by " + template_info["path"] + ")")
 
         # Make an ETag for the content
         etag = hashlib.sha256()
-        etag.update(response["content"])
+        etag.update(response["content"].encode('utf-8'))
 
         self.response.status = response["code"]
         self.response.headers["Content-Type"] = content_type

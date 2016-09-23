@@ -83,8 +83,13 @@
 
 .menu__nav a:hover,
 .menu__nav a:focus {
-  color: #DC4E41;
+  color: #1EA362;
   background: #F0F0F0;
+}
+
+.menu__nav-item--active a {
+  color: #1EA362;
+  font-weight: 700;
 }
 
 .menu__underlay {
