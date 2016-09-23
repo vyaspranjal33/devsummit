@@ -17,7 +17,7 @@
 
 'use strict';
 
-(function () {
+export function installServiceWorker () {
   if (!('serviceWorker' in navigator)) {
     console.log('Service Worker not supported - aborting');
     return;
@@ -40,4 +40,4 @@
       };
     };
   });
-})();
+}

@@ -18,8 +18,10 @@
 'use strict';
 
 import {loadStyles} from './utils';
+import {installServiceWorker} from './sw-install';
 
 (function () {
   console.log('CDS Site version: {{version}}');
   loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
+  installServiceWorker();
 })();

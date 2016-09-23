@@ -1,4 +1,8 @@
 {% include "templates/includes/head.partial.html" %}
+{% from "templates/includes/masthead.partial.html" import masthead %}
+{% call masthead(mastheadimage, mastheadtitle) %}
+  {{ mastheadinfo }}
+{% endcall %}
 
 <section class="page-content">
 {% block content %}{% endblock %}

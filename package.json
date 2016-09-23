@@ -15,7 +15,8 @@
     "watch": "npm run build && parallelshell 'npm run watch-sass' 'npm run watch-js'",
     "watch-js": "rollup -wc",
     "watch-sass": "npm run make-css-folder && node-sass -w sass/ -o static/styles",
-    "release": "npm run bump && npm run build"
+    "optimize-images": "imageoptim --directory static/images",
+    "release": "npm run bump && npm run build && npm run optimize-images"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "license": "Apache-2.0",
   "devDependencies": {
     "clean-css": "^3.4.19",
+    "imageoptim-cli": "^1.14.8",
     "mkdirp": "^0.5.1",
     "node-sass": "^3.10.0",
     "parallelshell": "^2.0.0",

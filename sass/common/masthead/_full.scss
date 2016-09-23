@@ -15,5 +15,11 @@
  * limitations under the License.
  */
 
-.masthead {
+.masthead__title {
+  display: block;
+  font-size: 29px;
+  font-weight: 100;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  color: #FFFFFF;
+  // transform: translateX(-100%);
 }
