@@ -10,7 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-{% macro head(is_partial=none, styles_path=none, url=none) %}
+{% macro head(is_partial=none, styles_path=none, url=none, inline_styles=false) %}
 {% if is_partial %}
   {% if styles_path %}
   <style>
@@ -25,12 +25,18 @@ limitations under the License.
     <meta name="viewport" content="width=device-width,minimum-scale=1.0">
     <title>Chrome Dev Summit 2016</title>
     <link rel="manifest" href="/devsummit/static/manifest.json">
+
+    {% if inline_styles %}
     <style>
       {% include "static/styles/inline.css" %}
     </style>
     <noscript>
       <link rel="stylesheet" href="{{ "/devsummit/static/styles/cds.css" | add_hash }}">
     </noscript>
+    {% else %}
+      <link rel="stylesheet" href="{{ "/devsummit/static/styles/cds.css" | add_hash }}">
+    {% endif %}
+
     {% if styles_path %}
 
     <!-- Styles that are unique to this page -->

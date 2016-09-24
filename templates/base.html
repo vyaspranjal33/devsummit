@@ -1,6 +1,6 @@
 {% from "templates/includes/head.partial.html" import head %}
 {% from "templates/includes/masthead.partial.html" import masthead %}
-{% call head(is_partial, pagestyles, url) %}{% endcall %}
+{% call head(is_partial, pagestyles, url, inline_styles) %}{% endcall %}
 
 {% call masthead(is_partial, mastheadimage, mastheadtitle) %}
   {{ mastheadinfo }}
