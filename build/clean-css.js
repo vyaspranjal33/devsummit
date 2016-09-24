@@ -1,5 +1,6 @@
-/*!
- *
+#!/usr/bin/env node
+/**
+ * @license
  * Copyright 2016 Google Inc. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,14 +16,18 @@
  * limitations under the License.
  */
 
-@import 'common/_variables';
+const fs = require('fs');
+const CleanCSS = require('clean-css');
+const files = [
+  'static/styles/cds.css',
+  'static/styles/inline.css',
+  'static/styles/home.css',
+  'static/styles/code-of-conduct.css'
+];
+const opts = {
+  keepSpecialComments: 1
+};
 
-.section-code-of-conduct {
-  padding: 0 $baseline $baseline * 16 $baseline;
-  max-width: $baseline * 86;
-  font-size: 14px;
-}
-
-.section-code-of-conduct li {
-  margin-bottom: 1.5em;
-}
+files.forEach(f => {
+  fs.writeFileSync(f, new CleanCSS(opts).minify([f]).styles, 'utf8');
+});

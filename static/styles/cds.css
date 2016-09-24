@@ -120,6 +120,9 @@ a {
 .masthead-underlay__content {
   z-index: 1; }
 
+.footer__content {
+  z-index: 1; }
+
 /*!
  *
  * Copyright 2016 Google Inc. All rights reserved.
@@ -418,7 +421,56 @@ svg.masthead-underlay__accent {
  * limitations under the License.
  */
 .footer {
-  height: 304px; }
+  position: relative;
+  height: 192px;
+  color: #FFF;
+  display: flex;
+  align-items: flex-end; }
+
+.footer__content {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 864px;
+  margin: 0 auto;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 48px; }
+
+.footer svg {
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+
+.footer__content p {
+  margin: 0 16px 0 0; }
+
+.footer__content p:last-of-type {
+  margin-right: 0; }
+
+.footer__content a {
+  color: #FFF; }
+
+@media (min-width: 424px) {
+  .footer {
+    height: 240px; }
+  .footer__content {
+    font-size: 14px;
+    line-height: 64px; }
+  .footer__content p {
+    margin-right: 16px; } }
+
+@media (min-width: 600px) {
+  .footer {
+    height: 272px; }
+  .footer__content p {
+    margin-right: 24px; } }
+
+@media (min-width: 800px) {
+  .footer {
+    height: 304px; }
+  .footer__content p {
+    margin-right: 32px; } }
 
 /*!
  *

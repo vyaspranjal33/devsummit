@@ -6,7 +6,7 @@
   {{ mastheadinfo }}
 {% endcall %}
 
-<section class="page-content">
+<section class="page-content section-{{ section | convert_to_class }}">
 {% block content %}{% endblock %}
 </section>
 
