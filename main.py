@@ -37,6 +37,18 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
+def convert_to_class(name):
+    """Converts a section name to a CSS class.
+
+    Args:
+      name: (string) The section name.
+
+    Returns:
+      Returns a CSS class (string) of the section name.
+    """
+    return re.sub(r"\s", "-", name.lower())
+
+
 def add_hash(path):
     """Generates a hash from a file.
 
@@ -59,6 +71,7 @@ def add_hash(path):
     return re.sub(r'(.*?)\.(.*)$', "\\1." + file_hash.hexdigest() + ".\\2", path)
 
 JINJA_ENVIRONMENT.filters["add_hash"] = add_hash
+JINJA_ENVIRONMENT.filters["convert_to_class"] = convert_to_class
 
 class MainHandler(webapp2.RequestHandler):
 

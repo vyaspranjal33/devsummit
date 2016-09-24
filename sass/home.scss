@@ -17,12 +17,6 @@
 
 @import 'common/_variables';
 
-.section-code-of-conduct {
-  padding: 0 $baseline $baseline * 16 $baseline;
-  max-width: $baseline * 86;
-  font-size: 14px;
-}
-
-.section-code-of-conduct li {
-  margin-bottom: 1.5em;
+.section-home {
+  min-height: 30vh;
 }
