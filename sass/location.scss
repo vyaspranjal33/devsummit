@@ -66,7 +66,7 @@
 }
 
 .location-breakdown__details {
-  padding: $baseline;
+  padding: $baseline * 2;
 
   span {
     display: block;
@@ -74,6 +74,7 @@
 
   p {
     width: 80%;
+    margin: 0 0 1em 0;
   }
 
   a {
@@ -81,7 +82,7 @@
   }
 
   .org {
-    margin-left: $baseline;
+    margin-bottom: $baseline * 2;
   }
 }
 
@@ -96,15 +97,14 @@
 
 .location-livestream {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 21px;
+  font-size: 14px;
   color: #444444;
-  line-height: 24px;
   width: 100%;
   max-width: $baseline * 108;
-  margin: $baseline * 6 auto 0 auto;
+  margin: $baseline * 3 auto 0 auto;
   display: flex;
   padding: 0 $baseline * 2;
-  min-height: $baseline * 10;
+  min-height: $baseline * 6;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -125,8 +125,9 @@
     position: relative;
     content: '';
     background: url(/devsummit/static/images/icons/ic_ondemand_video_black_48px.svg) center center no-repeat;
-    width: 48px;
-    height: 48px;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
     order: 1;
     margin-right: $baseline * 1.5;
   }
@@ -138,6 +139,11 @@
     padding-right: $baseline * 2;
     padding-left: $baseline * 2;
     padding-bottom: $baseline * 8;
+  }
+
+  .location-livestream {
+    font-size: 16px;
+    margin-top: $baseline * 4;
   }
 }
 
@@ -166,10 +172,32 @@
     width: 50%;
     height: auto;
   }
+
+  .location-livestream {
+    font-size: 18px;
+    margin-top: $baseline * 6;
+
+    &:after {
+      width: 48px;
+      height: 48px;
+    }
+  }
 }
 
 @media (min-width: 800px) {
   .location-topline-info{
     font-size: 22px;
+  }
+
+  .location-livestream {
+    font-size: 22px;
+    height: $baseline * 12;
+    padding: $baseline * 4;
+
+    &:after {
+      width: 48px;
+      height: 48px;
+      margin-right: $baseline * 3;
+    }
   }
 }
