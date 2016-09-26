@@ -1,0 +1,96 @@
+/*!
+ *
+ * Copyright 2016 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import 'common/_variables';
+
+.section-location {
+  min-height: 30vh;
+  margin-bottom: $baseline * -4;
+}
+
+.location-topline-info {
+  padding: $baseline * 10 $baseline $baseline * 5 $baseline;
+  margin: 0 auto;
+  background: #FFF;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #404040;
+  line-height: 1.7;
+}
+
+.location-topline-info__content {
+  display: flex;
+  max-width: $baseline * 83;
+  text-align: center;
+  align-items: center;
+
+  p {
+    flex: 1;
+    padding: $baseline * 2;
+  }
+
+  &:after,
+  &:before {
+    content: '';
+    width: 10%;
+    height: 2px;
+    background: #CFCFCF;
+    display: none;
+  }
+}
+
+.location__breakdown {
+  max-width: $baseline * 108;
+  background: #6387F5;
+  color: #FFF;
+  margin: 0 auto;
+}
+
+@media (min-width: 424px) {
+  .location-topline-info {
+    font-size: 16px;
+    padding-right: $baseline * 2;
+    padding-left: $baseline * 2;
+    padding-bottom: $baseline * 8;
+  }
+}
+
+@media (min-width: 440px) {
+  .location-topline-info__content {
+    &:after,
+    &:before {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .location-topline-info{
+    font-size: 18px;
+    padding-bottom: $baseline * 20;
+  }
+}
+
+@media (min-width: 800px) {
+  .location-topline-info{
+    font-size: 22px;
+  }
+}
