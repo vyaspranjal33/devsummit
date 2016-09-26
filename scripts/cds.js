@@ -22,6 +22,12 @@ import {installServiceWorker} from './sw-install';
 
 (function () {
   console.log('CDS Site version: {{version}}');
-  loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
   installServiceWorker();
+
+  // Only load the styles if they've not been added already.
+  if (document.querySelector('link[href="{{ "/devsummit/static/styles/cds.css" | add_hash }}"]')) {
+    return;
+  }
+
+  loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
 })();
