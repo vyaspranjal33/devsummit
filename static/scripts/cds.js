@@ -47,6 +47,9 @@ function installServiceWorker () {
 
 (function () {
   console.log('CDS Site version: {{version}}');
-  loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
   installServiceWorker();
+  if (document.querySelector('link[href="{{ "/devsummit/static/styles/cds.css" | add_hash }}"]')) {
+    return;
+  }
+  loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
 })();

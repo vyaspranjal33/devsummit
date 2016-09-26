@@ -57,11 +57,79 @@
   }
 }
 
-.location__breakdown {
+.location-breakdown {
   max-width: $baseline * 108;
-  background: #6387F5;
+  background: #5472AE;
   color: #FFF;
   margin: 0 auto;
+  outline: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.location-breakdown__details {
+  padding: $baseline;
+
+  span {
+    display: block;
+  }
+
+  p {
+    width: 80%;
+  }
+
+  a {
+    color: #FFF;
+  }
+
+  .org {
+    margin-left: $baseline;
+  }
+}
+
+.location-breakdown__map {
+  width: 100%;
+  height: $baseline * 36;
+  border: none;
+  display: block;
+  background: url(https://maps.googleapis.com/maps/api/staticmap?center=SFJAZZ+Center,San+Francisco,CA&zoom=15&size=432x408&maptype=roadmap&key=AIzaSyCIu9n1FCZ5H9488apH7e9rihIdKvjne0o&markers=color:blue%7Clabel:S%7C37.7762613,-122.4213759) center center no-repeat;
+  background-size: cover;
+}
+
+.location-livestream {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 21px;
+  color: #444444;
+  line-height: 24px;
+  width: 100%;
+  max-width: $baseline * 108;
+  margin: $baseline * 6 auto 0 auto;
+  display: flex;
+  padding: 0 $baseline * 2;
+  min-height: $baseline * 10;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    flex: 1;
+    position: relative;
+    order: 2;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  &:after {
+    position: relative;
+    content: '';
+    background: url(/devsummit/static/images/icons/ic_ondemand_video_black_48px.svg) center center no-repeat;
+    width: 48px;
+    height: 48px;
+    order: 1;
+    margin-right: $baseline * 1.5;
+  }
 }
 
 @media (min-width: 424px) {
@@ -86,6 +154,17 @@
   .location-topline-info{
     font-size: 18px;
     padding-bottom: $baseline * 20;
+  }
+
+  .location-breakdown {
+    margin: -$baseline * 12 auto 0 auto;
+    display: flex;
+  }
+
+  .location-breakdown__details,
+  .location-breakdown__map {
+    width: 50%;
+    height: auto;
   }
 }
 

@@ -255,6 +255,9 @@ a {
   right: 8px;
   z-index: 2; }
 
+.menu__toggle:focus ~ .menu__toggle-label {
+  box-shadow: 0 0 2px 2px rgba(30, 163, 98, 0.6); }
+
 @media (max-width: 423px) {
   .menu__toggle:checked ~ .menu__nav {
     display: block;

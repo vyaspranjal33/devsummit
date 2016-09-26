@@ -10,20 +10,33 @@
     </div>
   </aside>
 
-  <section class="location__breakdown">
-    <div>
-      Chrome Dev Summit will be taking place at SFJAZZ Center in San Francisco:
+  <section class="location-breakdown">
+    <div class="location-breakdown__details">
+      <p>Chrome Dev Summit will be taking place at SFJAZZ Center in San Francisco:</p>
 
-      <strong>SFJAZZ Center</strong>
-      201 Franklin Street
-      San Francisco
-      CA 94102
+      <div class="vcard">
+        <div class="fn org">
+          <strong class="organization-name">SFJAZZ Center</strong>
+          <span class="street-address">201 Franklin Street</span>
+          <span class="locality">San Francisco</span>
+          <span class="postal-code">CA 94102</span>
+        </div>
+      </div>
 
-      Attendees can park at the venue using the numerous lots in and around the building.
+      <p>Attendees can park at the venue using the numerous lots in and around the building.
       If you're coming by train, the closest BART Station is <a rel="noopener" target="_blank" href="http://www.bart.gov/stations/civc">Civic Center</a>,
-      which is a few blocks away.
+      which is a few blocks away.</p>
 
-      If you're coming from further afield, the closest airport is SFO.
+      <p>If you're coming from further afield, the closest airport is SFO.</p>
     </div>
+    <a class="location-breakdown__map" href="https://goo.gl/maps/3DdGhcDobPw" rel="noopener" target="_blank"></a>
+  </section>
+
+  <section class="location-livestream">
+    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
+      <rect fill="#D8D8D8" width="100%" height="100%" />
+      <polygon points="0 70 100 100 0 100" fill="#BBB" />
+    </svg>
+    <p>Can’t make it? Watch the live stream!</p>
   </section>
 {% endblock %}
