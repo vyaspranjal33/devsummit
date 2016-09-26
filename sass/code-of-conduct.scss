@@ -17,12 +17,17 @@
 
 @import 'common/_variables';
 
-.section-code-of-conduct {
-  padding: 0 $baseline $baseline * 16 $baseline;
+.page-content {
+  padding: 4vmax $baseline;
+  margin: 0 auto;
+  max-width: $baseline * 108;
+}
+
+.code-of-conduct__content {
   max-width: $baseline * 86;
   font-size: 14px;
 }
 
-.section-code-of-conduct li {
+.code-of-conduct__content li {
   margin-bottom: 1.5em;
 }

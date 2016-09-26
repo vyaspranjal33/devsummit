@@ -37,10 +37,10 @@
 .masthead-underlay {
   position: absolute;
   height: $baseline * 68;
+  padding-top: $baseline * 34;
   width: 100%;
   top: 0;
   left: 0;
-  padding-top: 50%;
   transform: translateY(-49%);
   transition: transform 0.7s cubic-bezier(0.7, 0, 0.4, 1);
 }
@@ -55,7 +55,7 @@
   transform: translate(-50%, 0);
 }
 
-svg.masthead-underlay__accent {
+.masthead-underlay__accent {
   position: absolute;
   top: 50%;
   left: 0;
@@ -85,6 +85,7 @@ svg.masthead-underlay__accent {
 
   .masthead-underlay {
     height: $baseline * 92;
+    padding-top: $baseline * 46;
   }
 
   .masthead.expanded {
@@ -103,6 +104,7 @@ svg.masthead-underlay__accent {
 
   .masthead-underlay {
     height: $baseline * 116;
+    padding-top: $baseline * 58;
   }
 
   .masthead.expanded {
@@ -117,6 +119,7 @@ svg.masthead-underlay__accent {
 
   .masthead-underlay {
     height: $baseline * 140;
+    padding-top: $baseline * 70;
   }
 
   .masthead.expanded {
