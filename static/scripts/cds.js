@@ -14,4 +14,39 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-function loadStyles(url){var xhr=new XMLHttpRequest;xhr.returnType="text";xhr.onload=function(){var link=document.createElement("link");link.rel="stylesheet";link.href=url;document.head.appendChild(link)};xhr.open("get",url);xhr.send()}function installServiceWorker(){if(!("serviceWorker"in navigator)){console.log("Service Worker not supported - aborting");return}navigator.serviceWorker.register("/devsummit/sw.js").then(function(registration){registration.onupdatefound=function(){console.log("A new version has been found... Installing...");registration.installing.onstatechange=function(){if(this.state==="installed"){return console.log("App updated")}console.log("Incoming SW state:",this.state)}}})}(function(){console.log("CDS Site version: {{version}}");loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');installServiceWorker()})();
+function loadStyles (url) {
+  var xhr = new XMLHttpRequest();
+  xhr.returnType = 'text';
+  xhr.onload = function () {
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = url;
+    document.head.appendChild(link);
+  };
+  xhr.open('get', url);
+  xhr.send();
+}
+
+function installServiceWorker () {
+  if (!('serviceWorker' in navigator)) {
+    console.log('Service Worker not supported - aborting');
+    return;
+  }
+  navigator.serviceWorker.register('/devsummit/sw.js').then(function (registration) {
+    registration.onupdatefound = function () {
+      console.log('A new version has been found... Installing...');
+      registration.installing.onstatechange = function () {
+        if (this.state === 'installed') {
+          return console.log('App updated');
+        }
+        console.log('Incoming SW state:', this.state);
+      };
+    };
+  });
+}
+
+(function () {
+  console.log('CDS Site version: {{version}}');
+  loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
+  installServiceWorker();
+})();

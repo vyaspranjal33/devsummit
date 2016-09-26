@@ -110,22 +110,22 @@
   transition: opacity 0.2s cubic-bezier(0, 0, 0.3, 1);
 }
 
-.home__code-labs:hover ~ .home__cta-bg .home__cta-bg-underlay-left,
-.home__schedule:hover ~ .home__cta-bg .home__cta-bg-underlay-right,
-.home__code-labs:focus ~ .home__cta-bg .home__cta-bg-underlay-left,
-.home__schedule:focus ~ .home__cta-bg .home__cta-bg-underlay-right,
-.home__code-labs:active ~ .home__cta-bg .home__cta-bg-underlay-left,
-.home__schedule:active ~ .home__cta-bg .home__cta-bg-underlay-right {
+.home__code-labs:hover ~ .home__cta-bg .home__cta-bg-underlay-right,
+.home__schedule:hover ~ .home__cta-bg .home__cta-bg-underlay-left,
+.home__code-labs:focus ~ .home__cta-bg .home__cta-bg-underlay-right,
+.home__schedule:focus ~ .home__cta-bg .home__cta-bg-underlay-left,
+.home__code-labs:active ~ .home__cta-bg .home__cta-bg-underlay-right,
+.home__schedule:active ~ .home__cta-bg .home__cta-bg-underlay-left {
   opacity: 0.3;
 }
 
 .home__code-labs {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: url(/devsummit/static/images/home/code-labs.svg) center center no-repeat;
   background-size: 80% 80%;
 }
 
 .home__schedule {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: url(/devsummit/static/images/home/schedule.svg) center center no-repeat;
   background-size: 80% 80%;
 }
@@ -202,7 +202,7 @@
     padding-bottom: $baseline * 4.5;
   }
 
-  .home__schedule {
+  .home__code-labs {
     border-top: none;
     border-left: 1px solid rgba(0, 0, 0, 0.1);
   }
@@ -212,6 +212,7 @@
     padding-bottom: $baseline * 4;
     width: 50%;
     height: $baseline * 40;
+    background-size: 100% 100%;
   }
 
   .home__location {
