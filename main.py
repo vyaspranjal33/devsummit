@@ -87,25 +87,16 @@ class MainHandler(webapp2.RequestHandler):
         # If this is not a static file, use a template.
         if re.search(r"^static/", url) is None:
             # Get the template based on the path the person is visiting.
-            template = re.search(r"^([^/]+)/?([^/]*)/?", url)
+            template = re.search(r"^([^/]+)/?", url)
+
+            if re.search(r"/$", url):
+                url = url + "index"
 
             # For a total non-match we're looking at the root
             if template is None:
                 template_info["path"] = "sections/home.html"
             else:
-                # If the first group is a folder...
-                if os.path.isdir("sections/" + template.group(1)):
-                    # See if there's a file requested underneath.
-                    file_path = template.group(2)
-
-                    # If not default to index.
-                    if len(file_path) == 0:
-                        file_path = "index"
-
-                    template_info["path"] = ("sections/" + template.group(1) +
-                        "/" + file_path + ".html")
-                else:
-                    template_info["path"] = "sections/" + template.group(1) + ".html"
+                template_info["path"] = "sections/" + url + ".html"
 
             # HTML files should expire immediately.
             template_info["cache"] = "public, no-cache"

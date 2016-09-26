@@ -8,32 +8,35 @@
   {% include "templates/includes/schedule-nav.partial.html" %}
 
   <div class="schedule-items">
-    <a class="schedule-item">
 
-      <div class="schedule-item__speaker">
-        <div class="schedule-item__speaker-image"></div>
-        <div class="schedule-item__speaker-details">
-          <h2>Speaker McSpeakerface</h2>
-          <h3>Principal Software Engineer</h3>
-        </div>
-      </div>
+    <section class="schedule-item">
 
-      <div class="schedule-item__time">
-        <time class="schedule-item__time-value" datetime="2016-11-10T08:00-08:00">0800</time>
-      </div>
-
-      <div class="schedule-item__details">
-        <div class="schedule-item__details-inner">
-          <h2 class="schedule-item__title">Registration and Breakfast</h2>
-          <div class="schedule-item__description">
-            <p>Proin aliquet nisl consequat mi auctor gravida. Maecenas cursus risus
-            ultrices ligula iaculis, non fermentum magna lacinia.</p>
+      <a href="/devsummit/schedule/session-1">
+        <div class="schedule-item__speaker">
+          <div class="schedule-item__speaker-image"></div>
+          <div class="schedule-item__speaker-details">
+            <h2>Speaker McSpeakerface</h2>
+            <h3>Principal Software Engineer</h3>
           </div>
         </div>
-      </div>
-    </a>
 
-    <a class="schedule-item">
+        <div class="schedule-item__time">
+          <time class="schedule-item__time-value" datetime="2016-11-10T08:00-08:00">0800</time>
+        </div>
+
+        <div class="schedule-item__details">
+          <div class="schedule-item__details-inner">
+            <h2 class="schedule-item__title">Registration and Breakfast</h2>
+            <div class="schedule-item__description">
+              <p>Proin aliquet nisl consequat mi auctor gravida. Maecenas cursus risus
+              ultrices ligula iaculis, non fermentum magna lacinia.</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </section>
+
+    <section class="schedule-item">
 
       <div class="schedule-item__speaker">
         <div class="schedule-item__speaker-image"></div>
@@ -55,9 +58,9 @@
           </div>
         </div>
       </div>
-    </a>
+    </section>
 
-    <a class="schedule-item">
+    <section class="schedule-item">
 
       <div class="schedule-item__speaker">
         <div class="schedule-item__speaker-image"></div>
@@ -79,6 +82,6 @@
           </div>
         </div>
       </div>
-    </a>
+    </section>
   </div>
 {% endblock %}
