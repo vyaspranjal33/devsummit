@@ -1,0 +1,183 @@
+/*!
+ *
+ * Copyright 2016 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import 'common/_variables';
+
+.section-schedule {
+  max-width: $baseline * 70;
+  margin: 0 auto;
+  padding-top: $baseline * 6;
+  padding-bottom: $baseline * 14;
+}
+
+.schedule-item {
+  display: flex;
+  align-items: center;
+  padding: 0 $baseline $baseline * 6 $baseline;
+  position: relative;
+
+  &:before {
+    content: '';
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: $baseline * 4;
+    background: #CBCBCB;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+
+  &:first-of-type .schedule-item__time:before,
+  &:last-of-type .schedule-item__time:after {
+    background: #FAFAFA;
+  }
+}
+
+.schedule-item__speaker {
+  width: $baseline * 26;
+  flex: 1 0 auto;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  display: none;
+
+  & .schedule-item__speaker-details {
+    position: absolute;
+    bottom: -$baseline;
+    left: 0;
+    transform: translateY(100%);
+    text-align: center;
+    width: $baseline * 26;
+  }
+
+  & h2 {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    color: #416F43;
+  }
+
+  & h3 {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #393939;
+    line-height: 24px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &:before {
+    content: '';
+    width: 50%;
+    height: 1px;
+    background: #CBCBCB;
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+}
+
+.schedule-item__speaker-image {
+  display: block;
+  width: $baseline * 16;
+  height: $baseline * 16;
+  border-radius: 50%;
+  background: #444;
+  position: relative;
+}
+
+.schedule-item__time {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  align-self: stretch;
+
+  &:before,
+  &:after {
+    height: 100%;
+    width: 48px;
+    display: block;
+    content: '';
+    flex: 1;
+  }
+}
+
+.schedule-item__time-value {
+  background: #416F43;
+  color: #FFF;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+}
+
+.schedule-item__details {
+  display: flex;
+
+  &:before {
+    content: '';
+    display: block;
+    width: $baseline * 2;
+    margin-right: $baseline;
+    background: url(/devsummit/static/images/schedule/line-horizontal.svg) center center repeat-x;
+    flex: 1 0 auto;
+  }
+}
+
+.schedule-item__title {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #325C89;
+  line-height: 23px;
+  margin: 0 0 $baseline;
+  padding: 0;
+}
+
+.schedule-item__description {
+  flex: 1 1 auto;
+  font-size: 14px;
+  color: #393939;
+  line-height: 24px;
+  margin: 0;
+  padding: 0;
+
+  & p {
+    margin: 0;
+  }
+}
+
+@media (min-width: 600px) {
+  .schedule-item__speaker {
+    display: flex;
+  }
+  .schedule-item {
+    padding-bottom: $baseline * 14;
+
+    &:before {
+      left: $baseline * 30;
+    }
+  }
+}
