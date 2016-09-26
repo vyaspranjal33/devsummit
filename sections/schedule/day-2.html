@@ -1,0 +1,84 @@
+{% extends "templates/base.html" %}
+{% set mastheadimage="/devsummit/static/images/masthead/collage-masthead.jpg" %}
+{% set mastheadtitle="Schedule" %}
+{% set pagestyles="static/styles/schedule.css" %}
+{% set section="Schedule" %}
+{% block content %}
+
+  {% include "templates/includes/schedule-nav.partial.html" %}
+
+  <div class="schedule-items">
+    <section class="schedule-item">
+
+      <div class="schedule-item__speaker">
+        <div class="schedule-item__speaker-image"></div>
+        <div class="schedule-item__speaker-details">
+          <h2>Speaker McSpeakerface</h2>
+          <h3>Principal Software Engineer</h3>
+        </div>
+      </div>
+
+      <div class="schedule-item__time">
+        <time class="schedule-item__time-value" datetime="2016-11-10T08:00-08:00">0800</time>
+      </div>
+
+      <div class="schedule-item__details">
+        <div class="schedule-item__details-inner">
+          <h2 class="schedule-item__title">Registration and Breakfast</h2>
+          <div class="schedule-item__description">
+            <p>Proin aliquet nisl consequat mi auctor gravida. Maecenas cursus risus
+            ultrices ligula iaculis, non fermentum magna lacinia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="schedule-item">
+
+      <div class="schedule-item__speaker">
+        <div class="schedule-item__speaker-image"></div>
+        <div class="schedule-item__speaker-details">
+          <h2>Alex Russell</h2>
+          <h3>Software Engineer</h3>
+        </div>
+      </div>
+
+      <div class="schedule-item__time">
+        <time class="schedule-item__time-value" datetime="2016-11-10T09:00-08:00">0900</time>
+      </div>
+
+      <div class="schedule-item__details">
+        <div class="schedule-item__details-inner">
+          <h2 class="schedule-item__title">Session 1</h2>
+          <div class="schedule-item__description">
+            <p>Alex gives an overview of why web apps don’t feel “appy” today, and shows how Service Worker is enabling a whole new world of appiness - beyond the simple goal of making web apps work offline, to building truly engaging web applications.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="schedule-item">
+
+      <div class="schedule-item__speaker">
+        <div class="schedule-item__speaker-image"></div>
+        <div class="schedule-item__speaker-details">
+          <h2>Ryan Schoen</h2>
+          <h3>Product Manager, Chrome</h3>
+        </div>
+      </div>
+
+      <div class="schedule-item__time">
+        <time class="schedule-item__time-value" datetime="2016-11-10T10:00-08:00">1000</time>
+      </div>
+
+      <div class="schedule-item__details">
+        <div class="schedule-item__details-inner">
+          <h2 class="schedule-item__title">Super long title that wraps onto multiple lines</h2>
+          <div class="schedule-item__description">
+            <p>Ryan gives an overview of some of the architectural improvements we've been making to Chrome to ensure that it's easy to make 60fps web applications across any device, as well as some features that help your apps perform silky-smooth.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}

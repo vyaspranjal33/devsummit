@@ -18,10 +18,40 @@
 @import 'common/_variables';
 
 .section-schedule {
+  max-width: $baseline * 108;
+  margin: 0 auto 0 auto;
+  padding-bottom: $baseline * 14;
+}
+
+.schedule-items {
   max-width: $baseline * 70;
   margin: 0 auto;
-  padding-top: $baseline * 6;
-  padding-bottom: $baseline * 14;
+}
+
+.schedule-nav {
+  padding: $baseline * 2 $baseline * 3;
+  background: #FFF;
+  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.22);
+  border-radius: 2px;
+  margin-bottom: $baseline * 6;
+  display: flex;
+
+  a {
+    color: #393939;
+    text-decoration: none;
+    margin-right: $baseline * 2;
+  }
+
+  .schedule-nav__item--active {
+    font-weight: 700;
+    color: #1EA362;
+  }
+}
+
+.schedule-nav a:focus,
+.schedule-nav a:active,
+.schedule-nav a:hover {
+  color: #1EA362;
 }
 
 .schedule-item {
@@ -123,7 +153,7 @@
 }
 
 .schedule-item__time-value {
-  background: #416F43;
+  background: #1EA362;
   color: #FFF;
   border-radius: 50%;
   font-size: 13px;
@@ -170,9 +200,14 @@
 }
 
 @media (min-width: 600px) {
+  .section-schedule {
+    margin-top: $baseline * -4;
+  }
+
   .schedule-item__speaker {
     display: flex;
   }
+
   .schedule-item {
     padding-bottom: $baseline * 14;
 
