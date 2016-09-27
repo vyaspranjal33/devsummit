@@ -4,9 +4,18 @@
 {% set section="Session" %}
 {% block content %}
 
-  <div class="session-info">
-    <h2>Session Information</h2>
-    <p></p>
+  <div class="session-info{% if not youtubeId %} session-info-pre{% endif %}">
 
+    <div class="session-speaker-info__image"></div>
+    <div class="session-breakdown">
+      <h2 class="session-info__title">Endless Economic Epithets</h2>
+      <h3 class="session-info__speaker">
+          Alex Russell, Software Engineer
+      </h3>
+
+      <div class="session-info__description">
+        <p>Alex gives an overview of why web apps don’t feel “appy” today, and shows how Service Worker is enabling a whole new world of appiness - beyond the simple goal of making web apps work offline, to building truly engaging web applications.</p>
+      </div>
+    </div>
   </div>
 {% endblock %}

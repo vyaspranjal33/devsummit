@@ -24,7 +24,7 @@
 }
 
 .schedule-items {
-  max-width: $baseline * 70;
+  max-width: $baseline * 84;
   margin: 0 auto;
 }
 
@@ -71,12 +71,12 @@
     background: #CBCBCB;
   }
 
-  &:last-of-type {
+  &:nth-last-child(1) {
     padding-bottom: 0;
   }
 
-  &:first-of-type .schedule-item__time:before,
-  &:last-of-type .schedule-item__time:after {
+  &:nth-child(1) .schedule-item__time:before,
+  &:nth-last-child(1) .schedule-item__time:after {
     background: #FAFAFA;
   }
 }
