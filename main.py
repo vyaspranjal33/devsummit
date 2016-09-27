@@ -68,7 +68,7 @@ def add_hash(path):
             file_hash.update(file_buffer)
             file_buffer = file_to_hash.read(blocksize)
 
-    return re.sub(r'(.*?)\.(.*)$', "\\1." + file_hash.hexdigest() + ".\\2", path)
+    return re.sub(r'(.*?)\.(.*)$', ("\\1.%s.\\2" % file_hash.hexdigest()), path)
 
 JINJA_ENVIRONMENT.filters["add_hash"] = add_hash
 JINJA_ENVIRONMENT.filters["convert_to_class"] = convert_to_class
@@ -137,8 +137,8 @@ class MainHandler(webapp2.RequestHandler):
                 is_live=True
             )
         except jinja2.TemplateNotFound as template_name:
-            print ("Template not found: " + str(template_name) +
-                " (requested by " + template_info["path"] + ")")
+            print ("Template not found: %s (requested by %s)" %
+                  (str(template_name), template_info["path"]))
 
         # Make an ETag for the content
         etag = hashlib.sha256()
