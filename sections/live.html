@@ -1,7 +1,57 @@
 {% extends "templates/base.html" %}
-{% set mastheadimage="/devsummit/static/images/masthead/collage-masthead.jpg" %}
-{% set mastheadinfo="Live info" %}
+{% set mastheadimage="/devsummit/static/images/masthead/collage-masthead-blurred.jpg" %}
+{% set pagestyles="static/styles/live.css" %}
 {% set section="Live" %}
+{% set youtubeId="0dNY8ycca1Y" %}
+{% set has_divider=True %}
 {% block content %}
-  Live
+  <section class="live-info">
+    <div class="live-info__item">
+      <h2 class="live-info__section">Live now</h2>
+      <h3 class="live-info__title">Jake Archibald: A Million Ways to Argue Over Minutiae</h3>
+      <p class="live-info__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam faucibus enim ut odio tempor sagittis eget sit amet turpis. Donec convallis luctus augue. Nunc orci neque, vestibulum quis erat non, malesuada
+sollicitudin orci.</p>
+    </div>
+
+    <div class="live-info__item">
+      <h2 class="live-info__section">Up Next...</h2>
+      <h3 class="live-info__title">Alex Russell: Endless Economic Epithets</h3>
+      <h4 class="live-info__time">14.30am PST, Main Auditorium</h4>
+      <p class="live-info__description">Vivamus aliquet mollis ligula, luctus malesuada erat consequat gravida.
+        Proin faucibus nisl pulvinar lobortis lobortis. Nullam quis odio ut elit
+        suscipit pharetra. Nullam molestie risus tempor lorem aliquet hendrerit.
+        Cras et magna quis est tincidunt vulputate.</p>
+    </div>
+  </section>
+
+  <section class="live-coming-up">
+    <h2 class="live-coming-up__title" >Coming up</h2>
+
+    <ol class="live-coming-up__list">
+      <li class="live-coming-up__item">
+        <time class="live-coming-up__item-time" datetime="">1500</time>
+        <a class="live-coming-up__item-description">
+          <h3 class="live-coming-up__item-title">Easy Composition and Reuse with Web Components</h3>
+          <p class="live-coming-up__item-author">Dimitri Glazkov</p>
+        </a>
+      </li>
+
+      <li class="live-coming-up__item">
+        <time class="live-coming-up__item-time" datetime="">1600</time>
+        <a class="live-coming-up__item-description">
+          <h3 class="live-coming-up__item-title">Polymer: State of the Union</h3>
+          <p class="live-coming-up__item-author">Dimitri Glazkov</p>
+        </a>
+      </li>
+
+
+      <li class="live-coming-up__item">
+        <time class="live-coming-up__item-time" datetime="">1700</time>
+        <a class="live-coming-up__item-description">
+          <h3 class="live-coming-up__item-title">Let's build some apps with Polymer!</h3>
+          <p class="live-coming-up__item-author">Rob “BobDod” Dodson</p>
+        </a>
+      </li>
+    </ol>
+  </section>
 {% endblock %}

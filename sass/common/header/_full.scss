@@ -16,21 +16,23 @@
  */
 
 .header {
+  background: #333;
+}
+
+.header,
+.header__content {
   background: url(/devsummit/static/images/header/header.svg) top center;
   background-size: 100% 100%;
 }
 
 .menu__underlay {
-  background: #000;
+  background: #333;
   opacity: 0;
   pointer-events: none;
 }
 
 .menu__toggle-label {
   background: url(/devsummit/static/images/icons/ic_menu_black_24px.svg) center center no-repeat;
-}
-
-.menu__toggle:checked ~ .menu__toggle-label {
 }
 
 .menu__toggle:checked ~ .menu__underlay {
@@ -62,5 +64,11 @@
 @media (min-width: 672px) {
   .logo__icon::after {
     content: 'Chrome Dev Summit';
+  }
+}
+
+@media (min-width: 864px) {
+  .header__content {
+    background: none;
   }
 }

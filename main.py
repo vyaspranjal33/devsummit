@@ -115,6 +115,7 @@ class MainHandler(webapp2.RequestHandler):
 
     def get(self, url):
         is_partial = self.request.get('partial', None) is not None
+        autoplay = self.request.get('autoplay', None) is not None
         template_info = self.get_template_info(url)
         content_type = "text/plain"
         response = {
@@ -131,7 +132,9 @@ class MainHandler(webapp2.RequestHandler):
             response["content"] = template.render(
                 is_partial=is_partial,
                 version=version,
-                url=url
+                url=url,
+                autoplay=autoplay,
+                is_live=True
             )
         except jinja2.TemplateNotFound as template_name:
             print ("Template not found: " + str(template_name) +

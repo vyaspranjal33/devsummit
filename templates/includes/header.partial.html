@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header{% if is_live %} header--live{% endif %}">
 
   <div class="header__content">
 
@@ -19,5 +19,11 @@
       </ul>
     </div>
   </div>
+
+  {% if is_live %}
+  <a class="header__live-stream" href="/devsummit/live?autoplay">
+    <span>Watch the live stream now!</span>
+  </a>
+  {% endif %}
 
 </header>

@@ -19,8 +19,20 @@
   z-index: 100000;
 }
 
-.page-content {
+.youtube-video-player {
+  z-index: 7000;
+}
+
+.youtube-video-player__thumb {
+  z-index: 1;
+}
+
+.masthead {
   z-index: 5000;
+}
+
+.section-schedule {
+  z-index: 6000;
 }
 
 .masthead__title {
@@ -64,14 +76,23 @@
   z-index: 1;
 }
 
-.location__breakdown {
+.location__breakdown,
+.location-livestream {
   z-index: 2;
 }
 
-.page-content {
-  z-index: 1;
+.section-live {
+  z-index: 6000;
 }
 
 .footer {
+  z-index: 0;
+}
+
+.header__content {
+  z-index: 1;
+}
+
+.header__live-stream {
   z-index: 0;
 }

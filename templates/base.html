@@ -1,8 +1,24 @@
 {% from "templates/includes/head.partial.html" import head %}
 {% from "templates/includes/masthead.partial.html" import masthead %}
-{% call head(is_partial, pagestyles, url, inline_styles) %}{% endcall %}
 
-{% call masthead(is_partial, mastheadimage, mastheadtitle) %}
+{% if is_live and youtubeId %}
+  {% set is_live=False %}
+{% endif %}
+
+{% if youtubeId %}
+  {% set mastheadexpanded=True %}
+{% endif %}
+
+{% call head(is_partial, pagestyles, url, inline_styles, is_live) %}{% endcall %}
+
+{% call masthead(is_partial,
+    mastheadimage,
+    mastheadtitle,
+    mastheadexpanded,
+    youtubeId,
+    autoplay,
+    is_live,
+    has_divider) %}
   {{ mastheadinfo }}
 {% endcall %}
 

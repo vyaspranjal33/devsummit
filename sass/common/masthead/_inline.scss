@@ -25,7 +25,7 @@
 }
 
 .masthead.expanded {
-  margin-bottom: $baseline * 34;
+  margin-bottom: $baseline * 16;
 }
 
 .masthead svg {
@@ -36,12 +36,15 @@
 
 .masthead-underlay {
   position: absolute;
-  height: $baseline * 68;
-  padding-top: $baseline * 34;
+  height: $baseline * 116;
+  padding-top: $baseline * 48;
   width: 100%;
   top: 0;
   left: 0;
-  transform: translateY(-49%);
+  transform: translateY(-69%);
+}
+
+.masthead-underlay--animatable {
   transition: transform 0.7s cubic-bezier(0.7, 0, 0.4, 1);
 }
 
@@ -52,14 +55,26 @@
   max-width: $baseline * 108;
   width: 100%;
   overflow: hidden;
-  transform: translate(-50%, 0);
+  transform: translateX(-50%);
 }
 
-.masthead-underlay__accent {
+.masthead svg.masthead-underlay__divider {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: auto;
+  height: 400px;
+  width: $baseline * 4;
+  bottom: $baseline * 2;
+  transform: translateX(-75%);
+  display: none;
+}
+
+.masthead svg.masthead-underlay__accent {
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-96%);
+  transform: translateY(-130%);
 }
 
 .masthead.expanded .masthead-underlay {
@@ -84,16 +99,21 @@
   }
 
   .masthead-underlay {
-    height: $baseline * 92;
-    padding-top: $baseline * 46;
+    height: $baseline * 108;
+    padding-top: $baseline * 50;
+    transform: translateY(-56%);
   }
 
   .masthead.expanded {
-    margin-bottom: $baseline * 46;
+    margin-bottom: $baseline * 12;
   }
 
   .masthead__title {
     bottom: $baseline * 3;
+  }
+
+  .masthead svg.masthead-underlay__accent {
+    transform: translateY(-110%);
   }
 }
 
@@ -103,12 +123,21 @@
   }
 
   .masthead-underlay {
-    height: $baseline * 116;
-    padding-top: $baseline * 58;
+    height: $baseline * 108;
+    padding-top: $baseline * 50;
+    transform: translateY(-45%);
   }
 
   .masthead.expanded {
-    margin-bottom: $baseline * 58;
+    margin-bottom: $baseline * 12;
+  }
+
+  .masthead svg.masthead-underlay__accent {
+    transform: translateY(-90%);
+  }
+
+  .masthead.expanded svg.masthead-underlay__divider {
+    display: block;
   }
 }
 
@@ -118,11 +147,44 @@
   }
 
   .masthead-underlay {
-    height: $baseline * 140;
-    padding-top: $baseline * 70;
+    height: $baseline * 112;
+    padding-top: $baseline * 50;
+    transform: translateY(-37%);
   }
 
   .masthead.expanded {
-    margin-bottom: $baseline * 70;
+    margin-bottom: $baseline * 8;
+  }
+
+  .masthead svg.masthead-underlay__accent {
+    transform: translateY(-74%);
+  }
+
+  .masthead svg.masthead-underlay__divider {
+    bottom: $baseline * 2.5;
+  }
+}
+
+@media (min-width: 1840px) {
+  .masthead__graphic {
+    height: $baseline * 90;
+  }
+
+  .masthead-underlay {
+    height: $baseline * 134;
+    padding-top: $baseline * 50;
+    transform: translateY(-33%);
+  }
+
+  .masthead.expanded {
+    margin-bottom: $baseline * 8;
+  }
+
+  .masthead svg.masthead-underlay__accent {
+    transform: translateY(-54%);
+  }
+
+  .masthead svg.masthead-underlay__divider {
+    bottom: $baseline * 2.5;
   }
 }
