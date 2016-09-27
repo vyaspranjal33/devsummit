@@ -130,7 +130,7 @@
 .header__live-stream {
   position: relative;
   top: -24px;
-  height: $baseline * 12;
+  height: $baseline * 9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +152,6 @@
 
 .header__live-stream span {
   position: relative;
-  padding-bottom: $baseline;
   display: block;
   height: 60%;
   display: flex;
@@ -234,6 +233,14 @@
   .logo__icon {
     padding-left: 0;
     height: $baseline * 6;
+  }
+
+  .header__live-stream {
+    height: $baseline * 12;
+
+    span {
+      padding-bottom: $baseline;
+    }
   }
 }
 

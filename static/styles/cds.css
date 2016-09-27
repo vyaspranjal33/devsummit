@@ -387,7 +387,7 @@ a {
 .header__live-stream {
   position: relative;
   top: -24px;
-  height: 96px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -407,7 +407,6 @@ a {
 
 .header__live-stream span {
   position: relative;
-  padding-bottom: 8px;
   display: block;
   height: 60%;
   display: flex;
@@ -462,7 +461,11 @@ a {
       background: none; }
   .logo__icon {
     padding-left: 0;
-    height: 48px; } }
+    height: 48px; }
+  .header__live-stream {
+    height: 96px; }
+    .header__live-stream span {
+      padding-bottom: 8px; } }
 
 @media (min-width: 600px) {
   .header {
