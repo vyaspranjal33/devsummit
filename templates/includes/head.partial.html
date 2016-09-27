@@ -10,7 +10,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-{% macro head(is_partial=none, styles_path=none, url=none, inline_styles=false, is_live=false) %}
+{% macro head(is_partial=none, styles_path=none, section=none, inline_styles=false, is_live=false) %}
 {% if is_partial %}
   {% if styles_path %}
   <style>

@@ -18,7 +18,7 @@
 @import 'common/_variables';
 
 .page-content {
-  padding: 4vmax $baseline;
+  padding: $baseline * 3 $baseline;
   margin: 0 auto;
   max-width: $baseline * 108;
 }
