@@ -26,8 +26,23 @@
   min-height: 30vh;
 }
 
-.session-info-pre {
-  padding-top: $baseline * 10;
+.session-info__back {
+  max-width: $baseline * 108;
+  margin: 0 auto;
+  padding: $baseline;
+}
+
+.session-info__back-link {
+  display: flex;
+  color: #544316;
+
+  &:before {
+    content: '';
+    background: url(/devsummit/static/images/icons/ic_arrow_back_black_24px.svg) center center no-repeat;
+    width: 24px;
+    height: 24px;
+    margin-right: $baseline;
+  }
 }
 
 .session-info__title {
@@ -37,7 +52,12 @@
   margin: 0;
 }
 
-.session-info-pre .session-info__title {
+.session--pre .session-info__back-link {
+  color: #1EA362;
+  padding-top: $baseline * 10;
+}
+
+.session--pre .session-info__title {
   color: #325C89;
 }
 
@@ -64,6 +84,10 @@
 }
 
 @media (min-width: 800px) {
+  // .session-info__back {
+  //   padding-left: $baseline * 19;
+  // }
+
   .session-speaker-info__image {
     display: block;
   }

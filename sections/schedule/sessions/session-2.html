@@ -7,18 +7,24 @@
 {% set video_name="A Million Ways to Argue Over Minutiae" %}
 {% block content %}
 
-  <div class="session-info">
+  <div class="session{% if not youtubeId %} session--pre{% endif %}">
+    <div class="session-info__back">
+      <a href="/devsummit/schedule" class="session-info__back-link">Back to Day 1 Schedule</a>
+    </div>
 
-    <div class="session-speaker-info__image"></div>
+    <div class="session-info">
 
-    <div class="session-breakdown">
-      <h2 class="session-info__title">A Million Ways to Argue Over Minutiae</h2>
-      <h3 class="session-info__speaker">
-          Jake Archibald, Developer Advocate
-      </h3>
+      <div class="session-speaker-info__image"></div>
 
-      <div class="session-info__description">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et velit consectetur, dignissim massa a, convallis arcu. Nulla sed leo sit amet lectus euismod venenatis in faucibus lorem. Aliquam erat volutpat. Donec luctus luctus dui non placerat. Suspendisse venenatis metus nisi, sit amet accumsan sapien placerat at. Vivamus rutrum sodales lectus et gravida. Nullam feugiat facilisis maximus. Praesent egestas nulla sed dolor facilisis, eu egestas lectus gravida.</p>
+      <div class="session-breakdown">
+        <h2 class="session-info__title">A Million Ways to Argue Over Minutiae</h2>
+        <h3 class="session-info__speaker">
+            Jake Archibald, Developer Advocate
+        </h3>
+
+        <div class="session-info__description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et velit consectetur, dignissim massa a, convallis arcu. Nulla sed leo sit amet lectus euismod venenatis in faucibus lorem. Aliquam erat volutpat. Donec luctus luctus dui non placerat. Suspendisse venenatis metus nisi, sit amet accumsan sapien placerat at. Vivamus rutrum sodales lectus et gravida. Nullam feugiat facilisis maximus. Praesent egestas nulla sed dolor facilisis, eu egestas lectus gravida.</p>
+        </div>
       </div>
     </div>
   </div>
