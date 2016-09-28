@@ -80,6 +80,11 @@
     color: #FFFFFF;
     margin: 0;
     position: relative;
+
+    &:after {
+      content: '.';
+      opacity: 0;
+    }
   }
 
   & h3 {
@@ -89,6 +94,10 @@
     margin: 0;
     width: 80%;
     position: relative;
+
+    span {
+      text-transform: uppercase;
+    }
   }
 }
 

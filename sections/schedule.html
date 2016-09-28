@@ -1,5 +1,6 @@
 {% extends "templates/base.html" %}
 {% set mastheadimage="/devsummit/static/images/masthead/collage-masthead.jpg" %}
+{% set mastheadimagetitle="A collage of photos from Chrome Dev Summit 2015." %}
 {% set mastheadtitle="Schedule" %}
 {% set pagestyles="static/styles/schedule.css" %}
 {% set section="Schedule" %}
@@ -9,7 +10,7 @@
 
   <div class="schedule-items">
 
-    <section class="schedule-item">
+    <section class="schedule-item" aria-label="8AM PST, Registration and Breakfast">
       <div class="schedule-item__speaker">
         <div class="schedule-item__speaker-image"></div>
         <div class="schedule-item__speaker-details">
@@ -19,7 +20,7 @@
       </div>
 
       <div class="schedule-item__time">
-        <time class="schedule-item__time-value" datetime="2016-11-10T08:00-08:00">0800</time>
+        <time title="8AM PST" class="schedule-item__time-value" datetime="2016-11-10T08:00-08:00">0800</time>
       </div>
 
       <div class="schedule-item__details">
@@ -33,7 +34,7 @@
       </div>
     </section>
 
-    <a class="schedule-item" href="/devsummit/schedule/sessions/session-1">
+    <a class="schedule-item" href="/devsummit/schedule/sessions/session-1" aria-label="9AM PST. Alex Russell: Endless Economic Epithets">
 
       <div class="schedule-item__speaker">
         <div class="schedule-item__speaker-image"></div>
@@ -44,7 +45,7 @@
       </div>
 
       <div class="schedule-item__time">
-        <time class="schedule-item__time-value" datetime="2016-11-10T09:00-08:00">0900</time>
+        <time title="9AM PST" class="schedule-item__time-value" datetime="2016-11-10T09:00-08:00">0900</time>
       </div>
 
       <div class="schedule-item__details">
@@ -57,7 +58,7 @@
       </div>
     </a>
 
-    <a class="schedule-item" href="/devsummit/schedule/sessions/session-2">
+    <a class="schedule-item" href="/devsummit/schedule/sessions/session-2" aria-label="10AM PST, Jake Archibald: A Million Ways to Argue Over Minutiae">
 
       <div class="schedule-item__speaker">
         <div class="schedule-item__speaker-image"></div>

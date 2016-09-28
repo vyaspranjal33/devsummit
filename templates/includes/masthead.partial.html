@@ -1,11 +1,11 @@
-{% macro masthead(is_partial=none, image=none, title=none, is_expanded=none, youtubeId=none, autoplay=none, is_live=False, has_divider=False) %}
+{% macro masthead(is_partial=none, image=none, title=none, mastheadimagetitle=none, is_expanded=none, youtubeId=none, autoplay=none, video_name=none, is_live=False, has_divider=False) %}
 {% if youtubeId %}
 <div class="youtube-video-player">
   {% if autoplay %}
   <iframe class="youtube-video-player__thumb" src="https://www.youtube.com/embed/{{ youtubeId }}?autoplay=1" frameborder="0" allowfullscreen></iframe>
   {% else %}
-  <a class="youtube-video-player__thumb" href="https://www.youtube.com/watch?v={{ youtubeId }}">
-    <img src="http://img.youtube.com/vi/{{ youtubeId }}/0.jpg" alt="Chrome Dev Summit Live Stream">
+  <a title="Play video of {{ video_name }}" class="youtube-video-player__thumb" href="https://www.youtube.com/watch?v={{ youtubeId }}">
+    <img role="presentation" src="http://img.youtube.com/vi/{{ youtubeId }}/0.jpg" alt="{{ video_name }}">
   </a>
   {% endif %}
 </div>
@@ -19,9 +19,11 @@
 {% else %}
 <div class="masthead{% if is_expanded %} expanded{% endif %}">
 
+  {% if title %}
   <h1 class="masthead__title">{{ title }}</h1>
+  {% endif %}
 
-  <div class="masthead__graphic">
+  <div class="masthead__graphic" role="img" aria-label="Masthead: {{ mastheadimagetitle }}">
     <svg width="100%" height="99.8%" preserveAspectRatio="xMidYMax slice" viewBox="0 0 1224 612">
       <g clip-path="url(#masthead-clip)" x="0" y="0">
         <rect fill="#333" width="100%" height="100%" />

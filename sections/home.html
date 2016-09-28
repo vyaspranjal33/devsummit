@@ -2,15 +2,16 @@
 {% set inline_styles=True %}
 {% set mastheadimage="/devsummit/static/images/masthead/homepage-masthead.jpg" %}
 {% set mastheadtitle="Chrome Dev Summit" %}
+{% set mastheadimagetitle="Darin Fisher delivering the Keynote at Chrome Dev Summit 2015." %}
 {% set pagestyles="static/styles/home.css" %}
 {% set section="Home" %}
 {% block content %}
-  <aside class="home-cds-info">
+  <section class="home-cds-info">
     <div class="home-cds-info__content">
       <p>Connect with Chrome engineers and other leading developers for a two-day
       exploration of building beautiful and performant experiences.</p>
     </div>
-  </aside>
+  </section>
 
   <section class="home__ctas">
     <a class="home__schedule" href="/devsummit/schedule">
@@ -48,7 +49,7 @@
   <section class="home__location">
     <a href="/devsummit/location">
       <h2>Location</h2>
-      <h3>Chrome Dev Summit is at SFJAZZ.</h3>
+      <h3>Chrome Dev Summit is at <span>SF&#8203;Jazz</span></h3>
     </a>
   </section>
 {% endblock %}
