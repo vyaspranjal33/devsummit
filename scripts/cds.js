@@ -18,16 +18,45 @@
 'use strict';
 
 import {loadStyles} from './utils';
+import {loadScript} from './utils';
 import {installServiceWorker} from './sw-install';
+import * as cdsRouter from './cds-router';
 
-(function () {
-  console.log('CDS Site version: {{version}}');
-  installServiceWorker();
-
+function loadPageStyles () {
   // Only load the styles if they've not been added already.
   if (document.querySelector('link[href="{{ "/devsummit/static/styles/cds.css" | add_hash }}"]')) {
     return;
   }
 
   loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
+}
+
+function loadPageScripts () {
+  // Start by assuming that everything is good to boot up.
+  var bootup = Promise.resolve();
+
+  if (!('customElements' in window)) {
+    // If Custom Elements 1.0 aren't supported load the polyfill in.
+    bootup = bootup.then(function () {
+      return loadScript(
+          '{{ "/devsummit/static/third_party/scripts/custom-elements.min.js" | add_hash }}');
+    }, function () {
+      console.warn('Unable to load Custom Elements polyfill');
+    });
+  }
+
+  bootup.then(function () {
+    cdsRouter.init();
+  }).then(function () {
+    console.log('Loaded');
+  }).catch(function (e) {
+    console.warn('Unable to boot');
+    console.warn(e);
+  });
+}
+
+(function () {
+  installServiceWorker();
+  loadPageStyles();
+  loadPageScripts();
 })();

@@ -1,6 +1,5 @@
-#!/usr/bin/env node
-/**
- * @license
+/*!
+ *
  * Copyright 2016 Google Inc. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,22 +15,30 @@
  * limitations under the License.
  */
 
-const fs = require('fs');
-const CleanCSS = require('clean-css');
-const files = [
-  'static/styles/cds.css',
-  'static/styles/code-of-conduct.css',
-  'static/styles/home.css',
-  'static/styles/inline.css',
-  'static/styles/live.css',
-  'static/styles/location.css',
-  'static/styles/schedule.css',
-  'static/styles/sessions.css'
-];
-const opts = {
-  keepSpecialComments: 1
-};
+/* global customElements */
+'use strict';
 
-files.forEach(f => {
-  fs.writeFileSync(f, new CleanCSS(opts).minify([f]).styles, 'utf8');
-});
+var initialized = false;
+export function init () {
+  if (initialized) {
+    return;
+  }
+  initialized = true;
+
+  customElements.define('cds-router', class extends HTMLElement {
+    constructor () {
+      super();
+
+      console.log('CDS Router');
+    }
+
+    connectedCallback () {
+      console.log('CDS Router connected');
+    }
+
+    disconnectedCallback () {
+      console.log('CDS Router disconnected');
+    }
+  });
+}
+

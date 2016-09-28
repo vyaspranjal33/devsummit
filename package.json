@@ -10,7 +10,7 @@
     "make-css-folder": "mkdirp static/styles",
     "build-css": "npm run make-css-folder && node-sass sass/ -o static/styles && npm run clean-css",
     "clean-css": "./build/clean-css.js",
-    "build-js": "rollup -c && uglifyjs static/scripts/cds.js -o static/scripts/cds.js --comments all",
+    "build-js": "rollup -c && babel static/scripts/cds.js --presets babel-preset-babili --out-file static/scripts/cds.js",
     "watch": "npm run build && parallelshell 'npm run watch-sass' 'npm run watch-js'",
     "watch-js": "rollup -wc",
     "watch-sass": "npm run make-css-folder && node-sass -w sass/ -o static/styles",
@@ -27,6 +27,8 @@
   "author": "Paul Lewis",
   "license": "Apache-2.0",
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-babili": "0.0.3",
     "clean-css": "^3.4.19",
     "imageoptim-cli": "^1.14.8",
     "mkdirp": "^0.5.1",
@@ -34,7 +36,6 @@
     "parallelshell": "^2.0.0",
     "rollup": "^0.36.0",
     "rollup-plugin-cleanup": "^0.1.4",
-    "rollup-watch": "^2.5.0",
-    "uglify-js": "^2.7.3"
+    "rollup-watch": "^2.5.0"
   }
 }

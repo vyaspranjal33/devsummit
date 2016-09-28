@@ -7,10 +7,10 @@ threadsafe: true
 
 handlers:
 
-- url: /devsummit/static/third_party/(.*)
-  static_files: static/third_party/\1
+- url: /devsummit/static/third_party/fonts/(.*)
+  static_files: static/third_party/fonts/\1
   expiration: "1d"
-  upload: static/third_party/(.*)
+  upload: static/third_party/fonts/(.*)
   secure: always
 
 - url: /devsummit/static/images/(.*)
