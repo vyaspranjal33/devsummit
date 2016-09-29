@@ -19,3 +19,13 @@
   position: relative;
   margin-top: -3vmax;
 }
+
+.animatable .page-content {
+  will-change: opacity;
+  transition: opacity 0.4s cubic-bezier(0, 0, 0.3, 1) 0.5s;
+}
+
+.hide-areas .page-content {
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0, 0, 0.3, 1);
+}

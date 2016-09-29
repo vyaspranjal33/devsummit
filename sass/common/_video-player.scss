@@ -95,6 +95,20 @@
   }
 }
 
+.animatable .youtube-video-player {
+  will-change: opacity;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.hide-areas .youtube-video-player {
+  opacity: 0;
+
+  &.youtube-video-player--pip,
+  &.youtube-video-player--pip-pending {
+    opacity: 1;
+  }
+}
+
 @media (min-width: 424px) {
   .youtube-video-player {
     top: $baseline * 32;

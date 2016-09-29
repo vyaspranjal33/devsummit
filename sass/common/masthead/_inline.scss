@@ -19,9 +19,25 @@
   position: relative;
 }
 
-.masthead__graphic {
+.masthead__graphic,
+.masthead__graphic-underlay {
   position: relative;
   height: $baseline * 34;
+}
+
+.masthead__graphic-underlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.animatable .masthead__graphic {
+  transition: opacity 0.4s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.animatable.hide-areas .masthead__graphic {
+  opacity: 0;
 }
 
 .masthead.expanded {
@@ -44,8 +60,8 @@
   transform: translateY(-69%);
 }
 
-.masthead-underlay--animatable {
-  transition: transform 0.7s cubic-bezier(0.7, 0, 0.4, 1);
+.animatable .masthead-underlay {
+  transition: transform 0.6s cubic-bezier(0.7, 0, 0.4, 1);
 }
 
 .masthead-underlay__content {
@@ -93,8 +109,20 @@
   max-width: $baseline * 108;
 }
 
+.animatable .masthead__title {
+  will-change: transform;
+  transition: transform 0.4s cubic-bezier(0, 0, 0.3, 1),
+      opacity 0.4s cubic-bezier(0, 0, 0.3, 1);
+}
+
+.animatable.hide-areas .masthead__title {
+  transform: translateX(-50%) translateX($baseline * 2);
+  opacity: 0;
+}
+
 @media (min-width: 424px) {
-  .masthead__graphic {
+  .masthead__graphic,
+  .masthead__graphic-underlay {
     height: $baseline * 46;
   }
 
@@ -118,7 +146,8 @@
 }
 
 @media (min-width: 600px) {
-  .masthead__graphic {
+  .masthead__graphic,
+  .masthead__graphic-underlay {
     height: $baseline * 58;
   }
 
@@ -138,11 +167,16 @@
 
   .masthead.expanded svg.masthead-underlay__divider {
     display: block;
+
+    &.masthead-underlay__divider--invisible {
+      display: none;
+    }
   }
 }
 
 @media (min-width: 1440px) {
-  .masthead__graphic {
+  .masthead__graphic,
+  .masthead__graphic-underlay {
     height: $baseline * 70;
   }
 
@@ -166,7 +200,8 @@
 }
 
 @media (min-width: 1840px) {
-  .masthead__graphic {
+  .masthead__graphic,
+  .masthead__graphic-underlay {
     height: $baseline * 90;
   }
 

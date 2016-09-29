@@ -3,7 +3,7 @@
   <div class="header__content">
 
     <div class="logo">
-      <a href="/devsummit" class="logo__icon" title="Go to home page"></a>
+      <a href="/devsummit/" class="logo__icon" title="Go to home page"></a>
     </div>
 
     <div class="menu">
@@ -20,10 +20,9 @@
     </div>
   </div>
 
-  {% if is_live %}
-  <a class="header__live-stream" href="/devsummit/live?autoplay">
+  <a class="header__live-stream{% if is_live %} visible{% else %} invisible{% endif %}"
+     href="/devsummit/live"{% if not is_live %} aria-hidden="true"{% endif %}>
     <span>Watch the live stream now!</span>
   </a>
-  {% endif %}
 
 </header>

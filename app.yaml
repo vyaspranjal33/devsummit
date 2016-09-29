@@ -19,7 +19,11 @@ handlers:
   upload: static/images/(.*)
   secure: always
 
-- url: /devsummit(.*)
+- url: /devsummit
+  script: redirector.app
+  secure: always
+
+- url: /devsummit/(.*)
   script: main.app
   secure: always
 

@@ -18,8 +18,8 @@ const intro = `/*!
 import cleanup from 'rollup-plugin-cleanup';
 
 export default {
-  entry: 'scripts/cds.js',
-  dest: 'static/scripts/cds.js',
+  entry: 'scripts/bootstrap.js',
+  dest: 'static/scripts/bootstrap.js',
   plugins: [
     cleanup()
   ],

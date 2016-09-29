@@ -41,7 +41,7 @@ limitations under the License.
     {% if styles_path %}
 
     <!-- Styles that are unique to this page -->
-    <style>
+    <style id="styles-{{ section | convert_to_class }}">
       {% include styles_path %}
     </style>
     {% endif %}

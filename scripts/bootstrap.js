@@ -15,30 +15,23 @@
  * limitations under the License.
  */
 
-/* global customElements */
 'use strict';
 
-var initialized = false;
-export function init () {
-  if (initialized) {
+import {loadStyles} from './utils';
+import {installServiceWorker} from './sw-install';
+import * as CDS from './cds';
+
+function loadPageStyles () {
+  // Only load the styles if they've not been added already.
+  if (document.querySelector('link[href="{{ "/devsummit/static/styles/cds.css" | add_hash }}"]')) {
     return;
   }
-  initialized = true;
 
-  customElements.define('cds-router', class extends HTMLElement {
-    constructor () {
-      super();
-
-      console.log('CDS Router');
-    }
-
-    connectedCallback () {
-      console.log('CDS Router connected');
-    }
-
-    disconnectedCallback () {
-      console.log('CDS Router disconnected');
-    }
-  });
+  loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
 }
 
+(function () {
+  installServiceWorker();
+  loadPageStyles();
+  CDS.init();
+})();
