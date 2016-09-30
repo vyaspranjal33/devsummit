@@ -252,6 +252,7 @@ export class VideoHandler {
     iframe.setAttribute('frameborder', '0');
     iframe.setAttribute('allowfullscreen', 'true');
 
+    videoPlayer.classList.add('youtube-video-player--opacity-locked');
     videoPlayer.appendChild(iframe);
     videoPlayer.dataset.href = window.location.href;
 

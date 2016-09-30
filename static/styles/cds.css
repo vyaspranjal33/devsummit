@@ -102,8 +102,11 @@ a {
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-.header {
+.menu__nav {
   z-index: 10000; }
+
+.header {
+  z-index: 6000; }
 
 .youtube-video-player {
   z-index: 7000; }
@@ -259,10 +262,11 @@ a {
 .animatable .youtube-video-player {
   will-change: transform, opacity;
   transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1); }
+  .animatable .youtube-video-player.youtube-video-player--opacity-locked {
+    opacity: 1; }
   .animatable .youtube-video-player.youtube-video-player--small-player {
     opacity: 1; }
   .animatable .youtube-video-player.youtube-video-player--small-player-animatable {
-    opacity: 1;
     transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1), transform 0.5s cubic-bezier(0, 0, 0.3, 1); }
 
 .hide-areas .youtube-video-player {

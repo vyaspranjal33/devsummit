@@ -95,12 +95,15 @@
   will-change: transform, opacity;
   transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
 
+  &.youtube-video-player--opacity-locked {
+    opacity: 1;
+  }
+
   &.youtube-video-player--small-player {
     opacity: 1;
   }
 
   &.youtube-video-player--small-player-animatable {
-    opacity: 1;
     transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1),
         transform 0.5s cubic-bezier(0, 0, 0.3, 1)
   }

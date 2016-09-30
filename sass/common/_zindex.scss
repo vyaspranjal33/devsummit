@@ -15,8 +15,12 @@
  * limitations under the License.
  */
 
-.header {
+.menu__nav {
   z-index: 10000;
+}
+
+.header {
+  z-index: 6000;
 }
 
 .youtube-video-player {
