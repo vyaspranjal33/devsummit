@@ -19,6 +19,26 @@
 
 export class VideoHandler {
 
+  static get STATES () {
+    return {
+      STABLE: 1,
+      GOING_TO_BIG_PLAYER: 2,
+      GOING_TO_SMALL_PLAYER: 3
+    };
+  }
+
+  static get state () {
+    if (!this._state) {
+      this._state = VideoHandler.STATES.STABLE;
+    }
+
+    return this._state;
+  }
+
+  static set state (_state) {
+    this._state = _state;
+  }
+
   static handle (youtubeVideoElement) {
     var youtubeId = youtubeVideoElement &&
         youtubeVideoElement.getAttribute('data-youtube-id');
@@ -28,21 +48,10 @@ export class VideoHandler {
 
     if (playingVideo) {
       var playingVideoContainer = playingVideo.parentNode;
-
-      // Already playing this video, remove PIP.
-      if (youtubeId && playingVideo.src.indexOf(youtubeId) > 0) {
-        console.log('Already playing this video, remove PIP');
-
-        playingVideoContainer.classList.remove('youtube-video-player--pip');
-        playingVideoContainer.removeAttribute('style');
-      } else if (youtubeId) {
+      if (youtubeId && window.location.href !== playingVideoContainer.dataset.href) {
         // Different video, embed the link...
-        console.log('Different video, embed the link.');
+        console.log('Different video (' + youtubeId + '), embed the link.');
         VideoHandler.embedLink(youtubeId, link);
-      } else if (playingVideoContainer.classList.contains('youtube-video-player--pip')) {
-        // Already PIP, remove any other players.
-        console.log('Already PIP, remove any other players.');
-        VideoHandler._removeVideoPlayers(playingVideoContainer.dataset.youtubeId);
       }
     } else if (youtubeVideoElement) {
       // Embed the link to the new video...
@@ -50,12 +59,12 @@ export class VideoHandler {
       VideoHandler.embedLink(youtubeId, link);
     } else {
       // Dismiss video.
-      console.log('Dismiss video');
+      console.log('Dismiss video because playingVideo = ', playingVideo);
       VideoHandler._removeVideoPlayers();
     }
   }
 
-  static setPictureInPictureIfNeeded () {
+  static toggleSmallPlayerIfNeeded () {
     var playingVideo = document.querySelector('iframe');
     if (!playingVideo) {
       return;
@@ -63,14 +72,131 @@ export class VideoHandler {
 
     var playingVideoContainer = playingVideo.parentNode;
 
-    playingVideoContainer.classList.add('youtube-video-player--pip');
+    if (window.location.href === playingVideoContainer.dataset.href) {
+      console.log('Already playing this video, remove small-player');
+      VideoHandler.disableSmallPlayer(playingVideoContainer);
+    } else {
+      console.log('Enabling small-player');
+      VideoHandler.enableSmallPlayer(playingVideoContainer);
+    }
+  }
+
+  static enableSmallPlayer (playingVideoContainer) {
+    VideoHandler.state = VideoHandler.STATES.GOING_TO_SMALL_PLAYER;
+
+    // First.
+    var first = playingVideoContainer.getBoundingClientRect();
+
+    // Last.
+    playingVideoContainer.classList.remove('youtube-video-player--small-player-animatable');
+    playingVideoContainer.classList.add('youtube-video-player--small-player');
     playingVideoContainer.style.position = 'fixed';
-    playingVideoContainer.style.bottom = '24px';
-    playingVideoContainer.style.right = '24px';
+    playingVideoContainer.style.bottom = '32px';
+    playingVideoContainer.style.right = '32px';
     playingVideoContainer.style.left = 'auto';
     playingVideoContainer.style.top = 'auto';
     playingVideoContainer.style.transform = 'scale(0.4)';
-    playingVideoContainer.style.transformOrigin = '100% 100%';
+    var last = playingVideoContainer.getBoundingClientRect();
+
+    // Invert.
+    var x = first.right - last.right;
+    var y = first.bottom - last.bottom;
+    var s = first.width / last.width;
+
+    playingVideoContainer.style.transform =
+        'translate(' + x + 'px, ' + y + 'px) scale(' + s + ') scale(0.4)';
+
+    // Wait a frame for the translate to take hold.
+    requestAnimationFrame(function () {
+      if (VideoHandler.state === VideoHandler.STATES.GOING_TO_BIG_PLAYER) {
+        return;
+      }
+
+      // Now wait another frame before enabling animations.
+      requestAnimationFrame(function () {
+        if (VideoHandler.state === VideoHandler.STATES.GOING_TO_BIG_PLAYER) {
+          return;
+        }
+
+        playingVideoContainer.classList.add('youtube-video-player--small-player-animatable');
+
+        requestAnimationFrame(function () {
+          if (VideoHandler.state === VideoHandler.STATES.GOING_TO_BIG_PLAYER) {
+            return;
+          }
+
+          // Now scale down the player.
+          playingVideoContainer.style.transform =
+              'scale(0.4)';
+          playingVideoContainer.addEventListener('transitionend',
+                VideoHandler._onTransitionEndToSmall);
+        });
+      });
+    });
+  }
+
+  static disableSmallPlayer (playingVideoContainer) {
+    VideoHandler.state = VideoHandler.STATES.GOING_TO_BIG_PLAYER;
+    var first = playingVideoContainer.getBoundingClientRect();
+
+    // Remove all the styles added by going to small-player.
+    playingVideoContainer.removeAttribute('style');
+    playingVideoContainer.classList.remove('youtube-video-player--small-player');
+    playingVideoContainer.classList.remove('youtube-video-player--small-player-animatable');
+
+    var last = playingVideoContainer.getBoundingClientRect();
+
+    var x = first.right - last.right;
+    var y = first.bottom - last.bottom;
+    var s = first.width / last.width;
+
+    playingVideoContainer.classList.add('youtube-video-player--small-player');
+    playingVideoContainer.style.transform =
+        'translateX(-50%) ' +
+        'translate(' + x + 'px, ' + y + 'px) scale(' + s + ')';
+
+    // Wait a frame for the translate to take hold.
+    requestAnimationFrame(function () {
+      if (VideoHandler.state === VideoHandler.STATES.GOING_TO_SMALL_PLAYER) {
+        return;
+      }
+
+      // Now wait another frame before enabling animations.
+      requestAnimationFrame(function () {
+        if (VideoHandler.state === VideoHandler.STATES.GOING_TO_SMALL_PLAYER) {
+          return;
+        }
+
+        playingVideoContainer.classList.add('youtube-video-player--small-player-animatable');
+
+        // Wait again for the animations to be switched on...
+        requestAnimationFrame(function () {
+          if (VideoHandler.state === VideoHandler.STATES.GOING_TO_SMALL_PLAYER) {
+            return;
+          }
+
+          // Now scale up the player.
+          playingVideoContainer.removeAttribute('style');
+          playingVideoContainer.addEventListener('transitionend',
+                VideoHandler._onTransitionEndFromSmall);
+        });
+      });
+    });
+  }
+
+  static _onTransitionEndFromSmall (evt) {
+    evt.target.removeEventListener('transitionend',
+        VideoHandler._onTransitionEndFromSmall);
+    evt.target.classList.remove('youtube-video-player--small-player');
+    evt.target.classList.remove('youtube-video-player--small-player-animatable');
+    VideoHandler.state = VideoHandler.STATES.STABLE;
+  }
+
+  static _onTransitionEndToSmall (evt) {
+    evt.target.removeEventListener('transitionend',
+        VideoHandler._onTransitionEndToSmall);
+    evt.target.classList.remove('youtube-video-player--small-player-animatable');
+    VideoHandler.state = VideoHandler.STATES.STABLE;
   }
 
   static _removeVideoPlayers (youtubeIdToRetain) {
@@ -85,7 +211,7 @@ export class VideoHandler {
   }
 
   static _getVideoPlayer (youtubeId) {
-    console.log('getting video player for ' + youtubeId);
+    console.log('Getting video player for ' + youtubeId);
     var masthead = document.querySelector('.masthead');
     var videoPlayer = document.querySelector(
         '.youtube-video-player[data-youtube-id="' + youtubeId + '"]');
@@ -109,11 +235,6 @@ export class VideoHandler {
       console.warn('Expected link for ', youtubeId);
       return;
     }
-    /**
-     * <a title="Play video of A Million Ways to Argue Over Minutiae" class="youtube-video-player__thumb" href="https://www.youtube.com/watch?v=qDJAz3IIq18">
-    <img role="presentation" src="http://img.youtube.com/vi/qDJAz3IIq18/0.jpg" alt="A Million Ways to Argue Over Minutiae">
-  </a>
-     */
 
     videoPlayer.appendChild(link);
   }
@@ -129,6 +250,7 @@ export class VideoHandler {
     iframe.setAttribute('allowfullscreen', 'true');
 
     videoPlayer.appendChild(iframe);
+    videoPlayer.dataset.href = window.location.href;
 
     VideoHandler._removeVideoPlayers(youtubeId);
   }

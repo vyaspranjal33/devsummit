@@ -70,6 +70,7 @@ export function init () {
       this._request.send();
 
       this._updateNavLinks();
+      VideoHandler.toggleSmallPlayerIfNeeded();
     }
 
     _updateNavLinks () {
@@ -100,7 +101,6 @@ export function init () {
       this._mastheadGraphic.addEventListener('transitionend',
           this._onTransitionEnd);
 
-      VideoHandler.setPictureInPictureIfNeeded();
       document.body.classList.add('hide-areas');
     }
 
