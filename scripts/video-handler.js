@@ -148,6 +148,8 @@ export class VideoHandler {
     playingVideoContainer.classList.remove('youtube-video-player--small-player-animatable');
 
     var last = playingVideoContainer.getBoundingClientRect();
+    var existingTransform =
+        window.getComputedStyle(playingVideoContainer).transform;
 
     var x = first.right - last.right;
     var y = first.bottom - last.bottom;
@@ -155,7 +157,7 @@ export class VideoHandler {
 
     playingVideoContainer.classList.add('youtube-video-player--small-player');
     playingVideoContainer.style.transform =
-        'translateX(-50%) ' +
+        existingTransform +
         'translate(' + x + 'px, ' + y + 'px) scale(' + s + ')';
 
     // Wait a frame for the translate to take hold.
