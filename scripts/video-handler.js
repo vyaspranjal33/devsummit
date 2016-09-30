@@ -52,6 +52,9 @@ export class VideoHandler {
         // Different video, embed the link...
         console.log('Different video (' + youtubeId + '), embed the link.');
         VideoHandler.embedLink(youtubeId, link);
+      } else {
+        // Dismiss any players besides the current one.
+        VideoHandler._removeVideoPlayers(playingVideoContainer.dataset.youtubeId);
       }
     } else if (youtubeVideoElement) {
       // Embed the link to the new video...
