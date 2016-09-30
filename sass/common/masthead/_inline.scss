@@ -17,6 +17,44 @@
 
 .masthead {
   position: relative;
+
+  &:after {
+    content: '';
+    background: url(/devsummit/static/images/masthead/spinner.png) center center no-repeat;
+    background-size: 32px 32px;
+    border-radius: 50%;
+    width: $baseline * 8;
+    height: $baseline * 8;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    will-change: opacity;
+    transform: translate(-50%, -50%);
+  }
+
+  &--spinner:after {
+    opacity: 1;
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg) ;
+  }
+}
+
+.animatable .masthead--spinner:after {
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
 }
 
 .masthead__graphic,
@@ -41,7 +79,7 @@
 }
 
 .masthead.expanded {
-  margin-bottom: $baseline * 16;
+  margin-bottom: $baseline * 6;
 }
 
 .masthead svg {
@@ -52,12 +90,12 @@
 
 .masthead-underlay {
   position: absolute;
-  height: $baseline * 116;
+  height: $baseline * 106;
   padding-top: $baseline * 48;
   width: 100%;
   top: 0;
   left: 0;
-  transform: translateY(-69%);
+  transform: translateY(-66%);
 }
 
 .animatable .masthead-underlay {
@@ -90,7 +128,7 @@
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(-130%);
+  transform: translateY(-147%);
 }
 
 .masthead.expanded .masthead-underlay {
@@ -127,9 +165,9 @@
   }
 
   .masthead-underlay {
-    height: $baseline * 108;
+    height: $baseline * 116;
     padding-top: $baseline * 50;
-    transform: translateY(-56%);
+    transform: translateY(-59%);
   }
 
   .masthead.expanded {

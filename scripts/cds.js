@@ -30,11 +30,11 @@ export function init () {
     constructor () {
       this._isSwapping = false;
       this._request = null;
+      this._spinnerTimeout = 0;
       this._onChanged = this._onChanged.bind(this);
       this._onLoad = this._onLoad.bind(this);
       this._onClick = this._onClick.bind(this);
       this._onSwapComplete = this._onSwapComplete.bind(this);
-      this._onTransitionEnd = this._onTransitionEnd.bind(this);
       this._newContent = null;
 
       this._masthead = document.querySelector('.masthead');
@@ -51,8 +51,6 @@ export function init () {
     }
 
     _onLoad (evt) {
-      this._hideAreasAndSwapContents();
-
       // Bail if this request has been superseded by another, more recent req.
       if (evt.target !== this._request) {
         return;
@@ -62,15 +60,48 @@ export function init () {
     }
 
     _onChanged () {
-      var path = window.location.pathname + window.location.search;
-      this._request = new XMLHttpRequest();
-      this._request.responseType = 'document';
-      this._request.onload = this._onLoad;
-      this._request.open('get', path);
-      this._request.send();
-
-      this._updateNavLinks();
       VideoHandler.toggleSmallPlayerIfNeeded();
+      this._updateNavLinks();
+      this._showSpinner();
+
+      Promise.all([
+        this._hideAreas(),
+        this._loadNewPath()
+      ]).then(function () {
+        if (this._isSwapping) {
+          return;
+        }
+        this._isSwapping = true;
+
+        this._hideSpinner();
+        this._swapContents();
+      }.bind(this));
+    }
+
+    _showSpinner () {
+      this._spinnerTimeout = setTimeout(function () {
+        this._masthead.classList.add('masthead--spinner');
+      }.bind(this), 1000);
+    }
+
+    _hideSpinner () {
+      clearTimeout(this._spinnerTimeout);
+      this._masthead.classList.remove('masthead--spinner');
+    }
+
+    _loadNewPath () {
+      return new Promise(function (resolve, reject) {
+        var path = window.location.pathname + window.location.search;
+        this._request = new XMLHttpRequest();
+        this._request.responseType = 'document';
+        this._request.onload = function (evt) {
+          this._onLoad(evt);
+          resolve();
+        }.bind(this);
+        this._request.onerror = reject;
+        this._request.open('get', path);
+        this._request.send();
+      }.bind(this));
     }
 
     _updateNavLinks () {
@@ -92,19 +123,14 @@ export function init () {
       }
     }
 
-    _hideAreasAndSwapContents () {
-      if (this._isSwapping) {
-        return;
-      }
-      this._isSwapping = true;
-
-      this._mastheadGraphic.addEventListener('transitionend',
-          this._onTransitionEnd);
-
-      document.body.classList.add('hide-areas');
+    _hideAreas () {
+      return new Promise(function (resolve, reject) {
+        document.body.classList.add('hide-areas');
+        this._mastheadGraphic.addEventListener('transitionend', resolve);
+      }.bind(this));
     }
 
-    _onTransitionEnd () {
+    _swapContents () {
       var newTitle = this._newContent.querySelector('.masthead__title');
       var newMasthead =
           this._newContent.querySelector('.masthead');

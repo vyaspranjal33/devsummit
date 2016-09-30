@@ -23,7 +23,7 @@
   z-index: 7000;
 }
 
-.youtube-video-player--pip {
+.youtube-video-player--small-player {
   z-index: 8000;
 }
 
@@ -37,6 +37,10 @@
 
 .section-schedule {
   z-index: 6000;
+}
+
+.masthead:after {
+  z-index: 30;
 }
 
 .masthead__title {
