@@ -46,8 +46,9 @@
   display: flex;
   align-items: center;
   position: relative;
-  flex: 1;
   padding: $baseline;
+  flex: 0 0 auto;
+  width: $baseline * 10;
 }
 
 .logo__icon {
@@ -205,6 +206,8 @@
   .menu {
     display: flex;
     align-items: center;
+    flex: 1;
+    justify-content: flex-end;
   }
 
   .menu__toggle,

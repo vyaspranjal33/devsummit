@@ -75,7 +75,8 @@ html, body {
 
 body {
   background: #FAFAFA;
-  line-height: 1.5; }
+  line-height: 1.5;
+  scroll-behavior: smooth; }
 
 h2 {
   padding-top: 8px;
@@ -106,10 +107,10 @@ a {
   z-index: 10000; }
 
 .header {
-  z-index: 6000; }
+  z-index: 7000; }
 
 .youtube-video-player {
-  z-index: 7000; }
+  z-index: 6500; }
 
 .youtube-video-player--small-player {
   z-index: 8000; }
@@ -359,8 +360,9 @@ a {
   display: flex;
   align-items: center;
   position: relative;
-  flex: 1;
-  padding: 8px; }
+  padding: 8px;
+  flex: 0 0 auto;
+  width: 80px; }
 
 .logo__icon {
   display: flex;
@@ -491,7 +493,9 @@ a {
       height: 64px; }
   .menu {
     display: flex;
-    align-items: center; }
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end; }
   .menu__toggle,
   .menu__toggle-label {
     display: none; }
@@ -917,6 +921,8 @@ a {
   color: #262626; }
 
 @media (max-width: 423px) {
+  .logo {
+    width: 248px; }
   .logo__icon::after {
     content: 'Chrome Dev Summit'; } }
 
@@ -925,6 +931,8 @@ a {
     background-size: 48px 48px; } }
 
 @media (min-width: 672px) {
+  .logo {
+    width: 248px; }
   .logo__icon::after {
     content: 'Chrome Dev Summit'; } }
 

@@ -50,6 +50,10 @@
 }
 
 @media (max-width: 423px) {
+  .logo {
+    width: $baseline * 31;
+  }
+
   .logo__icon::after {
     content: 'Chrome Dev Summit';
   }
@@ -62,6 +66,10 @@
 }
 
 @media (min-width: 672px) {
+  .logo {
+    width: $baseline * 31;
+  }
+
   .logo__icon::after {
     content: 'Chrome Dev Summit';
   }
