@@ -60,6 +60,7 @@ export function init () {
     }
 
     _onChanged () {
+      window.scrollTo(0, 0);
       VideoHandler.toggleSmallPlayerIfNeeded();
       this._updateNavLinks();
       this._showSpinner();
