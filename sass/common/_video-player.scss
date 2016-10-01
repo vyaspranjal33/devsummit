@@ -46,6 +46,15 @@
   }
 }
 
+.youtube-video-player__link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .youtube-video-player img {
   width: 100%;
 }
@@ -107,6 +116,10 @@
     transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1),
         transform 0.5s cubic-bezier(0, 0, 0.3, 1)
   }
+}
+
+.youtube-video-player--small-player .youtube-video-player__link {
+  pointer-events: auto;
 }
 
 .hide-areas .youtube-video-player {

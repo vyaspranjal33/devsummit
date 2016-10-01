@@ -248,6 +248,7 @@ export class VideoHandler {
     var youtubeId = /\?v=([^\/&]+)/.exec(youtubeURL)[1];
     var videoPlayer = VideoHandler._getVideoPlayer(youtubeId);
     var iframe = document.createElement('iframe');
+    var videoLink = document.createElement('a');
 
     iframe.classList.add('youtube-video-player__thumb');
     iframe.src = 'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1';
@@ -257,6 +258,12 @@ export class VideoHandler {
     videoPlayer.classList.add('youtube-video-player--opacity-locked');
     videoPlayer.appendChild(iframe);
     videoPlayer.dataset.href = window.location.href;
+
+    // Append a link so people can get back to the page where the video's
+    // embedded, meaning it goes back to the big size.
+    videoLink.href = window.location.href;
+    videoLink.classList.add('youtube-video-player__link');
+    videoPlayer.appendChild(videoLink);
 
     VideoHandler._removeVideoPlayers(youtubeId);
   }
