@@ -18,6 +18,7 @@
 'use strict';
 
 import {VideoHandler} from './video-handler';
+import {SideNav} from './side-nav';
 
 var initialized = false;
 export function init () {
@@ -25,6 +26,7 @@ export function init () {
     return;
   }
   initialized = true;
+  SideNav.init();
 
   class CDS {
     constructor () {
@@ -154,9 +156,11 @@ export function init () {
         this._mastheadTitle.innerHTML =
             newTitle.innerHTML;
         this._mastheadTitle.removeAttribute('aria-hidden');
+        this._mastheadTitle.focus();
       } else {
         this._mastheadTitle.innerHTML = '';
         this._mastheadTitle.setAttribute('aria-hidden', 'true');
+        this._pageContent.focus();
       }
 
       // Take a copy of the page-specific styles if they don't already exist.
@@ -231,6 +235,7 @@ export function init () {
         if (isInternal) {
           evt.preventDefault();
           this.go(node.href);
+          SideNav.close();
         } else if (isYouTube) {
           evt.preventDefault();
           VideoHandler.beginPlayback(node.href);

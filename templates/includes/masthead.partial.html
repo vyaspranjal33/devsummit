@@ -19,7 +19,7 @@
 {% else %}
 <div class="masthead{% if is_expanded %} expanded{% endif %}">
 
-  <h1 class="masthead__title"{% if not title %} aria-hidden="true"{% endif %}>{{ title }}</h1>
+  <h1 tabindex="-1" class="masthead__title"{% if not title %} aria-hidden="true"{% endif %}>{{ title }}</h1>
 
   <div class="masthead__graphic-underlay">
     <svg width="100%" height="99.8%" preserveAspectRatio="xMidYMax slice" viewBox="0 0 1224 612">

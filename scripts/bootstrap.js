@@ -18,6 +18,7 @@
 'use strict';
 
 import {loadStyles} from './utils';
+import {loadScript} from './utils';
 import {installServiceWorker} from './sw-install';
 import * as CDS from './cds';
 
@@ -34,4 +35,5 @@ function loadPageStyles () {
   installServiceWorker();
   loadPageStyles();
   CDS.init();
+  loadScript('{{ "/devsummit/static/third_party/scripts/inert.min.js" | add_hash }}', false);
 })();
