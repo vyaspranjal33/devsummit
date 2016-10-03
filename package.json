@@ -1,6 +1,6 @@
 {
   "name": "chrome-dev-summit-2016",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "description": "Chrome Dev Summit 2016",
   "main": "index.js",
   "scripts": {
@@ -36,6 +36,7 @@
     "parallelshell": "^2.0.0",
     "rollup": "^0.36.0",
     "rollup-plugin-cleanup": "^0.1.4",
-    "rollup-watch": "^2.5.0"
+    "rollup-watch": "^2.5.0",
+    "walk": "^2.3.9"
   }
 }

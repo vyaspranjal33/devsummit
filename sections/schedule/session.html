@@ -1,5 +1,15 @@
 {% extends "templates/base.html" %}
 {% set mastheadimage="/devsummit/static/images/masthead/collage-masthead" %}
+{% set mastheadimagetitle="A collage of photos from Chrome Dev Summit 2015." %}
+{% set session_info=(sessions | find_session(url)) %}
+
+{% if session_info["youtubeId"] %}
+  {% set mastheadimage="/devsummit/static/images/masthead/collage-masthead-blurred" %}
+  {% set mastheadimagetitle="A blurred collage of photos from Chrome Dev Summit 2015." %}
+{% endif %}
+
+{% set youtubeId=session_info["youtubeId"] %}
+
 {% set pagestyles="static/styles/sessions.css" %}
 {% set section="Session" %}
 {% block content %}
@@ -12,15 +22,17 @@
 
       <div class="session-speaker-info__image"></div>
       <div class="session-breakdown">
-        <h2 class="session-info__title">Endless Economic Epithets</h2>
+        <h2 class="session-info__title">{{ session_info["name"] }}</h2>
         <h3 class="session-info__speaker">
-            Alex Russell, Software Engineer
+            {{ session_info["speaker"] }}, {{ session_info["speakerRole"] }}
         </h3>
 
         <div class="session-info__description">
-          <p>Alex gives an overview of why web apps don’t feel “appy” today, and shows how Service Worker is enabling a whole new world of appiness - beyond the simple goal of making web apps work offline, to building truly engaging web applications.</p>
+          <p>{{ session_info["description"] }}</p>
         </div>
       </div>
     </div>
   </div>
+
+
 {% endblock %}

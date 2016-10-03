@@ -1,0 +1,36 @@
+{
+  "2016-11-10": {
+    "08:30:00": {
+      "name": "Registration and Breakfast",
+      "description": "Food is awesome!"
+    },
+
+    "09:30:00": {
+      "name": "Endless Economic Epithets",
+      "speaker": "Alex Russell",
+      "speakerRole": "Software Engineer",
+      "speakerImg": "/",
+      "url": "/devsummit/schedule/sessions/session-1",
+      "description": "Alex gives an overview of why web apps don’t feel “appy” today, and shows how Service Worker is enabling a whole new world of appiness - beyond the simple goal of making web apps work offline, to building truly engaging web applications."
+    },
+
+    "10:00:00": {
+      "name": "A Million Ways to Argue Over Minutiae",
+      "speaker": "Jake Archibald",
+      "speakerRole": "Developer Advocate",
+      "speakerImg": "/",
+      "url": "/devsummit/schedule/sessions/session-2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et velit consectetur, dignissim massa a, convallis arcu. Nulla sed leo sit amet lectus euismod venenatis in faucibus lorem. Aliquam erat volutpat. Donec luctus luctus dui non placerat. Suspendisse venenatis metus nisi, sit amet accumsan sapien placerat at. Vivamus rutrum sodales lectus et gravida. Nullam feugiat facilisis maximus. Praesent egestas nulla sed dolor facilisis, eu egestas lectus gravida.",
+      "youtubeId": "qDJAz3IIq18"
+    }},
+  "2016-11-11": {
+    "09:30:00": {
+      "name": "Day 2; Session 1",
+      "speaker": "Speakery Speaker",
+      "speakerRole": "Software Engineer",
+      "speakerImg": "/",
+      "url": "/devsummit/schedule/sessions/session-11",
+      "description": "Session overview."
+    }
+  }
+}

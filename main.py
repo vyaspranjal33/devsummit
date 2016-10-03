@@ -22,6 +22,7 @@ import re
 import json
 import mimetypes
 import hashlib
+from datetime import datetime
 
 _SERVICE_WORKER_PATH = 'static/scripts/sw.js'
 
@@ -30,6 +31,10 @@ version = None
 with open('./package.json') as f:
     data = json.load(f)
     version = data["version"]
+
+sessions = None
+with open('./static/json/sessions.json') as s:
+    sessions = json.load(s)
 
 # Set up the environment.
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -70,8 +75,64 @@ def add_hash(path):
 
     return re.sub(r'(.*?)\.(.*)$', ("\\1.%s.\\2" % file_hash.hexdigest()), path)
 
+def find_session(sessions_info, url):
+    """Finds an individual session based off the URL.
+
+    Args:
+      url: (string) The URL to use to match the session.
+
+    Returns:
+      Returns the session info or none.
+    """
+    # Try and find the session info.
+    for _, day in sessions_info.iteritems():
+        for _, session in day.iteritems():
+            if "url" not in session:
+                continue
+
+            if session["url"] == ('/devsummit/%s' % url):
+                return session
+
+    return None
+
+def as_pst(time, date):
+    """Converts the datetime to a PST-centric label.
+
+    Args:
+      time: (string) The time of day in HH:MM:SS format.
+      date: (string) The date in YYYY-mm-dd format.
+
+    Returns:
+      Returns the PST label.
+    """
+    # Try and find the session info.
+    date = datetime.strptime('%sT%s' % (date, time), '%Y-%m-%dT%H:%M:%S')
+    meridiem = 'AM'
+    if date.hour > 12:
+      meridiem = 'PM'
+
+    return '%s %s PST' % (date.hour % 12, meridiem)
+
+def as_24hr(time):
+    """Converts the time to a 24hr label.
+
+    Args:
+      time: (string) The time of day in HH:MM:SS format.
+
+    Returns:
+      Returns the PST label.
+    """
+    return re.sub(r"[^\d]", "", time)[:4]
+
+def get_keys_for_date(sessions_info, date):
+    return sorted(sessions_info[date].keys())
+
 JINJA_ENVIRONMENT.filters["add_hash"] = add_hash
 JINJA_ENVIRONMENT.filters["convert_to_class"] = convert_to_class
+JINJA_ENVIRONMENT.filters["find_session"] = find_session
+JINJA_ENVIRONMENT.filters["as_pst"] = as_pst
+JINJA_ENVIRONMENT.filters["as_24hr"] = as_24hr
+JINJA_ENVIRONMENT.filters["get_keys_for_date"] = get_keys_for_date
 
 class MainHandler(webapp2.RequestHandler):
 
@@ -95,6 +156,8 @@ class MainHandler(webapp2.RequestHandler):
             # For a total non-match we're looking at the root
             if template is None:
                 template_info["path"] = "sections/home.html"
+            elif re.search(r"sessions", url):
+                template_info["path"] = "sections/schedule/session.html"
             else:
                 template_info["path"] = "sections/" + url + ".html"
 
@@ -134,7 +197,8 @@ class MainHandler(webapp2.RequestHandler):
                 version=version,
                 url=url,
                 autoplay=autoplay,
-                is_live=True
+                is_live=True,
+                sessions=sessions
             )
         except jinja2.TemplateNotFound as template_name:
             print ("Template not found: %s (requested by %s)" %

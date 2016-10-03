@@ -81,9 +81,10 @@
   }
 }
 
+.schedule-item__placeholder,
 .schedule-item__speaker {
   width: $baseline * 26;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -140,7 +141,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  flex: 1 0 auto;
+  flex: 0 0 auto;
   align-self: stretch;
 
   &:before,
@@ -177,6 +178,12 @@
   }
 }
 
+.schedule-item__placeholder {
+  &:before {
+    display: none;
+  }
+}
+
 .schedule-item__title {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: 700;
@@ -188,7 +195,7 @@
 }
 
 .schedule-item__description {
-  flex: 1 1 auto;
+  flex: 1 0 auto;
   font-size: 14px;
   color: #393939;
   line-height: 24px;
@@ -205,7 +212,8 @@
     margin-top: $baseline * -4;
   }
 
-  .schedule-item__speaker {
+  .schedule-item__speaker,
+  .schedule-item__placeholder {
     display: flex;
   }
 
