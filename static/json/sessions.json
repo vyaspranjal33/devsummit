@@ -1,11 +1,11 @@
 {
   "2016-10-05": {
-    "08:23:00": {
+    "10:00:00": {
       "name": "Registration and Breakfast",
       "description": "Food is awesome!"
     },
 
-    "08:23:05": {
+    "11:45:00": {
       "name": "Endless Economic Epithets",
       "speaker": "Alex Russell",
       "speakerRole": "Software Engineer",
@@ -14,7 +14,12 @@
       "description": "Alex gives an overview of why web apps don’t feel “appy” today, and shows how Service Worker is enabling a whole new world of appiness - beyond the simple goal of making web apps work offline, to building truly engaging web applications."
     },
 
-    "08:23:10": {
+    "12:15:00": {
+      "name": "Lunch",
+      "description": "Food is still awesome!"
+    },
+
+    "13:30:00": {
       "name": "A Million Ways to Argue Over Minutiae",
       "speaker": "Jake Archibald",
       "speakerRole": "Developer Advocate",
@@ -24,7 +29,7 @@
       "youtubeId": "qDJAz3IIq18"
     },
 
-    "08:23:16": {
+    "14:15:00": {
       "name": "A Million Ways to Argue Over Minutiae 2",
       "speaker": "Jake Archibald",
       "speakerRole": "Developer Advocate",
@@ -34,7 +39,7 @@
       "youtubeId": "qDJAz3IIq18"
     },
 
-    "08:23:20": {
+    "15:00:00": {
       "name": "A Waffle On About Performance",
       "speaker": "Paul Irish",
       "speakerRole": "Program Manager",
@@ -43,7 +48,7 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et velit consectetur."
     },
 
-    "08:23:30": {
+    "15:45:00": {
       "name": "A Thing About HTTP/2",
       "speaker": "Surma",
       "speakerRole": "Developer Programs Engineer",
@@ -54,7 +59,7 @@
   },
 
   "2016-10-06": {
-    "04:07:00": {
+    "08:30:00": {
       "name": "Registration and Breakfast",
       "description": "Food is awesome!"
     },

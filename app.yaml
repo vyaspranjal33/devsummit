@@ -1,11 +1,13 @@
 application: chromedevsummit-site-2016
-version: v20161019
+version: v20161005b
 
 runtime: python27
 api_version: 1
 threadsafe: true
 skip_files:
 - (^node_modules/.*)
+- (^.git/.*)
+- .DS_Store
 
 handlers:
 
