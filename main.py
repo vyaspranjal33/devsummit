@@ -22,6 +22,7 @@ import re
 import json
 import mimetypes
 import hashlib
+import filters
 from datetime import datetime
 
 _SERVICE_WORKER_PATH = 'static/scripts/sw.js'
@@ -42,97 +43,15 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-def convert_to_class(name):
-    """Converts a section name to a CSS class.
-
-    Args:
-      name: (string) The section name.
-
-    Returns:
-      Returns a CSS class (string) of the section name.
-    """
-    return re.sub(r"\s", "-", name.lower())
-
-
-def add_hash(path):
-    """Generates a hash from a file.
-
-    Args:
-      path: (string) The path to the file to generate the hash from.
-
-    Returns:
-      Returns a hash digest (string) of the file.
-    """
-    blocksize = 32768
-    file_hash = hashlib.sha256()
-    file_path = re.sub(r'/devsummit/', './', path)
-
-    with open(file_path) as file_to_hash:
-        file_buffer = file_to_hash.read(blocksize)
-        while (len(file_buffer) > 0):
-            file_hash.update(file_buffer)
-            file_buffer = file_to_hash.read(blocksize)
-
-    return re.sub(r'(.*?)\.(.*)$', ("\\1.%s.\\2" % file_hash.hexdigest()), path)
-
-def find_session(sessions_info, url):
-    """Finds an individual session based off the URL.
-
-    Args:
-      url: (string) The URL to use to match the session.
-
-    Returns:
-      Returns the session info or none.
-    """
-    # Try and find the session info.
-    for _, day in sessions_info.iteritems():
-        for _, session in day.iteritems():
-            if "url" not in session:
-                continue
-
-            if session["url"] == ('/devsummit/%s' % url):
-                return session
-
-    return None
-
-def as_pst(time, date):
-    """Converts the datetime to a PST-centric label.
-
-    Args:
-      time: (string) The time of day in HH:MM:SS format.
-      date: (string) The date in YYYY-mm-dd format.
-
-    Returns:
-      Returns the PST label.
-    """
-    # Try and find the session info.
-    date = datetime.strptime('%sT%s' % (date, time), '%Y-%m-%dT%H:%M:%S')
-    meridiem = 'AM'
-    if date.hour > 12:
-      meridiem = 'PM'
-
-    return '%s %s PST' % (date.hour % 12, meridiem)
-
-def as_24hr(time):
-    """Converts the time to a 24hr label.
-
-    Args:
-      time: (string) The time of day in HH:MM:SS format.
-
-    Returns:
-      Returns the PST label.
-    """
-    return re.sub(r"[^\d]", "", time)[:4]
-
-def get_keys_for_date(sessions_info, date):
-    return sorted(sessions_info[date].keys())
-
-JINJA_ENVIRONMENT.filters["add_hash"] = add_hash
-JINJA_ENVIRONMENT.filters["convert_to_class"] = convert_to_class
-JINJA_ENVIRONMENT.filters["find_session"] = find_session
-JINJA_ENVIRONMENT.filters["as_pst"] = as_pst
-JINJA_ENVIRONMENT.filters["as_24hr"] = as_24hr
-JINJA_ENVIRONMENT.filters["get_keys_for_date"] = get_keys_for_date
+JINJA_ENVIRONMENT.filters["add_hash"] = filters.add_hash
+JINJA_ENVIRONMENT.filters["convert_to_class"] = filters.convert_to_class
+JINJA_ENVIRONMENT.filters["find_session"] = filters.find_session
+JINJA_ENVIRONMENT.filters["as_pst"] = filters.as_pst
+JINJA_ENVIRONMENT.filters["as_24hr"] = filters.as_24hr
+JINJA_ENVIRONMENT.filters["get_keys_for_date"] = filters.get_keys_for_date
+JINJA_ENVIRONMENT.filters["get_current_session"] = filters.get_current_session
+JINJA_ENVIRONMENT.filters["get_next_session"] = filters.get_next_session
+JINJA_ENVIRONMENT.filters["get_upcoming_sessions"] = filters.get_upcoming_sessions
 
 class MainHandler(webapp2.RequestHandler):
 

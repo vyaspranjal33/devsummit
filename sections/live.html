@@ -6,54 +6,67 @@
 {% set youtubeId="0dNY8ycca1Y" %}
 {% set video_name="Chrome Dev Summit Live Stream" %}
 {% set has_divider=True %}
+{% set current_session=(sessions | get_current_session) %}
+{% set next_session=(sessions | get_next_session) %}
+{% set upcoming_sessions=(sessions | get_upcoming_sessions) %}
 {% block content %}
   <section class="live-info">
-    <div class="live-info__item">
-      <h2 class="live-info__section">Live now</h2>
-      <h3 class="live-info__title">Jake Archibald: A Million Ways to Argue Over Minutiae</h3>
-      <p class="live-info__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam faucibus enim ut odio tempor sagittis eget sit amet turpis. Donec convallis luctus augue. Nunc orci neque, vestibulum quis erat non, malesuada
-sollicitudin orci.</p>
+    <div class="live-info__item live-info__item-current js-live-info-current"{% if not current_session %} aria-hidden="true"{% endif %}>
+      <h2 class="live-info__section">
+          {% if current_session %}
+            Live Now
+          {% endif %}
+      </h2>
+      <h3 class="live-info__title">
+          {% if current_session.speaker %}
+            {{ current_session.speaker }}:
+          {% endif %}
+          {{ current_session.name }}
+      </h3>
+      <p class="live-info__description">
+        {{ current_session.description }}
+      </p>
     </div>
 
-    <div class="live-info__item">
-      <h2 class="live-info__section">Up Next...</h2>
-      <h3 class="live-info__title">Alex Russell: Endless Economic Epithets</h3>
-      <h4 class="live-info__time">14.30am PST, Main Auditorium</h4>
-      <p class="live-info__description">Vivamus aliquet mollis ligula, luctus malesuada erat consequat gravida.
-        Proin faucibus nisl pulvinar lobortis lobortis. Nullam quis odio ut elit
-        suscipit pharetra. Nullam molestie risus tempor lorem aliquet hendrerit.
-        Cras et magna quis est tincidunt vulputate.</p>
+    <div class="live-info__item live-info__item-next js-live-info-next"{% if not next_session %} aria-hidden="true"{% endif %}>
+      <h2 class="live-info__section">
+          {% if next_session["details"].name %}
+            Up Next...
+          {% endif %}
+      </h2>
+      <h3 class="live-info__title">
+          {% if next_session["details"].speaker %}
+            {{ next_session["details"].speaker }}:
+          {% endif %}
+          {{ next_session["details"].name }}
+      </h3>
+      <h4 class="live-info__time">
+        {% if next_session["datetime"] %}
+          {{ next_session["datetime"].strftime('%-H:%M %p PST') }}
+        {% endif %}
+      </h4>
+      <p class="live-info__description">
+        {{ next_session["details"].description }}
+      </p>
     </div>
   </section>
 
-  <section class="live-coming-up">
-    <h2 class="live-coming-up__title" >Coming up</h2>
+  <section class="live-coming-up{% if not upcoming_sessions%} live-coming-up--empty{% endif %}"
+    {% if not upcoming_sessions%} aria-hidden="true"{% endif %}>
+    <h2 class="live-coming-up__title">Coming up</h2>
 
     <ol class="live-coming-up__list">
+      {% for upcoming_session in upcoming_sessions %}
       <li class="live-coming-up__item">
-        <time class="live-coming-up__item-time" datetime="">1500</time>
+        <time class="live-coming-up__item-time" datetime="">{{ upcoming_session["datetime"].strftime('%H%M') }}</time>
         <a class="live-coming-up__item-description">
-          <h3 class="live-coming-up__item-title">Easy Composition and Reuse with Web Components</h3>
-          <p class="live-coming-up__item-author">Dimitri Glazkov</p>
+          <h3 class="live-coming-up__item-title">{{ upcoming_session["details"].name }}</h3>
+          {% if upcoming_session["details"].speaker %}
+          <p class="live-coming-up__item-author">{{ upcoming_session["details"].speaker }}</p>
+          {% endif %}
         </a>
       </li>
-
-      <li class="live-coming-up__item">
-        <time class="live-coming-up__item-time" datetime="">1600</time>
-        <a class="live-coming-up__item-description">
-          <h3 class="live-coming-up__item-title">Polymer: State of the Union</h3>
-          <p class="live-coming-up__item-author">Dimitri Glazkov</p>
-        </a>
-      </li>
-
-
-      <li class="live-coming-up__item">
-        <time class="live-coming-up__item-time" datetime="">1700</time>
-        <a class="live-coming-up__item-description">
-          <h3 class="live-coming-up__item-title">Let's build some apps with Polymer!</h3>
-          <p class="live-coming-up__item-author">Rob “BobDod” Dodson</p>
-        </a>
-      </li>
+      {% endfor %}
     </ol>
   </section>
 {% endblock %}

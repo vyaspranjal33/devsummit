@@ -19,6 +19,7 @@
 
 import {VideoHandler} from './video-handler';
 import {SideNav} from './side-nav';
+import {LiveSessionInfo} from './live-session-info';
 
 var initialized = false;
 export function init () {
@@ -27,6 +28,7 @@ export function init () {
   }
   initialized = true;
   SideNav.init();
+  LiveSessionInfo.init();
 
   class CDS {
     constructor () {
@@ -212,9 +214,14 @@ export function init () {
 
     _onSwapComplete () {
       this._isSwapping = false;
+      LiveSessionInfo.toggle();
     }
 
     go (url) {
+      if (window.location.href === url) {
+        return;
+      }
+
       window.history.pushState(null, null, url);
       return this._onChanged();
     }
@@ -230,7 +237,7 @@ export function init () {
 
       if (node) {
         var isInternal = /devsummit/.test(node.href);
-        var isYouTube = /youtube.com/.test(node.href);
+        var isYouTube = /youtube\.com/.test(node.href);
 
         if (isInternal) {
           evt.preventDefault();

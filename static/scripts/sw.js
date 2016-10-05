@@ -65,5 +65,8 @@ self.onfetch = evt => {
 
   // TODO(paullewis): remap @1x images to @1.5x
 
+  // TODO(paullewis): ensure that requests going to google-analytics.com are
+  // fetched only.
+
   evt.respondWith(fetch(evt.request));
 };

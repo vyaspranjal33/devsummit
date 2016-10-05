@@ -4,6 +4,8 @@ version: v20161019
 runtime: python27
 api_version: 1
 threadsafe: true
+skip_files:
+- (^node_modules/.*)
 
 handlers:
 

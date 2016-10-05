@@ -197,7 +197,7 @@
   }
 
   .masthead.expanded {
-    margin-bottom: $baseline * 12;
+    margin-bottom: $baseline * 8;
   }
 
   .masthead svg.masthead-underlay__accent {
@@ -210,6 +210,12 @@
     &.masthead-underlay__divider--invisible {
       display: none;
     }
+  }
+}
+
+@media (min-width: 840px) {
+  .masthead.expanded {
+    margin-bottom: $baseline * 10;
   }
 }
 
@@ -226,7 +232,7 @@
   }
 
   .masthead.expanded {
-    margin-bottom: $baseline * 8;
+    margin-bottom: $baseline * 7;
   }
 
   .masthead svg.masthead-underlay__accent {
