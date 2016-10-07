@@ -161,6 +161,7 @@
   background: url(/devsummit/static/images/header/header-live-cta.svg) center center no-repeat;
   background-size: 100% 100%;
   text-decoration: none;
+  opacity: 0;
 }
 
 .animatable .header__live-stream {
@@ -170,10 +171,6 @@
 .header__live-stream {
   &.visible {
     opacity: 1;
-  }
-
-  &.invisible {
-    opacity: 0;
   }
 }
 

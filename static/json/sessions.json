@@ -1,11 +1,11 @@
 {
-  "2016-10-05": {
-    "10:00:00": {
+  "2016-10-06": {
+    "08:00:00": {
       "name": "Registration and Breakfast",
       "description": "Food is awesome!"
     },
 
-    "11:45:00": {
+    "09:45:00": {
       "name": "Endless Economic Epithets",
       "speaker": "Alex Russell",
       "speakerRole": "Software Engineer",
@@ -14,7 +14,7 @@
       "description": "Alex gives an overview of why web apps don’t feel “appy” today, and shows how Service Worker is enabling a whole new world of appiness - beyond the simple goal of making web apps work offline, to building truly engaging web applications."
     },
 
-    "12:15:00": {
+    "10:15:00": {
       "name": "Lunch",
       "description": "Food is still awesome!"
     },
@@ -58,10 +58,10 @@
     }
   },
 
-  "2016-10-06": {
+  "2016-10-07": {
     "08:30:00": {
       "name": "Registration and Breakfast",
-      "description": "Food is awesome!"
+      "description": "Food is awesome (day 2)!"
     },
 
     "09:30:00": {

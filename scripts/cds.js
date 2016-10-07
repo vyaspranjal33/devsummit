@@ -17,9 +17,10 @@
 
 'use strict';
 
-import {VideoHandler} from './video-handler';
-import {SideNav} from './side-nav';
-import {LiveSessionInfo} from './live-session-info';
+import {VideoHandler} from './components/video-handler';
+import {SideNav} from './components/side-nav';
+import {LiveSessionInfo} from './components/live-session-info';
+import {LiveBanner} from './components/live-banner';
 
 var initialized = false;
 export function init () {
@@ -28,7 +29,8 @@ export function init () {
   }
   initialized = true;
   SideNav.init();
-  LiveSessionInfo.init();
+  LiveSessionInfo.toggle();
+  LiveBanner.toggle();
 
   class CDS {
     constructor () {
@@ -215,6 +217,7 @@ export function init () {
     _onSwapComplete () {
       this._isSwapping = false;
       LiveSessionInfo.toggle();
+      LiveBanner.toggle();
     }
 
     go (url) {

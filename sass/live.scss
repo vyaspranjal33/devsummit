@@ -143,6 +143,12 @@
   color: #416F43;
 }
 
+.live-coming-up__item-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
 @media (min-width: 360px) {
   .live-info {
     min-height: $baseline * 64;

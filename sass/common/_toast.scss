@@ -15,12 +15,19 @@
  * limitations under the License.
  */
 
-@import 'common/_variables';
-@import 'common/_base';
-@import 'common/_zindex';
-@import 'common/_video-player';
-@import 'common/_toast';
-@import 'common/header/_inline';
-@import 'common/masthead/_inline';
-@import 'common/page-content/_inline';
-@import 'common/footer/_inline';
+.toast {
+  padding: $baseline $baseline * 2;
+  background: rgba(0, 0, 0, 0.7);
+  color: #FFF;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  transition: opacity 1s cubic-bezier(0, 0, 0.3, 1);
+  position: fixed;
+  left: $baseline * 2;
+  bottom: $baseline * 2;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.toast--dismissed {
+  opacity: 0;
+}

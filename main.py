@@ -23,9 +23,12 @@ import json
 import mimetypes
 import hashlib
 import filters
+import datetime
 from datetime import datetime
+from datetime import timedelta
 
 _SERVICE_WORKER_PATH = 'static/scripts/sw.js'
+_PST_ADJUSTMENT = 25200
 
 # Grab the version from the package.json.
 version = None
@@ -34,8 +37,17 @@ with open('./package.json') as f:
     version = data["version"]
 
 sessions = None
+day1 = None
+day2 = None
 with open('./static/json/sessions.json') as s:
     sessions = json.load(s)
+    days = sorted(sessions.keys())
+    if len(days) < 2:
+        # I mean, this _will_ do the job for CDS, but it's highly specific.
+        raise Exception('Not enough days in sessions JSON.')
+
+    day1 = datetime.strptime(days[0], "%Y-%m-%d")
+    day2 = datetime.strptime(days[1], "%Y-%m-%d")
 
 # Set up the environment.
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -52,6 +64,7 @@ JINJA_ENVIRONMENT.filters["get_keys_for_date"] = filters.get_keys_for_date
 JINJA_ENVIRONMENT.filters["get_current_session"] = filters.get_current_session
 JINJA_ENVIRONMENT.filters["get_next_session"] = filters.get_next_session
 JINJA_ENVIRONMENT.filters["get_upcoming_sessions"] = filters.get_upcoming_sessions
+JINJA_ENVIRONMENT.filters["get_conference_dates"] = filters.get_conference_dates
 
 class MainHandler(webapp2.RequestHandler):
 
@@ -74,7 +87,17 @@ class MainHandler(webapp2.RequestHandler):
 
             # For a total non-match we're looking at the root
             if template is None:
-                template_info["path"] = "sections/home.html"
+                # Hot swap the home page based on which conference day we're
+                # actually on... or not. This needs to be adjusted for PST
+                # because that's the timezone for CDS.
+                today = datetime.today() - timedelta(hours=7)
+
+                if (today - day1).days == 0:
+                    template_info["path"] = "sections/live-day-1.html"
+                elif (today - day2).days == 0:
+                    template_info["path"] = "sections/live-day-2.html"
+                else:
+                    template_info["path"] = "sections/home.html"
             elif re.search(r"sessions", url):
                 template_info["path"] = "sections/schedule/session.html"
             else:
@@ -96,6 +119,8 @@ class MainHandler(webapp2.RequestHandler):
         return template_info
 
     def get(self, url):
+        today = datetime.today()
+        is_live = ((today - day1).days == 0) or ((today - day2).days == 0)
         is_partial = self.request.get('partial', None) is not None
         autoplay = self.request.get('autoplay', None) is not None
         template_info = self.get_template_info(url)
@@ -116,7 +141,7 @@ class MainHandler(webapp2.RequestHandler):
                 version=version,
                 url=url,
                 autoplay=autoplay,
-                is_live=True,
+                is_live=is_live,
                 sessions=sessions
             )
         except jinja2.TemplateNotFound as template_name:

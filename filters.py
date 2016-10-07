@@ -106,6 +106,10 @@ def as_24hr(time):
 def get_keys_for_date(sessions_info, date=None):
     if date == None:
         date = datetime.today().strftime('%Y-%m-%d')
+
+    if date not in sessions_info:
+        return []
+
     return sorted(sessions_info[date].keys())
 
 def get_current_session(sessions_info):
@@ -130,7 +134,7 @@ def get_current_session(sessions_info):
                 int(timeParts[2])
             )
 
-            if session_datetime < now:
+            if session_datetime < now and session_datetime.day == now.day:
                 current_session = sessions_info[date][time]
 
     return current_session
@@ -163,10 +167,17 @@ def get_next_session(sessions_info):
                 # Remove the PST to UTC shift.
                 session_datetime -= timedelta(hours=7)
 
+                print {
+                  "datetime": session_datetime,
+                  "details": sessions_info[date][time]
+                }
+
                 return {
                   "datetime": session_datetime,
                   "details": sessions_info[date][time]
                 }
+
+    print "no upcoming session!"
 
     return {
       "datetime": None,
@@ -212,3 +223,6 @@ def get_upcoming_sessions(sessions_info):
                 })
 
     return upcoming_sessions
+
+def get_conference_dates (sessions_info):
+    return sorted(sessions_info.keys())

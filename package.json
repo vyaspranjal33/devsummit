@@ -1,12 +1,13 @@
 {
   "name": "chrome-dev-summit-2016",
-  "version": "0.0.11",
+  "version": "0.0.50",
   "description": "Chrome Dev Summit 2016",
   "main": "index.js",
   "scripts": {
     "test": "lighthouse",
     "bump": "npm version patch",
-    "build": "npm run build-css && npm run build-js",
+    "build": "npm run build-css && npm run build-js && npm run build-resource-list",
+    "build-resource-list": "node ./build/build-resource-list.js",
     "make-css-folder": "mkdirp static/styles",
     "build-css": "npm run make-css-folder && node-sass sass/ -o static/styles && npm run clean-css",
     "clean-css": "./build/clean-css.js",

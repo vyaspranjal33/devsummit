@@ -11,13 +11,9 @@
 </div>
 {% endif %}
 
-{% if is_partial %}
-  <div class="masthead-underlay__content">
-    <!-- Live info here -->
-    {{ caller() }}
-  </div>
-{% else %}
-<div class="masthead{% if is_expanded %} expanded{% endif %}">
+{{ caller() }}
+
+<div class="masthead{% if is_expanded %} expanded{% endif %}{% if is_live %} masthead--live{% endif %}">
 
   <h1 tabindex="-1" class="masthead__title"{% if not title %} aria-hidden="true"{% endif %}>{{ title }}</h1>
 
@@ -39,41 +35,65 @@
             background-size: cover;
             width: 1224px;
             height: 612px;
-            background-position: 0 {% if is_live %}6vw{% else %}0{% endif %};
+            background-position: 0 0;
+          }
+
+          .masthead--live #masthead-image {
+            background-position: 0 6vw;
           }
 
           @media (min-width: 1000px) and (max-width: 1439px) {
             #masthead-image {
-              background-position: 0 {% if is_live %}10vw{% else %}4vw{% endif %};
+              background-position: 0 4vw;
+            }
+
+            .masthead--live #masthead-image {
+              background-position: 0 10vw;
             }
           }
 
           @media (min-width: 1204px) and (max-width: 1439px) {
             #masthead-image {
-              background-position: 0 {% if is_live %}13vw{% else %}7vw{% endif %};
+              background-position: 0 7vw;
+            }
+
+            .masthead--live #masthead-image {
+              background-position: 0 13vw;
             }
           }
 
           @media (min-width: 1320px) and (max-width: 1439px) {
             #masthead-image {
-              background-position: 0 {% if is_live %}16vw{% else %}12vw{% endif %};
+              background-position: 0 12vw;
+            }
+
+            .masthead--live #masthead-image {
+              background-position: 0 16vw;
             }
           }
 
           @media (min-width: 1440px) {
             #masthead-image {
-              {# A YT video will have a blurred image background, so there's no point in having a 1.5x video #}
+              {# A YT video will have a blurred image background, so there's no point in having a 1.5x version #}
               {% if not youtubeId %}
               background: url({{ image }}@1.5x.jpg) center center no-repeat;
               background-size: cover;
               {% endif %}
-              background-position: 0 {% if is_live %}12vw{% else %}8vw{% endif %};
+              background-position: 0 8vw;
+            }
+
+            .masthead--live #masthead-image {
+              background-position: 0 12vw
             }
           }
 
           @media (min-width: 1840px) {
             #masthead-image {
-              background-position: 0 {% if is_live %}8vw{% else %}6vw{% endif %};
+              background-position: 0 6vw;
+            }
+
+            .masthead--live #masthead-image {
+              background-position: 0 8vw;
             }
           }
         </style>
@@ -107,5 +127,4 @@
 
   </div>
 </div>
-{% endif %}
 {% endmacro %}

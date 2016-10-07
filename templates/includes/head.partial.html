@@ -11,14 +11,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 {% macro head(is_partial=none, styles_path=none, section=none, inline_styles=false, is_live=false) %}
-{% if is_partial %}
-  {% if styles_path %}
-  <style>
-    {% include styles_path %}
-  </style>
-  {% endif %}
-  {{ caller() }}
-{% else %}
   <!doctype html>
   <head>
     <meta charset="utf-8">
@@ -49,5 +41,4 @@ limitations under the License.
   <body>
   {% include "templates/includes/header.partial.html" %}
     {{ caller() }}
-{% endif %}
 {% endmacro %}

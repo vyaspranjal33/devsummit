@@ -59,14 +59,71 @@ self.onactivate = _ => {
   self.clients.claim();
 };
 
+self.onmessage = evt => {
+  if (evt.data === 'version') {
+    evt.source.postMessage({
+      version: VERSION
+    });
+  }
+};
+
 self.onfetch = evt => {
-  // TODO(paullewis): Ensure only non-hashed versions of files are cached and
-  // used for matching in the fetch.
+  const remapRequestIfNeeded = request => {
+    return new Promise((resolve, reject) => {
+      if (request.url.endsWith('@1x.jpg')) {
+        return resolve(request.url.replace(/@1x\.jpg/, '@1.5x.jpg'));
+      }
 
-  // TODO(paullewis): remap @1x images to @1.5x
+      if (!request.url.endsWith('/devsummit/')) {
+        return resolve(request);
+      }
 
-  // TODO(paullewis): ensure that requests going to google-analytics.com are
-  // fetched only.
+      caches.match('/devsummit/static/json/sessions.json')
+          .then(sessions => sessions.json())
+          .then(sessions => {
+            const DAY_LENGTH_MS = 86400000;   // 24 hours
+            const PST_ADJUSTMENT = 25200000;  // 7 hours
+            const today = Date.now();
 
-  evt.respondWith(fetch(evt.request));
+            Object.keys(sessions).forEach((day, index) => {
+              // Date.parse of 2016-11-10 will assume UTC, which is good here.
+              const confDay = Date.parse(day);
+              const normalizedConfDay =
+                  (today - confDay - PST_ADJUSTMENT) / DAY_LENGTH_MS;
+
+              // If the value is between 0 and 1, then we're on the day of the
+              // conference. Worth noting that we're adjusting by PST to ensure
+              // that we don't switch days based on midnight UTC but rather PST.
+              if (normalizedConfDay > 0 && normalizedConfDay < 1) {
+                if (index === 0) {
+                  resolve('/devsummit/live-day-1');
+                } else if (index === 1) {
+                  resolve('/devsummit/live-day-2');
+                }
+              }
+            });
+
+            resolve('/devsummit/home');
+          })
+          .catch(_ => {
+            // On failure to get the sessions info, just fall back to the
+            // standard home page.
+            resolve('/devsummit/home');
+          });
+    });
+  };
+
+  evt.respondWith(
+    remapRequestIfNeeded(evt.request)
+      .then(request => caches.match(request))
+      .then(response => {
+        if (response) {
+          return response;
+        }
+
+        // TODO(paullewis): ensure that requests going to google-analytics.com
+        // are fetched only.
+        return fetch(evt.request);
+      })
+  );
 };

@@ -1,2 +1,2 @@
 {% extends "templates/schedule.html" %}
-{% set date="2016-10-06" %}
+{% set date=(sessions | get_conference_dates)[1] %}

@@ -17,62 +17,9 @@
 
 'use strict';
 
+import {SessionLoader} from '../session-loader';
+
 export class LiveSessionInfo {
-
-  static init () {
-    this._getData = new Promise(function (resolve, reject) {
-      var xhr = new XMLHttpRequest();
-      xhr.open('get', '/devsummit/static/json/sessions.json');
-      xhr.responseType = 'json';
-      xhr.onload = function () {
-        // Go through and map date objects to sessions for convenience.
-        var conferenceDays = xhr.response;
-        var dates = Object.keys(conferenceDays);
-        var sessionMap = new Map();
-        var date;
-        var daySessions;
-        var times;
-        var time;
-        var dateTime;
-
-        for (var i = 0; i < dates.length; i++) {
-          date = dates[i];
-          daySessions = conferenceDays[dates[i]];
-          times = Object.keys(daySessions);
-
-          for (var j = 0; j < times.length; j++) {
-            time = times[j];
-            dateTime = LiveSessionInfo.dateFrom(date, time);
-            sessionMap.set(dateTime, conferenceDays[date][time]);
-          }
-        }
-        resolve(sessionMap);
-      };
-      xhr.onerror = reject;
-      xhr.send();
-    });
-
-    this.toggle();
-  }
-
-  static dateFrom (date, time) {
-    var dateParts = date.split('-');
-    var timeParts = time.split(':');
-
-    var parsedDate = new Date(
-      Date.UTC(
-        parseInt(dateParts[0], 10),     // Year
-        parseInt(dateParts[1] - 1, 10), // Month
-        parseInt(dateParts[2], 10),     // Date
-
-        parseInt(timeParts[0], 10) + 7, // Hour (shifted to UTC from PST)
-        parseInt(timeParts[1], 10),     // Minutes
-        parseInt(timeParts[2], 10)      // Seconds
-      )
-    );
-
-    return parsedDate;
-  }
 
   static toggle () {
     if (document.querySelector('.live-info')) {
@@ -82,11 +29,31 @@ export class LiveSessionInfo {
     }
   }
 
+  static _dateAsString (date) {
+    return `${
+        date.getFullYear()
+        }-${
+        date.getMonth() + 1
+        }-${
+        date.getDate()
+        }`;
+  }
+
   static _getCurrentSessionIndex (sessionTimeArray) {
-    var now = new Date().getTime();
+    var now = new Date();
     var sessionIndex = null;
+    var sessionDateString;
+    var nowString = this._dateAsString(now);
+
     for (var i = 0; i < sessionTimeArray.length; i++) {
-      if (sessionTimeArray[i].getTime() < now) {
+      sessionDateString = this._dateAsString(sessionTimeArray[i]);
+
+      // Skip any not-today dates.
+      if (sessionDateString !== nowString) {
+        continue;
+      }
+
+      if (sessionTimeArray[i].getTime() < now.getTime()) {
         sessionIndex = i;
       } else {
         break;
@@ -101,6 +68,25 @@ export class LiveSessionInfo {
 
     if (currentSessionIndex === null &&
         sessionTimeArray.length > 0) {
+      // This should be the first session of the day, so we need to find out
+      // exactly which day.
+      var now = new Date();
+      var sessionDateString;
+      var nowString = this._dateAsString(now);
+
+      for (var i = 0; i < sessionTimeArray.length; i++) {
+        sessionDateString = this._dateAsString(sessionTimeArray[i]);
+
+        // Skip any not-today dates.
+        if (sessionDateString !== nowString) {
+          continue;
+        }
+
+        if (sessionTimeArray[i].getTime() > now.getTime()) {
+          return i;
+        }
+      }
+
       return 0;
     }
 
@@ -129,18 +115,6 @@ export class LiveSessionInfo {
     return null;
   }
 
-  static _convertSessionKeysToArray (sessions) {
-    var sessionTimeArray = [];
-    sessions.forEach(function (_, key) {
-      sessionTimeArray.push(key);
-    });
-
-    return sessionTimeArray.sort(function (a, b) {
-      // Sort sessions into ascending time order.
-      return a.getTime() - b.getTime();
-    });
-  }
-
   static _refresh () {
     if (!this._sessions) {
       console.warn('Unable to get session info.');
@@ -149,7 +123,7 @@ export class LiveSessionInfo {
 
     var sessionTimeArray = [];
     if (sessionTimeArray.length === 0) {
-      sessionTimeArray = this._convertSessionKeysToArray(this._sessions);
+      sessionTimeArray = SessionLoader.toArray(this._sessions);
     }
 
     var currentSessionIndex =
@@ -184,7 +158,7 @@ export class LiveSessionInfo {
   }
 
   static _enableUpdates () {
-    this._getData.then(function (sessions) {
+    SessionLoader.getData().then(function (sessions) {
       this._sessions = sessions;
       this._refresh();
     }.bind(this));
@@ -310,7 +284,11 @@ export class LiveSessionInfo {
             <h3 class="live-coming-up__item-title">
               ${session.name}
             </h3>
-            <p class="live-coming-up__item-author">${session.speaker}</p>
+            ${
+              session.speaker ?
+              `<p class="live-coming-up__item-author">${session.speaker}</p>` :
+              ''
+            }
           </a>
         </li>`);
     }

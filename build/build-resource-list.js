@@ -30,11 +30,12 @@ const ignore = [
 const crypto = require('crypto');
 const fs = require('fs');
 const resourceList = [
-  '/devsummit/',
+  '/devsummit/home',
   '/devsummit/schedule',
   '/devsummit/location',
   '/devsummit/code-of-conduct',
-  '/devsummit/live',
+  '/devsummit/live-day-1?partial',
+  '/devsummit/live-day-2?partial',
   '/devsummit/schedule/day-2'
 ];
 

@@ -15,12 +15,25 @@
  * limitations under the License.
  */
 
-@import 'common/_variables';
-@import 'common/_base';
-@import 'common/_zindex';
-@import 'common/_video-player';
-@import 'common/_toast';
-@import 'common/header/_inline';
-@import 'common/masthead/_inline';
-@import 'common/page-content/_inline';
-@import 'common/footer/_inline';
+'use strict';
+
+export class Toast {
+  static create (msg, timeout) {
+    // Make a toast...
+    var toast = document.createElement('div');
+    toast.classList.add('toast');
+    toast.textContent = msg;
+    document.body.appendChild(toast);
+
+    // Wait a few seconds, then fade it...
+    timeout = timeout || 3000;
+    setTimeout(function () {
+      toast.classList.add('toast--dismissed');
+    }, timeout);
+
+    // After which, remove it altogether.
+    toast.addEventListener('transitionend', function (evt) {
+      evt.target.parentNode.removeChild(evt.target);
+    });
+  }
+}
