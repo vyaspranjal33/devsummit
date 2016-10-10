@@ -65,8 +65,7 @@ export function init () {
       this._newContent = evt.target.response;
     }
 
-    _onChanged () {
-      window.scrollTo(0, 0);
+    _onChanged (evt) {
       VideoHandler.toggleSmallPlayerIfNeeded();
       this._updateNavLinks();
       this._showSpinner();
@@ -82,7 +81,10 @@ export function init () {
 
         this._hideSpinner();
         this._swapContents();
-      }.bind(this));
+      }.bind(this)).then(_ => {
+        var scrollY = (evt && evt.state) ? evt.state.scrollY : 0;
+        window.scrollTo(0, scrollY);
+      });
     }
 
     _showSpinner () {
@@ -225,6 +227,14 @@ export function init () {
         return;
       }
 
+      var state = {
+        scrollY: window.scrollY
+      };
+
+      // Update the current state to have the window.scrollY value.
+      window.history.replaceState(state, null, window.location.href);
+
+      // Now redirect to the new URL.
       window.history.pushState(null, null, url);
       return this._onChanged();
     }
