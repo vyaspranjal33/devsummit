@@ -20,7 +20,9 @@
 
     <div class="session-info">
 
-      <div class="session-speaker-info__image"></div>
+      <div class="session-speaker-info__image">
+        <img src="{{ session_info["speakerImg"] }}" alt="{{ session_info["speaker"] }}">
+      </div>
       <div class="session-breakdown">
         <h2 class="session-info__title">{{ session_info["name"] }}</h2>
         <h3 class="session-info__speaker">

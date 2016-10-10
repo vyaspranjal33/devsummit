@@ -76,15 +76,16 @@ const walkStaticFiles = _ => {
         return next();
       }
 
-      if (name.endsWith('.jpg')) {
-        const possibleHigherResVersion = root + '/' + name.replace(/.jpg/, '@1.5x.jpg');
+      if (name.endsWith('@1x.jpg')) {
+        const possibleHigherResVersion =
+            root + '/' + name.replace(/@1x\.jpg/, '@1.5x.jpg');
         try {
           fs.statSync(possibleHigherResVersion);
 
           // Skip this, as there is a higher res version.
           return next();
         } catch (e) {
-          // No worries, just skip...
+          // No worries, just keep on truckin'...
         }
       }
 

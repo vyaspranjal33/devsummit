@@ -75,19 +75,16 @@
 .session-speaker-info__image {
   width: $baseline * 16;
   height: $baseline * 16;
-  background: #2B2B2B;
+  background: #FFF;
   border-radius: 50%;
   border: none;
   margin-right: $baseline * 2;
   flex: 0 0 auto;
   display: none;
+  overflow: hidden;
 }
 
 @media (min-width: 800px) {
-  // .session-info__back {
-  //   padding-left: $baseline * 19;
-  // }
-
   .session-speaker-info__image {
     display: block;
   }

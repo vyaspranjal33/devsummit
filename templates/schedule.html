@@ -24,7 +24,7 @@
         {% if session_info["speaker"] %}
         <div class="schedule-item__speaker">
           <div class="schedule-item__speaker-image">
-            {# session_info["speakerImg"] #}
+            <img src="{{ session_info["speakerImg"] }}" alt="{{ session_info["speaker"] }}">
           </div>
 
           <div class="schedule-item__speaker-details">

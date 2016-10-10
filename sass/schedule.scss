@@ -133,8 +133,9 @@
   width: $baseline * 16;
   height: $baseline * 16;
   border-radius: 50%;
-  background: #444;
+  background: #FFF;
   position: relative;
+  overflow: hidden;
 }
 
 .schedule-item__time {
@@ -218,7 +219,7 @@
   }
 
   .schedule-item {
-    padding-bottom: $baseline * 14;
+    padding-bottom: $baseline * 12;
 
     &:before {
       left: $baseline * 30;

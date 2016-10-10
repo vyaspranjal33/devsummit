@@ -129,10 +129,13 @@ def get_current_session(sessions_info):
                 int(dateParts[1]),
                 int(dateParts[2]),
 
-                int(timeParts[0]) + 7,
+                int(timeParts[0]),
                 int(timeParts[1]),
                 int(timeParts[2])
             )
+
+            # Shift the stored time from PST to UTC.
+            session_datetime += timedelta(hours=7)
 
             if session_datetime < now and session_datetime.day == now.day:
                 current_session = sessions_info[date][time]

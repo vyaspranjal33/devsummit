@@ -1,76 +1,230 @@
 {
-  "2016-10-06": {
+  "2016-11-10": {
     "08:00:00": {
-      "name": "Registration and Breakfast",
-      "description": "Food is awesome!"
+      "name": "Registration and Breakfast"
     },
 
-    "09:45:00": {
-      "name": "Endless Economic Epithets",
-      "speaker": "Alex Russell",
-      "speakerRole": "Software Engineer",
-      "speakerImg": "/",
-      "url": "/devsummit/schedule/sessions/session-1",
-      "description": "Alex gives an overview of why web apps don’t feel “appy” today, and shows how Service Worker is enabling a whole new world of appiness - beyond the simple goal of making web apps work offline, to building truly engaging web applications."
+    "10:00:00": {
+      "name": "Keynote",
+      "speaker": "Darin Fisher",
+      "speakerRole": "VP, Chrome Engineering",
+      "speakerImg": "/devsummit/static/images/speakers/darin-fisher.jpg",
+      "url": "/devsummit/schedule/sessions/keynote",
+      "description": "The state of Chrome and the Web Platform today, from the leader of the Chrome team."
     },
 
-    "10:15:00": {
-      "name": "Lunch",
-      "description": "Food is still awesome!"
+    "10:30:00": {
+      "name": "Building Progressive Web Apps Today",
+      "speaker": "Thao Tran",
+      "speakerRole": "Strategic Partner Development Manager",
+      "speakerImg": "/devsummit/static/images/speakers/thao-tran.jpg",
+      "url": "/devsummit/schedule/sessions/building-progressive-web-apps-today",
+      "description": "Progressive Web Apps are all about improving your user experience. Thao shares some success stories and gives some guidance."
+    },
+
+    "11:00:00": {
+      "name": "Break"
+    },
+
+    "11:30:00": {
+      "name": "Web Payments",
+      "speaker": "Zach Koch",
+      "speakerRole": "Product Manager, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/zach-koch.jpg",
+      "url": "/devsummit/schedule/sessions/web-payments",
+      "description": "One of the hardest web user experience challenges is enabling users to make payments. Zach shows us how with the new Web Payment API."
+    },
+
+    "12:00:00": {
+      "name": "Sign-in on the Web - Credential Management and Best Practices",
+      "speaker": "Sabine Borsay",
+      "speakerRole": "Product Manager, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/sign-in-on-the-web",
+      "description": "Sabine shares best practices for sign-in, and explains how the Credential Management API makes frictionless sign-in possible."
+    },
+
+    "12:30:00": {
+      "name": "Lunch"
     },
 
     "13:30:00": {
-      "name": "A Million Ways to Argue Over Minutiae",
-      "speaker": "Jake Archibald",
-      "speakerRole": "Developer Advocate",
-      "speakerImg": "/",
-      "url": "/devsummit/schedule/sessions/session-2",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et velit consectetur, dignissim massa a, convallis arcu. Nulla sed leo sit amet lectus euismod venenatis in faucibus lorem. Aliquam erat volutpat. Donec luctus luctus dui non placerat. Suspendisse venenatis metus nisi, sit amet accumsan sapien placerat at. Vivamus rutrum sodales lectus et gravida. Nullam feugiat facilisis maximus. Praesent egestas nulla sed dolor facilisis, eu egestas lectus gravida.",
-      "youtubeId": "qDJAz3IIq18"
+      "name": "Debugging The Web",
+      "speaker": "Paul Irish",
+      "speakerRole": "Product Manager, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/paul-irish.jpg",
+      "url": "/devsummit/schedule/sessions/debugging-the-web",
+      "description": "Learn the state of the art in debugging using Chrome DevTools - all you need to know to expand your toolbox."
     },
 
-    "14:15:00": {
-      "name": "A Million Ways to Argue Over Minutiae 2",
-      "speaker": "Jake Archibald",
-      "speakerRole": "Developer Advocate",
-      "speakerImg": "/",
-      "url": "/devsummit/schedule/sessions/session-2",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et velit consectetur, dignissim massa a, convallis arcu. Nulla sed leo sit amet lectus euismod venenatis in faucibus lorem. Aliquam erat volutpat. Donec luctus luctus dui non placerat. Suspendisse venenatis metus nisi, sit amet accumsan sapien placerat at. Vivamus rutrum sodales lectus et gravida. Nullam feugiat facilisis maximus. Praesent egestas nulla sed dolor facilisis, eu egestas lectus gravida.",
-      "youtubeId": "qDJAz3IIq18"
+    "14:00:00": {
+      "name": "Web Components and Polymer",
+      "speaker": "TBD",
+      "speakerRole": "Product Manager, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/web-components-and-polymer",
+      "description": "Come learn the current state of Polymer, and how you can use Web Components to improve your development."
+    },
+
+    "14:30:00": {
+      "name": "Progressive Performance",
+      "speaker": "Alex Russell",
+      "speakerRole": "Software Engineer, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/alex-russell.jpg",
+      "url": "/devsummit/schedule/sessions/progressive-performance",
+      "description": "Alex shows us the important things to focus on in performance, and how to run great experiences on slow, inconsistent networks and low-power devices."
     },
 
     "15:00:00": {
-      "name": "A Waffle On About Performance",
-      "speaker": "Paul Irish",
-      "speakerRole": "Program Manager",
-      "speakerImg": "/",
-      "url": "/devsummit/schedule/sessions/session-3",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam et velit consectetur."
+      "name": "Planning for Performance: PRPL",
+      "speaker": "Sam Saccone",
+      "speakerRole": "Software Engineer",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/planning-for-performance",
+      "description": "Sam explains how to get the browser to do things under budget - script and resource loading and more."
     },
 
-    "15:45:00": {
-      "name": "A Thing About HTTP/2",
-      "speaker": "Surma",
-      "speakerRole": "Developer Programs Engineer",
-      "speakerImg": "/",
-      "url": "/devsummit/schedule/sessions/session-4",
-      "description": "Vivamus rutrum sodales lectus et gravida. Nullam feugiat facilisis maximus. Praesent egestas nulla sed dolor facilisis, eu egestas lectus gravida."
+    "15:30:00": {
+      "name": "Break"
+    },
+
+    "16:00:00": {
+      "name": "Security (HTTP/2 leading to HTTPS)",
+      "speaker": "Adrienne Porter Felt & Emily Stark",
+      "speakerRole": "",
+      "speakerImg": "/devsummit/static/images/speakers/apf-stark.jpg",
+      "url": "/devsummit/schedule/sessions/security-http2-leading-to-https",
+      "description": "Adrienne and Emily show why the default for the web should be secure, and explain to developers the complexities and opportunities of HTTPS and HTTP/2."
+    },
+
+    "16:30:00": {
+      "name": "Predictability for the Web",
+      "speaker": "Rick Byers & Robert Nyman",
+      "speakerRole": "",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/security-http2-leading-to-https",
+      "description": "Rick and Robert explain how Chrome is improving predictability for developers, how we responsibly move the web platform forward, and how web developers can help improve the platform."
+    },
+
+    "17:00:00": {
+      "name": "Chrome Leadership Panel",
+      "speaker": "TBD",
+      "speakerRole": "",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/chrome-leadership-panel",
+      "description": "The leaders of the Chrome project answer your questions."
+    },
+
+    "18:30:00": {
+      "name": "Party!"
     }
   },
 
-  "2016-10-07": {
-    "08:30:00": {
-      "name": "Registration and Breakfast",
-      "description": "Food is awesome (day 2)!"
+  "2016-11-11": {
+    "10:00:00": {
+      "name": "How Web Built It",
+      "speaker": "TBD",
+      "speakerRole": "",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/how-we-built-it",
+      "description": "A Progressive Web App vendor shows you their journey to a great user experience."
     },
 
-    "09:30:00": {
-      "name": "Day 2; Session 1",
-      "speaker": "Speakery Speaker",
-      "speakerRole": "Software Engineer",
-      "speakerImg": "/",
-      "url": "/devsummit/schedule/sessions/session-11",
-      "description": "Session overview."
+    "10:30:00": {
+      "name": "From AMP to PWA - the best of both worlds",
+      "speaker": "Paul Bakaus",
+      "speakerRole": "Developer Advocate",
+      "speakerImg": "/devsummit/static/images/speakers/paul-bakaus.jpg",
+      "url": "/devsummit/schedule/sessions/from-amp-to-pwa",
+      "description": "Paul explains the opportunity in AMP, and how to build great Progressive Web Apps with AMP."
+    },
+
+    "11:00:00": {
+      "name": "Break"
+    },
+
+    "11:30:00": {
+      "name": "May We Help You? Tools and Libraries for Progressive Web Apps",
+      "speaker": "Jeff Posnick",
+      "speakerRole": "Developer Programs Engineer",
+      "speakerImg": "/devsummit/static/images/speakers/jeff-posnick.jpg",
+      "url": "/devsummit/schedule/sessions/tools-and-libraries-for-progressive-web-apps",
+      "description": "Jeff walks through Lighthouse and all the tools and libraries we produce to help web developers easily build great Progressive Web Apps."
+    },
+
+    "12:00:00": {
+      "name": "Production PWAs with frameworks",
+      "speaker": "Addy Osmani",
+      "speakerRole": "Developer Programs Engineer",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/productions-pwas-with-frameworks",
+      "description": "Addy works through building Progressive Web Apps with different common development frameworks."
+    },
+
+    "12:30:00": {
+      "name": "Lunch"
+    },
+
+    "13:30:00": {
+      "name": "The State of Storage",
+      "speaker": "Dru Knox",
+      "speakerRole": "Product Manager, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/the-state-of-storage",
+      "description": "Dru explores the landscape of storage APIs: past, present and future, provides best practices and explains the finer details."
+    },
+
+    "14:00:00": {
+      "name": "Future App Model: Advanced Service Worker",
+      "speaker": "Jake Archibald",
+      "speakerRole": "Developer Advocate",
+      "speakerImg": "/devsummit/static/images/speakers/jake-archibald.jpg",
+      "url": "/devsummit/schedule/sessions/future-app-model",
+      "description": "Jake (one of the originators of Service Workers) shares the future of the web app model, with Foreign Fetch, Streams and more."
+    },
+
+    "14:30:00": {
+      "name": "Advanced JS performance with V8 and Web Assembly",
+      "speaker": "Seth Thompson",
+      "speakerRole": "Product Manager, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/seth-thompson.jpg",
+      "url": "/devsummit/schedule/sessions/advanced-js-performance",
+      "description": "Seth shares the current state of JavaScript and script tooling in V8, and discusses the future with WebAssembly."
+    },
+
+    "15:00:00": {
+      "name": "What Comes Next for the Web?",
+      "speaker": "Surma",
+      "speakerRole": "Developer Programs Engineer",
+      "speakerImg": "/devsummit/static/images/speakers/surma.jpg",
+      "url": "/devsummit/schedule/sessions/next-for-the-web",
+      "description": "Surma shares the next visionary steps for the web, with WebVR, Houdini, Performance and more."
+    },
+
+    "15:30:00": {
+      "name": "Breakouts"
+    },
+
+    "16:00:00": {
+      "name": "Breakouts"
+    },
+
+    "16:30:00": {
+      "name": "The “Progressive” in Progressive Web Apps",
+      "speaker": "TBD",
+      "speakerRole": "",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/progressive-in-pwa",
+      "description": ""
+    },
+
+    "17:00:00": {
+      "name": "Browser Vendor panel",
+      "speaker": "TBD",
+      "speakerRole": "",
+      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "url": "/devsummit/schedule/sessions/browser-vendor-panel",
+      "description": "Representatives from various browsers answer your questions."
     }
   }
 }
