@@ -60,7 +60,7 @@
     "14:00:00": {
       "name": "Web Components and Polymer",
       "speaker": "TBD",
-      "speakerRole": "Product Manager, Chrome",
+      "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
       "url": "/devsummit/schedule/sessions/web-components-and-polymer",
       "description": "Come learn the current state of Polymer, and how you can use Web Components to improve your development."
@@ -194,11 +194,11 @@
 
     "15:00:00": {
       "name": "What Comes Next for the Web?",
-      "speaker": "Surma",
-      "speakerRole": "Developer Programs Engineer",
-      "speakerImg": "/devsummit/static/images/speakers/surma.jpg",
+      "speaker": "Paul Kinlan",
+      "speakerRole": "Developer Advocate",
+      "speakerImg": "/devsummit/static/images/speakers/paul-kinlan.jpg",
       "url": "/devsummit/schedule/sessions/next-for-the-web",
-      "description": "Surma shares the next visionary steps for the web, with WebVR, Houdini, Performance and more."
+      "description": "Paul shares the next visionary steps for the web, with WebVR, Houdini, Performance and more."
     },
 
     "15:30:00": {
