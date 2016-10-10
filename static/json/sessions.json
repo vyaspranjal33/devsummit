@@ -102,7 +102,7 @@
       "speaker": "Rick Byers & Robert Nyman",
       "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
-      "url": "/devsummit/schedule/sessions/security-http2-leading-to-https",
+      "url": "/devsummit/schedule/sessions/predictability-for-the-web",
       "description": "Rick and Robert explain how Chrome is improving predictability for developers, how we responsibly move the web platform forward, and how web developers can help improve the platform."
     },
 
