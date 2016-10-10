@@ -82,8 +82,10 @@ export function init () {
         this._hideSpinner();
         this._swapContents();
       }.bind(this)).then(_ => {
-        var scrollY = (evt && evt.state) ? evt.state.scrollY : 0;
-        window.scrollTo(0, scrollY);
+        // Restore scroll positioning if needed.
+        if (evt && evt.state) {
+          window.scrollTo(0, evt.state.scrollY);
+        }
       });
     }
 
