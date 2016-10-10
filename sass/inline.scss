@@ -24,3 +24,13 @@
 @import 'common/masthead/_inline';
 @import 'common/page-content/_inline';
 @import 'common/footer/_inline';
+
+iframe[name="google_conversion_frame"] {
+  width: 1px;
+  height: 1px;
+  position: fixed;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
