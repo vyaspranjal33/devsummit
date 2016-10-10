@@ -9,13 +9,17 @@
 {% endif %}
 
 {% set youtubeId=session_info["youtubeId"] %}
+{% set back_link="/devsummit/schedule" %}
+{% if session_info["day_index"] == 2 %}
+  {% set back_link="/devsummit/schedule/day-2" %}
+{% endif %}
 
 {% set pagestyles="static/styles/sessions.css" %}
 {% set section="Session" %}
 {% block content %}
   <div class="session{% if not youtubeId %} session--pre{% endif %}">
     <div class="session-info__back">
-      <a href="/devsummit/schedule" class="session-info__back-link">Back to Day 1 Schedule</a>
+      <a href="{{ back_link }}" class="session-info__back-link">Back to Day {{ session_info["day_index"] }} Schedule</a>
     </div>
 
     <div class="session-info">

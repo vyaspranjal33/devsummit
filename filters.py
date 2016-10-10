@@ -64,12 +64,18 @@ def find_session(sessions_info, url):
       Returns the session info or none.
     """
     # Try and find the session info.
-    for _, day in sessions_info.iteritems():
+    day_index = 0
+    sorted_date_keys = sorted(sessions_info.keys())
+
+    for date in sorted_date_keys:
+        day_index = day_index + 1
+        day = sessions_info[date]
         for _, session in day.iteritems():
             if "url" not in session:
                 continue
 
             if session["url"] == ('/devsummit/%s' % url):
+                session["day_index"] = day_index
                 return session
 
     return None
@@ -179,8 +185,6 @@ def get_next_session(sessions_info):
                   "datetime": session_datetime,
                   "details": sessions_info[date][time]
                 }
-
-    print "no upcoming session!"
 
     return {
       "datetime": None,
