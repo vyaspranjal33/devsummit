@@ -42,7 +42,7 @@ export class VideoHandler {
   static handle (youtubeVideoElement) {
     var youtubeId = youtubeVideoElement &&
         youtubeVideoElement.getAttribute('data-youtube-id');
-    var playingVideo = document.querySelector('iframe');
+    var playingVideo = document.querySelector('iframe.youtube-video-player__thumb');
     var link = youtubeVideoElement &&
         youtubeVideoElement.querySelector('a');
 
@@ -68,7 +68,7 @@ export class VideoHandler {
   }
 
   static toggleSmallPlayerIfNeeded () {
-    var playingVideo = document.querySelector('iframe');
+    var playingVideo = document.querySelector('iframe.youtube-video-player__thumb');
     if (!playingVideo) {
       return;
     }
