@@ -127,7 +127,7 @@ class MainHandler(webapp2.RequestHandler):
         content_type = "text/plain"
         response = {
             "code": 404,
-            "content": "URL not found: %s" % url
+            "content": "URL not found."
         }
 
         if template_info["mimetype"][0]:
