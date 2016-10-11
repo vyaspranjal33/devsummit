@@ -153,7 +153,7 @@
   max-width: $baseline * 108;
   height: $baseline * 36;
 
-  & a {
+  a {
     width: 100%;
     height: 100%;
     text-decoration: none;
@@ -179,10 +179,75 @@
   }
 }
 
+.home__waiting-list {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #1EA362;
+  width: 100%;
+  max-width: $baseline * 108;
+  margin: $baseline * 3 auto $baseline * 3 auto;
+  display: flex;
+  min-height: $baseline * 6;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  a {
+    color: #FFF;
+    text-decoration: none;
+    flex: 1;
+    padding: 0 $baseline * 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .home__waiting-list-hover {
+      will-change: opacity;
+      transition: opacity 0.2s cubic-bezier(0, 0, 0.3, 1);
+      opacity: 0;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      .home__waiting-list-hover {
+        opacity: 0.2;
+      }
+    }
+
+    &:after {
+      position: relative;
+      content: '';
+      background: url(/devsummit/static/images/icons/ic_confirmation_number_white_24px.svg) center center no-repeat;
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      order: 1;
+      margin-right: $baseline * 1.5;
+    }
+
+    p {
+      position: relative;
+      order: 2;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
 @media (min-width: 424px) {
   .home-cds-info {
     font-size: 16px;
     padding: $baseline * 10 $baseline * 2 $baseline * 8 $baseline * 2;
+  }
+
+  .home__waiting-list {
+    font-size: 16px;
+    margin-top: $baseline * 4;
   }
 }
 
@@ -210,7 +275,7 @@
   }
 
   .home__ctas {
-    margin: -$baseline * 12 auto 0 auto;
+    margin: 0 auto;
     max-width: $baseline * 108;
     display: flex;
     padding-bottom: $baseline * 4.5;
@@ -233,10 +298,34 @@
     height: $baseline * 42;
     margin-top: $baseline * -7;
   }
+
+  .home__waiting-list {
+    margin-top: -$baseline * 6;
+
+    p:before {
+      content: 'Want a ticket? ';
+    }
+  }
 }
 
 @media (min-width: 800px) {
   .home-cds-info{
     font-size: 22px;
+  }
+
+  .home__waiting-list {
+    font-size: 22px;
+    height: $baseline * 12;
+    padding: $baseline * 4;
+
+    a:after {
+      width: 48px;
+      height: 48px;
+      margin-right: $baseline * 3;
+    }
+
+    p {
+      flex: 1;
+    }
   }
 }
