@@ -19,6 +19,7 @@
 const walk = require('walk');
 const ignore = [
   'sw.js',
+  'cache-manifest.js',
   '.DS_Store',
   'home.css',
   'live.css',
@@ -91,7 +92,9 @@ const walkStaticFiles = _ => {
 
       root = root.replace(/^\./, '/devsummit');
 
-      if (name.endsWith('.js') || name.endsWith('.css')) {
+      if (name.endsWith('.js') ||
+          name.endsWith('.css') ||
+          name.endsWith('manifest.json')) {
         const hash = crypto
             .createHash('sha256')
             .update(fs.readFileSync(path))
