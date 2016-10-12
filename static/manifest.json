@@ -11,7 +11,7 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "start_url": "/devsummit",
+  "start_url": "/devsummit/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#FAFAFA",
