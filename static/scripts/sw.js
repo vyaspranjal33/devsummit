@@ -95,6 +95,34 @@ self.onpush = evt => {
         }));
 };
 
+self.onnotificationclick = evt => {
+  const url = 'https://developer.chrome.com/devsummit/';
+
+  // Android doesn't close the notification when you click it
+  // See http://crbug.com/463146
+  evt.notification.close();
+
+  // Check if there's already a tab open with this URL.
+  // If yes: focus on the tab.
+  // If no: open a tab with the URL.
+  evt.waitUntil(
+    clients.matchAll({
+      type: 'window'
+    })
+    .then(windowClients => {
+      const client = windowClients.find(client => {
+        return (client.url === url && 'focus' in client);
+      });
+
+      if (client) {
+        client.focus();
+      } else if (clients.openWindow) {
+        return clients.openWindow(url);
+      }
+    })
+  );
+};
+
 self.onfetch = evt => {
   const remapRequestIfNeeded = request => {
     return new Promise((resolve, reject) => {
