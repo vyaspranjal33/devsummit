@@ -181,13 +181,13 @@
 
 .home__waiting-list {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   color: #1EA362;
   width: 100%;
   max-width: $baseline * 108;
   margin: $baseline * 3 auto $baseline * 3 auto;
   display: flex;
-  min-height: $baseline * 6;
+  min-height: $baseline * 10;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -246,7 +246,7 @@
   }
 
   .home__waiting-list {
-    font-size: 16px;
+    font-size: 18px;
     margin-top: $baseline * 4;
   }
 }

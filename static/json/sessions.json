@@ -39,7 +39,7 @@
       "name": "Sign-in on the Web - Credential Management and Best Practices",
       "speaker": "Sabine Borsay",
       "speakerRole": "Product Manager, Chrome",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/sabine-borsay.jpg",
       "url": "/devsummit/schedule/sessions/sign-in-on-the-web",
       "description": "Sabine shares best practices for sign-in, and explains how the Credential Management API makes frictionless sign-in possible."
     },
@@ -79,7 +79,7 @@
       "name": "Planning for Performance: PRPL",
       "speaker": "Sam Saccone",
       "speakerRole": "Software Engineer",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/sam-saccone.jpg",
       "url": "/devsummit/schedule/sessions/planning-for-performance",
       "description": "Sam explains how to get the browser to do things under budget - script and resource loading and more."
     },
@@ -101,7 +101,7 @@
       "name": "Predictability for the Web",
       "speaker": "Rick Byers & Robert Nyman",
       "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/rbyers-rnyman.jpg",
       "url": "/devsummit/schedule/sessions/predictability-for-the-web",
       "description": "Rick and Robert explain how Chrome is improving predictability for developers, how we responsibly move the web platform forward, and how web developers can help improve the platform."
     },
@@ -144,21 +144,21 @@
     },
 
     "11:30:00": {
+      "name": "Production PWAs with frameworks",
+      "speaker": "Addy Osmani",
+      "speakerRole": "Developer Programs Engineer",
+      "speakerImg": "/devsummit/static/images/speakers/addy-osmani.jpg",
+      "url": "/devsummit/schedule/sessions/productions-pwas-with-frameworks",
+      "description": "Addy works through building Progressive Web Apps with different common development frameworks."
+    },
+
+    "12:00:00": {
       "name": "May We Help You? Tools and Libraries for Progressive Web Apps",
       "speaker": "Jeff Posnick",
       "speakerRole": "Developer Programs Engineer",
       "speakerImg": "/devsummit/static/images/speakers/jeff-posnick.jpg",
       "url": "/devsummit/schedule/sessions/tools-and-libraries-for-progressive-web-apps",
       "description": "Jeff walks through Lighthouse and all the tools and libraries we produce to help web developers easily build great Progressive Web Apps."
-    },
-
-    "12:00:00": {
-      "name": "Production PWAs with frameworks",
-      "speaker": "Addy Osmani",
-      "speakerRole": "Developer Programs Engineer",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
-      "url": "/devsummit/schedule/sessions/productions-pwas-with-frameworks",
-      "description": "Addy works through building Progressive Web Apps with different common development frameworks."
     },
 
     "12:30:00": {
@@ -169,7 +169,7 @@
       "name": "The State of Storage",
       "speaker": "Dru Knox",
       "speakerRole": "Product Manager, Chrome",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/dru-knox.jpg",
       "url": "/devsummit/schedule/sessions/the-state-of-storage",
       "description": "Dru explores the landscape of storage APIs: past, present and future, provides best practices and explains the finer details."
     },
