@@ -67,6 +67,34 @@ self.onmessage = evt => {
   }
 };
 
+self.onpush = evt => {
+  const title = 'Chrome Dev Summit';
+  const msg = {
+    body: evt.data.text(),
+    icon: '/devsummit/static/images/icons/cds-icon@512.png',
+    vibrate: [200]
+  };
+
+  evt.waitUntil(
+      caches.match('/devsummit/static/json/sessions.json')
+        .then(response => response.json())
+        .then(sessions => {
+          const session = evt.data.text();
+          Object.keys(sessions).forEach(date => {
+            Object.keys(sessions[date]).forEach(daySession => {
+              let sessionDetails = sessions[date][daySession];
+              if (sessionDetails.url === session) {
+                msg.body = sessionDetails.name + ' with ' +
+                    sessionDetails.speaker + ' is starting now.';
+                msg.icon = sessionDetails.speakerImg;
+              }
+            });
+          });
+
+          self.registration.showNotification(title, msg);
+        }));
+};
+
 self.onfetch = evt => {
   const remapRequestIfNeeded = request => {
     return new Promise((resolve, reject) => {

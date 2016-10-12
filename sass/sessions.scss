@@ -23,7 +23,7 @@
   padding: $baseline;
   margin: 0 auto;
   max-width: $baseline * 108;
-  min-height: 30vh;
+  min-height: 48vh;
 }
 
 .session-info__back {
@@ -70,6 +70,7 @@
 
 .session-info__description {
   color: #090909;
+  margin-bottom: $baseline * 6;
 }
 
 .session-speaker-info__image {

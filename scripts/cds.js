@@ -21,6 +21,7 @@ import {VideoHandler} from './components/video-handler';
 import {SideNav} from './components/side-nav';
 import {LiveSessionInfo} from './components/live-session-info';
 import {LiveBanner} from './components/live-banner';
+import {PushManager} from './components/push-manager';
 
 var initialized = false;
 export function init () {
@@ -211,6 +212,8 @@ export function init () {
         this._liveBanner.setAttribute('aria-hidden', 'true');
       }
 
+      PushManager.updateCurrentView();
+
       // Double rAF to allow all changes to take hold.
       requestAnimationFrame(function () {
         requestAnimationFrame(function () {
@@ -266,6 +269,11 @@ export function init () {
           evt.preventDefault();
           VideoHandler.beginPlayback(node.href);
         }
+      }
+
+      if (evt.target.classList.contains('js-notification-btn')) {
+        evt.preventDefault();
+        PushManager.processChange(evt);
       }
     }
 

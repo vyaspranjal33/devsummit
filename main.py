@@ -122,6 +122,7 @@ class MainHandler(webapp2.RequestHandler):
         today = datetime.today()
         is_live = ((today - day1).days == 0) or ((today - day2).days == 0)
         is_partial = self.request.get('partial', None) is not None
+        debug = self.request.get('debug', None) is not None
         autoplay = self.request.get('autoplay', None) is not None
         template_info = self.get_template_info(url)
         content_type = "text/plain"
@@ -142,7 +143,8 @@ class MainHandler(webapp2.RequestHandler):
                 url=url,
                 autoplay=autoplay,
                 is_live=is_live,
-                sessions=sessions
+                sessions=sessions,
+                debug=debug
             )
         except jinja2.TemplateNotFound as template_name:
             print ("Template not found: %s (requested by %s)" %

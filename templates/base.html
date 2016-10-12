@@ -32,4 +32,10 @@
 
 <cds-router></cds-router>
 
+{% if debug %}
+<section class="debug">
+  Debug push messages:<button data-id="debug" class="notification-btn js-notification-btn" hidden disabled>Getting status...</button>
+</section>
+{% endif %}
+
 {% include "templates/includes/footer.partial.html" %}
