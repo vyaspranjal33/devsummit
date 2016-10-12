@@ -70,6 +70,10 @@ export function init () {
       this._updateNavLinks();
       this._showSpinner();
 
+      if (typeof window.ga === 'function') {
+        window.ga('send', 'pageview');
+      }
+
       Promise.all([
         this._hideAreas(),
         this._loadNewPath()
