@@ -38,9 +38,34 @@
   </noscript>
 
   <template id="tmpl-notification-area">
-    <div class="notification-area">
-      NOTIFICATIONS
-    </div>
+    <section class="notification-area">
+      <div class="notification-ripple"></div>
+      <div class="notification-content">
+        <div class="notification-content__header">
+          <button class="notification-toggle-button" title="Toggle Notification Controls"></button>
+          <div class="notification-content__headline" inert>
+            <h1 class="notification-content__title" tabindex="-1">Your notifications</h1>
+            <p class="notification-content__description">These are the sessions you want to be notified about. You can change these at any time.</p>
+          </div>
+        </div>
+
+        <ul class="notification-content__list" title="Your notifications" tabindex="-1" inert>
+        </ul>
+      </div>
+    </section>
+  </template>
+
+  <template id="tmpl-notification-item">
+    <li class="notification-content__list-item">
+      <button data-id="" class="notification-item__details" title="">
+        <div class="notification-item__details-inner">
+          <div class="notification-item__breakdown">
+            <span class="notification-item__breakdown-title"></span>
+            <span class="notification-item__breakdown-time"></span>
+          </div>
+        </div>
+      </button>
+    </li>
   </template>
 
 </body>

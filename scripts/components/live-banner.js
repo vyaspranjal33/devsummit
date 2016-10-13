@@ -38,12 +38,12 @@ export class LiveBanner {
         masthead.classList.add('masthead--live');
         header.classList.add('header--live');
         headerLiveStream.classList.add('visible');
-        headerLiveStream.setAttribute('aria-hidden', true);
+        headerLiveStream.removeAttribute('aria-hidden');
       } else {
         masthead.classList.remove('masthead--live');
         header.classList.remove('header--live');
         headerLiveStream.classList.remove('visible');
-        headerLiveStream.removeAttribute('aria-hidden');
+        headerLiveStream.setAttribute('aria-hidden', true);
       }
     });
   }

@@ -19,11 +19,21 @@
 
 export class Toast {
   static create (msg, timeout) {
+    var toastContainer = document.querySelector('.toast-container');
+    if (!toastContainer) {
+      toastContainer = document.createElement('div');
+      toastContainer.classList.add('toast-container');
+      document.body.appendChild(toastContainer);
+    }
+
     // Make a toast...
     var toast = document.createElement('div');
+    var toastContent = document.createElement('div');
     toast.classList.add('toast');
-    toast.textContent = msg;
-    document.body.appendChild(toast);
+    toastContent.classList.add('toast__content');
+    toastContent.textContent = msg;
+    toast.appendChild(toastContent);
+    toastContainer.appendChild(toast);
 
     // Wait a few seconds, then fade it...
     timeout = timeout || 3000;

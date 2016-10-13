@@ -206,12 +206,6 @@ export function init () {
             'masthead-underlay__divider--invisible');
       }
 
-      if (liveStreamLinkVisible) {
-        this._liveBanner.removeAttribute('aria-hidden');
-      } else {
-        this._liveBanner.setAttribute('aria-hidden', 'true');
-      }
-
       PushManager.updateCurrentView();
 
       // Double rAF to allow all changes to take hold.

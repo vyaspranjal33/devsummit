@@ -19,8 +19,8 @@
 
 import {idbKeyval} from '../third_party/idb-keyval.js';
 import {urlBase64ToUint8Array} from '../third_party/urlBase64ToUint8Array.js';
-import {SessionLoader} from '../session-loader';
 import {Toast} from './toast';
+import {PushControls} from './push-controls';
 
 export class PushManager {
 
@@ -55,7 +55,7 @@ export class PushManager {
 
           this._intitialized = true;
           PushManager.updateCurrentView();
-          PushManager.embedMasterControls();
+          PushControls.init();
 
           if (key !== this._keyString) {
             console.warn('Keys have changed... removing subscription');
@@ -67,7 +67,7 @@ export class PushManager {
           console.warn('Unable to get push started', err);
         });
 
-    this._updateSubscriptions = this._updateSubscriptions.bind(this);
+    this.updateSubscriptions = this.updateSubscriptions.bind(this);
     this._killAll = this._killAll.bind(this);
 
     // Array.from(checkBoxes).forEach(cb => {
@@ -75,20 +75,20 @@ export class PushManager {
     //     cb.disabled = false;
     //     cb.checked = value;
     //   });
-    //   cb.addEventListener('change', this._updateSubscriptions);
+    //   cb.addEventListener('change', this.updateSubscriptions);
     // });
 
     // killSwitch.addEventListener('click', this._killAll);
   }
 
-  static embedMasterControls () {
+  static enableGlobalControls () {
     const notificationTmpl = document.querySelector('#tmpl-notification-area');
     if (!notificationTmpl) {
       return;
     }
 
     SessionLoader.getData().then(function (sessions) {
-      console.log(sessions);
+      document.body.appendChild(notificationTmpl.content.cloneNode(true));
     });
   }
 
@@ -105,6 +105,8 @@ export class PushManager {
 
     notificationButtons.forEach(notificationButton => {
       const ID = notificationButton.dataset.id;
+      const notificationButtonContent =
+          notificationButton.querySelector('.notification-btn__inner');
       if (!ID) {
         return;
       }
@@ -115,10 +117,10 @@ export class PushManager {
       idbKeyval.get(ID).then(value => {
         notificationButton.disabled = false;
         if (value) {
-          notificationButton.textContent = 'Notifications enabled';
+          notificationButtonContent.textContent = 'Notifications enabled';
           notificationButton.classList.add('notification-btn--enabled');
         } else {
-          notificationButton.textContent = 'Notifications disabled';
+          notificationButtonContent.textContent = 'Notifications disabled';
           notificationButton.classList.remove('notification-btn--enabled');
         }
       });
@@ -126,22 +128,48 @@ export class PushManager {
   }
 
   static processChange (evt) {
-    const notificationButton = evt.target;
-    const ID = notificationButton.dataset.id;
-    if (!ID) {
+    const node = evt.target || evt;
+    if (!node) {
       return;
     }
 
-    notificationButton.disabled = true;
-    idbKeyval.get(ID).then(value => {
-      const newValue = (typeof value === 'undefined') ? true : !value;
+    if (!node.dataset) {
+      return;
+    }
 
-      PushManager._updateSubscriptions(ID, newValue).then(_ => {
-        Toast.create(newValue ?
+    const id = node.dataset.id;
+    if (!id) {
+      return;
+    }
+
+    // Disable any buttons for the item in question
+    const buttons = Array.from(document.querySelectorAll(`*[data-id="${id}"]`));
+        buttons.forEach(node => {
+          node.disabled = true;
+        })
+    idbKeyval.get(id).then(currentValue => {
+      const subscribed = (typeof currentValue === 'undefined') ? true : !currentValue;
+
+      Toast.create('Updating subscriptions...');
+
+      PushManager.updateSubscriptions([{id, subscribed}]).then(_ => {
+        Toast.create(subscribed ?
             'Subscribed successfully.' :
             'Unsubscribed successfully.');
         PushManager.updateCurrentView();
-        notificationButton.disabled = false;
+        PushControls.updateListing();
+
+        // Re-enable them.
+        buttons.forEach(node => {
+          // Just check that the node is still there.
+          if (!node) {
+            return;
+          }
+
+          node.disabled = false;
+        });
+
+        node.focus();
       });
     });
   }
@@ -196,7 +224,7 @@ export class PushManager {
     });
   }
 
-  static _updateSubscriptions (id, subscribed) {
+  static updateSubscriptions (values) {
     if (this._waiting) {
       // TODO: update the UI?
       return;
@@ -211,7 +239,7 @@ export class PushManager {
         subscription: subscriptionJSON
       };
 
-      body[id] = subscribed;
+      values.forEach(value => body[value.id] = value.subscribed);
 
       return fetch(`${PushManager.REMOTE_SERVER}/subscribe`, {
         headers: {
@@ -226,7 +254,10 @@ export class PushManager {
         console.log('Unable to update subscriptions');
       });
     })
-    .then(_ => idbKeyval.set(id, subscribed));
+    .then(_ => {
+      return Promise.all(
+        values.map(v => idbKeyval.set(v.id, v.subscribed))
+      );
+    });
   }
-
 }

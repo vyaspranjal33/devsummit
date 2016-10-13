@@ -15,8 +15,13 @@
  * limitations under the License.
  */
 
-.toast {
+
+.toast-container {
   z-index: 11000;
+}
+
+.notification-area {
+  z-index: 10500;
 }
 
 .menu__nav {

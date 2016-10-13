@@ -57,6 +57,10 @@ export class SideNav {
     var menuNav = menu.querySelector('.menu__nav');
     var lastTabStop = menuNav.querySelector('.menu__nav div:last-of-type a');
 
+    if (menuNav.hasAttribute('inert')) {
+      return;
+    }
+
     // Check for TAB key press
     if (evt.keyCode === 9) {
       // SHIFT + TAB
