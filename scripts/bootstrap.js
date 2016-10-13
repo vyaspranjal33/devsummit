@@ -34,6 +34,8 @@ function loadPageStyles () {
 (function () {
   installServiceWorker();
   loadPageStyles();
-  CDS.init();
+  window.addEventListener('DOMContentLoaded', function () {
+    CDS.init();
+  });
   loadScript('{{ "/devsummit/static/third_party/scripts/inert.min.js" | add_hash }}', false);
 })();

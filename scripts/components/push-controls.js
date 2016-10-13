@@ -26,15 +26,9 @@ export class PushControls {
   static init () {
     const notificationTmpl = document.querySelector('#tmpl-notification-area');
     if (!notificationTmpl) {
+      console.log('Unable to locate notification template');
       return;
     }
-
-    this._duration = 4000;
-    this._startTime = 0;
-    this._startScale = 1;
-    this._targetScale = PushControls.SCALE_COLLAPSED;
-    this._scale = PushControls.SCALE_COLLAPSED;
-    this._running = false;
 
     this._toggleViewVisibility = this._toggleViewVisibility.bind(this);
     this._collapseView = this._collapseView.bind(this);
@@ -55,9 +49,15 @@ export class PushControls {
           this._element.querySelector('.notification-content__title');
       this._panelHeader =
           this._element.querySelector('.notification-content__headline');
+      this._closeButton =
+          this._element.querySelector('.notification-close-button');
+      this._unsubscribeAllButton =
+          this._element.querySelector('.notification-content__remove-all');
 
       this._populateElement(sessions);
       this._addEventListeners();
+    }).catch(err => {
+      console.log(err);
     });
   }
 
@@ -102,7 +102,7 @@ export class PushControls {
       return;
     }
 
-    this._firstTabStop = items[0];
+    this._firstTabStop = this._closeButton;
     this._lastTabStop = items[items.length - 1];
     this._list = this._element.querySelector('.notification-content__list');
     console.log(this._firstTabStop, this._lastTabStop);
@@ -135,6 +135,10 @@ export class PushControls {
   static _addEventListeners () {
     this._toggleButton.addEventListener('click', this._toggleViewVisibility);
     this._element.addEventListener('click', this._handleClick);
+    this._closeButton.addEventListener('click', this._collapseView);
+    this._unsubscribeAllButton.addEventListener('click', _ => {
+      PushManager.removeSubscription();
+    });
     document.addEventListener('click', this._collapseView);
     window.addEventListener('keydown', this._trapTabKey);
     this._element.addEventListener('transitionend', evt => {

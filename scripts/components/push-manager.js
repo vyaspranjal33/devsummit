@@ -44,7 +44,6 @@ export class PushManager {
         .then(applicationServerKey => {
           this._keyString = applicationServerKey;
           this._key = urlBase64ToUint8Array(applicationServerKey);
-          this._updateUIState();
         })
         .then(_ => idbKeyval.get('appkey'))
         .then(key => {
@@ -60,7 +59,7 @@ export class PushManager {
           if (key !== this._keyString) {
             console.warn('Keys have changed... removing subscription');
             this._keyHasChanged = true;
-            return this._killAll();
+            return this.removeSubscription();
           }
         })
         .catch(err => {
@@ -68,17 +67,7 @@ export class PushManager {
         });
 
     this.updateSubscriptions = this.updateSubscriptions.bind(this);
-    this._killAll = this._killAll.bind(this);
-
-    // Array.from(checkBoxes).forEach(cb => {
-    //   idbKeyval.get(cb.id).then(value => {
-    //     cb.disabled = false;
-    //     cb.checked = value;
-    //   });
-    //   cb.addEventListener('change', this.updateSubscriptions);
-    // });
-
-    // killSwitch.addEventListener('click', this._killAll);
+    this.removeSubscription = this.removeSubscription.bind(this);
   }
 
   static enableGlobalControls () {
@@ -142,47 +131,50 @@ export class PushManager {
       return;
     }
 
-    // Disable any buttons for the item in question
-    const buttons = Array.from(document.querySelectorAll(`*[data-id="${id}"]`));
-        buttons.forEach(node => {
-          node.disabled = true;
-        })
+    // Disable any buttons for the item in question.
+    PushManager._disableButtons(`button[data-id="${id}"]`);
+
     idbKeyval.get(id).then(currentValue => {
       const subscribed = (typeof currentValue === 'undefined') ? true : !currentValue;
 
-      Toast.create('Updating subscriptions...');
+      Toast.create('Updating subscriptions...', {
+        tag: id
+      });
 
       PushManager.updateSubscriptions([{id, subscribed}]).then(_ => {
         Toast.create(subscribed ?
             'Subscribed successfully.' :
-            'Unsubscribed successfully.');
+            'Unsubscribed successfully.', {
+              tag: id
+            });
         PushManager.updateCurrentView();
         PushControls.updateListing();
 
-        // Re-enable them.
-        buttons.forEach(node => {
-          // Just check that the node is still there.
-          if (!node) {
-            return;
-          }
-
-          node.disabled = false;
-        });
-
-        node.focus();
+        PushManager._enableButtons(`button[data-id="${id}"]`);
       });
     });
   }
 
-  static _updateUIState () {
-    if (Notification.permission === 'granted') {
-      // killSwitch.removeAttribute('hidden');
-      // killSwitch.removeAttribute('disabled');
-      return;
-    }
+  static _disableButtons (selector) {
+    const buttons = Array.from(document.querySelectorAll(selector));
+    buttons.forEach(button => {
+      button.disabled = true;
+    });
   }
 
-  static _killAll () {
+  static _enableButtons (selector) {
+    const buttons = Array.from(document.querySelectorAll(selector));
+    buttons.forEach(button => {
+      button.disabled = false;
+    });
+  }
+
+  static removeSubscription () {
+    PushManager._disableButtons(`button[data-id]`);
+    Toast.create('Unsubscribing...', {
+      tag: 'all'
+    });
+
     return this._getSubscription().then(subscription => {
       const subscriptionJSON = subscription.toJSON();
       const body = {
@@ -199,10 +191,27 @@ export class PushManager {
         method: 'POST',
         body: JSON.stringify(body)
       }).then(_ => {
+        return idbKeyval.keys().then(keys => {
+          return Promise.all(
+            keys.map(k => idbKeyval.delete(k))
+          )
+        })
+      }).then(_ => {
         console.log('Removed subscription.');
-        return idbKeyval.delete('appkey');
+        PushManager.updateCurrentView();
+        PushControls.updateListing();
+        PushManager._enableButtons(`button[data-id]`);
+        Toast.create('Unsubscribed successfully.', {
+          tag: 'all'
+        });
       }).catch(_ => {
         console.log('Failed to remove all.');
+        PushManager.updateCurrentView();
+        PushControls.updateListing();
+        PushManager._enableButtons(`button[data-id]`);
+        Toast.create('Unsubscribed successfully.', {
+          tag: 'all'
+        });
       });
     });
   }

@@ -274,6 +274,11 @@ export function init () {
     addEventListeners () {
       document.addEventListener('click', this._onClick);
       window.addEventListener('popstate', this._onChanged);
+      window.addEventListener('hashchange', this._onHashChanged);
+    }
+
+    _onHashChanged (evt) {
+      console.log(evt);
     }
   }
 

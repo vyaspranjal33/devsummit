@@ -47,6 +47,14 @@ export function installServiceWorker () {
     }
   };
 
+  navigator.serviceWorker.ready.then(function (registration){
+    if (!('pushManager' in registration)) {
+      return;
+    }
+
+    PushManager.init();
+  })
+
   navigator.serviceWorker.register('/devsummit/sw.js').then(function (registration) {
     if (registration.active) {
       registration.active.postMessage('version');
@@ -71,9 +79,5 @@ export function installServiceWorker () {
         console.log('Incoming SW state:', this.state);
       };
     };
-
-    if ('pushManager' in registration) {
-      PushManager.init();
-    }
   });
 }
