@@ -35,6 +35,7 @@ export function init () {
 
   class CDS {
     constructor () {
+      this._location = window.location.pathname;
       this._isSwapping = false;
       this._request = null;
       this._spinnerTimeout = 0;
@@ -55,6 +56,9 @@ export function init () {
 
       this.addEventListeners();
       document.body.classList.add('animatable');
+
+      // Check the hash for the notifications.
+      this._onChanged();
     }
 
     _onLoad (evt) {
@@ -67,6 +71,12 @@ export function init () {
     }
 
     _onChanged (evt) {
+      // Ignore any changes in the hash.
+      if (window.location.pathname === this._location) {
+        return;
+      }
+      this._location = window.location.pathname;
+
       VideoHandler.toggleSmallPlayerIfNeeded();
       this._updateNavLinks();
       this._showSpinner();
@@ -181,9 +191,6 @@ export function init () {
         document.head.appendChild(newPageStyles.cloneNode(true));
       }
 
-      var liveStreamLinkVisible =
-          newLiveBanner.classList.contains('visible');
-
       VideoHandler.handle(newPageVideo);
 
       this._mastheadGraphic.innerHTML =
@@ -274,11 +281,6 @@ export function init () {
     addEventListeners () {
       document.addEventListener('click', this._onClick);
       window.addEventListener('popstate', this._onChanged);
-      window.addEventListener('hashchange', this._onHashChanged);
-    }
-
-    _onHashChanged (evt) {
-      console.log(evt);
     }
   }
 

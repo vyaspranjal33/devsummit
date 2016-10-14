@@ -57,7 +57,7 @@
 .schedule-item {
   display: flex;
   align-items: center;
-  padding: 0 $baseline $baseline * 6 $baseline;
+  padding: 0 $baseline $baseline * 6 $baseline * 3;
   position: relative;
   text-decoration: none;
 
@@ -67,7 +67,7 @@
     height: 100%;
     position: absolute;
     top: 0;
-    left: $baseline * 4;
+    left: $baseline * 6;
     background: #CBCBCB;
   }
 
@@ -219,6 +219,7 @@
   }
 
   .schedule-item {
+    padding-left: $baseline;
     padding-bottom: $baseline * 12;
 
     &:before {

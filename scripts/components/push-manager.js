@@ -25,7 +25,7 @@ import {PushControls} from './push-controls';
 export class PushManager {
 
   static get REMOTE_SERVER () {
-    return 'https://cds-push.appspot.com/';
+    return 'https://cds-push.appspot.com';
   }
 
   static init () {
@@ -63,21 +63,31 @@ export class PushManager {
           }
         })
         .catch(err => {
-          console.warn('Unable to get push started', err);
+          console.warn('Unable to get push started');
+          console.warn(err.stack);
         });
 
     this.updateSubscriptions = this.updateSubscriptions.bind(this);
     this.removeSubscription = this.removeSubscription.bind(this);
   }
 
-  static enableGlobalControls () {
-    const notificationTmpl = document.querySelector('#tmpl-notification-area');
-    if (!notificationTmpl) {
+  static showControls () {
+    if (!this._init) {
       return;
     }
 
-    SessionLoader.getData().then(function (sessions) {
-      document.body.appendChild(notificationTmpl.content.cloneNode(true));
+    this._init.then(_ => {
+      PushControls.show();
+    });
+  }
+
+  static hideControls () {
+    if (!this._init) {
+      return;
+    }
+
+    this._init.then(_ => {
+      PushControls.hide();
     });
   }
 
@@ -131,6 +141,10 @@ export class PushManager {
       return;
     }
 
+    if (this._waiting) {
+      return;
+    }
+
     // Disable any buttons for the item in question.
     PushManager._disableButtons(`button[data-id="${id}"]`);
 
@@ -151,6 +165,13 @@ export class PushManager {
         PushControls.updateListing();
 
         PushManager._enableButtons(`button[data-id="${id}"]`);
+      }).catch(_ => {
+        Toast.create('Unable to update notifications.', {
+          tag: id
+        });
+
+        this._waiting = false;
+        PushManager._enableButtons(`button[data-id="${id}"]`);
       });
     });
   }
@@ -170,7 +191,7 @@ export class PushManager {
   }
 
   static removeSubscription () {
-    PushManager._disableButtons(`button[data-id]`);
+    PushManager._disableButtons('button[data-id]');
     Toast.create('Unsubscribing...', {
       tag: 'all'
     });
@@ -194,13 +215,13 @@ export class PushManager {
         return idbKeyval.keys().then(keys => {
           return Promise.all(
             keys.map(k => idbKeyval.delete(k))
-          )
-        })
+          );
+        });
       }).then(_ => {
         console.log('Removed subscription.');
         PushManager.updateCurrentView();
         PushControls.updateListing();
-        PushManager._enableButtons(`button[data-id]`);
+        PushManager._enableButtons('button[data-id]');
         Toast.create('Unsubscribed successfully.', {
           tag: 'all'
         });
@@ -208,8 +229,8 @@ export class PushManager {
         console.log('Failed to remove all.');
         PushManager.updateCurrentView();
         PushControls.updateListing();
-        PushManager._enableButtons(`button[data-id]`);
-        Toast.create('Unsubscribed successfully.', {
+        PushManager._enableButtons('button[data-id]');
+        Toast.create('Unable to update.', {
           tag: 'all'
         });
       });
@@ -236,7 +257,7 @@ export class PushManager {
   static updateSubscriptions (values) {
     if (this._waiting) {
       // TODO: update the UI?
-      return;
+      return Promise.resolve();
     }
 
     this._waiting = true;
@@ -248,7 +269,9 @@ export class PushManager {
         subscription: subscriptionJSON
       };
 
-      values.forEach(value => body[value.id] = value.subscribed);
+      values.forEach(value => {
+        body[value.id] = value.subscribed;
+      });
 
       return fetch(`${PushManager.REMOTE_SERVER}/subscribe`, {
         headers: {
@@ -258,15 +281,12 @@ export class PushManager {
         body: JSON.stringify(body)
       }).then(_ => {
         console.log('Subscriptions updated');
-        this._waiting = false;
-      }).catch(_ => {
-        console.log('Unable to update subscriptions');
+        return Promise.all(
+          values.map(v => idbKeyval.set(v.id, v.subscribed))
+        ).then(_ => {
+          this._waiting = false;
+        });
       });
-    })
-    .then(_ => {
-      return Promise.all(
-        values.map(v => idbKeyval.set(v.id, v.subscribed))
-      );
     });
   }
 }

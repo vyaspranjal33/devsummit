@@ -31,9 +31,13 @@ export class PushControls {
     }
 
     this._toggleViewVisibility = this._toggleViewVisibility.bind(this);
-    this._collapseView = this._collapseView.bind(this);
-    this._expandView = this._expandView.bind(this);
+    this.hide = this.hide.bind(this);
+    this.show = this.show.bind(this);
     this._trapTabKey = this._trapTabKey.bind(this);
+    this._onHashChange = this._onHashChange.bind(this);
+    this._onTransitionEnd = this._onTransitionEnd.bind(this);
+    this._removeHash = this._removeHash.bind(this);
+
     this._firstTabStop = null;
     this._lastTabStop = null;
     this._list = null;
@@ -61,7 +65,7 @@ export class PushControls {
     });
   }
 
-  static _populateElement(sessions) {
+  static _populateElement (sessions) {
     const notificationTmpl = document.querySelector('#tmpl-notification-item');
 
     // Format the session time to the local time.
@@ -72,7 +76,7 @@ export class PushControls {
       return;
     }
 
-    sessions.forEach((session, date, vals) => {
+    sessions.forEach((session, date) => {
       if (!session.url) {
         return;
       }
@@ -105,7 +109,16 @@ export class PushControls {
     this._firstTabStop = this._closeButton;
     this._lastTabStop = items[items.length - 1];
     this._list = this._element.querySelector('.notification-content__list');
-    console.log(this._firstTabStop, this._lastTabStop);
+
+    // Ensure that we capture deeplinks.
+    this._onHashChange();
+    this._onTransitionEnd();
+
+    requestAnimationFrame(_ => {
+      requestAnimationFrame(_ => {
+        this._element.classList.add('notification-area--active');
+      });
+    });
   }
 
   static updateListing () {
@@ -128,35 +141,51 @@ export class PushControls {
           item.setAttribute('aria-label', 'Enable notifications for ' +
               item.dataset.title);
         }
-      })
+      });
     });
   }
 
   static _addEventListeners () {
+    window.addEventListener('hashchange', this._onHashChange);
     this._toggleButton.addEventListener('click', this._toggleViewVisibility);
     this._element.addEventListener('click', this._handleClick);
-    this._closeButton.addEventListener('click', this._collapseView);
     this._unsubscribeAllButton.addEventListener('click', _ => {
       PushManager.removeSubscription();
     });
-    document.addEventListener('click', this._collapseView);
+    this._closeButton.addEventListener('click', this._removeHash);
+    document.addEventListener('click', this._removeHash);
     window.addEventListener('keydown', this._trapTabKey);
-    this._element.addEventListener('transitionend', evt => {
-      // Limit this to just one transitionend event.
-      if (!evt.target.classList.contains('notification-ripple')) {
-        return;
-      }
+    this._element.addEventListener('transitionend', this._onTransitionEnd);
+  }
 
-      if (this._element.classList.contains('notification-area--expanded')) {
-        this._panelHeader.inert = false;
-        this._list.inert = false;
-        this._panelTitle.focus();
-      } else {
-        this._list.inert = true;
-        this._panelHeader.inert = true;
-        this._toggleButton.focus();
-      }
-    });
+  static _onHashChange (evt) {
+    if (evt) {
+      evt.preventDefault();
+    }
+
+    if (window.location.hash === '#notifications') {
+      this.show();
+      return;
+    }
+
+    this.hide();
+  }
+
+  static _onTransitionEnd (evt) {
+    // Limit this to just one transitionend event.
+    if (evt && !evt.target.classList.contains('notification-ripple')) {
+      return;
+    }
+
+    if (this._element.classList.contains('notification-area--expanded')) {
+      this._panelHeader.inert = false;
+      this._list.inert = false;
+      this._panelTitle.focus();
+    } else {
+      this._list.inert = true;
+      this._panelHeader.inert = true;
+      this._toggleButton.focus();
+    }
   }
 
   static _handleClick (evt) {
@@ -174,17 +203,31 @@ export class PushControls {
 
   static _toggleViewVisibility () {
     if (this._element.classList.contains('notification-area--expanded')) {
-      this._collapseView();
+      this._removeHash();
     } else {
-      this._expandView();
+      window.location.hash = 'notifications';
     }
   }
 
-  static _expandView () {
+  static _removeHash () {
+    // Use pushState to remove the hash so that we don't get scrolling behaviour.
+    window.history.pushState(null, null, window.location.href.replace(/#.*$/, ''));
+
+    // As a by-product this won't trigger an onhashchange, so we'll do that ourselves.
+    this._onHashChange();
+  }
+
+  static show () {
+    if (!this._element) {
+      return;
+    }
     this._element.classList.add('notification-area--expanded');
   }
 
-  static _collapseView () {
+  static hide () {
+    if (!this._element) {
+      return;
+    }
     this._element.classList.remove('notification-area--expanded');
   }
 
@@ -210,7 +253,7 @@ export class PushControls {
 
     // ESCAPE
     if (evt.keyCode === 27) {
-      this._collapseView();
+      this._removeHash();
     }
   }
 }

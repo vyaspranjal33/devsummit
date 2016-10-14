@@ -29,7 +29,6 @@ export class Toast {
     var tag = options.tag || (Date.now().toString());
     Array.from(toastContainer.querySelectorAll(`.toast[data-tag="${tag}"]`))
         .forEach(t => {
-          console.log(t);
           t.parentNode.removeChild(t);
         });
 

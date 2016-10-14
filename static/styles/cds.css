@@ -422,13 +422,18 @@ a {
   bottom: 16px;
   left: 16px;
   width: 100%;
-  height: 80vh;
+  height: 480px;
   max-width: 288px;
   max-height: 536px;
   overflow: hidden;
   border-radius: 2px;
   backface-visibility: hidden;
-  pointer-events: none; }
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1); }
+
+.notification-area--active {
+  opacity: 1; }
 
 .notification-ripple {
   position: absolute;
@@ -544,7 +549,7 @@ a {
   margin: 0;
   display: flex;
   flex-direction: column;
-  padding-bottom: 64px; }
+  margin-bottom: 40px; }
 
 .notification-content__list-item {
   display: block;
@@ -624,7 +629,8 @@ a {
 
 @media (min-width: 440px) {
   .notification-area {
-    max-width: 408px; } }
+    max-width: 408px;
+    height: 560px; } }
 
 /*!
  *
@@ -768,13 +774,15 @@ a {
   background: url(/devsummit/static/images/header/header-live-cta.svg) center center no-repeat;
   background-size: 100% 100%;
   text-decoration: none;
-  opacity: 0; }
+  opacity: 0;
+  pointer-events: none; }
 
 .animatable .header__live-stream {
   transition: opacity 0.25s cubic-bezier(0, 0, 0.3, 1); }
 
 .header__live-stream.visible {
-  opacity: 1; }
+  opacity: 1;
+  pointer-events: auto; }
 
 .header__live-stream svg {
   position: absolute;
