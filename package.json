@@ -1,6 +1,6 @@
 {
   "name": "chrome-dev-summit-2016",
-  "version": "2.0.21",
+  "version": "2.0.22",
   "description": "Chrome Dev Summit 2016",
   "main": "index.js",
   "scripts": {
