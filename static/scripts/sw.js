@@ -91,7 +91,22 @@ self.onpush = evt => {
             });
           });
 
-          self.registration.showNotification(title, msg);
+          return caches.match(msg.icon)
+              .then(r => r.blob())
+              .then(imgBlob => {
+                return new Promise((resolve, reject) => {
+                  const reader = new FileReader();
+                  reader.addEventListener('load', _ => {
+                    resolve(reader.result);
+                  });
+                  reader.addEventListener('error', reject);
+                  reader.readAsDataURL(imgBlob);
+                });
+              })
+              .then(imgBase64 => {
+                msg.icon = imgBase64;
+                self.registration.showNotification(title, msg);
+              });
         }));
 };
 

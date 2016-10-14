@@ -87,7 +87,7 @@ $animation: 0.3s;
   height: 848px;
   background: #313131;
   backface-visibility: hidden;
-  transform: scale(0.056603774);
+  transform: scale(0.056);
   transform-origin: 50% 50%;
   transition: transform $animation cubic-bezier(0, 0, 0.3, 1);
 }
@@ -145,10 +145,25 @@ $animation: 0.3s;
   pointer-events: auto;
   margin-right: $baseline;
   cursor: pointer;
+  position: relative;
 
-  &:hover,
-  &:focus {
-    background-color: rgba(0, 0, 0, 0.6);
+  &:after {
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 48px;
+    height: 48px;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity $animation * 0.6 cubic-bezier(0, 0, 0.3, 1);
+    background: #FFCD43 url(/devsummit/static/images/icons/ic_notifications_black_24px.svg) center center no-repeat;
+  }
+
+  &:hover:after,
+  &:focus:after {
+    opacity: 1;
   }
 }
 
@@ -189,6 +204,11 @@ $animation: 0.3s;
   top: $baseline;
   right: $baseline;
   margin: 0;
+
+  &:hover:after,
+  &:focus:after {
+    background: #FFCD43 url(/devsummit/static/images/icons/ic_close_black_24px.svg) center center no-repeat;
+  }
 }
 
 .notification-content__list {
