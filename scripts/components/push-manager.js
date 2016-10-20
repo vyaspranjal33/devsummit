@@ -96,6 +96,11 @@ export class PushManager {
       return;
     }
 
+    const eventUpdates = document.querySelector('.event-updates');
+    if (eventUpdates) {
+      eventUpdates.classList.add('event-updates--active');
+    }
+
     const notificationButtons =
         Array.from(document.querySelectorAll('.notification-btn'));
     if (!notificationButtons.length) {
@@ -116,12 +121,14 @@ export class PushManager {
       idbKeyval.get(ID).then(value => {
         notificationButton.disabled = false;
         if (value) {
-          notificationButtonContent.textContent = 'Notifications enabled';
           notificationButton.classList.add('notification-btn--enabled');
+          notificationButton.classList.remove('notification-btn--disabled');
         } else {
-          notificationButtonContent.textContent = 'Notifications disabled';
           notificationButton.classList.remove('notification-btn--enabled');
+          notificationButton.classList.add('notification-btn--disabled');
         }
+
+        notificationButtonContent.textContent = '';
       });
     });
   }

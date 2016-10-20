@@ -20,7 +20,6 @@
 
 .section-home {
   min-height: 30vh;
-  margin-bottom: $baseline * -4;
 }
 
 .home-cds-info {
@@ -192,6 +191,10 @@
   align-items: center;
   justify-content: center;
 
+  .home__event-updates {
+    position: relative;
+  }
+
   a {
     color: #FFF;
     text-decoration: none;
@@ -239,6 +242,12 @@
   }
 }
 
+@media (min-width: 360px) {
+  .home__waiting-list {
+    font-size: 22px;
+  }
+}
+
 @media (min-width: 424px) {
   .home-cds-info {
     font-size: 16px;
@@ -246,7 +255,6 @@
   }
 
   .home__waiting-list {
-    font-size: 18px;
     margin-top: $baseline * 4;
   }
 }

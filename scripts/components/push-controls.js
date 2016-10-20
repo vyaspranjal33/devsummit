@@ -66,6 +66,15 @@ export class PushControls {
   }
 
   static _populateElement (sessions) {
+    const allSessions = [...sessions];
+    allSessions.unshift([
+      '__NONE',
+      {
+        url: 'event',
+        name: 'Event Updates'
+      }
+    ]);
+
     const notificationTmpl = document.querySelector('#tmpl-notification-item');
 
     // Format the session time to the local time.
@@ -76,7 +85,10 @@ export class PushControls {
       return;
     }
 
-    sessions.forEach((session, date) => {
+    allSessions.forEach(item => {
+      const date = item[0];
+      const session = item[1];
+
       if (!session.url) {
         return;
       }
@@ -90,9 +102,16 @@ export class PushControls {
           sessionNode.querySelector('.notification-item__breakdown-time');
 
       container.dataset.id = session.url;
-      title.textContent = session.speaker + ': ' + session.name;
-      container.dataset.title = session.speaker + ': ' + session.name;
-      time.textContent = formatter.format(date);
+      title.textContent =
+          (session.speaker ? session.speaker + ': ' : '') + session.name;
+      container.dataset.title =
+          (session.speaker ? session.speaker + ': ' : '') + session.name;
+
+      if (date === '__NONE') {
+        time.parentNode.removeChild(time);
+      } else {
+        time.textContent = formatter.format(date);
+      }
 
       this._content.appendChild(sessionNode);
     });

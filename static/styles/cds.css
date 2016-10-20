@@ -185,6 +185,9 @@ button::-moz-focus-inner {
 .section-location {
   z-index: 1; }
 
+.event-updates {
+  z-index: 1; }
+
 .footer {
   z-index: 0; }
 
@@ -193,6 +196,9 @@ button::-moz-focus-inner {
 
 .header__live-stream {
   z-index: 0; }
+
+.footer__event-updates {
+  z-index: 1; }
 
 /*!
  *
@@ -400,7 +406,13 @@ button::-moz-focus-inner {
   border-radius: 2px;
   outline: none; }
   .notification-btn--enabled .notification-btn__inner:before {
-    background: url(/devsummit/static/images/icons/ic_notifications_active_black_24px.svg); }
+    content: 'Notifications enabled';
+    background: url(/devsummit/static/images/icons/ic_notifications_active_black_24px.svg) left center no-repeat; }
+  .notification-btn--disabled .notification-btn__inner:before {
+    content: 'Notifications disabled';
+    background: url(/devsummit/static/images/icons/ic_notifications_none_black_24px.svg) left center no-repeat; }
+  .notification-btn--no-label:before {
+    content: ''; }
 
 .notification-btn__inner {
   display: flex;
@@ -409,10 +421,9 @@ button::-moz-focus-inner {
   pointer-events: none; }
   .notification-btn__inner:before {
     content: '';
-    width: 24px;
+    padding-left: 32px;
     height: 24px;
-    margin-right: 8px;
-    background: url(/devsummit/static/images/icons/ic_notifications_none_black_24px.svg); }
+    background: url(/devsummit/static/images/icons/ic_notifications_none_black_24px.svg) left center no-repeat; }
 
 .notification-btn[hidden] {
   display: none; }
@@ -614,7 +625,8 @@ button::-moz-focus-inner {
   text-align: left;
   display: flex;
   flex: 1;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: space-around; }
 
 .notification-item__breakdown-title {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
@@ -1132,6 +1144,51 @@ button::-moz-focus-inner {
   opacity: 0;
   transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1); }
 
+.event-updates {
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  max-width: 864px;
+  height: 96px;
+  margin: 32px auto -32px auto;
+  background: #313131;
+  color: #FFF;
+  position: relative;
+  padding: 16px;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif; }
+  .event-updates--active {
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+    opacity: 1;
+    pointer-events: auto; }
+  .event-updates .notification-btn {
+    color: #FFF;
+    position: relative;
+    opacity: 0.7; }
+    .event-updates .notification-btn[disabled] {
+      opacity: 0.3; }
+    .event-updates .notification-btn .notification-btn__inner:before {
+      background-image: url(/devsummit/static/images/icons/ic_notifications_none_white_24px.svg); }
+    .event-updates .notification-btn--enabled {
+      color: #FFCD43;
+      opacity: 1; }
+      .event-updates .notification-btn--enabled .notification-btn__inner:before {
+        background-image: url(/devsummit/static/images/icons/ic_notifications_active_yellow_24px.svg); }
+  .event-updates p {
+    margin: 0 16px 0 0;
+    position: relative;
+    font-size: 16px; }
+  .event-updates svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; }
+
+@media (min-width: 424px) {
+  .event-updates p:before {
+    content: 'Want the latest? '; } }
+
 /*!
  *
  * Copyright 2016 Google Inc. All rights reserved.
@@ -1220,6 +1277,12 @@ iframe[name="google_conversion_frame"] {
   box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
   background: #FFF;
   z-index: 10000000; }
+
+.debug p {
+  font-weight: bold; }
+
+.debug button {
+  display: block; }
 
 /*!
  *

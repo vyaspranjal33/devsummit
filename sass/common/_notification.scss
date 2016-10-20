@@ -31,7 +31,17 @@ $animation: 0.3s;
   outline: none;
 
   &--enabled .notification-btn__inner:before {
-    background: url(/devsummit/static/images/icons/ic_notifications_active_black_24px.svg);
+    content: 'Notifications enabled';
+    background: url(/devsummit/static/images/icons/ic_notifications_active_black_24px.svg) left center no-repeat;
+  }
+
+  &--disabled .notification-btn__inner:before {
+    content: 'Notifications disabled';
+    background: url(/devsummit/static/images/icons/ic_notifications_none_black_24px.svg) left center no-repeat;
+  }
+
+  &--no-label:before {
+    content: '';
   }
 }
 
@@ -43,10 +53,9 @@ $animation: 0.3s;
 
   &:before {
     content: '';
-    width: 24px;
+    padding-left: 32px;
     height: 24px;
-    margin-right: $baseline;
-    background: url(/devsummit/static/images/icons/ic_notifications_none_black_24px.svg);
+    background: url(/devsummit/static/images/icons/ic_notifications_none_black_24px.svg) left center no-repeat;
   }
 }
 
@@ -287,6 +296,7 @@ $animation: 0.3s;
   display: flex;
   flex: 1;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .notification-item__breakdown-title {

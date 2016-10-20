@@ -17,7 +17,7 @@
 
 'use strict';
 
-/* global importScripts, cacheManifest */
+/* global importScripts, cacheManifest, clients */
 importScripts('{{ "/devsummit/static/scripts/cache-manifest.js" | add_hash }}');
 
 const NAME = 'CDS';
