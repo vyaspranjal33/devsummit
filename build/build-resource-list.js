@@ -94,7 +94,7 @@ const walkStaticFiles = _ => {
 
       if (name.endsWith('.js') ||
           name.endsWith('.css') ||
-          name.endsWith('manifest.json')) {
+          name.endsWith('.json')) {
         const hash = crypto
             .createHash('sha256')
             .update(fs.readFileSync(path))

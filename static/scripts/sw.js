@@ -17,7 +17,7 @@
 
 'use strict';
 
-/* global importScripts, cacheManifest */
+/* global importScripts, cacheManifest, clients */
 importScripts('{{ "/devsummit/static/scripts/cache-manifest.js" | add_hash }}');
 
 const NAME = 'CDS';
@@ -65,6 +65,77 @@ self.onmessage = evt => {
       version: VERSION
     });
   }
+};
+
+self.onpush = evt => {
+  const title = 'Chrome Dev Summit';
+  const msg = {
+    body: evt.data.text(),
+    icon: '/devsummit/static/images/icons/cds-icon@512.png',
+    vibrate: [200]
+  };
+
+  evt.waitUntil(
+      caches.match('/devsummit/static/json/sessions.json')
+        .then(response => response.json())
+        .then(sessions => {
+          const session = evt.data.text();
+          Object.keys(sessions).forEach(date => {
+            Object.keys(sessions[date]).forEach(daySession => {
+              let sessionDetails = sessions[date][daySession];
+              if (sessionDetails.url === session) {
+                msg.body = sessionDetails.name + ' with ' +
+                    sessionDetails.speaker + ' is starting now.';
+                msg.icon = sessionDetails.speakerImg;
+              }
+            });
+          });
+
+          return caches.match(msg.icon)
+              .then(r => r.blob())
+              .then(imgBlob => {
+                return new Promise((resolve, reject) => {
+                  const reader = new FileReader();
+                  reader.addEventListener('load', _ => {
+                    resolve(reader.result);
+                  });
+                  reader.addEventListener('error', reject);
+                  reader.readAsDataURL(imgBlob);
+                });
+              })
+              .then(imgBase64 => {
+                msg.icon = imgBase64;
+                self.registration.showNotification(title, msg);
+              });
+        }));
+};
+
+self.onnotificationclick = evt => {
+  const url = 'https://developer.chrome.com/devsummit/';
+
+  // Android doesn't close the notification when you click it
+  // See http://crbug.com/463146
+  evt.notification.close();
+
+  // Check if there's already a tab open with this URL.
+  // If yes: focus on the tab.
+  // If no: open a tab with the URL.
+  evt.waitUntil(
+    clients.matchAll({
+      type: 'window'
+    })
+    .then(windowClients => {
+      const client = windowClients.find(client => {
+        return (client.url === url && 'focus' in client);
+      });
+
+      if (client) {
+        client.focus();
+      } else if (clients.openWindow) {
+        return clients.openWindow(url);
+      }
+    })
+  );
 };
 
 self.onfetch = evt => {

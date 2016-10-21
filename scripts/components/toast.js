@@ -18,15 +18,32 @@
 'use strict';
 
 export class Toast {
-  static create (msg, timeout) {
+  static create (msg, options) {
+    var toastContainer = document.querySelector('.toast-container');
+    if (!toastContainer) {
+      toastContainer = document.createElement('div');
+      toastContainer.classList.add('toast-container');
+      document.body.appendChild(toastContainer);
+    }
+
+    var tag = options.tag || (Date.now().toString());
+    Array.from(toastContainer.querySelectorAll(`.toast[data-tag="${tag}"]`))
+        .forEach(t => {
+          t.parentNode.removeChild(t);
+        });
+
     // Make a toast...
     var toast = document.createElement('div');
+    var toastContent = document.createElement('div');
     toast.classList.add('toast');
-    toast.textContent = msg;
-    document.body.appendChild(toast);
+    toastContent.classList.add('toast__content');
+    toastContent.textContent = msg;
+    toast.appendChild(toastContent);
+    toast.dataset.tag = tag;
+    toastContainer.appendChild(toast);
 
     // Wait a few seconds, then fade it...
-    timeout = timeout || 3000;
+    var timeout = options.timeout || 3000;
     setTimeout(function () {
       toast.classList.add('toast--dismissed');
     }, timeout);

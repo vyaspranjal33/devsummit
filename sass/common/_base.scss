@@ -45,3 +45,7 @@ h2 {
 a {
   color: #1EA362;
 }
+
+button::-moz-focus-inner {
+  border: none;
+}

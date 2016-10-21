@@ -162,6 +162,7 @@
   background-size: 100% 100%;
   text-decoration: none;
   opacity: 0;
+  pointer-events: none;
 }
 
 .animatable .header__live-stream {
@@ -171,6 +172,7 @@
 .header__live-stream {
   &.visible {
     opacity: 1;
+    pointer-events: auto;
   }
 }
 

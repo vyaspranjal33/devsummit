@@ -92,11 +92,20 @@ def as_pst(time, date):
     """
     # Try and find the session info.
     date = datetime.strptime('%sT%s' % (date, time), '%Y-%m-%dT%H:%M:%S')
+    hour = date.hour
+    minutes = date.minute
     meridiem = 'AM'
-    if date.hour > 12:
+    if hour >= 12:
       meridiem = 'PM'
 
-    return '%s %s PST' % (date.hour % 12, meridiem)
+    if hour > 12:
+      hour -= 12
+
+    time = str(hour)
+    if minutes is not 0:
+      time += ' %s' % minutes
+
+    return '%s %s PST' % (time, meridiem)
 
 def as_24hr(time):
     """Converts the time to a 24hr label.
