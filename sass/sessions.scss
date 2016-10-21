@@ -68,9 +68,48 @@
   margin: 0;
 }
 
+.session-breakdown {
+  width: 100%;
+}
+
 .session-info__description {
   color: #090909;
   margin-bottom: $baseline * 6;
+}
+
+.session-info__list-item {
+  width: 100%;
+  display: block;
+
+  &:last-of-type .session-info__list-item-description {
+    border-bottom: none;
+  }
+}
+
+.session-info__list-item-summary {
+  color: #325C89;
+  padding: $baseline;
+  font-weight: 500;
+  font-size: 18px;
+  outline: none;
+  cursor: pointer;
+
+  &:focus,
+  &:hover {
+    background: #EEE;
+    color: #1F3853;
+  }
+}
+
+.session-info__list-item-description {
+  padding-bottom: $baseline * 2;
+  margin-bottom: $baseline * 2;
+  border-bottom: 1px solid #e2e2e2;
+
+  p {
+    margin: 0;
+    padding: 0 0 0 $baseline * 3;
+  }
 }
 
 .session-speaker-info__image {

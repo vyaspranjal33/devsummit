@@ -41,6 +41,7 @@ export class PushControls {
     this._firstTabStop = null;
     this._lastTabStop = null;
     this._list = null;
+    this._removeAllContainer = null;
 
     SessionLoader.getData().then(sessions => {
       document.body.appendChild(notificationTmpl.content.cloneNode(true));
@@ -89,7 +90,7 @@ export class PushControls {
       const date = item[0];
       const session = item[1];
 
-      if (!session.url) {
+      if (!session.url || session.notify === false) {
         return;
       }
 
@@ -125,8 +126,11 @@ export class PushControls {
       return;
     }
 
+    this._removeAllContainer = this._element.querySelector(
+      '.notification-content__remove-all-container'
+    );
     this._firstTabStop = this._closeButton;
-    this._lastTabStop = items[items.length - 1];
+    this._lastTabStop = this._removeAllContainer.querySelector('button');
     this._list = this._element.querySelector('.notification-content__list');
 
     // Ensure that we capture deeplinks.
@@ -172,7 +176,13 @@ export class PushControls {
       PushManager.removeSubscription();
     });
     this._closeButton.addEventListener('click', this._removeHash);
-    document.addEventListener('click', this._removeHash);
+    document.addEventListener('click', _ => {
+      if (!this._element.classList.contains('notification-area--expanded')) {
+        return;
+      }
+
+      this._removeHash();
+    });
     window.addEventListener('keydown', this._trapTabKey);
     this._element.addEventListener('transitionend', this._onTransitionEnd);
   }
@@ -199,10 +209,18 @@ export class PushControls {
     if (this._element.classList.contains('notification-area--expanded')) {
       this._panelHeader.inert = false;
       this._list.inert = false;
+      this._removeAllContainer.inert = false;
       this._panelTitle.focus();
     } else {
       this._list.inert = true;
       this._panelHeader.inert = true;
+      this._removeAllContainer.inert = true;
+
+      // Only focus the button if the collapse was part of a proper transition.
+      // It won't be for the first call, which is used to set the initial state.
+      if (!evt) {
+        return;
+      }
       this._toggleButton.focus();
     }
   }

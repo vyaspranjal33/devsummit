@@ -36,7 +36,7 @@
   pointer-events: none;
   width: 100%;
   max-width: $baseline * 108;
-  height: $baseline * 12;
+  height: $baseline * 15;
   margin: $baseline * 4 auto $baseline * -4 auto;
   background: #313131;
   color: #FFF;
@@ -74,7 +74,7 @@
   }
 
   p {
-    margin: 0 $baseline * 2 0 0;
+    margin: 0 $baseline * 2 $baseline 0;
     position: relative;
     font-size: 16px;
   }
@@ -91,6 +91,6 @@
 
 @media (min-width: 424px) {
   .event-updates p:before {
-    content: 'Want the latest? ';
+    content: 'Want all the latest info? ';
   }
 }

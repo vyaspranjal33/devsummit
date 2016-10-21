@@ -44,7 +44,17 @@
           <div class="schedule-item__details-inner">
             <h2 class="schedule-item__title">{{ session_info["name"] }}</h2>
             <div class="schedule-item__description">
-              <p>{{ session_info["description"] }}</p>
+              {% if session_info["list"] %}
+                <ul>
+                  {% for item in session_info["list"] %}
+                    <li>
+                    {{ item.title }}
+                    </li>
+                  {%endfor %}
+                </ul>
+              {% elif session_info["description"] %}
+                <p>{{ session_info["description"] }}</p>
+              {% endif %}
             </div>
           </div>
         </div>
