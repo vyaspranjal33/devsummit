@@ -20,6 +20,7 @@
 @import 'common/_zindex';
 @import 'common/_video-player';
 @import 'common/_toast';
+@import 'common/_notification';
 @import 'common/header/_inline';
 @import 'common/masthead/_inline';
 @import 'common/page-content/_inline';
@@ -33,4 +34,25 @@ iframe[name="google_conversion_frame"] {
   overflow: hidden;
   top: 0;
   left: 0;
+}
+
+.debug {
+  margin: 0 auto;
+  max-width: $baseline * 108;
+  padding: $baseline;
+  border: 1px solid #333;
+  position: fixed;
+  top: $baseline;
+  left: $baseline;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  background: #FFF;
+  z-index: 10000000;
+}
+
+.debug p {
+  font-weight: bold;
+}
+
+.debug button {
+  display: block;
 }

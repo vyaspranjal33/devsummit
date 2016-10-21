@@ -19,9 +19,13 @@
 
 export class SessionLoader {
   static getData () {
+    if (SessionLoader._sessionMap) {
+      return Promise.resolve(SessionLoader._sessionMap);
+    }
+
     return new Promise(function (resolve, reject) {
       var xhr = new XMLHttpRequest();
-      xhr.open('get', '/devsummit/static/json/sessions.json');
+      xhr.open('get', '{{ "/devsummit/static/json/sessions.json" | add_hash }}');
       xhr.responseType = 'json';
       xhr.onload = function () {
         // Go through and map date objects to sessions for convenience.
@@ -45,7 +49,8 @@ export class SessionLoader {
             sessionMap.set(dateTime, conferenceDays[date][time]);
           }
         }
-        resolve(sessionMap);
+        SessionLoader._sessionMap = sessionMap;
+        resolve(SessionLoader._sessionMap);
       };
       xhr.onerror = reject;
       xhr.send();

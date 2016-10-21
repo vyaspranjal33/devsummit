@@ -1,6 +1,6 @@
 {
   "2016-11-10": {
-    "08:00:00": {
+    "07:30:00": {
       "name": "Registration and Breakfast"
     },
 
@@ -121,6 +121,10 @@
   },
 
   "2016-11-11": {
+    "07:30:00": {
+      "name": "Registration and Breakfast"
+    },
+
     "10:00:00": {
       "name": "How Web Built It",
       "speaker": "TBD",
@@ -202,11 +206,55 @@
     },
 
     "15:30:00": {
-      "name": "Breakouts & Codelabs"
+      "notify": false,
+      "name": "Breakouts & Codelabs - Session 1",
+      "url": "/devsummit/schedule/sessions/breakouts-session-1",
+      "list": [
+        {
+          "title": "Firebase",
+          "description": "<p>It's hard to know exactly how to get started building a world-class Progressive Web App. Firebase can help kickstart your PWA and scales with you no matter how big your app grows. Learn how to leverage Firebase to implement an instant-loading, offline-ready, push re-engaging web app in record time.</p>"
+        },
+        {
+          "title": "AMP as starting point",
+          "description": "<p>We see AMP as one of the best starting points into your user journey. That means the first link people click onto is always a super fast loading AMP page. Do you agree? And if not, why not? What stops you from embracing AMP for your strategy, and what would AMP need to change or provide to get there? Discuss!</p>"
+        },
+        {
+          "title": "From zero to service worker.",
+          "description": "<p>A hands-on walkthrough of using service worker libraries to add in offline and instant-loading support to a few classes of web apps:</p><ul><li>Static-only web apps, using just sw-precache.</li><li>Web apps that make API calls, using sw-precache + sw-toolbox.</li><li>Tips for adding in the libraries to different types of build processes (gulp, WebPack, npm scripts).</li>"
+        },
+        {
+          "title": "Media techniques & approaches",
+          "description": "<p>It's simple to add video to your website, but how can you deliver great performance even when connectivity is poor and bandwidth is limited?</p><p>In this session, you’ll learn how to use adaptive streaming to deliver a great video experience across devices and platforms, even on flaky networks or offline:</p><ul><li>Techniques to make the most of the video element.</li><li>Responsive design for media elements.</li><li>Building a plugin-free video player that adapts to bandwidth and device capabilities.</li><li>How to add captions, subtitles and synchronised metadata.</li><li>Recording and streaming from canvas and media elements.</li><li>WebRTC integration.</li><li>Encoding and packaging basics.</li><li>Media delivery testing across devices and different bandwidths.</li>"
+        },
+        {
+          "title": "Web Assembly",
+          "description": "<p>Web Assembly will give you the flexibility to use whatever language you choose to create small, fast web content. We'll be dispelling some myths and answering questions, with plenty of opportunity to discuss the kinds of tools</p>"
+        }
+      ]
     },
 
     "16:00:00": {
-      "name": "Breakouts & Codelabs"
+      "notify": false,
+      "name": "Breakouts & Codelabs - Session 2",
+      "url": "/devsummit/schedule/sessions/breakouts-session-2",
+      "list": [
+        {
+          "title": "Push Notifications and Background",
+          "description": "<p>Push Notifications have grown to be an important part of the Progressive Web App experience. We'll discuss the most recent learnings, new features and will take a look at new APIs such as the Budget API, Background Sync and Background Fetch.</p>"
+        },
+        {
+          "title": "WebVR",
+          "description": "<p>With the WebVR API you will be able to present your web content onto any VR device, from fancy commercial head-mounted-displays to pieces of cardboard. We'll have a brief introduction to the API followed by a group discussion about what you, as developers, want to get out of it.</p>"
+        },
+        {
+          "title": "Scalable Loading (PRPL, H/2 Push, HTTP/2, route-based chunking)",
+          "description": "<p>Developers want to load their PWAs fast and become interactive as soon as possible. This could be with patterns like PRPL, HTTP/2 Server Push or just serving down less stuff for each route. We want to make sure browsers have a good story here. Let's talk about what challenges folks face shipping fast experiences today, what works and what doesn't and figure out how we can make this better.</p>"
+        },
+        {
+          "title": "Houdini",
+          "description": "<p>Houdini - the real bits. Houdini is the next big thing™ in CSS and will give many new abilities for web developers. A lot is still pure theory, but let’s talk about the parts that have already been implemented in some browsers and can be experimented with.</p>"
+        }
+      ]
     },
 
     "16:30:00": {

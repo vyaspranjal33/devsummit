@@ -24,7 +24,7 @@
         {% if session_info["speaker"] %}
         <div class="schedule-item__speaker">
           <div class="schedule-item__speaker-image">
-            <img src="{{ session_info["speakerImg"] }}" alt="{{ session_info["speaker"] }}">
+            <img src="{{ session_info["speakerImg"] }}" alt="{{ session_info["speaker"] }}" width="128" height="128">
           </div>
 
           <div class="schedule-item__speaker-details">
@@ -37,14 +37,24 @@
         {% endif %}
 
         <div class="schedule-item__time">
-          <time title="8AM PST" class="schedule-item__time-value" datetime="{{ date }}T{{ time }}-08:00">{{ time | as_24hr }}</time>
+          <time title="{{ time | as_pst(date) }}" class="schedule-item__time-value" datetime="{{ date }}T{{ time }}-08:00">{{ time | as_24hr }}</time>
         </div>
 
         <div class="schedule-item__details">
           <div class="schedule-item__details-inner">
             <h2 class="schedule-item__title">{{ session_info["name"] }}</h2>
             <div class="schedule-item__description">
-              <p>{{ session_info["description"] }}</p>
+              {% if session_info["list"] %}
+                <ul>
+                  {% for item in session_info["list"] %}
+                    <li>
+                    {{ item.title }}
+                    </li>
+                  {%endfor %}
+                </ul>
+              {% elif session_info["description"] %}
+                <p>{{ session_info["description"] }}</p>
+              {% endif %}
             </div>
           </div>
         </div>

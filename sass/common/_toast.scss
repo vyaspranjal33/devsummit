@@ -15,17 +15,33 @@
  * limitations under the License.
  */
 
+.toast-container {
+  position: fixed;
+  padding: $baseline * 2;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+}
+
 .toast {
-  padding: $baseline $baseline * 2;
+  transition: opacity 1s cubic-bezier(0, 0, 0.3, 1);
+  font-size: 15px;
+  font-weight: 500;
+  width: 100%;
+  margin-top: $baseline * 2;
+  pointer-events: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toast__content {
+  padding: $baseline * 2 $baseline * 3;
   background: rgba(0, 0, 0, 0.7);
   color: #FFF;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
-  transition: opacity 1s cubic-bezier(0, 0, 0.3, 1);
-  position: fixed;
-  left: $baseline * 2;
-  bottom: $baseline * 2;
   border-radius: 2px;
-  font-size: 14px;
+  display: inline;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
 .toast--dismissed {

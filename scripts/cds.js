@@ -21,6 +21,7 @@ import {VideoHandler} from './components/video-handler';
 import {SideNav} from './components/side-nav';
 import {LiveSessionInfo} from './components/live-session-info';
 import {LiveBanner} from './components/live-banner';
+import {PushManager} from './components/push-manager';
 
 var initialized = false;
 export function init () {
@@ -34,6 +35,7 @@ export function init () {
 
   class CDS {
     constructor () {
+      this._location = window.location.pathname;
       this._isSwapping = false;
       this._request = null;
       this._spinnerTimeout = 0;
@@ -54,6 +56,9 @@ export function init () {
 
       this.addEventListeners();
       document.body.classList.add('animatable');
+
+      // Check the hash for the notifications.
+      this._onChanged();
     }
 
     _onLoad (evt) {
@@ -66,6 +71,12 @@ export function init () {
     }
 
     _onChanged (evt) {
+      // Ignore any changes in the hash.
+      if (window.location.pathname === this._location) {
+        return;
+      }
+      this._location = window.location.pathname;
+
       VideoHandler.toggleSmallPlayerIfNeeded();
       this._updateNavLinks();
       this._showSpinner();
@@ -180,9 +191,6 @@ export function init () {
         document.head.appendChild(newPageStyles.cloneNode(true));
       }
 
-      var liveStreamLinkVisible =
-          newLiveBanner.classList.contains('visible');
-
       VideoHandler.handle(newPageVideo);
 
       this._mastheadGraphic.innerHTML =
@@ -205,11 +213,7 @@ export function init () {
             'masthead-underlay__divider--invisible');
       }
 
-      if (liveStreamLinkVisible) {
-        this._liveBanner.removeAttribute('aria-hidden');
-      } else {
-        this._liveBanner.setAttribute('aria-hidden', 'true');
-      }
+      PushManager.updateCurrentView();
 
       // Double rAF to allow all changes to take hold.
       requestAnimationFrame(function () {
@@ -266,6 +270,11 @@ export function init () {
           evt.preventDefault();
           VideoHandler.beginPlayback(node.href);
         }
+      }
+
+      if (evt.target.classList.contains('js-notification-btn')) {
+        evt.preventDefault();
+        PushManager.processChange(evt);
       }
     }
 
