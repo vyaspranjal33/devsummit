@@ -76,7 +76,7 @@ self.onpush = evt => {
   };
 
   evt.waitUntil(
-      caches.match('/devsummit/static/json/sessions.json')
+      caches.match('{{ "/devsummit/static/json/sessions.json" | add_hash }}')
         .then(response => response.json())
         .then(sessions => {
           const session = evt.data.text();
