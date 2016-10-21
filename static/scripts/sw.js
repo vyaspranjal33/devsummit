@@ -149,7 +149,7 @@ self.onfetch = evt => {
         return resolve(request);
       }
 
-      caches.match('/devsummit/static/json/sessions.json')
+      caches.match('{{ "/devsummit/static/json/sessions.json" | add_hash }}')
           .then(sessions => sessions.json())
           .then(sessions => {
             const DAY_LENGTH_MS = 86400000;   // 24 hours
