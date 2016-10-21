@@ -48,19 +48,18 @@ export class PushManager {
         .then(_ => idbKeyval.get('appkey'))
         .then(key => {
           if (!key) {
-            idbKeyval.set('appkey', this._keyString);
-            return;
+            return idbKeyval.set('appkey', this._keyString);
           }
-
-          this._intitialized = true;
-          PushManager.updateCurrentView();
-          PushControls.init();
 
           if (key !== this._keyString) {
             console.warn('Keys have changed... removing subscription');
             this._keyHasChanged = true;
             return this.removeSubscription();
           }
+        }).then(_ => {
+          this._intitialized = true;
+          PushManager.updateCurrentView();
+          PushControls.init();
         })
         .catch(err => {
           console.warn('Unable to get push started');

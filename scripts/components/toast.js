@@ -25,7 +25,7 @@ export class Toast {
       toastContainer.classList.add('toast-container');
       document.body.appendChild(toastContainer);
     }
-
+    options = options || {};
     var tag = options.tag || (Date.now().toString());
     Array.from(toastContainer.querySelectorAll(`.toast[data-tag="${tag}"]`))
         .forEach(t => {

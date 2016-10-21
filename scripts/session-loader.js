@@ -49,6 +49,7 @@ export class SessionLoader {
             sessionMap.set(dateTime, conferenceDays[date][time]);
           }
         }
+
         SessionLoader._sessionMap = sessionMap;
         resolve(SessionLoader._sessionMap);
       };

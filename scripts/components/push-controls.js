@@ -90,7 +90,7 @@ export class PushControls {
       const date = item[0];
       const session = item[1];
 
-      if (!session.url || session.notify === false) {
+      if ((!session.url) || session.notify === false) {
         return;
       }
 

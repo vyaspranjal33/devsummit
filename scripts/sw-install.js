@@ -74,12 +74,6 @@ export function installServiceWorker () {
 
         if (this.state === 'activated') {
           registration.active.postMessage('version');
-
-          if (!('pushManager' in registration)) {
-            return;
-          }
-
-          PushManager.init();
         }
 
         console.log('Incoming SW state:', this.state);
