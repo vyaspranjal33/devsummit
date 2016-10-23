@@ -38,7 +38,7 @@ function loadPageStyles () {
     CDS.init();
   });
   window.addEventListener('load', function () {
-    loadScript('//www.googleadservices.com/pagead/conversion.js', false);
+    loadScript('//www.googleadservices.com/pagead/conversion_async.js', true);
   });
   loadScript('{{ "/devsummit/static/third_party/scripts/inert.min.js" | add_hash }}', false);
 })();
