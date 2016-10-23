@@ -96,6 +96,7 @@ $animation: 0.3s;
   height: 848px;
   background: #313131;
   backface-visibility: hidden;
+  will-change: transform;
   transform: scale(0.056);
   transform-origin: 50% 50%;
   transition: transform $animation cubic-bezier(0, 0, 0.3, 1);
@@ -241,7 +242,6 @@ $animation: 0.3s;
 .notification-content__list-item {
   display: block;
   padding: 0;
-  will-change: transform;
 }
 
 .notification-item__details {
