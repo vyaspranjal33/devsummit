@@ -106,6 +106,8 @@ self.onpush = evt => {
               .then(imgBase64 => {
                 msg.icon = imgBase64;
                 self.registration.showNotification(title, msg);
+              }).catch(_ => {
+                self.registration.showNotification(title, msg);
               });
         }));
 };
