@@ -258,7 +258,10 @@ export class PushControls {
     if (!this._element) {
       return;
     }
-    this._element.classList.add('notification-area--expanded');
+
+    requestAnimationFrame(_ => {
+      this._element.classList.add('notification-area--expanded');
+    });
   }
 
   static hide () {
