@@ -37,5 +37,8 @@ function loadPageStyles () {
   window.addEventListener('DOMContentLoaded', function () {
     CDS.init();
   });
+  window.addEventListener('load', function () {
+    loadScript('//www.googleadservices.com/pagead/conversion.js', false);
+  });
   loadScript('{{ "/devsummit/static/third_party/scripts/inert.min.js" | add_hash }}', false);
 })();
