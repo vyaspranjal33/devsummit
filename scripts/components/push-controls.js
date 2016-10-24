@@ -210,6 +210,10 @@ export class PushControls {
   }
 
   static _onTransitionEnd (evt) {
+    if (evt && !evt.target.classList.contains('notification-area')) {
+      return;
+    }
+
     if (this._element.classList.contains('notification-area--expanded')) {
       this._panelHeader.inert = false;
       this._list.inert = false;
