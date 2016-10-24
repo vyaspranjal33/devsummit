@@ -149,7 +149,6 @@ $animation: 0.3s;
   border: none;
   padding: 0;
   border-radius: 50%;
-  background: url(/devsummit/static/images/icons/ic_notifications_white_24px.svg) center center no-repeat;
   outline: none;
   flex: 0 0 auto;
   pointer-events: auto;
@@ -168,13 +167,20 @@ $animation: 0.3s;
     opacity: 0;
     will-change: opacity;
     transition: opacity $animation * 0.6 cubic-bezier(0, 0, 0.3, 1);
-    background: #FFCD43 url(/devsummit/static/images/icons/ic_notifications_black_24px.svg) center center no-repeat;
   }
 
   &:hover:after,
   &:focus:after {
     opacity: 1;
   }
+}
+
+.notification-toggle-button {
+  background: url(/devsummit/static/images/icons/ic_notifications_white_24px.svg) center center no-repeat;
+}
+
+.notification-toggle-button:after {
+  background: #FFCD43 url(/devsummit/static/images/icons/ic_notifications_black_24px.svg) center center no-repeat;
 }
 
 .notification-content__remove-all-container {
@@ -338,10 +344,9 @@ $animation: 0.3s;
 
 @media (min-width: 360px) {
   .notification-area {
-    max-width: $baseline * 47.5;
+    max-width: $baseline * 41;
   }
 }
-
 
 @media (min-width: 440px) {
   .notification-area {
