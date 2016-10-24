@@ -220,6 +220,10 @@ export class PushHandler {
       tag: 'all'
     });
 
+    if (typeof window.ga === 'function') {
+      window.ga('send', 'event', 'subscription', 'removed');
+    }
+
     return this._getSubscription().then(subscription => {
       const subscriptionJSON = subscription.toJSON();
       const body = {
@@ -271,6 +275,10 @@ export class PushHandler {
         }
 
         return idbKeyval.set('appkey', this._keyString).then(_ => {
+          if (typeof window.ga === 'function') {
+            window.ga('send', 'event', 'subscription', 'added');
+          }
+
           return registration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: this._key
