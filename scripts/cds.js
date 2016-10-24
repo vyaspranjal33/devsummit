@@ -235,7 +235,7 @@ export function init () {
     }
 
     _updateTimes () {
-      var now = new Date();
+      var now = new Date(2016, 10, 10, 6, 0, 0);
       var timezoneOffsetInHours = -now.getTimezoneOffset() / 60;
       var times = document.querySelectorAll('time');
       var formatter = new Intl.DateTimeFormat('en-us',
