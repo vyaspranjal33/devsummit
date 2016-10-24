@@ -22,7 +22,7 @@ import {urlBase64ToUint8Array} from '../third_party/urlBase64ToUint8Array.js';
 import {Toast} from './toast';
 import {PushControls} from './push-controls';
 
-export class PushManager {
+export class PushHandler {
 
   static get REMOTE_SERVER () {
     return 'https://cds-push.appspot.com';
@@ -30,6 +30,7 @@ export class PushManager {
 
   static init () {
     if (Notification.permission === 'denied') {
+      PushHandler._shutdown();
       return;
     }
 
@@ -39,7 +40,7 @@ export class PushManager {
     this._keyHasChanged = false;
     this._subscription = null;
     this._intitialized = false;
-    this._init = fetch(PushManager.REMOTE_SERVER)
+    this._init = fetch(PushHandler.REMOTE_SERVER)
         .then(r => r.text())
         .then(applicationServerKey => {
           this._keyString = applicationServerKey;
@@ -58,7 +59,7 @@ export class PushManager {
           }
         }).then(_ => {
           this._intitialized = true;
-          PushManager.updateCurrentView();
+          PushHandler.updateCurrentView();
           PushControls.init();
         })
         .catch(err => {
@@ -68,6 +69,17 @@ export class PushManager {
 
     this.updateSubscriptions = this.updateSubscriptions.bind(this);
     this.removeSubscription = this.removeSubscription.bind(this);
+  }
+
+  static _shutdown () {
+    // Remove all buttons.
+    const buttons = document.querySelectorAll('.notification-btn');
+    for (let button of buttons) {
+      button.parentNode.removeChild(button);
+    }
+
+    document.body.classList.remove('push-enabled');
+    PushControls.remove();
   }
 
   static showControls () {
@@ -152,7 +164,7 @@ export class PushManager {
     }
 
     // Disable any buttons for the item in question.
-    PushManager._disableButtons(`button[data-id="${id}"]`);
+    PushHandler._disableButtons(`button[data-id="${id}"]`);
 
     idbKeyval.get(id).then(currentValue => {
       const subscribed = (typeof currentValue === 'undefined') ? true : !currentValue;
@@ -161,23 +173,23 @@ export class PushManager {
         tag: id
       });
 
-      PushManager.updateSubscriptions([{id, subscribed}]).then(_ => {
+      PushHandler.updateSubscriptions([{id, subscribed}]).then(_ => {
         Toast.create(subscribed ?
             'Subscribed successfully.' :
             'Unsubscribed successfully.', {
               tag: id
             });
-        PushManager.updateCurrentView();
+        PushHandler.updateCurrentView();
         PushControls.updateListing();
 
-        PushManager._enableButtons(`button[data-id="${id}"]`);
+        PushHandler._enableButtons(`button[data-id="${id}"]`);
       }).catch(_ => {
         Toast.create('Unable to update notifications.', {
           tag: id
         });
 
         this._waiting = false;
-        PushManager._enableButtons(`button[data-id="${id}"]`);
+        PushHandler._enableButtons(`button[data-id="${id}"]`);
       });
     });
   }
@@ -197,7 +209,13 @@ export class PushManager {
   }
 
   static removeSubscription () {
-    PushManager._disableButtons('button[data-id]');
+    if (this._waiting) {
+      return;
+    }
+
+    this._waiting = true;
+
+    PushHandler._disableButtons('button[data-id]');
     Toast.create('Unsubscribing...', {
       tag: 'all'
     });
@@ -211,7 +229,7 @@ export class PushManager {
       subscription.unsubscribe();
       this._keyHasChanged = false;
 
-      return fetch(`${PushManager.REMOTE_SERVER}/remove`, {
+      return fetch(`${PushHandler.REMOTE_SERVER}/remove`, {
         headers: {
           'Content-Type': 'application/json'
         },
@@ -225,20 +243,22 @@ export class PushManager {
         });
       }).then(_ => {
         console.log('Removed subscription.');
-        PushManager.updateCurrentView();
+        PushHandler.updateCurrentView();
         PushControls.updateListing();
-        PushManager._enableButtons('button[data-id]');
+        PushHandler._enableButtons('button[data-id]');
         Toast.create('Unsubscribed successfully.', {
           tag: 'all'
         });
+        this._waiting = false;
       }).catch(_ => {
         console.log('Failed to remove all.');
-        PushManager.updateCurrentView();
+        PushHandler.updateCurrentView();
         PushControls.updateListing();
-        PushManager._enableButtons('button[data-id]');
+        PushHandler._enableButtons('button[data-id]');
         Toast.create('Unable to update.', {
           tag: 'all'
         });
+        this._waiting = false;
       });
     });
   }
@@ -254,6 +274,10 @@ export class PushManager {
           return registration.pushManager.subscribe({
             userVisibleOnly: true,
             applicationServerKey: this._key
+          }).catch(_ => {
+            console.log('Subscription rejected');
+            PushHandler._shutdown();
+            return null;
           });
         });
       });
@@ -279,7 +303,7 @@ export class PushManager {
         body[value.id] = value.subscribed;
       });
 
-      return fetch(`${PushManager.REMOTE_SERVER}/subscribe`, {
+      return fetch(`${PushHandler.REMOTE_SERVER}/subscribe`, {
         headers: {
           'Content-Type': 'application/json'
         },

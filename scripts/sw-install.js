@@ -18,7 +18,7 @@
 'use strict';
 
 import {Toast} from './components/toast';
-import {PushManager} from './components/push-manager';
+import {PushHandler} from './components/push-handler';
 
 export function installServiceWorker () {
   if (!('serviceWorker' in navigator)) {
@@ -52,7 +52,7 @@ export function installServiceWorker () {
       return;
     }
 
-    PushManager.init();
+    PushHandler.init();
   });
 
   navigator.serviceWorker.register('/devsummit/sw.js').then(function (registration) {

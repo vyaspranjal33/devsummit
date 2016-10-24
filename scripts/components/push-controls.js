@@ -19,7 +19,7 @@
 
 import {idbKeyval} from '../third_party/idb-keyval.js';
 import {SessionLoader} from '../session-loader';
-import {PushManager} from './push-manager';
+import {PushHandler} from './push-handler';
 
 export class PushControls {
 
@@ -64,6 +64,15 @@ export class PushControls {
     }).catch(err => {
       console.log(err);
     });
+  }
+
+  static remove () {
+    const notificationArea = document.querySelector('.notification-area');
+    if (!notificationArea) {
+      return;
+    }
+
+    notificationArea.parentNode.removeChild(notificationArea);
   }
 
   static _populateElement (sessions) {
@@ -173,7 +182,7 @@ export class PushControls {
     this._toggleButton.addEventListener('click', this._toggleViewVisibility);
     this._element.addEventListener('click', this._handleClick);
     this._unsubscribeAllButton.addEventListener('click', _ => {
-      PushManager.removeSubscription();
+      PushHandler.removeSubscription();
     });
     this._closeButton.addEventListener('click', this._removeHash);
     document.addEventListener('click', _ => {
@@ -201,11 +210,6 @@ export class PushControls {
   }
 
   static _onTransitionEnd (evt) {
-    // Limit this to just one transitionend event.
-    if (evt && !evt.target.classList.contains('notification-ripple')) {
-      return;
-    }
-
     if (this._element.classList.contains('notification-area--expanded')) {
       this._panelHeader.inert = false;
       this._list.inert = false;
@@ -231,7 +235,7 @@ export class PushControls {
     let node = evt.target;
     do {
       if (node && node.classList && node.classList.contains('notification-item__details')) {
-        PushManager.processChange(node);
+        PushHandler.processChange(node);
         return;
       }
       node = node.parentNode;

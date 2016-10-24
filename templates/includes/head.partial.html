@@ -39,6 +39,12 @@ limitations under the License.
     {% endif %}
   </head>
   <body>
+    <script>
+      if (('PushManager' in window) && Notification.permission !== 'denied') {
+        document.body.classList.add('push-enabled');
+      }
+    </script>
+
   {% include "templates/includes/header.partial.html" %}
     {{ caller() }}
 {% endmacro %}

@@ -68,7 +68,8 @@
 .location-breakdown__details {
   padding: $baseline * 2;
 
-  span {
+  span.organization-name,
+  span.street-address {
     display: block;
   }
 

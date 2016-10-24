@@ -1,7 +1,8 @@
 {
   "2016-11-10": {
     "07:30:00": {
-      "name": "Registration and Breakfast"
+      "name": "Registration and Breakfast",
+      "description": "Pick up your badge, goodies, and enjoy breakfast. You must have a government-issued photo ID to receive a badge and check in to the event."
     },
 
     "10:00:00": {
@@ -122,7 +123,8 @@
 
   "2016-11-11": {
     "07:30:00": {
-      "name": "Registration and Breakfast"
+      "name": "Registration and Breakfast",
+      "description": "If you missed registration on Day 1, you can still get your badge and goodies. You must have a government-issued photo ID to receive a badge and check in to the event. Breakfast will also be served."
     },
 
     "10:00:00": {

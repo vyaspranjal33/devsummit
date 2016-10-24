@@ -18,15 +18,32 @@
 
   </section>
 
-  <section class="home__waiting-list">
-    <a href="https://events.withgoogle.com/chrome-dev-summit-2016/registrations/new/" target="_blank" rel="noopener">
+  <section class="home__waiting-list-and-event-updates">
+    <section class="home__waiting-list">
+      <a href="https://events.withgoogle.com/chrome-dev-summit-2016/registrations/new/" target="_blank" rel="noopener">
+        <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
+          <rect fill="#6387F5" width="100%" height="100%" />
+          <rect fill="#000" width="100%" height="100%" class="home__waiting-list-hover" />
+          <polygon points="0 70 100 100 0 100" fill="#4D6BC3" />
+        </svg>
+        <p>Join the ticket waiting list!</p>
+      </a>
+    </section>
+
+    <section class="event-updates">
       <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
-        <rect fill="#6387F5" width="100%" height="100%" />
-        <rect fill="#000" width="100%" height="100%" class="home__waiting-list-hover" />
-        <polygon points="0 70 100 100 0 100" fill="#4D6BC3" />
+        <polygon x="0" y="0" fill="#222" points="0 70 100 100 0 100"></polygon>
       </svg>
-      <p>Join the waiting list!</p>
-    </a>
+
+      <p class="event-updates__register">Register for event notifications</p>
+      <button data-id="event" class="notification-btn js-notification-btn" disabled hidden>
+        <div class="notification-btn__inner notification-btn__inner--no-label"></div>
+      </button>
+
+      <a class="event-updates__livestream-form" href="https://services.google.com/fb/forms/cds2016/">
+        <span>Watch Chrome Dev Summit from anywhere via livestream. Sign up for updates!</span>
+      </a>
+    </section>
   </section>
 
   <section class="home__ctas">
@@ -67,17 +84,6 @@
       <h2>Location</h2>
       <h3>Chrome Dev Summit is at <span>SF&#8203;Jazz</span> Center</h3>
     </a>
-  </section>
-
-  <section class="event-updates">
-    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 1224 302">
-      <polygon x="0" y="0" fill="#222" points="0 106 1224 302 0 302"></polygon>
-    </svg>
-
-    <p>Get event updates:</p>
-    <button data-id="event" class="notification-btn js-notification-btn" disabled hidden>
-      <div class="notification-btn__inner notification-btn__inner--no-label"></div>
-    </button>
   </section>
 
 {% endblock %}

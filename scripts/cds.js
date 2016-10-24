@@ -21,7 +21,7 @@ import {VideoHandler} from './components/video-handler';
 import {SideNav} from './components/side-nav';
 import {LiveSessionInfo} from './components/live-session-info';
 import {LiveBanner} from './components/live-banner';
-import {PushManager} from './components/push-manager';
+import {PushHandler} from './components/push-handler';
 
 var initialized = false;
 export function init () {
@@ -214,7 +214,7 @@ export function init () {
             'masthead-underlay__divider--invisible');
       }
 
-      PushManager.updateCurrentView();
+      PushHandler.updateCurrentView();
       this._updateTimes();
 
       // Double rAF to allow all changes to take hold.
@@ -318,7 +318,7 @@ export function init () {
 
       if (evt.target.classList.contains('js-notification-btn')) {
         evt.preventDefault();
-        PushManager.processChange(evt);
+        PushHandler.processChange(evt);
       }
     }
 

@@ -184,7 +184,7 @@
   color: #1EA362;
   width: 100%;
   max-width: $baseline * 108;
-  margin: $baseline * 3 auto $baseline * 3 auto;
+  margin: $baseline * 3 auto 0 auto;
   display: flex;
   min-height: $baseline * 10;
   position: relative;
@@ -202,7 +202,6 @@
     padding: 0 $baseline * 2;
     display: flex;
     align-items: center;
-    justify-content: center;
 
     .home__waiting-list-hover {
       will-change: opacity;
@@ -242,12 +241,6 @@
   }
 }
 
-@media (min-width: 360px) {
-  .home__waiting-list {
-    font-size: 22px;
-  }
-}
-
 @media (min-width: 424px) {
   .home-cds-info {
     font-size: 16px;
@@ -269,7 +262,8 @@
 }
 
 @media (min-width: 600px) {
-  .home-cds-info{
+
+  .home-cds-info {
     font-size: 18px;
     padding-bottom: $baseline * 20;
   }
@@ -307,11 +301,18 @@
     margin-top: $baseline * -7;
   }
 
-  .home__waiting-list {
-    margin-top: -$baseline * 6;
+  .home__waiting-list-and-event-updates {
+    margin: -$baseline * 6 auto $baseline * 3 auto;
+    max-width: $baseline * 108;
+    position: relative;
+    display: flex;
 
-    p:before {
-      content: 'Want a ticket? ';
+    > * {
+      margin: 0;
+      flex: 0 0 auto;
+      width: 50%;
+      max-width: 50%;
+      min-height: $baseline * 14;
     }
   }
 }
@@ -324,7 +325,7 @@
   .home__waiting-list {
     font-size: 22px;
     height: $baseline * 12;
-    padding: $baseline * 4;
+    padding: $baseline * 2;
 
     a:after {
       width: 48px;
