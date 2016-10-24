@@ -9,11 +9,11 @@
 
   {% include "templates/includes/schedule-nav.partial.html" %}
 
-  <div class="schedule-items">
+  <div class="schedule-adjustment" aria-hidden="true">
+    Please note: all times have been adjusted to <span class="schedule-adjustment__value">UTC-08:00</span>
+  </div>
 
-    <div class="schedule-adjustment" aria-hidden="true">
-      Please note: all times have been adjusted to <span class="schedule-adjustment__value">UTC-08:00</span>
-    </div>
+  <div class="schedule-items">
 
     {% for time in sorted_sessions %}
 

@@ -110,10 +110,20 @@
   align-items: center;
   justify-content: center;
 
-  p {
+  a {
     flex: 1;
     position: relative;
-    order: 2;
+
+    &:before {
+      position: relative;
+      display: inline-block;
+      content: '';
+      background: url(/devsummit/static/images/icons/ic_ondemand_video_black_48px.svg) center center no-repeat;
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      margin-right: $baseline * 1.5;
+    }
   }
 
   svg {
@@ -121,16 +131,15 @@
     top: 0;
     left: 0;
   }
+}
 
-  &:after {
-    position: relative;
-    content: '';
-    background: url(/devsummit/static/images/icons/ic_ondemand_video_black_48px.svg) center center no-repeat;
-    background-size: contain;
-    width: 24px;
-    height: 24px;
-    order: 1;
-    margin-right: $baseline * 1.5;
+.location__event-updates {
+  max-width: $baseline * 108;
+  margin: $baseline * 3 auto;
+  outline: 1px solid #333;
+
+  .event-updates a span {
+    max-width: 100%;
   }
 }
 
@@ -193,7 +202,7 @@
     height: $baseline * 12;
     padding: $baseline * 4;
 
-    &:after {
+    a:after {
       width: 48px;
       height: 48px;
       margin-right: $baseline * 3;

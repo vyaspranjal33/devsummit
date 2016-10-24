@@ -31,11 +31,20 @@
     <a class="location-breakdown__map" href="https://goo.gl/maps/3DdGhcDobPw" rel="noopener" target="_blank"></a>
   </section>
 
-  <section class="location-livestream">
-    <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
-      <rect fill="#D8D8D8" width="100%" height="100%" />
-      <polygon points="0 70 100 100 0 100" fill="#BBB" />
-    </svg>
-    <p>Can’t make it? Watch the live stream!</p>
+  <section class="location__event-updates">
+    <section class="event-updates">
+      <svg width="100%" height="100%" preserveAspectRatio="none" viewBox="0 0 100 100">
+        <polygon x="0" y="0" fill="#222" points="0 70 100 100 0 100"></polygon>
+      </svg>
+
+      <p class="event-updates__register">Register for event notifications</p>
+      <button data-id="event" class="notification-btn js-notification-btn" disabled hidden>
+        <div class="notification-btn__inner notification-btn__inner--no-label"></div>
+      </button>
+
+      <a class="event-updates__livestream-form" href="https://services.google.com/fb/forms/cds2016/">
+        <span>Watch Chrome Dev Summit from anywhere via livestream. Sign up for updates!</span>
+      </a>
+    </section>
   </section>
 {% endblock %}
