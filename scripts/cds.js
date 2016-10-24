@@ -265,7 +265,7 @@ export function init () {
         adjustment.classList.remove('schedule-adjustment--visible');
         adjustment.setAttribute('aria-hidden', 'true');
       } else {
-        var formattedDate = formatter.format(new Date()).split(' ');
+        var formattedDate = formatter.format(now).split(' ');
         if (formattedDate.length < 2) {
           return;
         }
