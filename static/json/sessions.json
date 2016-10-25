@@ -255,6 +255,10 @@
         {
           "title": "Houdini",
           "description": "<p>Houdini - the real bits. Houdini is the next big thing™ in CSS and will give many new abilities for web developers. A lot is still pure theory, but let’s talk about the parts that have already been implemented in some browsers and can be experimented with.</p>"
+        },
+        {
+          "title": "Web platform predictability pain points",
+          "description": "<p>Talk with Chrome web platform engineers and tell us what's the hardest part about building for the web across different browsers and browser versions. What should we prioritize to make the web more predictable for you?</p>"
         }
       ]
     },
