@@ -294,6 +294,11 @@ export function init () {
     }
 
     _onClick (evt) {
+      // If this is a ctrl-click / cmd-click, don't do anything.
+      if (evt.metaKey || evt.ctrlKey) {
+        return;
+      }
+
       var node = evt.target;
       do {
         if (node === null || node.nodeName.toLowerCase() === 'a') {
