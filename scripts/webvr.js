@@ -38,8 +38,8 @@
       var camera = new THREE.PerspectiveCamera(75, rect.width / rect.height, 0.1, 10000);
       var controls = new THREE.VRControls(camera);
       // Apply VR stereo rendering to renderer.
-      // var effect = new THREE.VREffect(renderer);
-      // effect.setSize(rect.width, rect.height);
+      var effect = new THREE.VREffect(renderer);
+      effect.setSize(rect.width, rect.height);
       // Add a repeating grid as a skybox.
       var boxWidth = 5;
       var loader = new THREE.TextureLoader();
@@ -61,7 +61,6 @@
         var geometry = new THREE.BoxGeometry(boxWidth, boxWidth, boxWidth);
         var material = new THREE.MeshBasicMaterial({
           map: texture,
-          // color: 0x01BE00,
           side: THREE.BackSide
         });
         var skybox = new THREE.Mesh(geometry, material);
@@ -85,8 +84,8 @@
         // Update VR headset position and apply to camera.
         controls.update();
         // Render the scene.
-        // effect.render(scene, camera);
-        renderer.render(scene, camera);
+        effect.render(scene, camera);
+        // renderer.render(scene, camera);
         // Keep looping.
         vrDisplay.requestAnimationFrame(animate);
       }
@@ -106,9 +105,9 @@
       // document.querySelector('button#fullscreen').addEventListener('click', function() {
       //   enterFullscreen(renderer.domElement);
       // });
-      // document.querySelector('button#vr').addEventListener('click', function() {
-      //   vrDisplay.requestPresent([{source: renderer.domElement}]);
-      // });
+      renderer.domElement.addEventListener('click', function() {
+        vrDisplay.requestPresent([{source: renderer.domElement}]);
+      });
       // document.querySelector('button#reset').addEventListener('click', function() {
       //   vrDisplay.resetPose();
       // });
