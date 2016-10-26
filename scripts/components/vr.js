@@ -73,6 +73,7 @@ export class VR {
   }
 
   static _onClick (event) {
+    VR.hideButton();
     loadScript('{{ "/devsummit/static/scripts/webvr.js" | add_hash }}', true);
   }
 }

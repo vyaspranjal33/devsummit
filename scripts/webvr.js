@@ -1,4 +1,4 @@
-;;(function() {
+;;(function () {
   function transitionEndPromise (elem) {
     return new Promise(function (resolve) {
       elem.addEventListener('transitionend', function h() {
@@ -19,16 +19,12 @@
   _masthead.classList.add('animatable', 'hide-areas');
   transitionEndPromise(_masthead)
     .then(function () {
-      // Remove all contents of the masthead
-      while (_masthead.firstChild) {
-        _masthead.removeChild(_masthead.firstChild);
-      }
 
       renderer = new THREE.WebGLRenderer({antialias: false});
       renderer.setPixelRatio(Math.floor(window.devicePixelRatio));
       // Append the canvas element created by the renderer to document body element.
-      renderer.domElement.classList.add('masthead__graphic', 'masthead__vr');
-      _masthead.appendChild(renderer.domElement, _masthead.querySelector('.masthead__graphic'));
+      renderer.domElement.classList.add('masthead__vr');
+      _masthead.querySelector('.masthead__graphic').appendChild(renderer.domElement);
     })
     .then(rafPromise)
     .then(rafPromise)
@@ -42,8 +38,8 @@
       var camera = new THREE.PerspectiveCamera(75, rect.width / rect.height, 0.1, 10000);
       var controls = new THREE.VRControls(camera);
       // Apply VR stereo rendering to renderer.
-      var effect = new THREE.VREffect(renderer);
-      effect.setSize(rect.width, rect.height);
+      // var effect = new THREE.VREffect(renderer);
+      // effect.setSize(rect.width, rect.height);
       // Add a repeating grid as a skybox.
       var boxWidth = 5;
       var loader = new THREE.TextureLoader();
@@ -65,7 +61,7 @@
         var geometry = new THREE.BoxGeometry(boxWidth, boxWidth, boxWidth);
         var material = new THREE.MeshBasicMaterial({
           map: texture,
-          color: 0x01BE00,
+          // color: 0x01BE00,
           side: THREE.BackSide
         });
         var skybox = new THREE.Mesh(geometry, material);
@@ -89,7 +85,8 @@
         // Update VR headset position and apply to camera.
         controls.update();
         // Render the scene.
-        effect.render(scene, camera);
+        // effect.render(scene, camera);
+        renderer.render(scene, camera);
         // Keep looping.
         vrDisplay.requestAnimationFrame(animate);
       }

@@ -23,6 +23,15 @@ button.vr {
 }
 
 .masthead__vr {
+  opacity: 1;
+  transition: opacity 0.3s cubic-bezier(0, 0, 0.31, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100% !important;
   height: auto;
+  z-index: 5;
+  .hide-areas & {
+    opacity: 0;
+  }
 }
