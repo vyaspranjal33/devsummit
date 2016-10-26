@@ -17,10 +17,13 @@
 
 'use strict';
 
+import {loadScript} from '../utils';
+
 const _vrButton = document.createElement('button');
 
 export class VR {
   static init() {
+    _vrButton.setAttribute('aria-label', 'See venue in WebVR');
     _vrButton.classList.add('vr');
     _vrButton.addEventListener('click', VR._onClick.bind(VR));
     VR.showButtonIfAppropriate();
@@ -70,6 +73,6 @@ export class VR {
   }
 
   static _onClick (event) {
-    console.log('lol');
+    loadScript('{{ "/devsummit/static/scripts/webvr.js" | add_hash }}', true);
   }
 }
