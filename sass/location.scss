@@ -62,10 +62,27 @@
   background: #5472AE;
   color: #FFF;
   margin: 0 auto;
-  outline: 1px solid rgba(0, 0, 0, 0.3);
+  border-left: 1px solid #CFCFCF;
+  border-right: 1px solid #CFCFCF;
+  border-top: 1px solid #CFCFCF;
+
+  a {
+    color: #FFF;
+  }
+
+  ul {
+    padding-left: $baseline * 2;
+  }
+
+  &__address-and-public-transport,
+  &__by-car-and-by-air {
+    svg {
+      display: none;
+    }
+  }
 }
 
-.location-breakdown__details {
+.location-breakdown__address {
   padding: $baseline * 2;
 
   span.organization-name,
@@ -81,65 +98,99 @@
   a {
     color: #FFF;
   }
+}
 
-  .org {
-    margin-bottom: $baseline * 2;
+.location-breakdown__public-transport {
+  padding: $baseline * 2;
+
+  &-title {
+    color: #FFF;
+    margin: 0;
+    padding: 0;
+  }
+
+  p {
+    margin: 0 0 $baseline 0;
+  }
+}
+
+.location-breakdown__by-car-and-by-air {
+  background: #3C5382;
+
+  .location-breakdown__by-car,
+  .location-breakdown__by-air {
+
+    padding: $baseline * 2;
+
+    &-title {
+      color: #FFF;
+      margin: 0;
+      padding: 0;
+    }
+
+    p {
+      margin: 0 0 $baseline 0;
+    }
   }
 }
 
 .location-breakdown__map {
   width: 100%;
+  max-width: $baseline * 108;
+  margin: 0 auto;
   height: $baseline * 36;
   border: none;
   display: block;
-  background: url(https://maps.googleapis.com/maps/api/staticmap?center=SFJAZZ+Center,San+Francisco,CA&zoom=15&size=432x408&maptype=roadmap&key=AIzaSyCIu9n1FCZ5H9488apH7e9rihIdKvjne0o&markers=color:blue%7Clabel:S%7C37.7762613,-122.4213759) center center no-repeat;
+  background: url(https://maps.googleapis.com/maps/api/staticmap?center=SFJAZZ+Center,San+Francisco,CA&zoom=15&size=864x228&maptype=roadmap&key=AIzaSyCIu9n1FCZ5H9488apH7e9rihIdKvjne0o&markers=color:blue%7Clabel:S%7C37.7762613,-122.4213759) center center no-repeat;
   background-size: cover;
+  border-left: 1px solid #CFCFCF;
+  border-right: 1px solid #CFCFCF;
 }
 
-.location-livestream {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  color: #444444;
-  width: 100%;
+.location-breakdown__lyft {
   max-width: $baseline * 108;
-  margin: $baseline * 3 auto 0 auto;
-  display: flex;
-  padding: 0 $baseline * 2;
-  min-height: $baseline * 6;
+  margin: 0 auto;
+  width: 100%;
+  color: #FFF;
   position: relative;
-  align-items: center;
-  justify-content: center;
-
-  a {
-    flex: 1;
-    position: relative;
-
-    &:before {
-      position: relative;
-      display: inline-block;
-      content: '';
-      background: url(/devsummit/static/images/icons/ic_ondemand_video_black_48px.svg) center center no-repeat;
-      background-size: contain;
-      width: 24px;
-      height: 24px;
-      margin-right: $baseline * 1.5;
-    }
-  }
+  padding: $baseline * 2 $baseline * 2 $baseline * 6 $baseline * 2;
 
   svg {
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &-text {
+    position: relative;
+    max-width: $baseline * 70;
   }
 }
 
-.location__event-updates {
+.location-breakdown__additional-info {
+  width: 100%;
+  margin: 0;
   max-width: $baseline * 108;
-  margin: $baseline * 3 auto;
-  outline: 1px solid #333;
+  margin: 0 auto;
+  padding: $baseline * 6 0 $baseline * 10 0;
 
-  .event-updates a span {
-    max-width: 100%;
+  &-item {
+    padding: $baseline * 2;
+    padding-bottom: $baseline * 5;
+
+    h3 {
+      font-family: 'Roboto';
+      font-weight: 700;
+      font-size: 18px;
+      color: #1F3853;
+      margin: 0;
+    }
+
+    p {
+      margin: $baseline 0 0 0;
+    }
   }
 }
 
@@ -173,21 +224,48 @@
   .location-breakdown {
     margin: -$baseline * 12 auto 0 auto;
     display: flex;
+
+    &__address-and-public-transport {
+      padding: $baseline * 3 $baseline;
+      position: relative;
+
+      svg {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 30px;
+        height: 50%;
+      }
+    }
+
+    &__by-car-and-by-air {
+      padding: $baseline * 3 $baseline;
+      position: relative;
+      padding-left: $baseline * 6;
+
+      svg {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 50%;
+      }
+    }
   }
 
-  .location-breakdown__details,
-  .location-breakdown__map {
-    width: 50%;
-    height: auto;
+  .location-breakdown__lyft {
+    padding-left: $baseline * 10;
   }
 
-  .location-livestream {
-    font-size: 18px;
-    margin-top: $baseline * 6;
-
-    &:after {
-      width: 48px;
-      height: 48px;
+  .location-breakdown__additional-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    > * {
+      width: 50%;
+      flex: 0 0 auto;
     }
   }
 }
@@ -195,17 +273,5 @@
 @media (min-width: 800px) {
   .location-topline-info{
     font-size: 22px;
-  }
-
-  .location-livestream {
-    font-size: 22px;
-    height: $baseline * 12;
-    padding: $baseline * 4;
-
-    a:after {
-      width: 48px;
-      height: 48px;
-      margin-right: $baseline * 3;
-    }
   }
 }
