@@ -86,7 +86,11 @@
     },
 
     "15:30:00": {
-      "name": "Break"
+      "name": "Break & Supercharged: Live",
+      "speakerImg": "/devsummit/static/images/speakers/surma-paullewis.jpg",
+      "speaker": "Surma and Paul Lewis",
+      "url": "/devsummit/schedule/sessions/supercharged-live",
+      "description": "For those wanting a bit of live-coding, Surma and Paul demonstrate adding a Service Worker to a site during the break. Expect bugs."
     },
 
     "16:00:00": {
