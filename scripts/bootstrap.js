@@ -32,8 +32,22 @@ function loadPageStyles () {
 }
 
 (function () {
-  installServiceWorker();
+  if (!('Promise' in window)) {
+    var existingSheet = document.querySelector(
+      'link[href="{{ "/devsummit/static/styles/cds.css" | add_hash }}"]')
+    if (existingSheet) {
+      return;
+    }
+    var link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '{{ "/devsummit/static/styles/cds.css" | add_hash }}';
+    document.head.appendChild(link);
+
+    return;
+  }
+
   loadPageStyles();
+  installServiceWorker();
   window.addEventListener('DOMContentLoaded', function () {
     CDS.init();
   });
