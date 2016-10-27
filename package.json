@@ -44,12 +44,5 @@
     "walk": "^2.3.9"
   },
   "dependencies": {
-    "browserify": "^13.1.1",
-    "derequire": "^2.0.3",
-    "eventemitter3": "^2.0.2",
-    "tween.js": "^16.3.5",
-    "uglifyjs": "^2.4.10",
-    "webvr-boilerplate": "^0.4.9",
-    "webvr-polyfill": "^0.9.3"
   }
 }

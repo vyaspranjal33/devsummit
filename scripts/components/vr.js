@@ -74,7 +74,6 @@ export class VR {
     _masthead.addEventListener('transitionend', function h() {
       _masthead.removeEventListener('transitionend', h);
       var _vr = _masthead.querySelector('.masthead__vr');
-      console.log('found vr:', _vr);
       if (_vr) {
         _vr.parentNode.removeChild(_vr);
       }
