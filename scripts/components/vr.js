@@ -19,7 +19,7 @@
 
 import {loadScript} from '../utils';
 
-const _vrButton = document.createElement('button');
+var _vrButton = document.createElement('button');
 
 export class VR {
   static init() {
@@ -35,7 +35,7 @@ export class VR {
       return Promise.resolve();
     }
 
-    const _masthead = document.querySelector('.masthead');
+    var _masthead = document.querySelector('.masthead');
 
     return new Promise(function (resolve) {
       _vrButton.classList.add('hide');
@@ -55,21 +55,30 @@ export class VR {
   }
 
   static hideButton () {
+    var p = Promise.resolve();
     // If button is not in the DOM, we are done
-    if (!_vrButton.parentNode) {
-      return Promise.resolve();
+    if (_vrButton.parentNode) {
+      p = new Promise(function (resolve) {
+        _vrButton.classList.add('hide');
+        _vrButton.addEventListener('transitionend', function h() {
+          _vrButton.removeEventListener('transitionend', h);
+          resolve();
+        });
+      })
+      .then(function () {
+        _vrButton.parentNode.removeChild(_vrButton);
+      });
     }
 
-    return new Promise(function (resolve) {
-      _vrButton.classList.add('hide');
-      _vrButton.addEventListener('transitionend', function h() {
-        _vrButton.removeEventListener('transitionend', h);
-        resolve();
-      });
+    var _masthead = document.querySelector('.masthead');
+    _masthead.addEventListener('transitionend', function h() {
+      _masthead.removeEventListener('transitionend', h);
+      var _vr = _masthead.querySelector('.masthead__vr');
+      console.log('found vr:', _vr);
+      if (_vr) {
+        _vr.parentNode.removeChild(_vr);
+      }
     })
-    .then(function () {
-      _vrButton.parentNode.removeChild(_vrButton);
-    });
   }
 
   static _onClick (event) {

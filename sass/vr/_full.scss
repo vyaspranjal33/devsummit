@@ -7,7 +7,7 @@ button.vr {
   height: 92px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.54);
-  background-image: url('/devsummit/static/images/vr/3d_rotation.svg');
+  background-image: url('/devsummit/static/images/vr/cardboard.svg');
   background-size: 50% 50%;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -23,6 +23,7 @@ button.vr {
 }
 
 .masthead__vr {
+  background-color: white;
   opacity: 1;
   transition: opacity 0.3s cubic-bezier(0, 0, 0.31, 1);
   position: absolute;
