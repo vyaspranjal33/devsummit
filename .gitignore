@@ -4,4 +4,5 @@ node_modules
 *.pyc
 static/scripts
 static/styles
+static/third_party/vrview
 npm-debug.log

@@ -11,6 +11,13 @@ skip_files:
 
 handlers:
 
+- url: /devsummit/static/third_party/vrview/build/embed.min.js
+  static_files: static/third_party/vrview/build/embed.min.js
+  mime_type: text/javascript
+  expiration: "1d"
+  upload: static/third_party/vrview/build/embed.min.js
+  secure: always
+
 - url: /devsummit/static/third_party/fonts/(.*)
   static_files: static/third_party/fonts/\1
   expiration: "1d"
@@ -37,6 +44,7 @@ handlers:
   mime_type: text/plain
   upload: dist/LICENSE
   secure: always
+
 
 libraries:
 - name: webapp2

@@ -34,43 +34,6 @@ button.vr {
   .hide-areas & {
     opacity: 0;
   }
-
-  canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 1;
-  }
-
-  $size: 50px;
-  button {
-    position: absolute;
-    width: $size;
-    height: $size;
-    border-radius: 50%;
-    z-index: 2;
-    background-color: rgba(255, 255, 255, 0.54);
-    background-position: 50% 50%;
-    background-size: 50% 50%;
-    background-repeat: no-repeat;
-    bottom: 20px;
-    border: 0;
-  }
-
-  .vr__fullscreen {
-    background-image: url('/devsummit/static/images/vr/fullscreen.svg');
-    right: 10px;
-  }
-  .vr__reset {
-    background-image: url('/devsummit/static/images/vr/my_location.svg');
-    right: ($size+10px)+10px;
-  }
-  .vr__device {
-    background-image: url('/devsummit/static/images/vr/cardboard.svg');
-    right: 2*($size+10px)+10px;
-  }
 }
 
 

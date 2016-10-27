@@ -13,7 +13,8 @@
     "clean-css": "./build/clean-css.js",
     "build-js": "rollup -c && babel static/scripts/bootstrap.js --presets babel-preset-babili --out-file static/scripts/bootstrap.js",
     "build-vr": "npm run build-vr-dev && babel static/scripts/webvr.js --presets babel-preset-babili --out-file static/scripts/webvr.js",
-    "build-vr-dev": "cat scripts/webvr.conf.js scripts/third_party/{three.min.js,VR*} scripts/third_party/webvr-polyfill.js scripts/webvr.js > static/scripts/webvr.js",
+    "build-vr-deps": "(cd scripts/third_party/vrview; npm i && npm run build && npm run build-api)",
+    "build-vr-dev": "cat scripts/third_party/vrview/build/vrview.min.js scripts/webvr.js > static/scripts/webvr.js && cp -r scripts/third_party/vrview static/third_party",
     "watch": "npm run build && parallelshell 'npm run watch-sass' 'npm run watch-js'",
     "watch-js": "rollup -wc",
     "watch-sass": "npm run make-css-folder && node-sass -w sass/ -o static/styles",
@@ -41,5 +42,14 @@
     "rollup-plugin-cleanup": "^0.1.4",
     "rollup-watch": "^2.5.0",
     "walk": "^2.3.9"
+  },
+  "dependencies": {
+    "browserify": "^13.1.1",
+    "derequire": "^2.0.3",
+    "eventemitter3": "^2.0.2",
+    "tween.js": "^16.3.5",
+    "uglifyjs": "^2.4.10",
+    "webvr-boilerplate": "^0.4.9",
+    "webvr-polyfill": "^0.9.3"
   }
 }
