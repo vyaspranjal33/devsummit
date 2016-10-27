@@ -14,17 +14,29 @@
     });
   }
 
+  const _container = document.createElement('div');
+  _container.classList.add('masthead__vr');
+  const _fullscreenBtn = document.createElement('button')
+  _fullscreenBtn.classList.add('vr__fullscreen')
+  _container.appendChild(_fullscreenBtn);
+  const _resetBtn = document.createElement('button')
+  _resetBtn.classList.add('vr__reset')
+  _container.appendChild(_resetBtn);
+  const _deviceBtn = document.createElement('button')
+  _deviceBtn.classList.add('vr__device')
+  _container.appendChild(_deviceBtn);
+
   const _masthead = document.querySelector('.masthead');
+  _masthead.appendChild(_container);
+
   let renderer;
   _masthead.classList.add('animatable', 'hide-areas');
   transitionEndPromise(_masthead)
     .then(function () {
-
       renderer = new THREE.WebGLRenderer({antialias: false});
       renderer.setPixelRatio(Math.floor(window.devicePixelRatio));
-      // Append the canvas element created by the renderer to document body element.
-      renderer.domElement.classList.add('masthead__vr');
-      _masthead.querySelector('.masthead__graphic').appendChild(renderer.domElement);
+
+      _container.appendChild(renderer.domElement);
     })
     .then(rafPromise)
     .then(rafPromise)
@@ -90,27 +102,35 @@
         vrDisplay.requestAnimationFrame(animate);
       }
       function onResize() {
-        rect = renderer.domElement.getBoundingClientRect();
-        effect.setSize(rect.width, rect.height);
-        camera.aspect = rect.width / rect.height;
-        camera.updateProjectionMatrix();
+        rafPromise()
+          .then(rafPromise)
+          .then(function () {
+            rect = renderer.domElement.getBoundingClientRect();
+            effect.setSize(rect.width, rect.height);
+            camera.aspect = rect.width / rect.height;
+            camera.updateProjectionMatrix();
+          });
       }
       function onVRDisplayPresentChange() {
         onResize();
       }
       // Resize the WebGL canvas when we resize and also when we change modes.
       window.addEventListener('resize', onResize);
+      document.addEventListener('fullscreenchange', onResize);
+      document.addEventListener('webkitfullscreenchange', onResize);
       window.addEventListener('vrdisplaypresentchange', onVRDisplayPresentChange);
+
       // Button click handlers.
-      // document.querySelector('button#fullscreen').addEventListener('click', function() {
-      //   enterFullscreen(renderer.domElement);
-      // });
-      renderer.domElement.addEventListener('click', function() {
+      _fullscreenBtn.addEventListener('click', function() {
+        enterFullscreen(renderer.domElement);
+      });
+      _deviceBtn.addEventListener('click', function() {
         vrDisplay.requestPresent([{source: renderer.domElement}]);
       });
-      // document.querySelector('button#reset').addEventListener('click', function() {
-      //   vrDisplay.resetPose();
-      // });
+      _resetBtn.addEventListener('click', function() {
+        vrDisplay.resetPose();
+      });
+
       function enterFullscreen (el) {
         if (el.requestFullscreen) {
           el.requestFullscreen();
