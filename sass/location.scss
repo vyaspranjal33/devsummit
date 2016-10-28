@@ -57,14 +57,36 @@
   }
 }
 
+.location-travel-grant {
+  position: relative;
+  padding: $baseline * 2;
+  max-width: $baseline * 108;
+  margin: -$baseline * 2 auto 0 auto;
+  color: #FFF;
+
+  p, h3 {
+    position: relative;
+    max-width: $baseline * 76;
+  }
+
+  a {
+    color: #FFF;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
 .location-breakdown {
   max-width: $baseline * 108;
   background: #5472AE;
   color: #FFF;
   margin: 0 auto;
-  border-left: 1px solid #CFCFCF;
-  border-right: 1px solid #CFCFCF;
-  border-top: 1px solid #CFCFCF;
 
   a {
     color: #FFF;
@@ -165,7 +187,7 @@
 
   &-text {
     position: relative;
-    max-width: $baseline * 70;
+    max-width: $baseline * 76;
   }
 }
 
@@ -221,8 +243,12 @@
     padding-bottom: $baseline * 20;
   }
 
-  .location-breakdown {
+  .location-travel-grant {
     margin: -$baseline * 12 auto 0 auto;
+    padding: $baseline * 2 $baseline * 3;
+  }
+
+  .location-breakdown {
     display: flex;
 
     &__address-and-public-transport {
@@ -256,7 +282,7 @@
   }
 
   .location-breakdown__lyft {
-    padding-left: $baseline * 10;
+    padding-left: $baseline * 3;
   }
 
   .location-breakdown__additional-info {
