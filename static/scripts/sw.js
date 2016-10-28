@@ -184,17 +184,30 @@ self.onfetch = evt => {
     });
   };
 
-  evt.respondWith(
-    remapRequestIfNeeded(evt.request)
-      .then(request => caches.match(request))
-      .then(response => {
-        if (response) {
-          return response;
-        }
 
-        // TODO(paullewis): ensure that requests going to google-analytics.com
-        // are fetched only.
-        return fetch(evt.request);
-      })
-  );
+  remapRequestIfNeeded(evt.request)
+    .then(request => staleWhileRevalidate(request, evt.respondWith.bind(evt), evt.waitUntil.bind(evt), NAME + '-v' + VERSION));
 };
+
+function staleWhileRevalidate(request, respondWith, waitUntil, cachename) {
+  const cachedVersion = caches.match(request);
+  const fetchedVersion = fetch(request);
+  const fetchedCopy = fetchedVersion.then(resp => resp.clone());
+
+  // Respond with whatever is ready first, cache or fetch.
+  // If fetch rejects, wait for the cached version.
+  // If the cache has nothing, wait for the fetch.
+  // If we still don’t have a response by then, we got nothing and return a 404.
+  respondWith(
+    Promise.race([cachedVersion, fetchedVersion.catch(_ => cachedVersion)])
+      .then(resp => resp || fetchedVersion)
+      .catch(_ => new Response(null, {status: 404}))
+  );
+
+  // If the fetch succeeded eventually, put it in the cache.
+  waitUntil(
+    Promise.all([fetchedCopy, caches.open(cachename)])
+      .then(([response,cache]) => cache.put(request, response))
+      .catch(_ => {/* eat errors */})
+  );
+}
