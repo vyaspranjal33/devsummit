@@ -146,7 +146,6 @@ export class LiveSessionInfo {
 
   static refresh () {
     if (!this._sessions) {
-      console.warn('Unable to get session info.');
       return;
     }
 

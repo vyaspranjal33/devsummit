@@ -75,6 +75,25 @@ export class PushControls {
     notificationArea.parentNode.removeChild(notificationArea);
   }
 
+  static _timeAsString (date) {
+    return (date.getHours() < 10 ? '0' : '') +
+            date.getHours().toString() +
+           (date.getMinutes() < 10 ? '0' : '') +
+            date.getMinutes().toString();
+  }
+
+  static _toPST (date) {
+    var PST_ADJUSTMENT = 28800000;
+    var d = new Date(date.getTime());
+    d.setTime(
+      d.getTime() +
+      (d.getTimezoneOffset() * 60000) -
+      PST_ADJUSTMENT
+    );
+
+    return d;
+  }
+
   static _populateElement (sessions) {
     const allSessions = [...sessions];
     allSessions.unshift([
@@ -87,68 +106,73 @@ export class PushControls {
 
     const notificationTmpl = document.querySelector('#tmpl-notification-item');
 
-    // Format the session time to the local time.
-    const formatter = new Intl.DateTimeFormat(undefined,
-        {hour: 'numeric', minute: 'numeric', timeZoneName: 'short'});
-
     if (!notificationTmpl) {
       return;
     }
 
-    allSessions.forEach(item => {
-      const date = item[0];
-      const session = item[1];
+    idbKeyval.get('localized-times').then(shouldLocalize => {
+      allSessions.forEach(item => {
+        const date = item[0];
+        const session = item[1];
 
-      if ((!session.url) || session.notify === false) {
+        if ((!session.url) || session.notify === false) {
+          return;
+        }
+
+        const sessionNode = notificationTmpl.content.cloneNode(true);
+        const container =
+            sessionNode.querySelector('.notification-item__details');
+        const title =
+            sessionNode.querySelector('.notification-item__breakdown-title');
+        const time =
+            sessionNode.querySelector('.notification-item__breakdown-time');
+
+        container.dataset.id = session.url;
+        title.textContent =
+            (session.speaker ? session.speaker + ': ' : '') + session.name;
+        container.dataset.title =
+            (session.speaker ? session.speaker + ': ' : '') + session.name;
+
+        if (date === '__NONE') {
+          time.parentNode.removeChild(time);
+        } else {
+          time.setAttribute('datetime', date.toISOString());
+
+          let sessionTime = date;
+          if (!shouldLocalize) {
+            sessionTime = this._toPST(date);
+          }
+
+          time.textContent = this._timeAsString(sessionTime);
+        }
+
+        this._content.appendChild(sessionNode);
+      });
+
+      this.updateListing();
+
+      const items =
+          Array.from(this._element.querySelectorAll('.notification-item__details'));
+
+      if (items.length < 1) {
         return;
       }
 
-      const sessionNode = notificationTmpl.content.cloneNode(true);
-      const container =
-          sessionNode.querySelector('.notification-item__details');
-      const title =
-          sessionNode.querySelector('.notification-item__breakdown-title');
-      const time =
-          sessionNode.querySelector('.notification-item__breakdown-time');
+      this._removeAllContainer = this._element.querySelector(
+        '.notification-content__remove-all-container'
+      );
+      this._firstTabStop = this._closeButton;
+      this._lastTabStop = this._removeAllContainer.querySelector('button');
+      this._list = this._element.querySelector('.notification-content__list');
 
-      container.dataset.id = session.url;
-      title.textContent =
-          (session.speaker ? session.speaker + ': ' : '') + session.name;
-      container.dataset.title =
-          (session.speaker ? session.speaker + ': ' : '') + session.name;
+      // Ensure that we capture deeplinks.
+      this._onHashChange();
+      this._onTransitionEnd();
 
-      if (date === '__NONE') {
-        time.parentNode.removeChild(time);
-      } else {
-        time.textContent = formatter.format(date);
-      }
-
-      this._content.appendChild(sessionNode);
-    });
-
-    this.updateListing();
-
-    const items =
-        Array.from(this._element.querySelectorAll('.notification-item__details'));
-
-    if (items.length < 1) {
-      return;
-    }
-
-    this._removeAllContainer = this._element.querySelector(
-      '.notification-content__remove-all-container'
-    );
-    this._firstTabStop = this._closeButton;
-    this._lastTabStop = this._removeAllContainer.querySelector('button');
-    this._list = this._element.querySelector('.notification-content__list');
-
-    // Ensure that we capture deeplinks.
-    this._onHashChange();
-    this._onTransitionEnd();
-
-    requestAnimationFrame(_ => {
       requestAnimationFrame(_ => {
-        this._element.classList.add('notification-area--active');
+        requestAnimationFrame(_ => {
+          this._element.classList.add('notification-area--active');
+        });
       });
     });
   }
