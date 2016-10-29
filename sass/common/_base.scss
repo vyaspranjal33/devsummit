@@ -65,6 +65,7 @@ button::-moz-focus-inner {
 }
 
 .toggle-localized-times {
+  margin-left: $baseline * 2;
   background: #444444;
   color: #FFF;
   border-radius: 3px;

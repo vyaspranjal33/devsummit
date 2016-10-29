@@ -126,6 +126,8 @@ export class PushControls {
             sessionNode.querySelector('.notification-item__breakdown-title');
         const time =
             sessionNode.querySelector('.notification-item__breakdown-time');
+        const day =
+            sessionNode.querySelector('.notification-item__breakdown-day');
 
         container.dataset.id = session.url;
         title.textContent =
@@ -135,8 +137,11 @@ export class PushControls {
 
         if (date === '__NONE') {
           time.parentNode.removeChild(time);
+          day.parentNode.removeChild(day);
         } else {
           time.setAttribute('datetime', date.toISOString());
+          day.textContent =
+            (this._toPST(date).getDate() === 10 ? 'Day 1' : 'Day 2') + ', ';
 
           let sessionTime = date;
           if (!shouldLocalize) {
