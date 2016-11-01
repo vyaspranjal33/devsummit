@@ -77,6 +77,10 @@ const walkStaticFiles = _ => {
         return next();
       }
 
+      if (path.indexOf('/vr/') !== -1 || path.indexOf('vrview') !== -1) {
+        return next();
+      }
+
       if (name.endsWith('@1x.jpg')) {
         const possibleHigherResVersion =
             root + '/' + name.replace(/@1x\.jpg/, '@1.5x.jpg');

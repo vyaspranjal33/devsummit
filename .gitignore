@@ -5,3 +5,4 @@ node_modules
 static/scripts
 static/styles
 npm-debug.log
+static/third_party/vrview
