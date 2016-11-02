@@ -51,7 +51,7 @@
     "13:30:00": {
       "name": "Debugging The Web",
       "speaker": "Paul Irish",
-      "speakerRole": "Product Manager, Chrome",
+      "speakerRole": "Performance Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/paul-irish.jpg",
       "url": "/devsummit/schedule/sessions/debugging-the-web",
       "description": "Learn the state of the art in debugging using Chrome DevTools - all you need to know to expand your toolbox."
@@ -59,9 +59,8 @@
 
     "14:00:00": {
       "name": "Web Components and Polymer",
-      "speaker": "TBD",
-      "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speaker": "Taylor Savage and Monica Dinculescu",
+      "speakerImg": "/devsummit/static/images/speakers/tsavage-meownica.jpg",
       "url": "/devsummit/schedule/sessions/web-components-and-polymer",
       "description": "Come learn the current state of Polymer, and how you can use Web Components to improve your development."
     },
@@ -131,7 +130,7 @@
     },
 
     "10:00:00": {
-      "name": "How Web Built It",
+      "name": "How We Built It",
       "speaker": "TBD",
       "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
