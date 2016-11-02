@@ -343,8 +343,9 @@ export function init () {
     }
 
     _onClick (evt) {
-      // If this is a ctrl-click / cmd-click, don't do anything.
-      if (evt.metaKey || evt.ctrlKey) {
+      // If this is a ctrl-click / cmd-click or any other than the main
+      // mouse button, don't do anything.
+      if (evt.metaKey || evt.ctrlKey || evt.button !== 0) {
         return;
       }
 
