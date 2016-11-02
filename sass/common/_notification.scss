@@ -243,6 +243,7 @@ $animation: 0.3s;
   display: flex;
   flex-direction: column;
   margin-bottom: $baseline * 5;
+  backface-visibility: hidden;
 }
 
 .notification-content__list-item {
