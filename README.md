@@ -11,7 +11,7 @@ Once you have that, you'll need to:
 3. Launch the GAE launcher (launch a launcher is quite meta)
 4. File -> Add an existing project
 5. Point it to the cloned folder
-6. Start it and go to http://localhost:8080
+6. Start it and go to `http://localhost:8080/devsummit`
 
 # License
 
