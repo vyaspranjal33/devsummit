@@ -183,21 +183,21 @@
     },
 
     "14:00:00": {
-      "name": "Future App Model: Advanced Service Worker",
-      "speaker": "Jake Archibald",
-      "speakerRole": "Developer Advocate",
-      "speakerImg": "/devsummit/static/images/speakers/jake-archibald.jpg",
-      "url": "/devsummit/schedule/sessions/future-app-model",
-      "description": "Jake (one of the originators of Service Workers) shares the future of the web app model, with Foreign Fetch, Streams and more."
-    },
-
-    "14:30:00": {
       "name": "Advanced JS performance with V8 and Web Assembly",
       "speaker": "Seth Thompson",
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/seth-thompson.jpg",
       "url": "/devsummit/schedule/sessions/advanced-js-performance",
       "description": "Seth shares the current state of JavaScript and script tooling in V8, and discusses the future with WebAssembly."
+    },
+
+    "14:30:00": {
+      "name": "Future App Model: Advanced Service Worker",
+      "speaker": "Jake Archibald",
+      "speakerRole": "Developer Advocate",
+      "speakerImg": "/devsummit/static/images/speakers/jake-archibald.jpg",
+      "url": "/devsummit/schedule/sessions/future-app-model",
+      "description": "Jake (one of the originators of Service Workers) shares the future of the web app model, with Foreign Fetch, Streams and more."
     },
 
     "15:00:00": {
