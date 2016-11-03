@@ -2,7 +2,9 @@
 node_modules
 .sass-cache
 *.pyc
-static/scripts
+static/scripts/bootstrap.js
+static/scripts/cache-manifest.js
+static/scripts/webvr.js
 static/styles
 npm-debug.log
 static/third_party/vrview
