@@ -19,6 +19,9 @@
 
 /* global importScripts, cacheManifest, clients */
 importScripts('{{ "/devsummit/static/scripts/cache-manifest.js" | add_hash }}');
+importScripts('{{ "/devsummit/static/scripts/analytics.js" | add_hash }}');
+
+self.analytics.trackingId = 'UA-41980257-1';
 
 const NAME = 'CDS';
 const VERSION = '{{ version }}';
@@ -105,9 +108,24 @@ self.onpush = evt => {
               })
               .then(imgBase64 => {
                 msg.icon = imgBase64;
-                return self.registration.showNotification(title, msg);
+                const pushValue = msg.body.indexOf('/devsummit/') === 0 ?
+                    msg.body :
+                    'Event update';
+
+                return Promise.all([
+                  self.registration.showNotification(title, msg),
+                  self.analytics.trackEvent('push-received', pushValue)
+                ]);
               });
         }));
+};
+
+self.onnotificationclose = evt => {
+  evt.waitUntil(
+    Promise.all([
+      self.analytics.trackEvent('notification-close')
+    ])
+  );
 };
 
 self.onnotificationclick = evt => {
@@ -121,20 +139,24 @@ self.onnotificationclick = evt => {
   // If yes: focus on the tab.
   // If no: open a tab with the URL.
   evt.waitUntil(
-    clients.matchAll({
-      type: 'window'
-    })
-    .then(windowClients => {
-      const client = windowClients.find(client => {
-        return (client.url === url && 'focus' in client);
-      });
+    Promise.all([
+      clients.matchAll({
+        type: 'window'
+      })
+      .then(windowClients => {
+        const client = windowClients.find(client => {
+          return (client.url === url && 'focus' in client);
+        });
 
-      if (client) {
-        client.focus();
-      } else if (clients.openWindow) {
-        return clients.openWindow(url + '?notification=1');
-      }
-    })
+        if (client) {
+          client.focus();
+        } else if (clients.openWindow) {
+          return clients.openWindow(url);
+        }
+      }),
+
+      self.analytics.trackEvent('notification-click')
+    ])
   );
 };
 
@@ -144,13 +166,6 @@ self.onfetch = evt => {
     return new Promise((resolve, reject) => {
       if (request.url.endsWith('@1x.jpg')) {
         return resolve(request.url.replace(/@1x\.jpg/, '@1.5x.jpg'));
-      }
-
-      // If the page is loaded with this querystring, just remove it before
-      // attempting to match it to cache entries. Saves having to cache a page
-      // more than once.
-      if (request.url.endsWith('?notification=1')) {
-        return resolve(request.url.replace(/\?notification=1/, ''));
       }
 
       if (!request.url.endsWith('/devsummit/')) {
@@ -194,7 +209,8 @@ self.onfetch = evt => {
 
   // We need to call repsondWith and waitUntil during the event handler.
   // Since we are doing microtasks (opening caches etc), we create our own promises.
-  let respondWith, waitUntil;
+  let respondWith;
+  let waitUntil;
   evt.respondWith(new Promise(resolve => {
     respondWith = resolve;
   }));
@@ -214,7 +230,7 @@ self.onfetch = evt => {
     });
 };
 
-function staleWhileRevalidate(request, respondWith, waitUntil, cachename) {
+function staleWhileRevalidate (request, respondWith, waitUntil, cachename) {
   const cachedVersion = caches.match(request);
   const fetchedVersion = fetch(request);
   const fetchedCopy = fetchedVersion.then(resp => resp.clone());
@@ -232,7 +248,7 @@ function staleWhileRevalidate(request, respondWith, waitUntil, cachename) {
   // If the fetch succeeded eventually, put it in the cache.
   waitUntil(
     Promise.all([fetchedCopy, caches.open(cachename)])
-      .then(([response,cache]) => cache.put(request, response))
+      .then(([response, cache]) => cache.put(request, response))
       .catch(_ => {/* eat errors */})
   );
 }
