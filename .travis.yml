@@ -17,7 +17,7 @@ before_script:
   - mv $(npm root -g)/lighthouse/chrome-linux .
   - $LIGHTHOUSE_CHROMIUM_PATH --version
   - npm run build
-  - cd lighthouse-cli && npm install && npm run build
+  - (cd $(npm root -g)/lighthouse/lighthouse-cli && npm install && npm run build)
 script:
   - lighthouse --output=json http://localhost:8090/devsummit --output-path=./validate/log.json
-  - ./validate/checklog.js ./validate/log.json
+  - node ./validate/checklog.js ./validate/log.json
