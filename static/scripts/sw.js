@@ -111,7 +111,7 @@ self.onpush = evt => {
 };
 
 self.onnotificationclick = evt => {
-  const url = 'https://developer.chrome.com/devsummit/';
+  const url = 'https://developer.chrome.com/devsummit/?notification=1';
 
   // Android doesn't close the notification when you click it
   // See http://crbug.com/463146
@@ -144,6 +144,13 @@ self.onfetch = evt => {
     return new Promise((resolve, reject) => {
       if (request.url.endsWith('@1x.jpg')) {
         return resolve(request.url.replace(/@1x\.jpg/, '@1.5x.jpg'));
+      }
+
+      // If the page is loaded with this querystring, just remove it before
+      // attempting to match it to cache entries. Saves having to cache a page
+      // more than once.
+      if (request.url.endsWith('?notification=1')) {
+        return resolve(request.url.replace(/\?notification=1/, ''));
       }
 
       if (!request.url.endsWith('/devsummit/')) {

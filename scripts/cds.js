@@ -63,6 +63,7 @@ export function init () {
       // Check the hash for the notifications.
       this._onChanged();
       this._updateTimes();
+      this._pingIfLoadedFromNotification();
     }
 
     _onLoad (evt) {
@@ -72,6 +73,16 @@ export function init () {
       }
 
       this._newContent = evt.target.response;
+    }
+
+    _pingIfLoadedFromNotification () {
+      if (typeof window.ga === 'function') {
+        window.ga('send', 'event', 'notification', 'opened');
+      }
+
+      // Remove it from the URL because it needn't be there.
+      window.history.replaceState(null, null,
+          window.location.href.replace(/\?notification=1/, ''));
     }
 
     _onChanged (evt) {
