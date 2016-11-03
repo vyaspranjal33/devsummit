@@ -298,7 +298,7 @@
 
   .home__location {
     height: $baseline * 42;
-    margin-top: $baseline * -7;
+    margin: $baseline * -7 0 $baseline * -6 0;
   }
 
   .home__waiting-list-and-event-updates {
