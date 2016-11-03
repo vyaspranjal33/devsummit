@@ -111,7 +111,7 @@ self.onpush = evt => {
 };
 
 self.onnotificationclick = evt => {
-  const url = 'https://developer.chrome.com/devsummit/?notification=1';
+  const url = 'https://developer.chrome.com/devsummit/';
 
   // Android doesn't close the notification when you click it
   // See http://crbug.com/463146
@@ -132,7 +132,7 @@ self.onnotificationclick = evt => {
       if (client) {
         client.focus();
       } else if (clients.openWindow) {
-        return clients.openWindow(url);
+        return clients.openWindow(url + '?notification=1');
       }
     })
   );
