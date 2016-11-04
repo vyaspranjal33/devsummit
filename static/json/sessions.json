@@ -157,7 +157,7 @@
       "speakerRole": "Developer Programs Engineer",
       "speakerImg": "/devsummit/static/images/speakers/addy-osmani.jpg",
       "url": "/devsummit/schedule/sessions/productions-pwas-with-frameworks",
-      "description": "Addy works through building Progressive Web Apps with different common development frameworks."
+      "description": "Addy works through building Progressive Web Apps with React at scale. Featuring special guests, Flipkart, dive into the performance and loading patterns needed to make frameworks competitive on mobile."
     },
 
     "12:00:00": {
