@@ -207,48 +207,29 @@ self.onfetch = evt => {
     });
   };
 
-  // We need to call repsondWith and waitUntil during the event handler.
-  // Since we are doing microtasks (opening caches etc), we create our own promises.
-  let respondWith;
-  let waitUntil;
-  evt.respondWith(new Promise(resolve => {
-    respondWith = resolve;
-  }));
-
-  evt.waitUntil(new Promise(resolve => {
-    waitUntil = resolve;
-  }));
-
-  remapRequestIfNeeded(evt.request)
-    .then(request => Promise.all([request, caches.match(request, {cacheName})]))
-    // Only use staleWhileRevalidate for resources that we are not downloading on install
-    .then(([request, response]) => {
+  evt.respondWith(
+    remapRequestIfNeeded(evt.request)
+    .then(request => caches.match(request, {cacheName}))
+    .then(response => {
       if (response) {
-        return respondWith(response);
+        return response;
       }
-      staleWhileRevalidate(request, respondWith, waitUntil, cacheName + '-dynamic');
-    });
+
+      const request = evt.request;
+      return fetch(request).then(fetchResponse => {
+        // Never cache Analytics, Conversion or Push requests.
+        if (/google/.test(request.url) || /cds-push/.test(request.url)) {
+          return fetchResponse;
+        }
+
+        // Cache for next time.
+        return caches.open(NAME + '-v' + VERSION).then(cache => {
+          return cache.put(request.clone(), fetchResponse.clone());
+        }).then(_ => {
+          console.log('handing back', fetchResponse);
+          return fetchResponse;
+        });
+      });
+    })
+  );
 };
-
-function staleWhileRevalidate (request, respondWith, waitUntil, cachename) {
-  const cachedVersion = caches.match(request);
-  const fetchedVersion = fetch(request);
-  const fetchedCopy = fetchedVersion.then(resp => resp.clone());
-
-  // Respond with whatever is ready first, cache or fetch.
-  // If fetch rejects, wait for the cached version.
-  // If the cache has nothing, wait for the fetch.
-  // If we still don’t have a response by then, we got nothing and return a 404.
-  respondWith(
-    Promise.race([cachedVersion, fetchedVersion.catch(_ => cachedVersion)])
-      .then(resp => resp || fetchedVersion)
-      .catch(_ => new Response(null, {status: 404}))
-  );
-
-  // If the fetch succeeded eventually, put it in the cache.
-  waitUntil(
-    Promise.all([fetchedCopy, caches.open(cachename)])
-      .then(([response, cache]) => cache.put(request, response))
-      .catch(_ => {/* eat errors */})
-  );
-}
