@@ -34,9 +34,7 @@ function loadPageStyles () {
 (function () {
   loadPageStyles();
   installServiceWorker();
-  window.addEventListener('DOMContentLoaded', function () {
-    CDS.init();
-  });
+  CDS.init();
   window.addEventListener('load', function () {
     loadScript('//www.googleadservices.com/pagead/conversion_async.js', true);
   });
