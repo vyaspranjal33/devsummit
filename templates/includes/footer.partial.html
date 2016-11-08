@@ -56,13 +56,33 @@
 
   <script>
     (function() {
-      // Do a cut-the-mustard test for Intl.
-      if (!('Intl' in window))
-        return;
 
-      var bootstrap = document.createElement('script');
-      bootstrap.src = "{{ '/devsummit/static/scripts/bootstrap.js' | add_hash }}";
-      document.head.appendChild(bootstrap);
+      function addPageStyles () {
+        var existingSheet = document.querySelector(
+          'link[href="{{ "/devsummit/static/styles/cds.css" | add_hash }}"]')
+        if (existingSheet) {
+          return;
+        }
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '{{ "/devsummit/static/styles/cds.css" | add_hash }}';
+        document.head.appendChild(link);
+      }
+
+      function addBootstrap () {
+        var bootstrap = document.createElement('script');
+        bootstrap.src = "{{ '/devsummit/static/scripts/bootstrap.js' | add_hash }}";
+        document.head.appendChild(bootstrap);
+      }
+
+      // Do a cut-the-mustard test for Intl. If it fails, then just drop in the
+      // page styles. If it passes add the bootstrap, which will inject the
+      // styles itself.
+      if (!('Intl' in window)) {
+        return addPageStyles();
+      }
+
+      addBootstrap();
     })();
   </script>
   <script>
