@@ -57,12 +57,11 @@
   <script>
     (function() {
       // Do a cut-the-mustard test for Intl.
-      if (!('intl' in window))
+      if (!('Intl' in window))
         return;
 
       var bootstrap = document.createElement('script');
       bootstrap.src = "{{ '/devsummit/static/scripts/bootstrap.js' | add_hash }}";
-      bootstrap.async = true;
       document.head.appendChild(bootstrap);
     })();
   </script>
