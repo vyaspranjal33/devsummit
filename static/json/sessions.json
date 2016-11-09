@@ -92,12 +92,12 @@
     },
 
     "16:00:00": {
-      "name": "Security (HTTP/2 leading to HTTPS)",
+      "name": "Real Talk about HTTPS",
       "speaker": "Emily Stark",
       "speakerRole": "Software Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/estark.jpg",
       "url": "/devsummit/schedule/sessions/security-http2-leading-to-https",
-      "description": "Emily shows why the default for the web should be secure, and explain to developers the complexities and opportunities of HTTPS and HTTP/2."
+      "description": "Emily shows why the default for the web should be secure, and describes Chrome's mission to be honest with our users about HTTPS."
     },
 
     "16:30:00": {
