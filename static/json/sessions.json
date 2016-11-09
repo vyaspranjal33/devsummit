@@ -113,7 +113,7 @@
       "name": "Chrome Leadership Panel",
       "speaker": "Chrome Leads",
       "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/chrome-leadership-panel",
       "description": "The leaders of the Chrome project answer your questions."
     },
@@ -278,7 +278,7 @@
       "name": "Browser Vendor panel",
       "speaker": "TBD",
       "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/browser-vendor-panel",
       "description": "Representatives from various browsers answer your questions."
     }
