@@ -58,11 +58,11 @@
     },
 
     "14:00:00": {
-      "name": "Web Components and Polymer",
+      "name": "Polymer, Web Components, and you!",
       "speaker": "Taylor Savage and Monica Dinculescu",
       "speakerImg": "/devsummit/static/images/speakers/tsavage-meownica.jpg",
       "url": "/devsummit/schedule/sessions/web-components-and-polymer",
-      "description": "Come learn the current state of Polymer, and how you can use Web Components to improve your development."
+      "description": "Come learn about the current state of Polymer, and how you can use Web Components to improve your development."
     },
 
     "14:30:00": {
