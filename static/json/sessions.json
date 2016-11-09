@@ -93,11 +93,11 @@
 
     "16:00:00": {
       "name": "Security (HTTP/2 leading to HTTPS)",
-      "speaker": "Adrienne Porter Felt & Emily Stark",
-      "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/apf-stark.jpg",
+      "speaker": "Emily Stark",
+      "speakerRole": "Software Engineer, Chrome",
+      "speakerImg": "/devsummit/static/images/speakers/estark.jpg",
       "url": "/devsummit/schedule/sessions/security-http2-leading-to-https",
-      "description": "Adrienne and Emily show why the default for the web should be secure, and explain to developers the complexities and opportunities of HTTPS and HTTP/2."
+      "description": "Emily shows why the default for the web should be secure, and explain to developers the complexities and opportunities of HTTPS and HTTP/2."
     },
 
     "16:30:00": {
@@ -111,7 +111,7 @@
 
     "17:00:00": {
       "name": "Chrome Leadership Panel",
-      "speaker": "TBD",
+      "speaker": "Chrome Leads",
       "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
       "url": "/devsummit/schedule/sessions/chrome-leadership-panel",
@@ -131,11 +131,11 @@
 
     "10:00:00": {
       "name": "How We Built It",
-      "speaker": "TBD",
+      "speaker": "Housing.com and Others",
       "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/housing-com.jpg",
       "url": "/devsummit/schedule/sessions/how-we-built-it",
-      "description": "A Progressive Web App vendor shows you their journey to a great user experience."
+      "description": "Housing.com show you their journey to creating a great user experience."
     },
 
     "10:30:00": {
@@ -174,7 +174,7 @@
     },
 
     "13:30:00": {
-      "name": "The State of Storage",
+      "name": "Client storage: shave seconds off your load time with one simple trick",
       "speaker": "Dru Knox",
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/dru-knox.jpg",
@@ -267,9 +267,9 @@
 
     "16:30:00": {
       "name": "The “Progressive” in Progressive Web Apps",
-      "speaker": "TBD",
-      "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/tbd.jpg",
+      "speaker": "Patrick Kettner",
+      "speakerRole": "Edge PM, Microsoft",
+      "speakerImg": "/devsummit/static/images/speakers/patrickkettner.jpg",
       "url": "/devsummit/schedule/sessions/progressive-in-pwa",
       "description": ""
     },
