@@ -105,7 +105,7 @@ class MainHandler(webapp2.RequestHandler):
                 template_info["path"] = "sections/" + url + ".html"
 
             # HTML files should expire immediately.
-            template_info["cache"] = "public, no-cache"
+            template_info["cache"] = "private, no-cache"
 
         # Strip off the hash from the path we're looking for.
         template_info["path"] = re.sub(r'[a-f0-9]{64}.', '', template_info["path"])
