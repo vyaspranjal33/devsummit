@@ -156,6 +156,11 @@
 }
 
 @media (min-width: 600px) {
+
+  .page-content {
+    margin-top: $baseline * -4;
+  }
+
   .live-info {
     display: flex;
     min-height: $baseline * 42;
