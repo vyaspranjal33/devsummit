@@ -13,6 +13,8 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ *
+ * Version: {{ version }}
  */
 
 'use strict';
@@ -31,7 +33,6 @@ function loadPageStyles () {
   loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
 }
 
-// Boot the page.
 (function () {
   loadPageStyles();
   installServiceWorker();
