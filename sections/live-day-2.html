@@ -53,6 +53,11 @@
 
   <section class="live-coming-up{% if not upcoming_sessions%} live-coming-up--empty{% endif %}"
     {% if not upcoming_sessions%} aria-hidden="true"{% endif %}>
+
+    <div class="schedule-adjustment" aria-hidden="true">
+      Please note: all times have been adjusted to <span class="schedule-adjustment__value">UTC-08:00</span>
+    </div>
+
     <h2 class="live-coming-up__title">Coming up</h2>
 
     <ol class="live-coming-up__list">

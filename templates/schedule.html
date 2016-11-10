@@ -11,6 +11,10 @@
 
   <div class="schedule-items">
 
+    <div class="schedule-adjustment" aria-hidden="true">
+      Please note: all times have been adjusted to <span class="schedule-adjustment__value">UTC-08:00</span>
+    </div>
+
     {% for time in sorted_sessions %}
 
       {% set session_info = sessions[date][time] %}

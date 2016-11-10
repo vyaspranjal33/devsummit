@@ -217,7 +217,8 @@ export class LiveSessionInfo {
 
     // Format the session time to the local time.
     var formatter = new Intl.DateTimeFormat(undefined,
-        {hour: 'numeric', minute: 'numeric', timeZoneName: 'short'});
+        {hour: 'numeric', minute: 'numeric', timeZoneName: 'short',
+        hour12: false});
 
     liveInfoNext.querySelector('.live-info__time').textContent =
         formatter.format(sessionTime);

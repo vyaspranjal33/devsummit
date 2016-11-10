@@ -167,9 +167,9 @@ self.onfetch = evt => {
               // that we don't switch days based on midnight UTC but rather PST.
               if (normalizedConfDay > 0 && normalizedConfDay < 1) {
                 if (index === 0) {
-                  resolve('/devsummit/live-day-1');
+                  resolve('/devsummit/live-day-1?partial');
                 } else if (index === 1) {
-                  resolve('/devsummit/live-day-2');
+                  resolve('/devsummit/live-day-2?partial');
                 }
               }
             });

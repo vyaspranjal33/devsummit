@@ -59,6 +59,7 @@ export function init () {
 
       // Check the hash for the notifications.
       this._onChanged();
+      this._updateTimes();
     }
 
     _onLoad (evt) {
@@ -214,6 +215,7 @@ export function init () {
       }
 
       PushManager.updateCurrentView();
+      this._updateTimes();
 
       // Double rAF to allow all changes to take hold.
       requestAnimationFrame(function () {
@@ -230,6 +232,48 @@ export function init () {
       this._isSwapping = false;
       LiveSessionInfo.toggle();
       LiveBanner.toggle();
+    }
+
+    _updateTimes () {
+      var now = new Date();
+      var timezoneOffsetInHours = -now.getTimezoneOffset() / 60;
+      var times = document.querySelectorAll('time');
+      var formatter = new Intl.DateTimeFormat('en-us',
+          {year: 'numeric', timeZoneName: 'short'});
+      var listedTime;
+      var timeAsString;
+
+      for (var t = 0; t < times.length; t++) {
+        listedTime = new Date(times[t].getAttribute('datetime'));
+        timeAsString =
+            (listedTime.getHours() < 10 ? '0' : '') +
+            listedTime.getHours() +
+            (listedTime.getMinutes() < 10 ? '0' : '') +
+            listedTime.getMinutes();
+        times[t].textContent = timeAsString;
+      }
+
+      var adjustment = document.querySelector('.schedule-adjustment');
+      if (!adjustment) {
+        return;
+      }
+
+      var adjustmentValue =
+          adjustment.querySelector('.schedule-adjustment__value');
+
+      if (timezoneOffsetInHours === -8) {
+        adjustment.classList.remove('schedule-adjustment--visible');
+        adjustment.setAttribute('aria-hidden', 'true');
+      } else {
+        var formattedDate = formatter.format(new Date()).split(' ');
+        if (formattedDate.length < 2) {
+          return;
+        }
+
+        adjustment.classList.add('schedule-adjustment--visible');
+        adjustment.removeAttribute('aria-hidden');
+        adjustmentValue.textContent = formattedDate[1];
+      }
     }
 
     go (url) {
