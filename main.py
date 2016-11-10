@@ -47,8 +47,8 @@ with open('./static/json/sessions.json') as s:
         # I mean, this _will_ do the job for CDS, but it's highly specific.
         raise Exception('Not enough days in sessions JSON.')
 
-    day1 = datetime.strptime(days[0], "%Y-%m-%d")
-    day2 = datetime.strptime(days[1], "%Y-%m-%d")
+    day1 = datetime.strptime(days[0], "%Y-%m-%d") + timedelta(hours=8)
+    day2 = datetime.strptime(days[1], "%Y-%m-%d") + timedelta(hours=8)
 
 # Set up the environment.
 JINJA_ENVIRONMENT = jinja2.Environment(
