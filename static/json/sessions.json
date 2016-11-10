@@ -48,7 +48,7 @@
       "name": "Lunch"
     },
 
-    "13:30:00": {
+    "14:00:00": {
       "name": "Debugging The Web",
       "speaker": "Paul Irish",
       "speakerRole": "Performance Engineer, Chrome",
@@ -57,7 +57,7 @@
       "description": "Learn the state of the art in debugging using Chrome DevTools - all you need to know to expand your toolbox."
     },
 
-    "14:00:00": {
+    "14:30:00": {
       "name": "Polymer, Web Components, and you!",
       "speaker": "Taylor Savage and Monica Dinculescu",
       "speakerImg": "/devsummit/static/images/speakers/tsavage-meownica.jpg",
@@ -65,7 +65,7 @@
       "description": "Come learn about the current state of Polymer, and how you can use Web Components to improve your development."
     },
 
-    "14:30:00": {
+    "15:00:00": {
       "name": "Progressive Performance",
       "speaker": "Alex Russell",
       "speakerRole": "Software Engineer, Chrome",
@@ -74,7 +74,7 @@
       "description": "Alex shows us the important things to focus on in performance, and how to run great experiences on slow, inconsistent networks and low-power devices."
     },
 
-    "15:00:00": {
+    "15:30:00": {
       "name": "Planning for Performance: PRPL",
       "speaker": "Sam Saccone",
       "speakerRole": "Software Engineer",
@@ -83,7 +83,7 @@
       "description": "Sam explains how to get the browser to do things under budget - script and resource loading and more."
     },
 
-    "15:30:00": {
+    "16:00:00": {
       "name": "Break & Supercharged: Live",
       "speakerImg": "/devsummit/static/images/speakers/surma-paullewis.jpg",
       "speaker": "Surma and Paul Lewis",
@@ -91,7 +91,7 @@
       "description": "For those wanting a bit of live-coding, Surma and Paul demonstrate adding a Service Worker to a site during the break. Expect bugs."
     },
 
-    "16:00:00": {
+    "16:30:00": {
       "name": "Real Talk about HTTPS",
       "speaker": "Emily Stark",
       "speakerRole": "Software Engineer, Chrome",
@@ -100,7 +100,7 @@
       "description": "Emily shows why the default for the web should be secure, and describes Chrome's mission to be honest with our users about HTTPS."
     },
 
-    "16:30:00": {
+    "17:00:00": {
       "name": "Predictability for the Web",
       "speaker": "Rick Byers & Robert Nyman",
       "speakerRole": "",
@@ -109,7 +109,7 @@
       "description": "Rick and Robert explain how Chrome is improving predictability for developers, how we responsibly move the web platform forward, and how web developers can help improve the platform."
     },
 
-    "17:00:00": {
+    "17:30:00": {
       "name": "Chrome Leadership Panel",
       "speaker": "Chrome Leads",
       "speakerRole": "",
@@ -118,7 +118,7 @@
       "description": "The leaders of the Chrome project answer your questions."
     },
 
-    "18:30:00": {
+    "19:00:00": {
       "name": "Party!"
     }
   },
