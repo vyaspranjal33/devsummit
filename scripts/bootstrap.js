@@ -31,6 +31,7 @@ function loadPageStyles () {
   loadStyles('{{ "/devsummit/static/styles/cds.css" | add_hash }}');
 }
 
+// Boot the page.
 (function () {
   loadPageStyles();
   installServiceWorker();
