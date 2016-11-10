@@ -29,6 +29,7 @@ from datetime import timedelta
 
 _SERVICE_WORKER_PATH = 'static/scripts/sw.js'
 _PST_ADJUSTMENT = 25200
+_BASE_URL = 'https://developer.chrome.com'
 
 # Grab the version from the package.json.
 version = None
@@ -144,7 +145,8 @@ class MainHandler(webapp2.RequestHandler):
                 autoplay=autoplay,
                 is_live=is_live,
                 sessions=sessions,
-                debug=debug
+                debug=debug,
+                base_url=_BASE_URL
             )
         except jinja2.TemplateNotFound as template_name:
             print ("Template not found: %s (requested by %s)" %
