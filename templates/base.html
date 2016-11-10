@@ -9,7 +9,7 @@
   {% set mastheadexpanded=True %}
 {% endif %}
 
-{% call head(is_partial, pagestyles, section, inline_styles, is_live) %}{% endcall %}
+{% call head(is_partial, pagestyles, section, inline_styles, is_live, base_url, url) %}{% endcall %}
 
 {% call masthead(is_partial,
     mastheadimage,
@@ -25,7 +25,6 @@
 {% endcall %}
 
 <!-- Site version: {{ version }} -->
-
 <section tabindex="-1" class="page-content section-{{ section | convert_to_class }}">
 {% block content %}{% endblock %}
 </section>
