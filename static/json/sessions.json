@@ -2,6 +2,7 @@
   "2016-11-10": {
     "07:30:00": {
       "name": "Registration and Breakfast",
+      "random_data": "test123",
       "description": "Pick up your badge, goodies, and enjoy breakfast. You must have a government-issued photo ID to receive a badge and check in to the event."
     },
 
