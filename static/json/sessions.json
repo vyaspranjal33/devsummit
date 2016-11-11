@@ -143,11 +143,11 @@
 
     "10:00:00": {
       "name": "How We Built It",
-      "speaker": "Housing.com and Others",
+      "speaker": "Housing.com and Lyft",
       "speakerRole": "",
-      "speakerImg": "/devsummit/static/images/speakers/housing-com.jpg",
+      "speakerImg": "/devsummit/static/images/speakers/housing-lyft.jpg",
       "url": "/devsummit/schedule/sessions/how-we-built-it",
-      "description": "Housing.com show you their journey to creating a great user experience."
+      "description": "Housing.com and Lyft show you their journeys to creating great user experiences."
     },
 
     "10:30:00": {
