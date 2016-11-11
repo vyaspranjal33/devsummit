@@ -18,6 +18,7 @@
 'use strict';
 
 import {SessionLoader} from '../session-loader';
+import {idbKeyval} from '../third_party/idb-keyval.js';
 
 export class LiveSessionInfo {
 
@@ -39,17 +40,39 @@ export class LiveSessionInfo {
         }`;
   }
 
+  static _timeAsString (date) {
+    return (date.getHours() < 10 ? '0' : '') +
+            date.getHours().toString() +
+           (date.getMinutes() < 10 ? '0' : '') +
+            date.getMinutes().toString();
+  }
+
+  static _toPST (date) {
+    var PST_ADJUSTMENT = 28800000;
+    var d = new Date(date.getTime());
+    d.setTime(
+      d.getTime() +
+      (d.getTimezoneOffset() * 60000) -
+      PST_ADJUSTMENT
+    );
+
+    return d;
+  }
+
   static _getCurrentSessionIndex (sessionTimeArray) {
-    var now = new Date();
     var sessionIndex = null;
     var sessionDateString;
-    var nowString = this._dateAsString(now);
+    var sessionTime;
+    var confDay = LiveSessionInfo._toPST(new Date());
+    var now = new Date();
+    var confDayString = this._dateAsString(confDay);
 
     for (var i = 0; i < sessionTimeArray.length; i++) {
-      sessionDateString = this._dateAsString(sessionTimeArray[i]);
+      sessionTime = LiveSessionInfo._toPST(sessionTimeArray[i]);
+      sessionDateString = this._dateAsString(sessionTime);
 
       // Skip any not-today dates.
-      if (sessionDateString !== nowString) {
+      if (sessionDateString !== confDayString) {
         continue;
       }
 
@@ -66,6 +89,9 @@ export class LiveSessionInfo {
   static _getNextSessionIndex (sessionTimeArray, currentSessionIndex) {
     var nextSessionIndex = currentSessionIndex + 1;
 
+    // The time will come back in UTC, but since the conference is in PST, it
+    // will have to be accounted for here.
+    var currentConfDay = LiveSessionInfo._toPST(new Date());
     if (currentSessionIndex === null &&
         sessionTimeArray.length > 0) {
       // This should be the first session of the day, so we need to find out
@@ -96,8 +122,11 @@ export class LiveSessionInfo {
     }
 
     // Or if it's effectively going to be "tomorrow", same.
-    if (sessionTimeArray[currentSessionIndex].getUTCDate() !==
-        sessionTimeArray[nextSessionIndex].getUTCDate()) {
+    var nextSessionTime =
+        LiveSessionInfo._toPST(sessionTimeArray[nextSessionIndex]);
+
+    if (this._dateAsString(currentConfDay) !==
+        this._dateAsString(nextSessionTime)) {
       return null;
     }
 
@@ -115,7 +144,7 @@ export class LiveSessionInfo {
     return null;
   }
 
-  static _refresh () {
+  static refresh () {
     if (!this._sessions) {
       console.warn('Unable to get session info.');
       return;
@@ -153,14 +182,14 @@ export class LiveSessionInfo {
 
       clearTimeout(this._refreshTimeoutIndex);
       this._refreshTimeoutIndex =
-          setTimeout(this._refresh.bind(this), refreshTimeout);
+          setTimeout(this.refresh.bind(this), refreshTimeout);
     }
   }
 
   static _enableUpdates () {
     SessionLoader.getData().then(function (sessions) {
       this._sessions = sessions;
-      this._refresh();
+      this.refresh();
     }.bind(this));
   }
 
@@ -215,16 +244,24 @@ export class LiveSessionInfo {
         (sessionInfo.speaker ? sessionInfo.speaker + ': ' : '') +
         sessionInfo.name;
 
-    // Format the session time to the local time.
-    var formatter = new Intl.DateTimeFormat(undefined,
-        {hour: 'numeric', minute: 'numeric', timeZoneName: 'short',
-        hour12: false});
-
-    liveInfoNext.querySelector('.live-info__time').textContent =
-        formatter.format(sessionTime);
-
     liveInfoNext.querySelector('.live-info__description').textContent =
         sessionInfo.description;
+
+    idbKeyval.get('localized-times').then(function (shouldLocalize) {
+      var nextSessionTime = new Date(sessionTime.getTime());
+      var PST_ADJUSTMENT = 28800000;
+
+      if (!shouldLocalize) {
+        nextSessionTime.setTime(
+          nextSessionTime.getTime() +
+          (nextSessionTime.getTimezoneOffset() * 60000) -
+          PST_ADJUSTMENT
+        );
+      }
+
+      liveInfoNext.querySelector('.live-info__time').textContent =
+          LiveSessionInfo._timeAsString(nextSessionTime);
+    });
   }
 
   static _disableUpdates () {
@@ -237,72 +274,76 @@ export class LiveSessionInfo {
       return;
     }
 
-    var comingUpList = document.querySelector('.live-coming-up__list');
-    var today = new Date();
-    var now = today.getTime();
-    var sessionTime;
-    var sessionTimeString;
-    var sessionTimeStringHours;
-    var sessionTimeStringMinutes;
-    var session;
-    var sessionList = [];
-    var skipFirstMatchedItem = true;
+    idbKeyval.get('localized-times').then(function (shouldLocalize) {
+      var comingUpList = document.querySelector('.live-coming-up__list');
+      var now = Date.now();
+      var localDate = new Date();
+      var baseTimeOffset = 480; // 8 hours in minutes
 
-    for (var i = 0; i < sessionTimeArray.length; i++) {
-      sessionTime = sessionTimeArray[i];
-      if (sessionTime.getTime() < now) {
-        continue;
+      var sessionTime;
+      var sessionTimeString;
+      var session;
+      var sessionList = [];
+      var skipFirstMatchedItem = true;
+      var confDay = LiveSessionInfo._toPST(new Date());
+
+      for (var i = 0; i < sessionTimeArray.length; i++) {
+        sessionTime = sessionTimeArray[i];
+        if (sessionTime.getTime() < now) {
+          continue;
+        }
+
+        // Go past the first available item as this should be listed above.
+        if (skipFirstMatchedItem) {
+          skipFirstMatchedItem = false;
+          continue;
+        }
+
+        var sessionTimeInPST = LiveSessionInfo._toPST(sessionTime);
+        if (LiveSessionInfo._dateAsString(sessionTimeInPST) !==
+            LiveSessionInfo._dateAsString(confDay)) {
+          continue;
+        }
+
+        var sessionTimeToRender = new Date(sessionTime.getTime());
+        if (!shouldLocalize) {
+          sessionTimeToRender.setTime(sessionTimeToRender.getTime() -
+                (baseTimeOffset - localDate.getTimezoneOffset()) * 60000);
+        }
+
+        session = LiveSessionInfo._sessions.get(sessionTime);
+        sessionTimeString = LiveSessionInfo._timeAsString(sessionTimeToRender);
+
+        // Make a list item for the upcoming sessions.
+        sessionList.push(
+          `<li class="live-coming-up__item">
+            <time class="live-coming-up__item-time"
+                  datetime="${sessionTime.toISOString()}">
+              ${sessionTimeString}
+            </time>
+            <a class="live-coming-up__item-description">
+              <h3 class="live-coming-up__item-title">
+                ${session.name}
+              </h3>
+              ${
+                session.speaker ?
+                `<p class="live-coming-up__item-author">${session.speaker}</p>` :
+                ''
+              }
+            </a>
+          </li>`);
       }
 
-      // Go past the first available item as this should be listed above.
-      if (skipFirstMatchedItem) {
-        skipFirstMatchedItem = false;
-        continue;
+      if (sessionList.length === 0) {
+        comingUpList.innerHTML = '';
+        comingUp.classList.add('live-coming-up--empty');
+        comingUp.setAttribute('aria-hidden', true);
+        return;
       }
 
-      if (today.getUTCDate() !== sessionTime.getUTCDate()) {
-        continue;
-      }
-
-      sessionTimeStringHours = (sessionTime.getHours() < 10 ?
-          `0${sessionTime.getHours()}` :
-          sessionTime.getHours()).toString();
-      sessionTimeStringMinutes = (sessionTime.getMinutes() < 10 ?
-          `0${sessionTime.getMinutes()}` :
-          sessionTime.getMinutes()).toString();
-
-      session = this._sessions.get(sessionTime);
-      sessionTimeString = sessionTimeStringHours + sessionTimeStringMinutes;
-
-      // Make a list item for the upcoming session.
-      sessionList.push(
-        `<li class="live-coming-up__item">
-          <time class="live-coming-up__item-time"
-                datetime="${sessionTime.toISOString()}">
-            ${sessionTimeString}
-          </time>
-          <a class="live-coming-up__item-description">
-            <h3 class="live-coming-up__item-title">
-              ${session.name}
-            </h3>
-            ${
-              session.speaker ?
-              `<p class="live-coming-up__item-author">${session.speaker}</p>` :
-              ''
-            }
-          </a>
-        </li>`);
-    }
-
-    if (sessionList.length === 0) {
-      comingUpList.innerHTML = '';
-      comingUp.classList.add('live-coming-up--empty');
-      comingUp.setAttribute('aria-hidden', true);
-      return;
-    }
-
-    comingUp.classList.remove('live-coming-up--empty');
-    comingUp.removeAttribute('aria-hidden');
-    comingUpList.innerHTML = sessionList.join('');
+      comingUp.classList.remove('live-coming-up--empty');
+      comingUp.removeAttribute('aria-hidden');
+      comingUpList.innerHTML = sessionList.join('');
+    });
   }
 }

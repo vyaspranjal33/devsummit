@@ -17,7 +17,9 @@
 {% set pagestyles="static/styles/sessions.css" %}
 {% set section="Session" %}
 {% block content %}
+
   <div class="session{% if not youtubeId %} session--pre{% endif %}">
+
     <div class="session-info__back">
       <a href="{{ back_link }}" class="session-info__back-link">Back to Day {{ session_info["day_index"] }} Schedule</a>
     </div>
@@ -34,6 +36,13 @@
         <h3 class="session-info__speaker">
             {{ session_info["speaker"] }}{% if session_info["speakerRole"] %}, {{ session_info["speakerRole"] }}{% endif %}
         </h3>
+        <h4 class="session-info__time">
+          Day {{ session_info["day_index"]}},
+          <time title="{{ session_info["datetime"] }}"
+            datetime="{{ session_info["datetime"].strftime('%Y-%m-%dT%H:%M:%S-08:00') }}">{{
+              session_info["datetime"].strftime('%H:%M:%S') | as_24hr
+            }}</time>
+        </h4>
 
         <div class="session-info__description">
           {% if session_info["description"] %}

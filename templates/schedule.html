@@ -9,10 +9,6 @@
 
   {% include "templates/includes/schedule-nav.partial.html" %}
 
-  <div class="schedule-adjustment" aria-hidden="true">
-    Please note: all times have been adjusted to <span class="schedule-adjustment__value">UTC-08:00</span>
-  </div>
-
   <div class="schedule-items">
 
     {% for time in sorted_sessions %}
@@ -41,7 +37,7 @@
         {% endif %}
 
         <div class="schedule-item__time">
-          <time title="{{ time | as_pst(date) }}" class="schedule-item__time-value" datetime="{{ date }}T{{ time }}-07:00">{{ time | as_24hr }}</time>
+          <time title="{{ time | as_pst(date) }}" class="schedule-item__time-value" datetime="{{ date }}T{{ time }}-08:00">{{ time | as_24hr }}</time>
         </div>
 
         <div class="schedule-item__details">
@@ -70,5 +66,9 @@
       {% endif %}
 
     {% endfor %}
+  </div>
+
+  <div class="schedule-adjustment" aria-hidden="true">
+    Please note: all times are in <span class="schedule-adjustment__value">PST</span>. <button class="toggle-localized-times">Adjust to PST</button>
   </div>
 {% endblock %}

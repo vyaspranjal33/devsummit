@@ -28,21 +28,20 @@
     },
 
     "11:30:00": {
+      "name": "Sign-in on the Web - Credential Management and Best Practices",
+      "speaker": "Sabine Borsay and Eiji Kitamura",
+      "speakerImg": "/devsummit/static/images/speakers/borsay-kitamura.jpg",
+      "url": "/devsummit/schedule/sessions/sign-in-on-the-web",
+      "description": "Sabine and Eiji share best practices for sign-in, and explains how the Credential Management API makes frictionless sign-in possible."
+    },
+
+    "12:00:00": {
       "name": "Web Payments",
       "speaker": "Zach Koch",
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/zach-koch.jpg",
       "url": "/devsummit/schedule/sessions/web-payments",
       "description": "One of the hardest web user experience challenges is enabling users to make payments. Zach shows us how with the new Web Payment API."
-    },
-
-    "12:00:00": {
-      "name": "Sign-in on the Web - Credential Management and Best Practices",
-      "speaker": "Sabine Borsay",
-      "speakerRole": "Product Manager, Chrome",
-      "speakerImg": "/devsummit/static/images/speakers/sabine-borsay.jpg",
-      "url": "/devsummit/schedule/sessions/sign-in-on-the-web",
-      "description": "Sabine shares best practices for sign-in, and explains how the Credential Management API makes frictionless sign-in possible."
     },
 
     "12:30:00": {

@@ -11,7 +11,6 @@
 {% set upcoming_sessions=(sessions | get_upcoming_sessions) %}
 
 {% block content %}
-
   <section class="live-info">
     {% if is_partial %}
       <div class="live-info__item live-info__item-current js-live-info-current" aria-hidden="true">
@@ -55,13 +54,13 @@
               {{ next_session["details"].speaker }}:
             {% endif %}
 
-            {% if next_sesssion %}
+            {% if next_session %}
               {{ next_session["details"].name }}
             {% endif %}
         </h3>
         <h4 class="live-info__time">
           {% if next_session and next_session["datetime"] %}
-            {{ next_session["datetime"].strftime('%-H:%M %p PST') }}
+            {{ next_session["datetime"].strftime('%H%M') }}
           {% endif %}
         </h4>
         <p class="live-info__description">
@@ -76,16 +75,12 @@
   <section class="live-coming-up{% if not upcoming_sessions%} live-coming-up--empty{% endif %}"
     {% if not upcoming_sessions%} aria-hidden="true"{% endif %}>
 
-    <div class="schedule-adjustment" aria-hidden="true">
-      Please note: all times have been adjusted to <span class="schedule-adjustment__value">UTC-08:00</span>
-    </div>
-
     <h2 class="live-coming-up__title">Coming up</h2>
 
     <ol class="live-coming-up__list">
       {% for upcoming_session in upcoming_sessions %}
       <li class="live-coming-up__item">
-        <time class="live-coming-up__item-time" datetime="">{{ upcoming_session["datetime"].strftime('%H%M') }}</time>
+        <time class="live-coming-up__item-time" datetime="{{ upcoming_session["datetime"].strftime('%Y-%m-%dT%H:%M:%S-08:00') }}">{{ upcoming_session["datetime"].strftime('%H%M') }}</time>
         <a class="live-coming-up__item-description">
           <h3 class="live-coming-up__item-title">{{ upcoming_session["details"].name }}</h3>
           {% if upcoming_session["details"].speaker %}
@@ -95,5 +90,10 @@
       </li>
       {% endfor %}
     </ol>
+
+    <div class="schedule-adjustment" aria-hidden="true">
+      Please note: all times are in <span class="schedule-adjustment__value">PST</span>. <button class="toggle-localized-times">Adjust to PST</button>
+    </div>
+
   </section>
 {% endblock %}

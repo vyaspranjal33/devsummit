@@ -22,6 +22,7 @@ import {SideNav} from './components/side-nav';
 import {LiveSessionInfo} from './components/live-session-info';
 import {LiveBanner} from './components/live-banner';
 import {PushHandler} from './components/push-handler';
+import {idbKeyval} from './third_party/idb-keyval.js';
 
 var initialized = false;
 export function init () {
@@ -234,32 +235,31 @@ export function init () {
       LiveBanner.toggle();
     }
 
-    _updateTimes () {
-      var now = new Date(2016, 10, 10, 6, 0, 0);
-      var timezoneOffsetInHours = -now.getTimezoneOffset() / 60;
-      var times = document.querySelectorAll('time');
-      var formatter = new Intl.DateTimeFormat('en-us',
-          {year: 'numeric', timeZoneName: 'short'});
-      var listedTime;
-      var timeAsString;
+    _toggleLocalizedTimes () {
+      var cds = this;
+      return idbKeyval.get('localized-times').then(function (shouldLocalise) {
+        var newValue = !(Boolean(shouldLocalise).valueOf());
+        return idbKeyval.set('localized-times', newValue).then(function () {
+          LiveSessionInfo.refresh();
+          cds._updateTimes();
+        });
+      });
+    }
 
-      for (var t = 0; t < times.length; t++) {
-        listedTime = new Date(times[t].getAttribute('datetime'));
-        timeAsString =
-            (listedTime.getHours() < 10 ? '0' : '') +
-            listedTime.getHours() +
-            (listedTime.getMinutes() < 10 ? '0' : '') +
-            listedTime.getMinutes();
-        times[t].textContent = timeAsString;
-      }
-
+    _updateAdjustmentControl (shouldLocalize) {
+      // Not every page has the adjustment control, so only run this if needed.
       var adjustment = document.querySelector('.schedule-adjustment');
       if (!adjustment) {
         return;
       }
 
+      var timezoneButton = document.querySelector('.toggle-localized-times');
+      var now = new Date(2016, 10, 10, 6, 0, 0);
+      var timezoneOffsetInHours = -now.getTimezoneOffset() / 60;
+      var formatter = new Intl.DateTimeFormat('en-us',
+            {year: 'numeric', timeZoneName: 'short'});
       var adjustmentValue =
-          adjustment.querySelector('.schedule-adjustment__value');
+        adjustment.querySelector('.schedule-adjustment__value');
 
       if (timezoneOffsetInHours === -8) {
         adjustment.classList.remove('schedule-adjustment--visible');
@@ -272,8 +272,53 @@ export function init () {
 
         adjustment.classList.add('schedule-adjustment--visible');
         adjustment.removeAttribute('aria-hidden');
-        adjustmentValue.textContent = formattedDate[1];
+        adjustmentValue.textContent =
+            shouldLocalize ? formattedDate[1] : 'PST';
+
+        if (timezoneButton) {
+          timezoneButton.textContent = 'Adjust to ' + (shouldLocalize ?
+              'PST' :
+              formattedDate[1]);
+        }
       }
+    }
+
+    _updateTimeElements (shouldLocalize) {
+      var now = new Date(2016, 10, 10, 6, 0, 0);
+      var baseTimeOffset = 8 * 60;
+      var times = document.querySelectorAll('time');
+      var listedTime;
+      var timeAsString;
+      var datetime;
+
+      for (var t = 0; t < times.length; t++) {
+        datetime = times[t].getAttribute('datetime');
+        if (!datetime) {
+          return;
+        }
+
+        listedTime = new Date(datetime);
+
+        if (!shouldLocalize) {
+          listedTime.setTime(listedTime.getTime() -
+              (baseTimeOffset - now.getTimezoneOffset()) * 60000);
+        }
+
+        timeAsString =
+            (listedTime.getHours() < 10 ? '0' : '') +
+            listedTime.getHours() +
+            (listedTime.getMinutes() < 10 ? '0' : '') +
+            listedTime.getMinutes();
+        times[t].textContent = timeAsString;
+      }
+    }
+
+    _updateTimes () {
+      var cds = this;
+      idbKeyval.get('localized-times').then(function (shouldLocalize) {
+        cds._updateAdjustmentControl(shouldLocalize);
+        cds._updateTimeElements(shouldLocalize);
+      });
     }
 
     go (url) {
@@ -296,6 +341,11 @@ export function init () {
     _onClick (evt) {
       // If this is a ctrl-click / cmd-click, don't do anything.
       if (evt.metaKey || evt.ctrlKey) {
+        return;
+      }
+
+      if (evt.target.classList.contains('toggle-localized-times')) {
+        this._toggleLocalizedTimes();
         return;
       }
 

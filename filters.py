@@ -66,16 +66,18 @@ def find_session(sessions_info, url):
     # Try and find the session info.
     day_index = 0
     sorted_date_keys = sorted(sessions_info.keys())
+    date_format = "%Y-%m-%dT%H:%M:%S"
 
     for date in sorted_date_keys:
         day_index = day_index + 1
         day = sessions_info[date]
-        for _, session in day.iteritems():
+        for time, session in day.iteritems():
             if "url" not in session:
                 continue
 
             if session["url"] == ('/devsummit/%s' % url):
                 session["day_index"] = day_index
+                session["datetime"] = datetime.strptime(("%sT%s" % (date, time)), date_format)
                 return session
 
     return None
@@ -107,7 +109,7 @@ def as_pst(time, date):
 
     return '%s %s PST' % (time, meridiem)
 
-def as_24hr(time):
+def as_24hr(time, include_separator=False):
     """Converts the time to a 24hr label.
 
     Args:
@@ -116,6 +118,9 @@ def as_24hr(time):
     Returns:
       Returns the PST label.
     """
+    if include_separator:
+        return time[:5]
+
     return re.sub(r"[^\d]", "", time)[:4]
 
 def get_keys_for_date(sessions_info, date=None):
@@ -129,7 +134,9 @@ def get_keys_for_date(sessions_info, date=None):
 
 def get_current_session(sessions_info):
     current_session = None
-    now = datetime.utcnow()
+
+    # Adjust from UTC back to PST
+    now = datetime.utcnow() - timedelta(hours=8)
 
     # Try and find the session info.
     for date in sessions_info.keys():
@@ -149,17 +156,16 @@ def get_current_session(sessions_info):
                 int(timeParts[2])
             )
 
-            # Shift the stored time from PST to UTC.
-            session_datetime += timedelta(hours=7)
-
             if session_datetime < now and session_datetime.day == now.day:
                 current_session = sessions_info[date][time]
 
     return current_session
 
 def get_next_session(sessions_info):
-    now = datetime.utcnow()
     sorted_date_keys = sorted(sessions_info.keys())
+
+    # Adjust from UTC back to PST
+    now = datetime.utcnow() - timedelta(hours=8)
 
     for date in sorted_date_keys:
         sorted_session_keys = get_keys_for_date(sessions_info, date)
@@ -178,18 +184,7 @@ def get_next_session(sessions_info):
                 int(timeParts[2])   # Seconds
             )
 
-            # Shift the stored time from PST to UTC.
-            session_datetime += timedelta(hours=7)
-
             if session_datetime > now and session_datetime.day == now.day:
-                # Remove the PST to UTC shift.
-                session_datetime -= timedelta(hours=7)
-
-                print {
-                  "datetime": session_datetime,
-                  "details": sessions_info[date][time]
-                }
-
                 return {
                   "datetime": session_datetime,
                   "details": sessions_info[date][time]
@@ -202,7 +197,7 @@ def get_next_session(sessions_info):
 
 
 def get_upcoming_sessions(sessions_info):
-    now = datetime.utcnow()
+    now = datetime.utcnow() - timedelta(hours=8)
     sorted_date_keys = sorted(sessions_info.keys())
     upcoming_sessions = []
     skip_first_match = True
@@ -224,15 +219,11 @@ def get_upcoming_sessions(sessions_info):
                 int(timeParts[2])   # Seconds
             )
 
-            # Shift the stored time from PST to UTC.
-            session_datetime += timedelta(hours=7)
-
             if session_datetime > now and session_datetime.day == now.day:
                 if skip_first_match:
                     skip_first_match = False
                     continue
 
-                session_datetime -= timedelta(hours=7)
                 upcoming_sessions.append({
                   "datetime": session_datetime,
                   "details": sessions_info[date][time]
