@@ -185,7 +185,7 @@
       "name": "Lunch"
     },
 
-    "13:30:00": {
+    "14:00:00": {
       "name": "Client storage: shave seconds off your load time with one simple trick",
       "speaker": "Dru Knox",
       "speakerRole": "Product Manager, Chrome",
@@ -194,7 +194,7 @@
       "description": "Dru explores the landscape of storage APIs: past, present and future, provides best practices and explains the finer details."
     },
 
-    "14:00:00": {
+    "14:30:00": {
       "name": "Advanced JS performance with V8 and Web Assembly",
       "speaker": "Seth Thompson",
       "speakerRole": "Product Manager, Chrome",
@@ -203,7 +203,7 @@
       "description": "Seth shares the current state of JavaScript and script tooling in V8, and discusses the future with WebAssembly."
     },
 
-    "14:30:00": {
+    "15:00:00": {
       "name": "Future App Model: Advanced Service Worker",
       "speaker": "Jake Archibald",
       "speakerRole": "Developer Advocate",
@@ -221,7 +221,7 @@
       "description": "Paul shares the next visionary steps for the web, with WebVR, Performance and more."
     },
 
-    "15:30:00": {
+    "16:00:00": {
       "notify": false,
       "name": "Breakouts & Codelabs - Session 1",
       "url": "/devsummit/schedule/sessions/breakouts-session-1",
@@ -249,7 +249,7 @@
       ]
     },
 
-    "16:00:00": {
+    "16:30:00": {
       "notify": false,
       "name": "Breakouts & Codelabs - Session 2",
       "url": "/devsummit/schedule/sessions/breakouts-session-2",
@@ -277,7 +277,7 @@
       ]
     },
 
-    "15:00:00": {
+    "15:30:00": {
       "name": "The “Progressive” in Progressive Web Apps",
       "speaker": "Patrick Kettner",
       "speakerRole": "Edge PM, Microsoft",
@@ -286,7 +286,7 @@
       "description": ""
     },
 
-    "16:30:00": {
+    "17:00:00": {
       "name": "Browser Vendor panel",
       "speaker": "TBD",
       "speakerRole": "",
