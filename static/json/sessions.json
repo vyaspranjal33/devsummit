@@ -12,7 +12,8 @@
       "speakerRole": "VP, Chrome Engineering",
       "speakerImg": "/devsummit/static/images/speakers/darin-fisher.jpg",
       "url": "/devsummit/schedule/sessions/keynote",
-      "description": "The state of Chrome and the Web Platform today, from the leader of the Chrome team."
+      "description": "The state of Chrome and the Web Platform today, from the leader of the Chrome team.",
+      "youtubeId": "eI3B6x0fw9s"
     },
 
     "10:30:00": {
@@ -21,7 +22,8 @@
       "speakerRole": "Strategic Partner Development Manager",
       "speakerImg": "/devsummit/static/images/speakers/thao-tran.jpg",
       "url": "/devsummit/schedule/sessions/building-progressive-web-apps-today",
-      "description": "Progressive Web Apps are all about improving your user experience. Thao shares some success stories and gives some guidance."
+      "description": "Progressive Web Apps are all about improving your user experience. Thao shares some success stories and gives some guidance.",
+      "youtubeId": "U52dD0tegsA"
     },
 
     "11:00:00": {
@@ -33,7 +35,8 @@
       "speaker": "Sabine Borsay and Eiji Kitamura",
       "speakerImg": "/devsummit/static/images/speakers/borsay-kitamura.jpg",
       "url": "/devsummit/schedule/sessions/sign-in-on-the-web",
-      "description": "Sabine and Eiji share best practices for sign-in, and explains how the Credential Management API makes frictionless sign-in possible."
+      "description": "Sabine and Eiji share best practices for sign-in, and explains how the Credential Management API makes frictionless sign-in possible.",
+      "youtubeId": "NJ-sphu2DqQ"
     },
 
     "12:00:00": {
@@ -42,7 +45,8 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/zach-koch.jpg",
       "url": "/devsummit/schedule/sessions/web-payments",
-      "description": "One of the hardest web user experience challenges is enabling users to make payments. Zach shows us how with the new Web Payment API."
+      "description": "One of the hardest web user experience challenges is enabling users to make payments. Zach shows us how with the new Web Payment API.",
+      "youtubeId": "U0LkQijSeko"
     },
 
     "12:30:00": {
@@ -55,7 +59,8 @@
       "speakerRole": "Performance Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/paul-irish.jpg",
       "url": "/devsummit/schedule/sessions/debugging-the-web",
-      "description": "Learn the state of the art in debugging using Chrome DevTools - all you need to know to expand your toolbox."
+      "description": "Learn the state of the art in debugging using Chrome DevTools - all you need to know to expand your toolbox.",
+      "youtubeId": "HF1luRD4Qmk"
     },
 
     "14:30:00": {
@@ -63,7 +68,8 @@
       "speaker": "Taylor Savage and Monica Dinculescu",
       "speakerImg": "/devsummit/static/images/speakers/tsavage-meownica.jpg",
       "url": "/devsummit/schedule/sessions/web-components-and-polymer",
-      "description": "Come learn about the current state of Polymer, and how you can use Web Components to improve your development."
+      "description": "Come learn about the current state of Polymer, and how you can use Web Components to improve your development.",
+      "youtubeId": "Ihdp63FaRKA"
     },
 
     "15:00:00": {
@@ -72,7 +78,8 @@
       "speakerRole": "Software Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/alex-russell.jpg",
       "url": "/devsummit/schedule/sessions/progressive-performance",
-      "description": "Alex shows us the important things to focus on in performance, and how to run great experiences on slow, inconsistent networks and low-power devices."
+      "description": "Alex shows us the important things to focus on in performance, and how to run great experiences on slow, inconsistent networks and low-power devices.",
+      "youtubeId": "4bZvq3nodf4"
     },
 
     "15:30:00": {
@@ -89,7 +96,8 @@
       "speakerImg": "/devsummit/static/images/speakers/surma-paullewis.jpg",
       "speaker": "Surma and Paul Lewis",
       "url": "/devsummit/schedule/sessions/supercharged-live",
-      "description": "For those wanting a bit of live-coding, Surma and Paul demonstrate adding a Service Worker to a site during the break. Expect bugs."
+      "description": "For those wanting a bit of live-coding, Surma and Paul demonstrate adding a Service Worker to a site during the break. Expect bugs.",
+      "youtubeId": "X8EQSy-ajo4"
     },
 
     "16:30:00": {
@@ -98,7 +106,8 @@
       "speakerRole": "Software Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/estark.jpg",
       "url": "/devsummit/schedule/sessions/security-http2-leading-to-https",
-      "description": "Emily shows why the default for the web should be secure, and describes Chrome's mission to be honest with our users about HTTPS."
+      "description": "Emily shows why the default for the web should be secure, and describes Chrome's mission to be honest with our users about HTTPS.",
+      "youtubeId": "iP75a1Y9saY"
     },
 
     "17:00:00": {
@@ -107,7 +116,8 @@
       "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/rbyers-rnyman.jpg",
       "url": "/devsummit/schedule/sessions/predictability-for-the-web",
-      "description": "Rick and Robert explain how Chrome is improving predictability for developers, how we responsibly move the web platform forward, and how web developers can help improve the platform."
+      "description": "Rick and Robert explain how Chrome is improving predictability for developers, how we responsibly move the web platform forward, and how web developers can help improve the platform.",
+      "youtubeId": "meAl-s77DuA"
     },
 
     "17:30:00": {
@@ -116,7 +126,8 @@
       "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/chrome-leadership-panel",
-      "description": "The leaders of the Chrome project answer your questions."
+      "description": "The leaders of the Chrome project answer your questions.",
+      "youtubeId": "BrOCNC-t6Bo"
     },
 
     "19:00:00": {
@@ -207,7 +218,7 @@
       "speakerRole": "Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/paul-kinlan.jpg",
       "url": "/devsummit/schedule/sessions/next-for-the-web",
-      "description": "Paul shares the next visionary steps for the web, with WebVR, Houdini, Performance and more."
+      "description": "Paul shares the next visionary steps for the web, with WebVR, Performance and more."
     },
 
     "15:30:00": {

@@ -26,7 +26,7 @@
 
     <div class="session-info">
 
-      {% if session_info["speakerImg"] %}
+      {% if session_info["speakerImg"] and not youtubeId %}
       <div class="session-speaker-info__image">
         <img src="{{ session_info["speakerImg"] }}" alt="{{ session_info["speaker"] }}" width="128" height="128">
       </div>
@@ -59,7 +59,7 @@
           {% endif %}
         </div>
 
-        {% if session_info["notify"] != False %}
+        {% if session_info["notify"] != False and not youtubeId %}
         <button data-id="{{ session_info["url"] }}" class="notification-btn js-notification-btn" hidden disabled>
           <div class="notification-btn__inner">Getting status...</div>
         </button>

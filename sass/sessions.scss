@@ -71,7 +71,7 @@
 .session-info__time {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #666;
+  color: rgba(0, 0, 0, 0.5);
   margin: 0;
 }
 
@@ -132,6 +132,10 @@
 }
 
 @media (min-width: 800px) {
+  .section-session {
+    margin-top: 0;
+  }
+
   .session-speaker-info__image {
     display: block;
   }
