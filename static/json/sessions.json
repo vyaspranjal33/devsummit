@@ -88,7 +88,8 @@
       "speakerRole": "Software Engineer",
       "speakerImg": "/devsummit/static/images/speakers/sam-saccone.jpg",
       "url": "/devsummit/schedule/sessions/planning-for-performance",
-      "description": "Sam explains how to get the browser to do things under budget - script and resource loading and more."
+      "description": "Sam explains how to get the browser to do things under budget - script and resource loading and more.",
+      "youtubeId": "RWLzUnESylc"
     },
 
     "16:00:00": {
@@ -147,7 +148,8 @@
       "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/housing-lyft.jpg",
       "url": "/devsummit/schedule/sessions/how-we-built-it",
-      "description": "Housing.com and Lyft show you their journeys to creating great user experiences."
+      "description": "Housing.com and Lyft show you their journeys to creating great user experiences.",
+      "youtubeId": "KSWSs9UsNpc"
     },
 
     "10:30:00": {
@@ -156,7 +158,8 @@
       "speakerRole": "Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/paul-bakaus.jpg",
       "url": "/devsummit/schedule/sessions/from-amp-to-pwa",
-      "description": "Paul explains the opportunity in AMP, and how to build great Progressive Web Apps with AMP."
+      "description": "Paul explains the opportunity in AMP, and how to build great Progressive Web Apps with AMP.",
+      "youtubeId": "M_ZCgbEGyHY"
     },
 
     "11:00:00": {
@@ -169,7 +172,8 @@
       "speakerRole": "Developer Programs Engineer",
       "speakerImg": "/devsummit/static/images/speakers/addy-osmani.jpg",
       "url": "/devsummit/schedule/sessions/productions-pwas-with-frameworks",
-      "description": "Addy works through building Progressive Web Apps with React at scale. Featuring special guests, Flipkart, dive into the performance and loading patterns needed to make frameworks competitive on mobile."
+      "description": "Addy works through building Progressive Web Apps with React at scale. Featuring special guests, Flipkart, dive into the performance and loading patterns needed to make frameworks competitive on mobile.",
+      "youtubeId": "e8XejNt5SZo"
     },
 
     "12:00:00": {
@@ -178,7 +182,8 @@
       "speakerRole": "Developer Programs Engineer",
       "speakerImg": "/devsummit/static/images/speakers/jeff-posnick.jpg",
       "url": "/devsummit/schedule/sessions/tools-and-libraries-for-progressive-web-apps",
-      "description": "Jeff walks through Lighthouse and all the tools and libraries we produce to help web developers easily build great Progressive Web Apps."
+      "description": "Jeff walks through Lighthouse and all the tools and libraries we produce to help web developers easily build great Progressive Web Apps.",
+      "youtubeId": "FZ9BkDiUQJs"
     },
 
     "12:30:00": {
@@ -191,7 +196,8 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/dru-knox.jpg",
       "url": "/devsummit/schedule/sessions/the-state-of-storage",
-      "description": "Dru explores the landscape of storage APIs: past, present and future, provides best practices and explains the finer details."
+      "description": "Dru explores the landscape of storage APIs: past, present and future, provides best practices and explains the finer details.",
+      "youtubeId": "gq80Y5-ZJdg"
     },
 
     "14:30:00": {
@@ -200,7 +206,8 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/seth-thompson.jpg",
       "url": "/devsummit/schedule/sessions/advanced-js-performance",
-      "description": "Seth shares the current state of JavaScript and script tooling in V8, and discusses the future with WebAssembly."
+      "description": "Seth shares the current state of JavaScript and script tooling in V8, and discusses the future with WebAssembly.",
+      "youtubeId": "PvZdTZ1Nl5o"
     },
 
     "15:00:00": {
@@ -209,7 +216,8 @@
       "speakerRole": "Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/jake-archibald.jpg",
       "url": "/devsummit/schedule/sessions/future-app-model",
-      "description": "Jake (one of the originators of Service Workers) shares the future of the web app model, with Foreign Fetch, Streams and more."
+      "description": "Jake (one of the originators of Service Workers) shares the future of the web app model, with Foreign Fetch, Streams and more.",
+      "youtubeId": "J2dOTKBoTL4"
     },
 
     "17:30:00": {
@@ -218,7 +226,8 @@
       "speakerRole": "Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/paul-kinlan.jpg",
       "url": "/devsummit/schedule/sessions/next-for-the-web",
-      "description": "Paul shares the next visionary steps for the web, with WebVR, Performance and more."
+      "description": "Paul shares the next visionary steps for the web, with WebVR, Performance and more.",
+      "youtubeId": "YJwrBbze_Ec"
     },
 
     "16:00:00": {
@@ -283,7 +292,8 @@
       "speakerRole": "Edge PM, Microsoft",
       "speakerImg": "/devsummit/static/images/speakers/patrickkettner.jpg",
       "url": "/devsummit/schedule/sessions/progressive-in-pwa",
-      "description": ""
+      "description": "",
+      "youtubeId": "ARkPBm6AcNA"
     },
 
     "17:00:00": {
@@ -292,7 +302,8 @@
       "speakerRole": "",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/browser-vendor-panel",
-      "description": "Representatives from various browsers answer your questions."
+      "description": "Representatives from various browsers answer your questions.",
+      "youtubeId": "3VV-9_dCYuM"
     }
   }
 }
