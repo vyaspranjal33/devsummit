@@ -93,12 +93,14 @@ class MainHandler(webapp2.RequestHandler):
                 # because that's the timezone for CDS.
                 today = datetime.today() - timedelta(hours=7)
 
-                if (today - day1).days == 0:
+                if (today - day1).days < 0:
+                    template_info["path"] = "sections/home.html"
+                elif (today - day1).days == 0:
                     template_info["path"] = "sections/live-day-1.html"
                 elif (today - day2).days == 0:
                     template_info["path"] = "sections/live-day-2.html"
                 else:
-                    template_info["path"] = "sections/home.html"
+                    template_info["path"] = "sections/over.html"
             elif re.search(r"sessions", url):
                 template_info["path"] = "sections/schedule/session.html"
             else:
