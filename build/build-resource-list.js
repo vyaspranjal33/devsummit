@@ -37,6 +37,7 @@ const resourceList = [
   '/devsummit/code-of-conduct',
   '/devsummit/live-day-1?partial',
   '/devsummit/live-day-2?partial',
+  '/devsummit/over',
   '/devsummit/schedule/day-2'
 ];
 
