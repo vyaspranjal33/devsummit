@@ -64,6 +64,10 @@
   color: #6387F5;
 }
 
+.home__ctas.home__ctas--over {
+  margin-top: -110px;
+}
+
 .home__ctas svg {
   position: absolute;
   top: 0;
@@ -109,6 +113,7 @@
 
 .home__code-labs,
 .home__schedule,
+.home__vods,
 .home__location a {
   padding: $baseline * 2;
   height: $baseline * 36;
@@ -127,10 +132,13 @@
 
 .home__code-labs:hover ~ .home__cta-bg .home__cta-bg-underlay-right,
 .home__schedule:hover ~ .home__cta-bg .home__cta-bg-underlay-left,
+.home__vods:hover ~ .home__cta-bg .home__cta-bg-underlay-left,
 .home__code-labs:focus ~ .home__cta-bg .home__cta-bg-underlay-right,
 .home__schedule:focus ~ .home__cta-bg .home__cta-bg-underlay-left,
+.home__vods:focus ~ .home__cta-bg .home__cta-bg-underlay-left,
 .home__code-labs:active ~ .home__cta-bg .home__cta-bg-underlay-right,
-.home__schedule:active ~ .home__cta-bg .home__cta-bg-underlay-left {
+.home__schedule:active ~ .home__cta-bg .home__cta-bg-underlay-left,
+.home__vods:active ~ .home__cta-bg .home__cta-bg-underlay-left {
   opacity: 0.3;
 }
 
@@ -143,6 +151,12 @@
 .home__schedule {
   background: url(/devsummit/static/images/home/schedule.svg) center center no-repeat;
   background-size: 80% 80%;
+}
+
+.home__vods {
+  background: url(/devsummit/static/images/home/video.svg) center center no-repeat;
+  background-size: 100% 100%;
+  background-position: 50% 0%;
 }
 
 .home__location {
@@ -294,6 +308,14 @@
     width: 50%;
     height: $baseline * 40;
     background-size: 100% 100%;
+  }
+
+  .home__vods {
+    padding-bottom: $baseline * 4;
+    width: 50%;
+    height: $baseline * 40;
+    background-size: 100% 100%;
+    background-position: 50% 0%;
   }
 
   .home__location {
