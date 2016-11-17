@@ -364,7 +364,7 @@ export function init () {
 
       if (node) {
         var isInternal = /devsummit/.test(node.href);
-        var isYouTube = /youtube\.com/.test(node.href);
+        var isYouTube = /youtube\.com\/watch/.test(node.href);
 
         if (isInternal) {
           evt.preventDefault();
