@@ -339,6 +339,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .home__ctas.home__ctas--over {
+    margin-top: 0;
+  }
+}
+
 @media (min-width: 800px) {
   .home-cds-info{
     font-size: 22px;
