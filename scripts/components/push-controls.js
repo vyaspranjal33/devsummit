@@ -166,8 +166,15 @@ export class PushControls {
       this._removeAllContainer = this._element.querySelector(
         '.notification-content__remove-all-container'
       );
-      this._firstTabStop = this._closeButton;
-      this._lastTabStop = this._removeAllContainer.querySelector('button');
+
+      // Select all the possible elements inside the notification area
+      // that can be focused
+      this._focusableElements = Array.from(
+        this._element.querySelectorAll('button:not(.notification-toggle-button)')
+      );
+
+      this._firstTabStop = this._focusableElements[0];
+      this._lastTabStop = this._focusableElements[this._focusableElements.length - 1];
       this._list = this._element.querySelector('.notification-content__list');
 
       // Ensure that we capture deeplinks.
@@ -239,6 +246,12 @@ export class PushControls {
   }
 
   static _onTransitionEnd (evt) {
+
+    if (evt && evt.target !== this._element) {
+      // Don't want to listen events from children
+      return;
+    }
+
     if (this._element.classList.contains('notification-area--expanded')) {
       this._panelHeader.inert = false;
       this._list.inert = false;
@@ -311,6 +324,14 @@ export class PushControls {
 
   static _trapTabKey (evt) {
     if (this._element.hasAttribute('inert')) {
+      return;
+    }
+
+    // If the active element is not in the list that we want it to be
+    if (this._focusableElements.indexOf(document.activeElement) === -1) {
+      evt.preventDefault();
+      // then, just focus the first element
+      this._firstTabStop.focus();
       return;
     }
 
