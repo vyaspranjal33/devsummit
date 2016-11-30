@@ -34,11 +34,9 @@ export class PushHandler {
       return;
     }
 
-    if (document.querySelector('style#styles-over')) {
-      PushHandler._shutdown();
-      return;
-    }
-
+    // Post conference. Shut down.
+    PushHandler._shutdown();
+    return;
 
     this._waiting = false;
     this._key = null;
