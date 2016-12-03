@@ -65,6 +65,7 @@ export class PushHandler {
         .catch(err => {
           console.warn('Unable to get push started');
           console.warn(err.stack);
+          this._shutdown();
         });
 
     this.updateSubscriptions = this.updateSubscriptions.bind(this);

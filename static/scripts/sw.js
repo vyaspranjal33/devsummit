@@ -226,9 +226,12 @@ self.onfetch = evt => {
         return caches.open(NAME + '-v' + VERSION).then(cache => {
           return cache.put(request.clone(), fetchResponse.clone());
         }).then(_ => {
-          console.log('handing back', fetchResponse);
           return fetchResponse;
         });
+      }, err => {
+        console.warn(`Unable to fetch ${evt.request.url}.`);
+        console.warn(err.stack);
+        return new Response('Unable to fetch.');
       });
     })
   );
