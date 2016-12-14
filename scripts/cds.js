@@ -159,6 +159,7 @@ export function init () {
       return new Promise(function (resolve, reject) {
         if (document.body.classList.contains('hide-areas')) {
           resolve();
+          return;
         }
         this._mastheadGraphic.addEventListener('transitionend', resolve);
         document.body.classList.add('hide-areas');
