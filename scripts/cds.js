@@ -157,8 +157,11 @@ export function init () {
 
     _hideAreas () {
       return new Promise(function (resolve, reject) {
-        document.body.classList.add('hide-areas');
+        if (document.body.classList.contains('hide-areas')) {
+          resolve();
+        }
         this._mastheadGraphic.addEventListener('transitionend', resolve);
+        document.body.classList.add('hide-areas');
       }.bind(this));
     }
 
@@ -392,4 +395,3 @@ export function init () {
   new CDS();
   /* eslint-enable no-new */
 }
-
