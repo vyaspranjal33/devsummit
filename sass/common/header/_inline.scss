@@ -17,10 +17,10 @@
 
 .header {
   position: relative;
-  height: $baseline * 8;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  height: $baseline * 6;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
   margin-bottom: $baseline * -3;
-  background: #333;
+  background: #fff;
 
   &::before {
     width: 100%;
@@ -39,12 +39,13 @@
   max-width: $baseline * 108;
   margin: 0 auto;
   position: relative;
-  padding-bottom: $baseline * 1.5;
 }
 
 .logo {
   display: flex;
   align-items: center;
+  font-family: 'Product Sans', 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
   position: relative;
   padding: $baseline;
   flex: 0 0 auto;
@@ -84,7 +85,7 @@
 
 .menu__nav a {
   font-size: 16px;
-  color: #404040;
+  color: #616161;
   width: 100%;
   display: block;
   padding: $baseline;
@@ -155,7 +156,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #FFFFFF;
   background: url(/devsummit/static/images/header/header-live-cta.svg) center center no-repeat;
@@ -216,7 +217,7 @@
 
 @media (min-width: 424px) {
   .header {
-    height: $baseline * 11;
+    height: $baseline * 8;
 
     &::before {
       height: $baseline * 8;
@@ -262,7 +263,9 @@
 
   .menu__nav-item a {
     font-size: 14px;
+    font-weight: 100;
     padding: 0;
+    text-transform: lowercase;
     display: inline;
 
     &:hover,
@@ -287,7 +290,7 @@
 
 @media (min-width: 600px) {
   .header {
-    height: $baseline * 12;
+    height: $baseline * 9;
   }
 
   .header::before {
@@ -305,7 +308,7 @@
   }
 
   .menu {
-    height: $baseline * 10;
+    height: $baseline * 9;
   }
 
   .menu__nav-item a {

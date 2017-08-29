@@ -49,10 +49,11 @@ export function init () {
       this._newContent = null;
 
       this._masthead = document.querySelector('.masthead');
+      this._mastheadSiteTitle = document.querySelector('.masthead__sitetitle');
       this._mastheadTitle = document.querySelector('.masthead__title');
+      this._mastheadSubTitle = document.querySelector('.masthead__subtitle');
       this._mastheadGraphic = document.querySelector('.masthead__graphic');
-      this._mastheadDivider =
-          document.querySelector('.masthead-underlay__divider');
+      this._footerBanner = document.querySelector('.footer-banner');
       this._pageContent = document.querySelector('.page-content');
       this._liveBanner = document.querySelector('.header__live-stream');
       this._videoPlayer = document.querySelector('.youtube-video-player');
@@ -167,11 +168,15 @@ export function init () {
     }
 
     _swapContents () {
+      var newSiteTitle = this._newContent.querySelector('.masthead__sitetitle');
       var newTitle = this._newContent.querySelector('.masthead__title');
+      var newSubTitle = this._newContent.querySelector('.masthead__subtitle');
       var newMasthead =
           this._newContent.querySelector('.masthead');
       var newMastheadGraphic =
           this._newContent.querySelector('.masthead__graphic');
+      var newFooterBanner =
+          this._newContent.querySelector('.footer-banner');
       var newMastheadDivider =
           this._newContent.querySelector('.masthead-underlay__divider');
       var newPageContent = this._newContent.querySelector('.page-content');
@@ -185,6 +190,17 @@ export function init () {
       this._mastheadGraphic.removeEventListener('transitionend',
           this._onTransitionEnd);
 
+      if (newSiteTitle) {
+        this._mastheadSiteTitle.innerHTML =
+            newSiteTitle.innerHTML;
+        this._mastheadSiteTitle.removeAttribute('aria-hidden');
+        this._mastheadSiteTitle.focus();
+      } else {
+        this._mastheadSiteTitle.innerHTML = '';
+        this._mastheadSiteTitle.setAttribute('aria-hidden', 'true');
+        this._pageContent.focus();
+      }
+
       if (newTitle) {
         this._mastheadTitle.innerHTML =
             newTitle.innerHTML;
@@ -193,6 +209,17 @@ export function init () {
       } else {
         this._mastheadTitle.innerHTML = '';
         this._mastheadTitle.setAttribute('aria-hidden', 'true');
+        this._pageContent.focus();
+      }
+
+      if (newSubTitle) {
+        this._mastheadSubTitle.innerHTML =
+            newSubTitle.innerHTML;
+        this._mastheadSubTitle.removeAttribute('aria-hidden');
+        this._mastheadSubTitle.focus();
+      } else {
+        this._mastheadSubTitle.innerHTML = '';
+        this._mastheadSubTitle.setAttribute('aria-hidden', 'true');
         this._pageContent.focus();
       }
 
@@ -206,6 +233,9 @@ export function init () {
       this._mastheadGraphic.innerHTML =
           newMastheadGraphic.innerHTML;
 
+      this._footerBanner.innerHTML =
+          newFooterBanner.innerHTML;
+
       this._pageContent.innerHTML =
           newPageContent.innerHTML;
 
@@ -213,15 +243,6 @@ export function init () {
       this._pageContent.className = newPageContent.className;
       this._masthead.className = newMasthead.className;
       this._liveBanner.className = newLiveBanner.className;
-
-      // Uses classList because changing className on SVG is read-only.
-      if (newMastheadDivider.classList.contains('masthead-underlay__divider--invisible')) {
-        this._mastheadDivider.classList.add(
-            'masthead-underlay__divider--invisible');
-      } else {
-        this._mastheadDivider.classList.remove(
-            'masthead-underlay__divider--invisible');
-      }
 
       PushHandler.updateCurrentView();
       this._updateTimes();

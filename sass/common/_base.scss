@@ -25,8 +25,10 @@ html, body {
   margin: 0;
   width: 100%;
   min-height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #444444;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
+  color: #616161;
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -37,13 +39,13 @@ body {
 
 h2 {
   padding-top: $baseline;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 16px;
   color: #2B2B2B;
 }
 
 a {
-  color: #1EA362;
+  color: #2196F3;
 }
 
 button::-moz-focus-inner {

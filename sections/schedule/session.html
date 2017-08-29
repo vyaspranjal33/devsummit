@@ -1,14 +1,15 @@
 {% extends "templates/base.html" %}
-{% set mastheadimage="/devsummit/static/images/masthead/collage-masthead" %}
+{% set mastheadimage="/devsummit/static/images/masthead/schedule-masthead" %}
 {% set mastheadimagetitle="A collage of photos from Chrome Dev Summit 2015." %}
 {% set session_info=(sessions | find_session(url)) %}
 
 
 {% if session_info["youtubeId"] %}
-  {% set mastheadimage="/devsummit/static/images/masthead/collage-masthead-blurred" %}
+  {% set mastheadimage="/devsummit/static/images/masthead/schedule-masthead" %}
   {% set mastheadimagetitle="A blurred collage of photos from Chrome Dev Summit 2015." %}
 {% endif %}
 
+{% set footerbannerimage="/devsummit/static/images/footer-banner/schedule-banner" %}
 {% set youtubeId=session_info["youtubeId"] %}
 {% set back_link="/devsummit/schedule" %}
 {% if session_info["day_index"] == 2 %}

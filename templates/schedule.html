@@ -1,7 +1,9 @@
 {% extends "templates/base.html" %}
-{% set mastheadimage="/devsummit/static/images/masthead/collage-masthead" %}
+{% set mastheadimage="/devsummit/static/images/masthead/schedule-masthead" %}
 {% set mastheadimagetitle="A collage of photos from Chrome Dev Summit 2015." %}
 {% set mastheadtitle="Schedule" %}
+{% set mastheadsubtitle="Monday, October 23rd & Tuesday, October 24th " %}
+{% set footerbannerimage="/devsummit/static/images/footer-banner/schedule-banner" %}
 {% set pagestyles="static/styles/schedule.css" %}
 {% set section="Schedule" %}
 {% set sorted_sessions=(sessions | get_keys_for_date(date))  %}

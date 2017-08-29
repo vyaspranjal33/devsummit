@@ -18,22 +18,31 @@
 @import 'common/_variables';
 
 .section-schedule {
-  max-width: $baseline * 108;
-  margin: 0 auto 0 auto;
   padding-bottom: $baseline * 14;
 }
 
 .schedule-items {
   max-width: $baseline * 84;
-  margin: 0 auto;
+  margin: $baseline * 4 auto 0 auto;
+}
+
+.schedule-info {
+  padding: $baseline * 5 $baseline $baseline * 5 $baseline;
+  background: #F5F5F5;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 100;
+  color: #616161;
+  line-height: 1.7;
 }
 
 .schedule-nav {
-  padding: $baseline * 2 $baseline * 3;
-  background: #FFF;
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.22);
-  border-radius: 2px;
-  margin-bottom: $baseline * 6;
+  max-width: $baseline * 108;
+  flex-basis: $baseline * 108;
   display: flex;
 
   a {
@@ -100,7 +109,7 @@
   }
 
   & h2 {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 16px;
     margin: 0;
@@ -109,7 +118,7 @@
   }
 
   & h3 {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 13px;
     color: #393939;
     line-height: 24px;
@@ -156,9 +165,8 @@
 }
 
 .schedule-item__time-value {
-  background: #1EA362;
+  background: #2196F3;
   color: #FFF;
-  border-radius: 50%;
   font-size: 13px;
   display: flex;
   justify-content: center;
@@ -186,10 +194,10 @@
 }
 
 .schedule-item__title {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
   font-weight: 700;
   font-size: 18px;
-  color: #325C89;
+  color: #616161;
   line-height: 23px;
   margin: 0 0 $baseline;
   padding: 0;
@@ -208,9 +216,16 @@
   }
 }
 
+@media (min-width: 424px) {
+  .schedule-info {
+    font-size: 18px;
+    padding: $baseline * 8 $baseline * 2 $baseline * 8 $baseline * 2;
+  }
+}
+
 @media (min-width: 600px) {
-  .section-schedule {
-    margin-top: $baseline * -4;
+  .schedule-info {
+    font-size: 22px;
   }
 
   .schedule-item__speaker,
@@ -228,8 +243,8 @@
   }
 }
 
-@media (min-width: 1440px) {
-  .section-schedule {
-    margin-top: $baseline * -6;
+@media (min-width: 600px) {
+  .schedule-info {
+    font-size: 24px;
   }
 }

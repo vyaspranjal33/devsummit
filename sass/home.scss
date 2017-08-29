@@ -25,37 +25,26 @@
 .home-cds-info {
   padding: $baseline * 5 $baseline $baseline * 5 $baseline;
   margin: 0 auto;
-  background: #FFF;
+  background: #F5F5F5;
   box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 100;
   font-size: 14px;
-  color: #404040;
+  color: #616161;
   line-height: 1.7;
 }
 
 .home-cds-info__content {
   display: flex;
-  max-width: $baseline * 83;
-  text-align: center;
+  max-width: $baseline * 108;
   align-items: center;
 
   p {
     flex: 1;
-    padding: $baseline * 2;
-  }
-
-  &:after,
-  &:before {
-    content: '';
-    width: 10%;
-    height: 2px;
-    background: #CFCFCF;
-    display: none;
-    flex: 0 0 auto;
   }
 }
 
@@ -65,7 +54,7 @@
 }
 
 .home__ctas.home__ctas--over {
-  margin-top: -110px;
+  margin-top: 110px;
 }
 
 .home__ctas svg {
@@ -84,7 +73,7 @@
   display: block;
 
   & h2 {
-    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
     font-weight: 100;
     font-size: 33px;
     color: #FFFFFF;
@@ -115,6 +104,7 @@
 .home__schedule,
 .home__vods,
 .home__location a {
+  border: 2px solid #fff;
   padding: $baseline * 2;
   height: $baseline * 36;
   display: flex;
@@ -143,7 +133,6 @@
 }
 
 .home__code-labs {
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: url(/devsummit/static/images/home/code-labs.svg) center center no-repeat;
   background-size: 80% 80%;
 }
@@ -160,7 +149,7 @@
 }
 
 .home__location {
-  background: url(/devsummit/static/images/masthead/location-masthead@1x.jpg) center center no-repeat;
+  background: url(/devsummit/static/images/home/location-tile.jpg) center center no-repeat;
   background-size: cover;
   margin: 0 auto;
   max-width: $baseline * 108;
@@ -193,7 +182,7 @@
 }
 
 .home__waiting-list {
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 18px;
   color: #1EA362;
   width: 100%;
@@ -258,7 +247,7 @@
 @media (min-width: 424px) {
   .home-cds-info {
     font-size: 16px;
-    padding: $baseline * 10 $baseline * 2 $baseline * 8 $baseline * 2;
+    padding: $baseline * 8 $baseline * 2 $baseline * 8 $baseline * 2;
   }
 
   .home__waiting-list {
@@ -279,7 +268,6 @@
 
   .home-cds-info {
     font-size: 18px;
-    padding-bottom: $baseline * 20;
   }
 
   .home__svg-home-bg-rect {
@@ -294,12 +282,6 @@
     margin: 0 auto;
     max-width: $baseline * 108;
     display: flex;
-    padding-bottom: $baseline * 4.5;
-  }
-
-  .home__code-labs {
-    border-top: none;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
   }
 
   .home__code-labs,
@@ -320,7 +302,6 @@
 
   .home__location {
     height: $baseline * 42;
-    margin: $baseline * -7 auto $baseline * -6 auto;
   }
 
   .home__waiting-list-and-event-updates {
@@ -346,7 +327,7 @@
 }
 
 @media (min-width: 800px) {
-  .home-cds-info{
+  .home-cds-info {
     font-size: 22px;
   }
 

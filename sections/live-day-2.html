@@ -1,6 +1,7 @@
 {% extends "templates/base.html" %}
-{% set mastheadimage="/devsummit/static/images/masthead/collage-masthead-blurred" %}
+{% set mastheadimage="/devsummit/static/images/masthead/schedule-masthead" %}
 {% set mastheadimagetitle="A blurred collage of photos from Chrome Dev Summit 2015." %}
+{% set footerbannerimage="/devsummit/static/images/footer-banner/schedule-banner" %}
 {% set pagestyles="static/styles/live.css" %}
 {% set section="Live" %}
 {% set youtubeId="pga5kyweM9g" %}
@@ -9,8 +10,8 @@
 {% set current_session=(sessions | get_current_session) %}
 {% set next_session=(sessions | get_next_session) %}
 {% set upcoming_sessions=(sessions | get_upcoming_sessions) %}
-{% block content %}
 
+{% block content %}
   <section class="live-info">
     {% if is_partial %}
       <div class="live-info__item live-info__item-current js-live-info-current" aria-hidden="true">

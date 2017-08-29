@@ -1,0 +1,57 @@
+/*!
+ *
+ * Copyright 2016 Google Inc. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+.footer-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Product Sans', 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
+  text-transform: lowercase;
+  margin-top: $baseline * 10;
+  min-height: $baseline * 30;
+}
+
+.footer-banner__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-banner__divider {
+  background-color: #616161;
+  margin: 0 $baseline * 6;
+  width: 2px;
+  height: $baseline * 20;
+}
+
+.footer-banner__title {
+  font-size: 42px;
+  line-height: 1.15;
+}
+
+.footer-banner__title--small {
+  font-size: 36px;
+  color: #888888;
+}
+
+@media (min-width: 800px) {
+  .footer-banner {
+    margin-top: $baseline * 15;
+    min-height: $baseline * 60;
+  }
+}

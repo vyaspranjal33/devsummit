@@ -135,10 +135,11 @@
   transform: translateY(0);
 }
 
-.masthead__title {
+.masthead__sitetitle,
+.masthead__title,
+.masthead__subtitle {
   display: none;
   position: absolute;
-  bottom: $baseline;
   white-space: nowrap;
   width: 100%;
   left: 50%;
@@ -148,13 +149,29 @@
   outline: none;
 }
 
-.animatable .masthead__title {
+.masthead__sitetitle {
+  top: $baseline * 5;
+}
+
+.masthead__title {
+  top: $baseline * 10;
+}
+
+.masthead__subtitle {
+  top: $baseline * 15;
+}
+
+.animatable .masthead__sitetitle,
+.animatable .masthead__title,
+.animatable .masthead__subtitle {
   will-change: transform;
   transition: transform 0.34s cubic-bezier(0, 0, 0.3, 1),
       opacity 0.34s cubic-bezier(0, 0, 0.3, 1);
 }
 
-.animatable.hide-areas .masthead__title {
+.animatable.hide-areas .masthead__sitetitle,
+.animatable.hide-areas .masthead__title,
+.animatable.hide-areas .masthead__subtitle {
   transform: translateX(-50%) translateX($baseline * 2);
   opacity: 0;
 }
@@ -175,8 +192,16 @@
     margin-bottom: $baseline * 12;
   }
 
+  .masthead__sitetitle {
+    top: $baseline * 14;
+  }
+
   .masthead__title {
-    bottom: $baseline * 3;
+    top: $baseline * 20;
+  }
+
+  .masthead__subtitle {
+    top: $baseline * 29;
   }
 
   .masthead svg.masthead-underlay__accent {

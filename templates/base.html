@@ -13,7 +13,9 @@
 
 {% call masthead(is_partial,
     mastheadimage,
+    mastheadhassitetitle,
     mastheadtitle,
+    mastheadsubtitle,
     mastheadimagetitle,
     mastheadexpanded,
     youtubeId,
@@ -37,5 +39,25 @@
   </button>
 </section>
 {% endif %}
+
+<section class="footer-banner" id="footer-banner-image">
+  <style>
+    #footer-banner-image {
+      background: url({{ footerbannerimage }}@1x.jpg) repeat-x;
+      background-color: #fff;
+      background-position: bottom;
+      background-size: 100%;
+    }
+  </style>
+  <div class="footer-banner__content">
+    <img src="/devsummit/static/images/header/chrome-logo-header.png" alt="Chrome Logo" width="80" height="80">
+    <div class="footer-banner__divider"></div>
+    <div class="footer-banner__title">
+      Chrome<br>Dev Summit
+      <br>
+      <span class="footer-banner__title--small">2017</span>
+    </div>
+  </div>
+</section>
 
 {% include "templates/includes/footer.partial.html" %}

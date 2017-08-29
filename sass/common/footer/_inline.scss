@@ -17,11 +17,9 @@
 
 
 .footer {
+  background-color: #2196F3;
   position: relative;
-  height: $baseline * 24;
   color: #FFF;
-  display: flex;
-  align-items: flex-end;
 }
 
 .footer__content {
@@ -32,6 +30,7 @@
   margin: 0 auto;
   padding: 0 $baseline;
   font-size: 12px;
+  font-weight: 100;
   line-height: $baseline * 6;
 }
 
@@ -54,10 +53,6 @@
 }
 
 @media (min-width: 424px) {
-  .footer {
-    height: $baseline * 30;
-  }
-
   .footer__content {
     font-size: 14px;
     line-height: $baseline * 8;
@@ -69,20 +64,12 @@
 }
 
 @media (min-width: 600px) {
-  .footer {
-    height: $baseline * 34;
-  }
-
   .footer__content p {
     margin-right: $baseline * 3;
   }
 }
 
 @media (min-width: 800px) {
-  .footer {
-    height: $baseline * 38;
-  }
-
   .footer__content p {
     margin-right: $baseline * 4;
   }

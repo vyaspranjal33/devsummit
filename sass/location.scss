@@ -30,9 +30,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', 'Roboto', Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #404040;
+  color: #616161;
   line-height: 1.7;
 }
 
@@ -58,10 +58,11 @@
 }
 
 .location-travel-grant {
+  border: 2px solid #fff;
   position: relative;
-  padding: $baseline * 2;
+  padding: $baseline * 2 $baseline * 2 $baseline * 6 $baseline * 2;
   max-width: $baseline * 108;
-  margin: -$baseline * 2 auto 0 auto;
+  margin: $baseline * 2 auto 0 auto;
   color: #FFF;
 
   p, h3 {
@@ -83,8 +84,9 @@
 }
 
 .location-breakdown {
+  border: 2px solid #fff;
   max-width: $baseline * 108;
-  background: #5472AE;
+  background: #2196F3;
   color: #FFF;
   margin: 0 auto;
 
@@ -105,7 +107,6 @@
 }
 
 .location-breakdown__address {
-  padding: $baseline * 2;
 
   span.organization-name,
   span.street-address {
@@ -123,7 +124,7 @@
 }
 
 .location-breakdown__public-transport {
-  padding: $baseline * 2;
+  margin-top: $baseline * 4;
 
   &-title {
     color: #FFF;
@@ -137,13 +138,10 @@
 }
 
 .location-breakdown__by-car-and-by-air {
-  background: #3C5382;
+  background: #1976D2;
 
   .location-breakdown__by-car,
   .location-breakdown__by-air {
-
-    padding: $baseline * 2;
-
     &-title {
       color: #FFF;
       margin: 0;
@@ -154,22 +152,25 @@
       margin: 0 0 $baseline 0;
     }
   }
+
+  .location-breakdown__by-air {
+    margin-top: $baseline * 4;
+  }
 }
 
 .location-breakdown__map {
+  border: 2px solid #fff;
   width: 100%;
   max-width: $baseline * 108;
   margin: 0 auto;
   height: $baseline * 36;
-  border: none;
   display: block;
-  background: url(https://maps.googleapis.com/maps/api/staticmap?center=SFJAZZ+Center,San+Francisco,CA&zoom=15&size=864x228&maptype=roadmap&key=AIzaSyCIu9n1FCZ5H9488apH7e9rihIdKvjne0o&markers=color:blue%7Clabel:S%7C37.7762613,-122.4213759) center center no-repeat;
+  background: url(https://maps.googleapis.com/maps/api/staticmap?center=Yerba+Buena+Center+for+the+Arts,San+Francisco,CA&zoom=14&size=862x288&maptype=roadmap&key=AIzaSyCIu9n1FCZ5H9488apH7e9rihIdKvjne0o&markers=color:blue%7Clabel:S%7C37.7856437,-122.4021904) center center no-repeat;
   background-size: cover;
-  border-left: 1px solid #CFCFCF;
-  border-right: 1px solid #CFCFCF;
 }
 
 .location-breakdown__lyft {
+  border: 2px solid #fff;
   max-width: $baseline * 108;
   margin: 0 auto;
   width: 100%;
@@ -206,7 +207,7 @@
       font-family: 'Roboto';
       font-weight: 700;
       font-size: 18px;
-      color: #1F3853;
+      color: #616161;
       margin: 0;
     }
 
@@ -244,15 +245,15 @@
   }
 
   .location-travel-grant {
-    margin: -$baseline * 12 auto 0 auto;
-    padding: $baseline * 2 $baseline * 3;
+    margin: $baseline * 12 auto 0 auto;
+    padding: $baseline * 3 $baseline * 3 $baseline * 6 $baseline * 3;
   }
 
   .location-breakdown {
     display: flex;
 
     &__address-and-public-transport {
-      padding: $baseline * 3 $baseline;
+      padding: $baseline * 3;
       position: relative;
 
       svg {
@@ -266,9 +267,8 @@
     }
 
     &__by-car-and-by-air {
-      padding: $baseline * 3 $baseline;
+      padding: $baseline * 3;
       position: relative;
-      padding-left: $baseline * 6;
 
       svg {
         display: block;
