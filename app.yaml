@@ -1,5 +1,5 @@
-application: chromedevsummit-site
-version: v20161130
+#application: chromedevsummit-site
+#version: v20170829
 
 runtime: python27
 api_version: 1
