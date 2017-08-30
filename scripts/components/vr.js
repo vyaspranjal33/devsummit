@@ -26,7 +26,8 @@ export class VR {
     _vrButton.setAttribute('aria-label', 'See venue in WebVR');
     _vrButton.classList.add('vr');
     _vrButton.addEventListener('click', VR._onClick.bind(VR));
-    VR.toggleButton();
+    // TODO: Disabling button until launch
+    // VR.toggleButton();
   }
 
   static toggleButton () {
