@@ -137,7 +137,8 @@
 
 .masthead__sitetitle,
 .masthead__title,
-.masthead__subtitle {
+.masthead__subtitle,
+.masthead__cta {
   display: none;
   position: absolute;
   white-space: nowrap;
@@ -154,16 +155,21 @@
 }
 
 .masthead__title {
-  top: $baseline * 10;
+  top: $baseline * 9;
 }
 
 .masthead__subtitle {
   top: $baseline * 15;
 }
 
+.masthead__cta {
+  top: $baseline * 21;
+}
+
 .animatable .masthead__sitetitle,
 .animatable .masthead__title,
-.animatable .masthead__subtitle {
+.animatable .masthead__subtitle,
+.animatable .masthead__cta {
   will-change: transform;
   transition: transform 0.34s cubic-bezier(0, 0, 0.3, 1),
       opacity 0.34s cubic-bezier(0, 0, 0.3, 1);
@@ -171,7 +177,8 @@
 
 .animatable.hide-areas .masthead__sitetitle,
 .animatable.hide-areas .masthead__title,
-.animatable.hide-areas .masthead__subtitle {
+.animatable.hide-areas .masthead__subtitle,
+.animatable.hide-areas .masthead__cta {
   transform: translateX(-50%) translateX($baseline * 2);
   opacity: 0;
 }
@@ -193,15 +200,19 @@
   }
 
   .masthead__sitetitle {
-    top: $baseline * 14;
+    top: $baseline * 8;
   }
 
   .masthead__title {
-    top: $baseline * 20;
+    top: $baseline * 14;
   }
 
   .masthead__subtitle {
-    top: $baseline * 29;
+    top: $baseline * 23;
+  }
+
+  .masthead__cta {
+    top: $baseline * 32;
   }
 
   .masthead svg.masthead-underlay__accent {

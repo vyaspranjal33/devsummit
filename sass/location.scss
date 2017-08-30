@@ -22,6 +22,11 @@
   margin-bottom: $baseline * -4;
 }
 
+.location-icon {
+  display: block;
+  margin-bottom: $baseline;
+}
+
 .location-topline-info {
   padding: $baseline * 5 $baseline $baseline * 5 $baseline;
   margin: 0 auto;
@@ -88,7 +93,7 @@
   max-width: $baseline * 108;
   background: #2196F3;
   color: #FFF;
-  margin: 0 auto;
+  margin: $baseline * 2 auto 0 auto;
 
   a {
     color: #FFF;
@@ -100,6 +105,8 @@
 
   &__address-and-public-transport,
   &__by-car-and-by-air {
+    padding: $baseline * 2;
+
     svg {
       display: none;
     }
@@ -251,6 +258,7 @@
 
   .location-breakdown {
     display: flex;
+    margin: $baseline * 12 auto 0 auto;
 
     &__address-and-public-transport {
       padding: $baseline * 3;

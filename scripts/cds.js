@@ -52,6 +52,7 @@ export function init () {
       this._mastheadSiteTitle = document.querySelector('.masthead__sitetitle');
       this._mastheadTitle = document.querySelector('.masthead__title');
       this._mastheadSubTitle = document.querySelector('.masthead__subtitle');
+      this._mastheadButton = document.querySelector('.masthead__cta');
       this._mastheadGraphic = document.querySelector('.masthead__graphic');
       this._footerBanner = document.querySelector('.footer-banner');
       this._pageContent = document.querySelector('.page-content');
@@ -171,6 +172,7 @@ export function init () {
       var newSiteTitle = this._newContent.querySelector('.masthead__sitetitle');
       var newTitle = this._newContent.querySelector('.masthead__title');
       var newSubTitle = this._newContent.querySelector('.masthead__subtitle');
+      var newButton = this._newContent.querySelector('.masthead__cta');
       var newMasthead =
           this._newContent.querySelector('.masthead');
       var newMastheadGraphic =
@@ -222,6 +224,9 @@ export function init () {
         this._mastheadSubTitle.setAttribute('aria-hidden', 'true');
         this._pageContent.focus();
       }
+
+      this._mastheadButton.innerHTML =
+          newButton.innerHTML;
 
       // Take a copy of the page-specific styles if they don't already exist.
       if (!document.querySelector('#' + newPageStyles.id)) {
