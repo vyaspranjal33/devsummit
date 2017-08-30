@@ -1,7 +1,13 @@
 {
+<<<<<<< HEAD
   "name": "chrome-dev-summit-2016",
   "version": "9.0.3",
   "description": "Chrome Dev Summit 2016",
+=======
+  "name": "chrome-dev-summit-2017",
+  "version": "9.0.2",
+  "description": "Chrome Dev Summit 2017",
+>>>>>>> 3b849a501d6f5fd61b7c5466414e3fffee246cdb
   "main": "index.js",
   "scripts": {
     "postinstall": "(cd scripts/third_party/vrview && npm install)",

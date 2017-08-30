@@ -39,7 +39,6 @@
 }
 
 .home-cds-info__content {
-  display: flex;
   max-width: $baseline * 108;
   align-items: center;
 
@@ -133,8 +132,9 @@
 }
 
 .home__code-labs {
-  background: url(/devsummit/static/images/home/code-labs.svg) center center no-repeat;
-  background-size: 80% 80%;
+  background: url(/devsummit/static/images/home/code-labs-2017.svg) no-repeat;
+  background-size: 20% 20%;
+  background-position: 20px 35%;
 }
 
 .home__schedule {
@@ -143,9 +143,9 @@
 }
 
 .home__vods {
-  background: url(/devsummit/static/images/home/video.svg) center center no-repeat;
-  background-size: 100% 100%;
-  background-position: 50% 0%;
+  background: url(/devsummit/static/images/home/video-2017.svg) no-repeat;
+  background-size: 20% 20%;
+  background-position: 20px 35%;
 }
 
 .home__location {
@@ -289,15 +289,12 @@
     padding-bottom: $baseline * 4;
     width: 50%;
     height: $baseline * 40;
-    background-size: 100% 100%;
   }
 
   .home__vods {
     padding-bottom: $baseline * 4;
     width: 50%;
     height: $baseline * 40;
-    background-size: 100% 100%;
-    background-position: 50% 0%;
   }
 
   .home__location {
