@@ -1122,6 +1122,18 @@ button.vr {
   .masthead.expanded {
     margin-bottom: 96px; }
   .masthead__sitetitle {
+    top: 40px; }
+  .masthead__title {
+    top: 88px; }
+  .masthead__subtitle {
+    top: 160px; }
+  .masthead__cta {
+    top: 224px; }
+  .masthead svg.masthead-underlay__accent {
+    transform: translateY(-110%); } }
+
+@media (min-width: 600px) {
+  .masthead__sitetitle {
     top: 64px; }
   .masthead__title {
     top: 112px; }
@@ -1129,10 +1141,6 @@ button.vr {
     top: 184px; }
   .masthead__cta {
     top: 256px; }
-  .masthead svg.masthead-underlay__accent {
-    transform: translateY(-110%); } }
-
-@media (min-width: 600px) {
   .masthead__graphic,
   .masthead__graphic-underlay {
     height: 464px; }

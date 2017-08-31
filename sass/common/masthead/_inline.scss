@@ -200,6 +200,28 @@
   }
 
   .masthead__sitetitle {
+    top: $baseline * 5;
+  }
+
+  .masthead__title {
+    top: $baseline * 11;
+  }
+
+  .masthead__subtitle {
+    top: $baseline * 20;
+  }
+
+  .masthead__cta {
+    top: $baseline * 28;
+  }
+
+  .masthead svg.masthead-underlay__accent {
+    transform: translateY(-110%);
+  }
+}
+
+@media (min-width: 600px) {
+  .masthead__sitetitle {
     top: $baseline * 8;
   }
 
@@ -215,12 +237,6 @@
     top: $baseline * 32;
   }
 
-  .masthead svg.masthead-underlay__accent {
-    transform: translateY(-110%);
-  }
-}
-
-@media (min-width: 600px) {
   .masthead__graphic,
   .masthead__graphic-underlay {
     height: $baseline * 58;
