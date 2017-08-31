@@ -213,6 +213,10 @@
     height: 100%;
     width: 90%;
   }
+
+  .menu__toggle:checked ~ .menu__nav {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
 }
 
 @media (min-width: 424px) {
