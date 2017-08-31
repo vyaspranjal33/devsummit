@@ -885,7 +885,9 @@ button.vr {
     top: 0;
     right: 0;
     height: 100%;
-    width: 90%; } }
+    width: 90%; }
+  .menu__toggle:checked ~ .menu__nav {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); } }
 
 @media (min-width: 424px) {
   .header {
@@ -1086,16 +1088,16 @@ button.vr {
   outline: none; }
 
 .masthead__sitetitle {
-  top: 40px; }
+  top: 16px; }
 
 .masthead__title {
-  top: 72px; }
+  top: 48px; }
 
 .masthead__subtitle {
-  top: 120px; }
+  top: 96px; }
 
 .masthead__cta {
-  top: 168px; }
+  top: 144px; }
 
 .animatable .masthead__sitetitle,
 .animatable .masthead__title,
@@ -1122,13 +1124,13 @@ button.vr {
   .masthead.expanded {
     margin-bottom: 96px; }
   .masthead__sitetitle {
-    top: 40px; }
+    top: 32px; }
   .masthead__title {
-    top: 88px; }
+    top: 80px; }
   .masthead__subtitle {
-    top: 160px; }
+    top: 152px; }
   .masthead__cta {
-    top: 224px; }
+    top: 216px; }
   .masthead svg.masthead-underlay__accent {
     transform: translateY(-110%); } }
 
