@@ -11,12 +11,6 @@ skip_files:
 
 handlers:
 
-- url: /devsummit/static/third_party/vrview/(.*)
-  static_files: static/third_party/vrview/\1
-  expiration: "1d"
-  upload: static/third_party/vrview/(.*)
-  secure: always
-
 - url: /devsummit/static/third_party/fonts/(.*)
   static_files: static/third_party/fonts/\1
   expiration: "1d"

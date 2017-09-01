@@ -23,7 +23,6 @@ import {LiveSessionInfo} from './components/live-session-info';
 import {LiveBanner} from './components/live-banner';
 import {PushHandler} from './components/push-handler';
 import {idbKeyval} from './third_party/idb-keyval.js';
-import {VR} from './components/vr';
 
 var initialized = false;
 export function init () {
@@ -32,7 +31,6 @@ export function init () {
   }
   initialized = true;
   SideNav.init();
-  VR.init();
   LiveSessionInfo.toggle();
   LiveBanner.toggle();
 
@@ -93,8 +91,7 @@ export function init () {
 
       Promise.all([
         this._hideAreas(),
-        this._loadNewPath(),
-        VR.hideButton()
+        this._loadNewPath()
       ]).then(function () {
         if (this._isSwapping) {
           return;
@@ -104,7 +101,6 @@ export function init () {
         this._hideSpinner();
         this._swapContents();
       }.bind(this)).then(_ => {
-        VR.toggleButton();
         // Restore scroll positioning if needed.
         if (evt && evt.state) {
           window.scrollTo(0, evt.state.scrollY);
