@@ -16,7 +16,7 @@
     },
 
     "10:50:00": {
-      "name": "The New Bar for Web Experiences",
+      "name": "The new bar for web experiences",
       "speaker": "Thao Tran and Chris Wilson",
       "speakerRole": "Strategic Partner Development Manager, Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/thao-tran.jpg",
@@ -28,7 +28,7 @@
       "name": "Break"
     },
     "12:10:00": {
-      "name": "Don’t Take the User Out of Their Flow",
+      "name": "Don’t take the user out of their flow",
       "speaker": "Owen Campbell-Moore",
       "speakerRole": "Product Manager",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
@@ -50,7 +50,7 @@
     },
 
     "14:35:00": {
-      "name": "Fast By Default: Modern Loading Best Practices",
+      "name": "Fast By Default: Modern loading best practices",
       "speaker": "Addy Osmani",
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/addy-osmani.jpg",
@@ -59,7 +59,7 @@
     },
 
     "15:10:00": {
-      "name": "Workbox: A Flexible PWA Framework",
+      "name": "Workbox: A flexible PWA fdramework",
       "speaker": "Jeff Posnick",
       "speakerImg": "/devsummit/static/images/speakers/jeff-posnick.jpg",
       "url": "/devsummit/schedule/sessions/workbox",
@@ -99,7 +99,7 @@
     },
 
     "18:00:00": {
-      "name": "Building a Modern Media experience",
+      "name": "Building a modern media experience",
       "speaker": "Francois Beaufort",
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
@@ -128,7 +128,7 @@
     },
 
     "10:35:00": {
-      "name": "Modern Tooling, Testing and Automation",
+      "name": "Modern tooling, testing and automation",
       "speaker": "Eric Bidelman and Paul Irish",
       "speakerRole": "Engineers, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/paul-irish.jpg",
