@@ -124,7 +124,7 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/the-web-for-the-rest-of-the-world",
-      "description": ""
+      "description": "One of the powers of the web is its tremendous reach. With the growing reach of the internet, the web’s reach is further extending into new areas with new challenges. We’ll share some of the things we’ve learned, improvements we’ve made, and recommendations we have for building amazing experiences that fully leverage the web."
     },
 
     "10:35:00": {
@@ -204,7 +204,7 @@
     },
 
     "16:55:00": {
-      "name": "Future of Media on the web ?",
+      "name": "Future of Media on the web",
       "speaker": "Mat Scales",
       "speakerRole": "Developer Programs Engineer",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
