@@ -155,7 +155,7 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/v8",
-      "description": "V8s brand new architecture, relentless optimizing for real world javascript, ES2015+ features, and our work for the Node community."
+      "description": "Over the last year V8 has introduced a brand new architecture that focuses on making it easier optimize for real world javascript and new ES2015+ features. In this talk we dive into our latest developments, and our work to support web developers and the Node community"
     },
 
     "12:50:00": {
