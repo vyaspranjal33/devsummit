@@ -18,7 +18,7 @@
     "10:50:00": {
       "name": "The New Bar for Web Experiences",
       "speaker": "Thao Tran and Chris Wilson",
-      "speakerRole": "Strategic Partner Development Manager",
+      "speakerRole": "Strategic Partner Development Manager, Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/thao-tran.jpg",
       "url": "/devsummit/schedule/sessions/the-new-bar-for-web-experiences",
       "description": "What we have been calling “Progressive Web Apps” for the past couple of years is really just the new bar for web experiences.  The modern web enables fast, integrated, reliable experiences that engage users.  In this talk, we will lay out the principles behind the new bar for web experiences, demonstrate the successes that partners have proven, and start you on your path of modern experiences, delivered via the web."
@@ -30,6 +30,7 @@
     "12:10:00": {
       "name": "Don’t Take the User Out of Their Flow",
       "speaker": "Owen Campbell-Moore",
+      "speakerRole": "Product Manager",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/dont-take-the-user-out-of-their-flow",
       "description": ""
@@ -38,7 +39,7 @@
     "12:45:00": {
       "name": " Going from zero to PWA (steps for migrating vs. File New)",
       "speaker": "Ewa Gasperawicz",
-      "speakerRole": "Product Manager, Chrome",
+      "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/from-zero-to-pwa",
       "description": ""
@@ -51,7 +52,7 @@
     "14:35:00": {
       "name": "Fast By Default: Modern Loading Best Practices",
       "speaker": "Addy Osmani",
-      "speakerRole": "Performance Engineer, Chrome",
+      "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/addy-osmani.jpg",
       "url": "/devsummit/schedule/sessions/fast-by-default",
       "description": ""
@@ -62,13 +63,14 @@
       "speaker": "Jeff Posnick",
       "speakerImg": "/devsummit/static/images/speakers/jeff-posnick.jpg",
       "url": "/devsummit/schedule/sessions/workbox",
+      "speakerRole": "Developer Programs Engineer, Chrome",
       "description": "Workbox is a set of libraries that work together to power your progressive web app's service worker. Learn about what we've been working on for the v3 release, and see how the flexibility Workbox offers has solved real-world problems for top partners as they build their own PWAs."
     },
 
     "15:45:00": {
       "name": "Leadership Panel",
       "speaker": "",
-      "speakerRole": "Software Engineer, Chrome",
+      "speakerRole": "Directors and VP's, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/leadership-panel",
       "description": "Quiz the Chrome leadership on your highest priority issues."
@@ -82,6 +84,7 @@
       "name": "WordPress + PWA = 💝",
       "speakerImg": "/devsummit/static/images/speakers/surma.jpg",
       "speaker": "Surma",
+      "speakerRole": "Developer Programs Engineer, Chrome",
       "url": "/devsummit/schedule/sessions/wordpress-pwa",
       "description": ""
     },
@@ -89,7 +92,7 @@
     "17:25:00": {
       "name": "Progressively improving e-commerce",
       "speaker": "Sam Dutton and Rowan Merewood",
-      "speakerRole": "Software Engineer, Chrome",
+      "speakerRole": "Developer Advocates, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/progressive-ecommerce",
       "description": ""
@@ -98,7 +101,7 @@
     "18:00:00": {
       "name": "Building a Modern Media experience",
       "speaker": "Francois Beaufort",
-      "speakerRole": "",
+      "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/modern-media-experiences",
       "description": ""
@@ -118,7 +121,7 @@
     "10:00:00": {
       "name": "The Web for the rest of the world",
       "speaker": "Tal Oppenhiemer",
-      "speakerRole": "",
+      "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/the-web-for-the-rest-of-the-world",
       "description": ""
@@ -127,7 +130,7 @@
     "10:35:00": {
       "name": "Modern Tooling, Testing and Automation",
       "speaker": "Eric Bidelman and Paul Irish",
-      "speakerRole": "Developer Advocate",
+      "speakerRole": "Engineers, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/paul-irish.jpg",
       "url": "/devsummit/schedule/sessions/modern-tooling",
       "description": "Modern web development requires moderning tooling. Join Paul and Eric as they tour the latest goodies from the Chrome DevTools team. The talk will cover new features in DevTools, using Lighthouse to guide your development workflow, and automating it all with Puppeteer, a new Node library for controlling headless Chrome."
@@ -140,7 +143,7 @@
     "11:45:00": {
       "name": "The future of loading on the web",
       "speaker": "Sam Saccone",
-      "speakerRole": "Developer Programs Engineer",
+      "speakerRole": "Engineer at Google",
       "speakerImg": "/devsummit/static/images/speakers/sam-saccone.jpg",
       "url": "/devsummit/schedule/sessions/future-of-loading",
       "description": "With the introduction of new performance primitives into web ecosystem the future of loading has never looked so bright. In this talk we will explore recently shipped performance primitives, cutting edge performance techniques, and a glimpse into what the future of loading on the web may hold."
@@ -158,7 +161,7 @@
     "12:50:00": {
       "name": "Web Assembly in production",
       "speaker": "Alex Danilo and Deepti Gandluri",
-      "speakerRole": "Product Manager, Chrome",
+      "speakerRole": "Engineers, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/web-assembly",
       "description": "Web Assembly brings a new capability to the web, delivering a performant run-time to allow compiled languages such as C++ to be used in web applications. This session introduces the principles for using Web Assembly in a web application, techniques for debugging, and will demonstrate a real-world example of a large code-base built to run in the browser for production deployment. Future features coming to Web Assembly will also be presented along with some tips for how to deploy and support older browsers using a graceful degradation approach."
@@ -190,7 +193,7 @@
     "15:50:00": {
       "name": "Frameworks panel",
       "speaker": "Addy Osmani and Others",
-      "speakerRole": "Developer Advocate",
+      "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/addy-osmani.jpg",
       "url": "/devsummit/schedule/sessions/frameworks",
       "description": ""
@@ -212,7 +215,7 @@
     "17:30:00": {
       "name": "The future of immersive experiences on the web with VR and AR",
       "speaker": "Josh Carpenter and Brandon Jones",
-      "speakerRole": "",
+      "speakerRole": "UX Engineer and VR Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/vr-ar",
       "description": ""
