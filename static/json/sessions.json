@@ -41,7 +41,7 @@
       "speaker": "Ewa Gasperawicz",
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
-      "url": "/devsummit/schedule/sessions/from-zero-to-pwa",
+      "url": "/devsummit/schedule/sessions/kickstart-your-pwa",
       "description": "The web platform made a huge jump, and became an even more exciting place to develop on. As the new features settle down and become mainstream, we have to adopt new ways in our day to day workflow. Stay on top of the trends and get your team started on PWA trajectory.  We’ll get into PWA mindset, discuss starting points and options, and learn about caveats of PWA development and their solutions."
     },
 
@@ -95,7 +95,7 @@
       "speakerRole": "Developer Advocates, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/progressive-ecommerce",
-      "description": "Online shopping is a fundamental challenge for the mobile web.  Last year mobile e-commerce was worth $123 billion in the US alone, and globally the mobile share of e-commerce is growing. Around two thirds of purchases on mobile are now on the web — and yet conversion rates are far lower than on desktop. In this session, you'll find out how to fix that. Find out what matters to business and to users, build better landing and browsing pages, reduce login and checkout friction, and implement network-resilient, offline-enabled search."
+      "description": "Online shopping is a fundamental challenge for the mobile web.  Last year mobile e-commerce was worth $123 billion in the US alone, and globally the mobile share of e-commerce is growing. Around two thirds of purchases on mobile are now on the web — and yet conversion rates are far lower than on desktop. In this session, we will focus on what matters to your business and your users, using those metrics to prioritise and prove modern web features. Find out how to build better landing and browsing pages, reduce login and checkout friction, and implement network-resilient, offline-enabled search."
     },
 
     "18:00:00": {
@@ -204,12 +204,12 @@
     },
 
     "16:55:00": {
-      "name": "Future of Media on the web",
+      "name": "Media Creation Everywhere",
       "speaker": "Mat Scales",
       "speakerRole": "Developer Programs Engineer",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/future-of-media",
-      "description": ""
+      "description": "The web is starting to allow media creation, editing and sharing. Learn what the cool kids will be doing over the next year on the mobile web."
     },
 
     "17:30:00": {
