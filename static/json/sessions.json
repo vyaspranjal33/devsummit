@@ -155,7 +155,7 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/v8",
-      "description": "Over the last year v8 has introduced a brand new interpreter and compiler specifically designed to make it easier to optimize for real-world javascript and new ES2015+ features. In this talk we dive into the latest developments in v8, including highlighting the advantages that the new architecture delivers in predictable performance, especially for the latest ECMAScript features. This session will show how developments in V8 over the last year have made it possible to write more compact, idiomatic JavaScript in production. The V8 team’s recent work to support the Node community will also be presented."
+      "description": "Over the last year V8 has introduced a brand new interpreter and compiler specifically designed to make it easier to optimize for real-world javascript and new ES2015+ features. In this talk we dive into what these changes mean for Javascript performance and how the V8 teams evaluates our improvements against the real world. We will also discuss our work on new ECMAScript features and how you can start using them to write compact, idiomatic Javascript in production. Lastly, we will discuss the work the V8 team has done for the Node community and the new improvements that it has provided."
     },
 
     "12:50:00": {
