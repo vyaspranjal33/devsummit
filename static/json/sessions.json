@@ -1,6 +1,6 @@
 {
   "2017-10-23": {
-    "07:30:00": {
+    "08:00:00": {
       "name": "Registration and Breakfast",
       "random_data": "test123",
       "description": "Pick up your badge, goodies, and enjoy breakfast. You must have a government-issued photo ID to receive a badge and check in to the event."
@@ -33,16 +33,16 @@
       "speakerRole": "Product Manager",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/integrating",
-      "description": "In recent years the web has gained many abilities to integrate with the underlying platform, from camera access to add to home screen. Come and learn all the new ways Progressive Web Apps are able to integrate with a variety of operating systems, and for a deep dive into the future of PWAs on Android."
+      "description": "In recent years, the web has become a great way to create fully immersive experiences on a variety of devices - both through better integration with the operating system user experience and through integration with device capabilities like camera, geolocation, push notifications Bluetooth and more. Come and learn all the latest ways the web integrates with a variety of operating systems, and for a deep dive into the future of Progressive Web Apps on Android."
     },
 
     "12:45:00": {
-      "name": "Kickstart your PWA workflow",
+      "name": "Kickstarting your Journey to Progressive Web Apps",
       "speaker": "Ewa Gasperawicz",
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/kickstart-your-pwa",
-      "description": "The web platform made a huge jump, and became an even more exciting place to develop on. As the new features settle down and become mainstream, we have to adopt new ways in our day to day workflow. Stay on top of the trends and get your team started on PWA trajectory.  We’ll get into PWA mindset, discuss starting points and options, and learn about caveats of PWA development and their solutions."
+      "description": "The web is now an even more exciting place to develop, but you may be confused by the changes and not know where to start. This talk with cover how to take a web site and turn it into to a Progressive Web App experience, discuss starting points, process, options and tools, and learn about caveats of PWA development and their solutions."
     },
 
     "13:20:00": {
@@ -113,7 +113,7 @@
   },
 
   "2017-10-24": {
-    "07:30:00": {
+    "08:00:00": {
       "name": "Registration and Breakfast",
       "description": "If you missed registration on Day 1, you can still get your badge and goodies. You must have a government-issued photo ID to receive a badge and check in to the event. Breakfast will also be served."
     },
