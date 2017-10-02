@@ -104,7 +104,7 @@
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/modern-media-experiences",
-      "description": ""
+      "description": "This talk reviews best practices for mobile web media, including playback controls, pre-loading, autoplay and offline."
     },
 
     "19:00:00": {
@@ -173,12 +173,12 @@
     },
 
     "14:40:00": {
-      "name": "End-to-end Polymer apps with the modern web platform: Web Components, Modules, and more",
+      "name": "End-to-end Polymer apps with the modern web platform",
       "speaker": "Taylor Savage",
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/end-to-end-polymer",
-      "description": ""
+      "description": "Trying to build a web app that is large, maintainable, and fast? In the past, you’d have to pick two, at best. But what if it didn’t need to be this way? On the Polymer project, we’re aiming to push the web platform and provide libraries and tools so that it might become easier to get the best of all worlds when building on the web. In this talk, Taylor will go over the latest with the Polymer Project, including an end-to-end walkthrough of how to we envision using web components, service worker, and other new web platform features to build high-quality PWA’s."
     },
 
     "15:15:00": {
