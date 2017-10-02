@@ -37,12 +37,12 @@
     },
 
     "12:45:00": {
-      "name": " Going from zero to PWA (steps for migrating vs. File New)",
+      "name": "Kickstart your PWA workflow",
       "speaker": "Ewa Gasperawicz",
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/from-zero-to-pwa",
-      "description": ""
+      "description": "The web platform made a huge jump, and became an even more exciting place to develop on. As the new features settle down and become mainstream, we have to adopt new ways in our day to day workflow. Stay on top of the trends and get your team started on PWA trajectory.  We’ll get into PWA mindset, discuss starting points and options, and learn about caveats of PWA development and their solutions."
     },
 
     "13:20:00": {
@@ -95,7 +95,7 @@
       "speakerRole": "Developer Advocates, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/progressive-ecommerce",
-      "description": ""
+      "description": "Online shopping is a fundamental challenge for the mobile web.  Last year mobile e-commerce was worth $123 billion in the US alone, and globally the mobile share of e-commerce is growing. Around two thirds of purchases on mobile are now on the web — and yet conversion rates are far lower than on desktop. In this session, you'll find out how to fix that. Find out what matters to business and to users, build better landing and browsing pages, reduce login and checkout friction, and implement network-resilient, offline-enabled search."
     },
 
     "18:00:00": {
@@ -155,7 +155,7 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/v8",
-      "description": "Over the last year V8 has introduced a brand new architecture that focuses on making it easier optimize for real world javascript and new ES2015+ features. In this talk we dive into our latest developments, and our work to support web developers and the Node community"
+      "description": "Over the last year v8 has introduced a brand new interpreter and compiler specifically designed to make it easier to optimize for real-world javascript and new ES2015+ features. In this talk we dive into the latest developments in v8, including highlighting the advantages that the new architecture delivers in predictable performance, especially for the latest ECMAScript features. This session will show how developments in V8 over the last year have made it possible to write more compact, idiomatic JavaScript in production. The V8 team’s recent work to support the Node community will also be presented."
     },
 
     "12:50:00": {
