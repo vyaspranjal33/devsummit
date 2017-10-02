@@ -28,12 +28,12 @@
       "name": "Break"
     },
     "12:10:00": {
-      "name": "Don’t take the user out of their flow",
+      "name": "Progressive Web Apps: integrating with browsers and operating systems",
       "speaker": "Owen Campbell-Moore",
       "speakerRole": "Product Manager",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
-      "url": "/devsummit/schedule/sessions/dont-take-the-user-out-of-their-flow",
-      "description": ""
+      "url": "/devsummit/schedule/sessions/integrating",
+      "description": "In recent years the web has gained many abilities to integrate with the underlying platform, from camera access to add to home screen. Come and learn all the new ways Progressive Web Apps are able to integrate with a variety of operating systems, and for a deep dive into the future of PWAs on Android."
     },
 
     "12:45:00": {
