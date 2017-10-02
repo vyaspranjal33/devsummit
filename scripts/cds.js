@@ -346,8 +346,8 @@ export function init () {
     _updateTimes () {
       var cds = this;
       idbKeyval.get('localized-times').then(function (shouldLocalize) {
-        cds._updateAdjustmentControl(shouldLocalize);
-        cds._updateTimeElements(shouldLocalize);
+        //cds._updateAdjustmentControl(shouldLocalize);
+        //cds._updateTimeElements(shouldLocalize);
       });
     }
 
