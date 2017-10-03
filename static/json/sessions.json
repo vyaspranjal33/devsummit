@@ -18,7 +18,7 @@
     "10:50:00": {
       "name": "The new bar for web experiences",
       "speaker": "Thao Tran and Chris Wilson",
-      "speakerRole": "Strategic Partner Development Manager, Developer Advocate",
+      "speakerRole": "Strategic Partner Development Manager and Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/thao-tran.jpg",
       "url": "/devsummit/schedule/sessions/the-new-bar-for-web-experiences",
       "description": "What we have been calling “Progressive Web Apps” for the past couple of years is really just the new bar for web experiences.  The modern web enables fast, integrated, reliable experiences that engage users.  In this talk, we will lay out the principles behind the new bar for web experiences, demonstrate the successes that partners have proven, and start you on your path of modern experiences, delivered via the web."
@@ -69,8 +69,8 @@
 
     "15:45:00": {
       "name": "Leadership Panel",
-      "speaker": "",
-      "speakerRole": "Directors and VP's, Chrome",
+      "speaker": "Chris Wilson, Darin Fisher, Rahul Roy-Chowdhury, Parisa Tabriz, Grace Kloba, Thao Tran, Tal Oppenheimer, Matthew McNulty, Alex Komoroske, Alex Russell",
+      "speakerRole": "VPs and Directors, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/tbd-cds.jpg",
       "url": "/devsummit/schedule/sessions/leadership-panel",
       "description": "Quiz the Chrome leadership on your highest priority issues."
