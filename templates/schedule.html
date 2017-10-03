@@ -11,15 +11,15 @@
   {% include "templates/includes/schedule-nav.partial.html" %}
 
   <div class="schedule-items">
-
+    
     {% for time in sorted_sessions %}
 
       {% set session_info = sessions[date][time] %}
-
+      {% set session_optional = session_info["optional"] %}
       {% if session_info["url"] %}
       <a href="{{ session_info["url"] }}" class="schedule-item" aria-label="{{ time | as_pst(date) }}. {{ session_info["speaker"] }}, {{ session_info["name"] }}">
       {% else %}
-      <section class="schedule-item" aria-label="{{ time | as_pst(date) }}. {{ session_info["name"] }}">
+      <section class="schedule-item{% if session_optional and session_optional == True %} schedule-item-optional{% endif %}" aria-label="{{ time | as_pst(date) }}. {{ session_info["name"] }}">
       {% endif %}
 
         {% if session_info["speaker"] %}

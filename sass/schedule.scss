@@ -69,6 +69,10 @@
   padding: 0 $baseline $baseline * 6 $baseline * 3;
   position: relative;
   text-decoration: none;
+  
+  &.schedule-item-optional {
+    font-style: italic;
+  }
 
   &:before {
     content: '';

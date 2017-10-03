@@ -6,6 +6,12 @@
       "description": "Pick up your badge, goodies, and enjoy breakfast. You must have a government-issued photo ID to receive a badge and check in to the event."
     },
 
+    "09:00:00": {
+      "name": "Google Developers Certification Lounge",
+      "description": "Check out the latest info on the Google Developers Certification program. Learn how to prove your skills as a Mobile Web Specialist, meet Web experts, and grab some swag. We’ll be open for the entirety of the event on both days.",
+      "optional": true
+    },
+
     "10:00:00": {
       "name": "Keynote",
       "speaker": "Ben Galbraith",
