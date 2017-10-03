@@ -1,11 +1,6 @@
 {% extends "templates/base.html" %}
-{% set mastheadimage="/devsummit/static/images/masthead/schedule-masthead-2017" %}
+{% set mastheadimage="/devsummit/static/images/masthead/homepage-masthead-2017" %}
 {% set session_info=(sessions | find_session(url)) %}
-
-
-{% if session_info["youtubeId"] %}
-  {% set mastheadimage="/devsummit/static/images/masthead/schedule-masthead-2017" %}
-{% endif %}
 
 {% set footerbannerimage="/devsummit/static/images/footer-banner/schedule-banner" %}
 {% set youtubeId=session_info["youtubeId"] %}
