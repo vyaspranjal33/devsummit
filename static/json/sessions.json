@@ -55,7 +55,7 @@
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/addy-osmani.jpg",
       "url": "/devsummit/schedule/sessions/fast-by-default",
-      "description": ""
+      "description": "Optimizing sites to load instantly on mobile is far from trivial. Costly JavaScript can take seconds to process, we often aren't sensitive to users data-plans and browsers don't know what UX-critical resources should load first. Thankfully there's a lot we can do to give our users a MUCH better loading experience. Watch Addy Osmani (and friends) illuminate new loading best practices for diagnosing and making real world sites load instantly today."
     },
 
     "15:10:00": {
