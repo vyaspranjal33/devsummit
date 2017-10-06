@@ -74,16 +74,16 @@
     },
 
     "15:45:00": {
+      "name": "Break"
+    },
+
+    "16:20:00": {
       "name": "Leadership Panel",
       "speaker": "Chris Wilson, Darin Fisher, Parisa Tabriz, Grace Kloba, Thao Tran, Tal Oppenheimer, Matthew McNulty, Alex Komoroske, Alex Russell",
       "speakerRole": "VPs and Directors, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/chris-wilson.png",
       "url": "/devsummit/schedule/sessions/leadership-panel",
       "description": "Quiz the Chrome leadership on your highest priority issues."
-    },
-
-    "16:20:00": {
-      "name": "Break"
     },
 
     "16:50:00": {
