@@ -89,8 +89,8 @@
     "16:50:00": {
       "name": "WordPress + PWA = 💝",
       "speakerImg": "/devsummit/static/images/speakers/surma.png",
-      "speaker": "Surma",
-      "speakerRole": "Developer Advocate, Chrome",
+      "speaker": "Surma and Dan Walmsley",
+      "speakerRole": "Developer Advocate, Chrome and Engineer, Automatic",
       "url": "/devsummit/schedule/sessions/wordpress-pwa",
       "description": "About 50% of sites in the web are powered by Content Management Systems; and that trend is growing. Integrating Progressive Technologies into the workflow of platforms such as WordPress and other CMSes is of paramount importance for ensuring that users get an awesome experience in these environments. In this talk we will discuss the challenges involved in the integration of progressive technologies with CMSes in general and WordPress in particular, and present a working proof of concept of how such an integration would work in the context of WordPress."
     },
