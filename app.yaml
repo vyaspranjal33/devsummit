@@ -8,6 +8,7 @@ skip_files:
 - (^node_modules/.*)
 - (^.git/.*)
 - .DS_Store
+- scripts/third_party/vrview/node_modules/.*
 
 handlers:
 
