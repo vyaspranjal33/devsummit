@@ -66,6 +66,7 @@ JINJA_ENVIRONMENT.filters["get_current_session"] = filters.get_current_session
 JINJA_ENVIRONMENT.filters["get_next_session"] = filters.get_next_session
 JINJA_ENVIRONMENT.filters["get_upcoming_sessions"] = filters.get_upcoming_sessions
 JINJA_ENVIRONMENT.filters["get_conference_dates"] = filters.get_conference_dates
+JINJA_ENVIRONMENT.filters["to_json"] = filters.to_json
 
 class MainHandler(webapp2.RequestHandler):
 
@@ -92,6 +93,8 @@ class MainHandler(webapp2.RequestHandler):
                 # actually on... or not. This needs to be adjusted for PST
                 # because that's the timezone for CDS.
                 today = datetime.today() - timedelta(hours=7)
+                # Debug
+                # today = datetime.today() - timedelta(hours=7) + timedelta(days=4)
 
                 if (today - day1).days < 0:
                     template_info["path"] = "sections/home.html"
@@ -123,6 +126,8 @@ class MainHandler(webapp2.RequestHandler):
 
     def get(self, url):
         today = datetime.today()
+        # Debug
+        # today = datetime.today() - timedelta(hours=7) + timedelta(days=4)
         is_live = ((today - day1).days == 0) or ((today - day2).days == 0)
         is_partial = self.request.get('partial', None) is not None
         debug = self.request.get('debug', None) is not None

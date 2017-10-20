@@ -18,6 +18,7 @@
 import re
 import hashlib
 import string
+import json
 from datetime import datetime
 from datetime import timedelta
 
@@ -183,7 +184,6 @@ def get_next_session(sessions_info):
                 int(timeParts[1]),  # Minutes
                 int(timeParts[2])   # Seconds
             )
-
             if session_datetime > now and session_datetime.day == now.day:
                 return {
                   "datetime": session_datetime,
@@ -233,3 +233,6 @@ def get_upcoming_sessions(sessions_info):
 
 def get_conference_dates (sessions_info):
     return sorted(sessions_info.keys())
+
+def to_json(data):
+    return json.dumps(data, indent=2)
