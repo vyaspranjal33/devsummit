@@ -17,7 +17,7 @@
     "watch-sass": "npm run make-css-folder && node-sass -w sass/ -o static/styles",
     "optimize-images": "imageoptim --directory static/images",
     "release": "npm run bump && npm run build && npm run optimize-images",
-    "app:deploy": "npm run build && gcloud app deploy --version=v20170829 --project=chromedevsummit-site --verbosity=info --promote",
+    "app:deploy": "npm run build && gcloud app deploy --version=v20171023 --project=chromedevsummit-site --verbosity=info --promote",
     "app:stage": "npm run build && gcloud app deploy --version=stage --project=chromedevsummit-site --verbosity=info --no-promote"
   },
   "repository": {
