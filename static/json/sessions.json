@@ -15,7 +15,7 @@
     "10:00:00": {
       "name": "Keynote",
       "speaker": "Ben Galbraith and Dion Almaer",
-      "speakerRole": "Director, Chrome Web Platform",
+      "speakerRole": "Director, Chrome Web Platform and Director, Developer Relations",
       "speakerImg": "/devsummit/static/images/speakers/ben-galbraith.png",
       "url": "/devsummit/schedule/sessions/keynote",
       "description": "The state of Chrome and the Web Platform today, from the leads of the Chrome Web Platform team."
