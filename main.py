@@ -27,6 +27,8 @@ import datetime
 from datetime import datetime
 from datetime import timedelta
 
+_PDT_OFFSET = 7
+
 _SERVICE_WORKER_PATH = 'static/scripts/sw.js'
 _PST_ADJUSTMENT = 25200
 _BASE_URL = 'https://developer.chrome.com'
@@ -47,8 +49,8 @@ with open('./static/json/sessions.json') as s:
         # I mean, this _will_ do the job for CDS, but it's highly specific.
         raise Exception('Not enough days in sessions JSON.')
 
-    day1 = datetime.strptime(days[0], "%Y-%m-%d") + timedelta(hours=8)
-    day2 = datetime.strptime(days[1], "%Y-%m-%d") + timedelta(hours=8)
+    day1 = datetime.strptime(days[0], "%Y-%m-%d") + timedelta(hours=_PDT_OFFSET)
+    day2 = datetime.strptime(days[1], "%Y-%m-%d") + timedelta(hours=_PDT_OFFSET)
 
 # Set up the environment.
 JINJA_ENVIRONMENT = jinja2.Environment(
@@ -91,7 +93,7 @@ class MainHandler(webapp2.RequestHandler):
                 # Hot swap the home page based on which conference day we're
                 # actually on... or not. This needs to be adjusted for PST
                 # because that's the timezone for CDS.
-                today = datetime.today() - timedelta(hours=7)
+                today = datetime.today() - timedelta(hours=_PDT_OFFSET)
 
                 if (today - day1).days < 0:
                     template_info["path"] = "sections/home.html"

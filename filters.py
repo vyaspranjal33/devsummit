@@ -21,6 +21,8 @@ import string
 from datetime import datetime
 from datetime import timedelta
 
+PDT_OFFSET = 7
+
 def convert_to_class(name):
     """Converts a section name to a CSS class.
 
@@ -136,7 +138,7 @@ def get_current_session(sessions_info):
     current_session = None
 
     # Adjust from UTC back to PST
-    now = datetime.utcnow() - timedelta(hours=8)
+    now = datetime.utcnow() - timedelta(hours=PDT_OFFSET)
 
     # Try and find the session info.
     for date in sessions_info.keys():
@@ -165,7 +167,7 @@ def get_next_session(sessions_info):
     sorted_date_keys = sorted(sessions_info.keys())
 
     # Adjust from UTC back to PST
-    now = datetime.utcnow() - timedelta(hours=8)
+    now = datetime.utcnow() - timedelta(hours=PDT_OFFSET)
 
     for date in sorted_date_keys:
         sorted_session_keys = get_keys_for_date(sessions_info, date)
@@ -196,7 +198,7 @@ def get_next_session(sessions_info):
 
 
 def get_upcoming_sessions(sessions_info):
-    now = datetime.utcnow() - timedelta(hours=8)
+    now = datetime.utcnow() - timedelta(hours=PDT_OFFSET)
     sorted_date_keys = sorted(sessions_info.keys())
     upcoming_sessions = []
     skip_first_match = True
