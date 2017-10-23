@@ -176,7 +176,7 @@ self.onfetch = evt => {
           .then(sessions => sessions.json())
           .then(sessions => {
             const DAY_LENGTH_MS = 86400000;   // 24 hours
-            const PST_ADJUSTMENT = 28800000;  // 8 hours
+            const PST_ADJUSTMENT = 25200000;  // 7 hours
             const today = Date.now();
 
             Object.keys(sessions).forEach((day, index) => {

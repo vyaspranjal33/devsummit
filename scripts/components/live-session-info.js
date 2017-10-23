@@ -48,7 +48,7 @@ export class LiveSessionInfo {
   }
 
   static _toPST (date) {
-    var PST_ADJUSTMENT = 28800000;
+    var PST_ADJUSTMENT = 25200000;
     var d = new Date(date.getTime());
     d.setTime(
       d.getTime() +
@@ -248,7 +248,7 @@ export class LiveSessionInfo {
 
     idbKeyval.get('localized-times').then(function (shouldLocalize) {
       var nextSessionTime = new Date(sessionTime.getTime());
-      var PST_ADJUSTMENT = 28800000;
+      var PST_ADJUSTMENT = 25200000;
 
       if (!shouldLocalize) {
         nextSessionTime.setTime(

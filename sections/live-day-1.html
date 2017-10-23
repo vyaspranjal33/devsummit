@@ -13,20 +13,20 @@
 {% block content %}
   <section class="live-info">
     {% if is_partial %}
-      <div class="live-info__item live-info__item-current xjs-live-info-current" aria-hidden="true">
+      <div class="live-info__item live-info__item-current js-live-info-current" aria-hidden="true">
         <h2 class="live-info__section"></h2>
         <h3 class="live-info__title"></h3>
         <p class="live-info__description"></p>
       </div>
 
-      <div class="live-info__item live-info__item-next xjs-live-info-next" aria-hidden="true">
+      <div class="live-info__item live-info__item-next js-live-info-next" aria-hidden="true">
         <h2 class="live-info__section"></h2>
         <h3 class="live-info__title"></h3>
         <h4 class="live-info__time"></h4>
         <p class="live-info__description"></p>
       </div>
     {% else %}
-      <div class="live-info__item live-info__item-current xjs-live-info-current"{% if not current_session %} aria-hidden="true"{% endif %}>
+      <div class="live-info__item live-info__item-current js-live-info-current"{% if not current_session %} aria-hidden="true"{% endif %}>
         <h2 class="live-info__section">
             {% if current_session %}
               Live Now

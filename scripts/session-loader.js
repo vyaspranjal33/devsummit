@@ -80,7 +80,7 @@ export class SessionLoader {
         parseInt(dateParts[1] - 1, 10), // Month
         parseInt(dateParts[2], 10),     // Date
 
-        parseInt(timeParts[0], 10) + 8, // Hour (shifted to UTC from PST)
+        parseInt(timeParts[0], 10) + 7, // Hour (shifted to UTC from PST)
         parseInt(timeParts[1], 10),     // Minutes
         parseInt(timeParts[2], 10)      // Seconds
       )
