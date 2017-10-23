@@ -43,7 +43,7 @@
         </p>
       </div>
 
-      <div class="live-info__item live-info__item-next xjs-live-info-next"{% if not next_session %} aria-hidden="true"{% endif %}>
+      <div class="live-info__item live-info__item-next js-live-info-next"{% if not next_session %} aria-hidden="true"{% endif %}>
         <h2 class="live-info__section">
             {% if next_session and next_session["details"].name %}
               Up Next...
@@ -80,7 +80,7 @@
     <ol class="live-coming-up__list">
       {% for upcoming_session in upcoming_sessions %}
       <li class="live-coming-up__item">
-        <time class="live-coming-up__item-time" datetime="{{ upcoming_session["datetime"].strftime('%Y-%m-%dT%H:%M:%S-08:00') }}">{{ upcoming_session["datetime"].strftime('%H%M') }}</time>
+        <time class="live-coming-up__item-time" datetime="{{ upcoming_session["datetime"].strftime('%Y-%m-%dT%H:%M:%S-07:00') }}">{{ upcoming_session["datetime"].strftime('%H%M') }}</time>
         <a class="live-coming-up__item-description">
           <h3 class="live-coming-up__item-title">{{ upcoming_session["details"].name }}</h3>
           {% if upcoming_session["details"].speaker %}

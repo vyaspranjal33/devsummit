@@ -277,7 +277,7 @@ export class LiveSessionInfo {
       var comingUpList = document.querySelector('.live-coming-up__list');
       var now = Date.now();
       var localDate = new Date();
-      var baseTimeOffset = 480; // 8 hours in minutes
+      var baseTimeOffset = 420; // 8 hours in minutes
 
       var sessionTime;
       var sessionTimeString;
