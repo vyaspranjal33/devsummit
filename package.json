@@ -1,10 +1,6 @@
 {
   "name": "chrome-dev-summit-2016",
-<<<<<<< HEAD
-  "version": "9.0.22",
-=======
   "version": "9.0.28",
->>>>>>> 8eb149889f19b399f5e56499a83b5f791433a97c
   "description": "Chrome Dev Summit 2016",
   "main": "index.js",
   "scripts": {
