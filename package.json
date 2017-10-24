@@ -1,6 +1,10 @@
 {
   "name": "chrome-dev-summit-2016",
+<<<<<<< HEAD
   "version": "9.0.22",
+=======
+  "version": "9.0.28",
+>>>>>>> 8eb149889f19b399f5e56499a83b5f791433a97c
   "description": "Chrome Dev Summit 2016",
   "main": "index.js",
   "scripts": {
@@ -17,7 +21,7 @@
     "watch-sass": "npm run make-css-folder && node-sass -w sass/ -o static/styles",
     "optimize-images": "imageoptim --directory static/images",
     "release": "npm run bump && npm run build && npm run optimize-images",
-    "app:deploy": "npm run release && gcloud app deploy --version=v20171023 --project=chromedevsummit-site --verbosity=info --promote",
+    "app:deploy": "npm run release && gcloud app deploy --version=v20171024 --project=chromedevsummit-site --verbosity=info --promote",
     "app:stage": "npm run release && gcloud app deploy --version=stage --project=chromedevsummit-site --verbosity=info --no-promote"
   },
   "repository": {
