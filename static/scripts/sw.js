@@ -194,7 +194,7 @@ self.onfetch = evt => {
                 } else if (index === 1) {
                   resolve('/devsummit/live-day-2?partial');
                 }
-              } else if (normalizedConfDay > 1) {
+              } else if (normalizedConfDay > 2) {
                 resolve('/devsummit/over')
               }
             });
