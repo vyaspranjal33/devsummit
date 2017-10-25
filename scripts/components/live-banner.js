@@ -21,8 +21,8 @@ export class LiveBanner {
 
   static toggle () {
     var timeNow = Date.now();
-    var confStartTime = Date.parse('2016-11-10T07:30:00-08:00');
-    var confEndTime = Date.parse('2016-11-11T18:00:00-08:00');
+    var confStartTime = Date.parse('2017-10-23T07:30:00-07:00');
+    var confEndTime = Date.parse('2017-10-24T18:00:00-07:00');
     var isInConference = timeNow > confStartTime && timeNow < confEndTime;
     var showLiveHeader = isInConference &&
         window.location.pathname !== '/devsummit/';
