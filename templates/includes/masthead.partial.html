@@ -1,8 +1,11 @@
-{% macro masthead(is_partial=none, image=none, has_sitetitle=none, title=none, subtitle=none, mastheadimagetitle=none, is_expanded=none, youtubeId=none, autoplay=none, video_name=none, is_live=False, has_divider=False) %}
+{% macro masthead(is_partial=none, image=none, has_sitetitle=none, title=none, subtitle=none, mastheadimagetitle=none, is_expanded=none, youtubeId=none, youtubePlaylist=none, autoplay=none, video_name=none, is_live=False, has_divider=False) %}
+{{ youtubeId }}
 {% if youtubeId %}
 <div class="youtube-video-player"{% if youtubeId %} data-youtube-id="{{ youtubeId }}"{% endif %}>
   {% if autoplay %}
   <iframe data-title="{{ video_name }}" class="youtube-video-player__thumb" src="https://www.youtube.com/embed/{{ youtubeId }}?autoplay=1" frameborder="0" allowfullscreen></iframe>
+  {% elif youtubePlaylist %}
+  <iframe data-title="{{ video_name }}" class="youtube-video-player__thumb" src="https://www.youtube.com/embed/videoseries?list={{ youtubeId }}" frameborder="0" allowfullscreen></iframe>
   {% else %}
   <a title="Play video of {{ video_name }}" class="youtube-video-player__thumb" href="https://www.youtube.com/watch?v={{ youtubeId }}">
     <img role="presentation" src="https://img.youtube.com/vi/{{ youtubeId }}/0.jpg" alt="{{ video_name }}">
