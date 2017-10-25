@@ -18,7 +18,8 @@
       "speakerRole": "Director, Chrome Web Platform and Director, Developer Relations",
       "speakerImg": "/devsummit/static/images/speakers/ben-galbraith.png",
       "url": "/devsummit/schedule/sessions/keynote",
-      "description": "The state of Chrome and the Web Platform today, from the leads of the Chrome Web Platform team."
+      "description": "The state of Chrome and the Web Platform today, from the leads of the Chrome Web Platform team.",
+      "youtubeId": "1-g1rvkORQ8"
     },
 
     "10:50:00": {
@@ -27,7 +28,8 @@
       "speakerRole": "Strategic Partner Development Manager, Developer Advocate",
       "speakerImg": "/devsummit/static/images/speakers/thao-tran.png",
       "url": "/devsummit/schedule/sessions/the-new-bar-for-web-experiences",
-      "description": "What we have been calling “Progressive Web Apps” for the past couple of years is really just the new bar for web experiences.  The modern web enables fast, integrated, reliable experiences that engage users.  In this talk, we will lay out the principles behind the new bar for web experiences, demonstrate the successes that partners have proven, and start you on your path of modern experiences, delivered via the web."
+      "description": "What we have been calling “Progressive Web Apps” for the past couple of years is really just the new bar for web experiences.  The modern web enables fast, integrated, reliable experiences that engage users.  In this talk, we will lay out the principles behind the new bar for web experiences, demonstrate the successes that partners have proven, and start you on your path of modern experiences, delivered via the web.",
+      "youtubeId": "PsgW-0M67TQ"
     },
 
     "11:40:00": {
@@ -39,7 +41,8 @@
       "speakerRole": "Product Manager, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/owen-campbell-moore.png",
       "url": "/devsummit/schedule/sessions/integrating",
-      "description": "In recent years, the web has become a great way to create fully immersive experiences on a variety of devices - both through better integration with the operating system user experience and through integration with device capabilities like camera, geolocation, push notifications Bluetooth and more. Come and learn all the latest ways the web integrates with a variety of operating systems, and for a deep dive into the future of Progressive Web Apps on Android."
+      "description": "In recent years, the web has become a great way to create fully immersive experiences on a variety of devices - both through better integration with the operating system user experience and through integration with device capabilities like camera, geolocation, push notifications Bluetooth and more. Come and learn all the latest ways the web integrates with a variety of operating systems, and for a deep dive into the future of Progressive Web Apps on Android.",
+      "youtubeId": "_sLa0qhuqcA"
     },
 
     "12:45:00": {
@@ -48,7 +51,8 @@
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/ewa-gasperowicz.png",
       "url": "/devsummit/schedule/sessions/kickstart-your-pwa",
-      "description": "The web is now an even more exciting place to develop, but you may be confused by the changes and not know where to start. This talk with cover how to take a web site and turn it into to a Progressive Web App experience, discuss starting points, process, options and tools, and learn about caveats of PWA development and their solutions."
+      "description": "The web is now an even more exciting place to develop, but you may be confused by the changes and not know where to start. This talk with cover how to take a web site and turn it into to a Progressive Web App experience, discuss starting points, process, options and tools, and learn about caveats of PWA development and their solutions.",
+      "youtubeId": "goafiwzhKMI"
     },
 
     "13:20:00": {
@@ -61,7 +65,8 @@
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/addy-osmani.png",
       "url": "/devsummit/schedule/sessions/fast-by-default",
-      "description": "Optimizing sites to load instantly on mobile is far from trivial. Costly JavaScript can take seconds to process, we often aren't sensitive to users data-plans and browsers don't know what UX-critical resources should load first. Thankfully there's a lot we can do to give our users a MUCH better loading experience. Watch Addy Osmani (and friends) illuminate new loading best practices for diagnosing and making real world sites load instantly today."
+      "description": "Optimizing sites to load instantly on mobile is far from trivial. Costly JavaScript can take seconds to process, we often aren't sensitive to users data-plans and browsers don't know what UX-critical resources should load first. Thankfully there's a lot we can do to give our users a MUCH better loading experience. Watch Addy Osmani (and friends) illuminate new loading best practices for diagnosing and making real world sites load instantly today.",
+      "youtubeId": "_srJ7eHS3IM"
     },
 
     "15:10:00": {
@@ -70,7 +75,8 @@
       "speakerImg": "/devsummit/static/images/speakers/jeff-posnick.png",
       "url": "/devsummit/schedule/sessions/workbox",
       "speakerRole": "Developer Programs Engineer, Chrome",
-      "description": "Workbox is a set of libraries that work together to power your progressive web app's service worker. Learn about what we've been working on for the v3 release, and see how the flexibility Workbox offers has solved real-world problems for top partners as they build their own PWAs."
+      "description": "Workbox is a set of libraries that work together to power your progressive web app's service worker. Learn about what we've been working on for the v3 release, and see how the flexibility Workbox offers has solved real-world problems for top partners as they build their own PWAs.",
+      "youtubeId": "DtuJ55tmjps"
     },
 
     "15:45:00": {
@@ -83,7 +89,8 @@
       "speakerRole": "VPs and Directors, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/chris-wilson.png",
       "url": "/devsummit/schedule/sessions/leadership-panel",
-      "description": "Quiz the Chrome leadership on your highest priority issues."
+      "description": "Quiz the Chrome leadership on your highest priority issues.",
+      "youtubeId": "TU8fy8PHAl0"
     },
 
     "16:50:00": {
@@ -92,7 +99,8 @@
       "speaker": "Surma and Dan Walmsley",
       "speakerRole": "Developer Advocate, Chrome and Engineer, Automatic",
       "url": "/devsummit/schedule/sessions/wordpress-pwa",
-      "description": "About 50% of sites in the web are powered by Content Management Systems; and that trend is growing. Integrating Progressive Technologies into the workflow of platforms such as WordPress and other CMSes is of paramount importance for ensuring that users get an awesome experience in these environments. In this talk we will discuss the challenges involved in the integration of progressive technologies with CMSes in general and WordPress in particular, and present a working proof of concept of how such an integration would work in the context of WordPress."
+      "description": "About 50% of sites in the web are powered by Content Management Systems; and that trend is growing. Integrating Progressive Technologies into the workflow of platforms such as WordPress and other CMSes is of paramount importance for ensuring that users get an awesome experience in these environments. In this talk we will discuss the challenges involved in the integration of progressive technologies with CMSes in general and WordPress in particular, and present a working proof of concept of how such an integration would work in the context of WordPress.",
+      "youtubeId": "Di7RvMlk9io"
     },
 
     "17:25:00": {
@@ -101,7 +109,8 @@
       "speakerRole": "Developer Advocates, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/sam-dutton.png",
       "url": "/devsummit/schedule/sessions/progressive-ecommerce",
-      "description": "Online shopping is a fundamental challenge for the mobile web.  Last year mobile e-commerce was worth $123 billion in the US alone, and globally the mobile share of e-commerce is growing. Around two thirds of purchases on mobile are now on the web — and yet conversion rates are far lower than on desktop. In this session, we will focus on what matters to your business and your users, using those metrics to prioritise and prove modern web features. Find out how to build better landing and browsing pages, reduce login and checkout friction, and implement network-resilient, offline-enabled search."
+      "description": "Online shopping is a fundamental challenge for the mobile web.  Last year mobile e-commerce was worth $123 billion in the US alone, and globally the mobile share of e-commerce is growing. Around two thirds of purchases on mobile are now on the web — and yet conversion rates are far lower than on desktop. In this session, we will focus on what matters to your business and your users, using those metrics to prioritise and prove modern web features. Find out how to build better landing and browsing pages, reduce login and checkout friction, and implement network-resilient, offline-enabled search.",
+      "youtubeId": "F2GRAYyTF9Y"
     },
 
     "18:00:00": {
@@ -110,7 +119,8 @@
       "speakerRole": "Developer Programs Engineer, Chrome",
       "speakerImg": "/devsummit/static/images/speakers/francois-beaufort.png",
       "url": "/devsummit/schedule/sessions/modern-media-experiences",
-      "description": "This talk reviews best practices for mobile web media, including playback controls, pre-loading, autoplay and offline."
+      "description": "This talk reviews best practices for mobile web media, including playback controls, pre-loading, autoplay and offline.",
+      "youtubeId": "WRSEJCKu7zA"
     },
 
     "18:35:00": {
