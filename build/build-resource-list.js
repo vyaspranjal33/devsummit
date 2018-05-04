@@ -31,14 +31,15 @@ const ignore = [
 const crypto = require('crypto');
 const fs = require('fs');
 const resourceList = [
-  '/devsummit/home',
-  '/devsummit/schedule',
-  '/devsummit/location',
-  '/devsummit/code-of-conduct',
-  '/devsummit/live-day-1?partial',
-  '/devsummit/live-day-2?partial',
+  // '/devsummit/home',
+  // '/devsummit/schedule',
+  // '/devsummit/location',
+  // '/devsummit/code-of-conduct',
+  // '/devsummit/live-day-1?partial',
+  // '/devsummit/live-day-2?partial',
   '/devsummit/over',
-  '/devsummit/schedule/day-2'
+  '/devsummit/savethedate',
+  // '/devsummit/schedule/day-2'
 ];
 
 const getSessionInfo = _ => {
@@ -123,7 +124,7 @@ Promise.all([
   getSessionInfo(),
   walkStaticFiles()
 ]).then(resources => {
-  resourceList.push(...resources[0], ...resources[1]);
+  resourceList.push(/*...resources[0], */...resources[1]);
 
   const manifest = `const cacheManifest = ${JSON.stringify(resourceList, null, 2)}`;
   fs.writeFile('./static/scripts/cache-manifest.js', manifest);

@@ -1,4 +1,5 @@
 {% macro masthead(is_partial=none, image=none, has_sitetitle=none, title=none, subtitle=none, mastheadimagetitle=none, is_expanded=none, youtubeId=none, youtubePlaylist=none, autoplay=none, video_name=none, is_live=False, has_divider=False) %}
+{# TODO: Hiding for Save the date launch
 {% if youtubeId %}
 <div class="youtube-video-player"{% if youtubeId %} data-youtube-id="{{ youtubeId }}"{% endif %}>
   {% if autoplay %}
@@ -12,11 +13,13 @@
   {% endif %}
 </div>
 {% endif %}
+#}
 
 {{ caller() }}
 
 <div class="masthead{% if is_expanded %} expanded{% endif %}{% if is_live %} masthead--live{% endif %}">
 
+  {# TODO: Hiding for Save the date launch
   <h1 tabindex="-1" class="masthead__sitetitle"{% if not has_sitetitle %} aria-hidden="true"{% endif %}>{% if has_sitetitle %}Chrome Dev Summit <span class="masthead__sitetitle__small">2017</span>{% endif %}</h1>
   <h1 tabindex="-1" class="masthead__title"{% if not title %} aria-hidden="true"{% endif %}>{{ title }}</h1>
   <h2 tabindex="-1" class="masthead__subtitle"{% if not subtitle %} aria-hidden="true"{% endif %}>{{ subtitle }}</h2>
@@ -31,25 +34,32 @@
       </g>
     </svg>
   </div>
+  #}
 
   <div class="masthead__graphic" role="img" aria-label="Masthead Image: {{ mastheadimagetitle }}">
     <style>
       #masthead-image {
-        background: url({{ image }}@1x.png) repeat-x;
+        background: url({{ image }}@1x.png) no-repeat;
         background-color: #fff;
-        background-position: bottom;
-        background-size: 720px;
+        background-position: center;
+        background-size: cover;
         width: 100%;
         height: 100%;
       }
-
-      @media (min-width: 1024px) {
-        #masthead-image {
-          background-size: 1080px;
-        }
+      #masthead-logo {
+        position: absolute;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+      }
+      .masthead.expanded {
+        margin-bottom: 0 !important;
       }
     </style>
-    <div id="masthead-image"></div>
+    <div id="masthead-image">
+      <img id="masthead-logo" src="/devsummit/static/images/masthead/logo-2018.svg" alt="Chrome Dev Summit 2018">
+    </div>
   </div>
 </div>
 {% endmacro %}
