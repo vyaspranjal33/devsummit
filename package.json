@@ -18,6 +18,7 @@
     "optimize-images": "imageoptim --directory static/images",
     "release": "npm run bump && npm run build && npm run optimize-images",
     "app:deploy": "npm run release && gcloud app deploy --project=chromedevsummit-site --verbosity=info --promote",
+    "app:prepare": "npm run release && gcloud app deploy --project=chromedevsummit-site --verbosity=info --no-promote",
     "app:stage": "npm run release && gcloud app deploy --version=stage --project=chromedevsummit-site --verbosity=info --no-promote"
   },
   "repository": {
