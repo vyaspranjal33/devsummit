@@ -54,7 +54,7 @@ export function installServiceWorker () {
     } else if (cvParts[1] !== nvParts[1]) {
       // The minor version changed. Show a toast.
       Toast.create('Site updated. Refresh to get the latest!');
-    } else if (cvParts[2] !== cvParts[1]) {
+    } else if (cvParts[2] !== nvParts[2]) {
       // If the patch version changed, do nothing.
     }
   };
