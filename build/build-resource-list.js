@@ -127,5 +127,7 @@ Promise.all([
   resourceList.push(/*...resources[0], */...resources[1]);
 
   const manifest = `const cacheManifest = ${JSON.stringify(resourceList, null, 2)}`;
-  fs.writeFile('./static/scripts/cache-manifest.js', manifest);
+  return new Promise(resolve => {
+    fs.writeFile('./static/scripts/cache-manifest.js', manifest, resolve);
+  });
 });
