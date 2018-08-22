@@ -1,0 +1,44 @@
+.footer {
+  @height-footer-svg: 358px;  // don't go larger than this, the SVG doesn't wrap vertically
+
+  color: white;
+  max-height: @height-footer-svg;
+  height: 20vh;
+  background: @color-blue url(/devsummit/static/images/lines/footer.svg) center;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+
+  .footer__background {
+    background: fadeout(@color-blue, 10%);
+  }
+
+  .footer__content {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    max-width: @width-normal;
+    margin: 0 auto;
+    padding: 12px 16px;
+    padding-right: 0;
+    font-size: 12px;
+    line-height: 24px;
+
+    a {
+      color: inherit;
+    }
+
+    p {
+      margin: 0 16px 0 0;
+    }
+
+    @media (min-width: @width-small) {
+      font-size: 14px;
+      line-height: 40px;
+
+      p {
+        margin-right: 24px;
+      }
+    }
+  }
+}
