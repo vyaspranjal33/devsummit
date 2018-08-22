@@ -15,7 +15,7 @@
     max-width: @width-normal;
     margin: 0 auto;
     padding: 0 16px;
-    position: relative;
+    // nb. does _NOT_ contain "position: relative", because the small nav must extend outside us
   }
 
   .logo {
@@ -152,12 +152,12 @@
       border-top: @height-header solid #f6f6f6;
       box-sizing: border-box;
       display: block;
-      position: fixed;
+      position: absolute;
       top: 0;
-      right: 0;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-      height: 100%;
       width: 80%;
+      right: 0;
+      bottom: 0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
       max-width: 320px;
       background: #fff;
       z-index: 2;
