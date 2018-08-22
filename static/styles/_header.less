@@ -1,0 +1,203 @@
+@width-nav: 700px;
+
+.header {
+  @dim-baseline: 8px;
+  @time-nav: 0.3s;
+  @height-header: @dim-baseline * 10;
+
+  background: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  height: @height-header;
+
+  .header__content {
+    height: 100%;
+    display: flex;
+    max-width: @width-normal;
+    margin: 0 auto;
+    padding: 0 16px;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: @dim-baseline;
+    flex: 0 0 auto;
+    font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+    text-transform: lowercase;
+
+    .logo__icon {
+      position: relative;
+      display: flex;
+      width: 100%;
+      padding-left: @dim-baseline * 10;
+      height: @dim-baseline * 6;
+      margin-right: @dim-baseline * 2;
+      align-items: center;
+      text-decoration: none;
+
+      background: url(/devsummit/static/images/header/chrome-logo-header.png) left center no-repeat;
+      background-size: 32px 32px;
+
+      span {
+        display: none;
+      }
+
+      @media (min-width: @width-tiny) {
+        &::after {
+          display: block;
+          position: absolute;
+          left: @dim-baseline * 7;
+          top: 0;
+          bottom: 0;
+          width: 1px;
+          content: '';
+          background: #616161;
+        }
+
+        span {
+          display: inline-block;
+          color: #616161;
+          letter-spacing: 0.5px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+
+  .menu {
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-flow: row;
+
+    .menu__toggle {
+      display: none;
+    }
+
+    @media (max-width: @width-nav - 1px) {
+      .menu__toggle {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        pointer-events: none;
+
+        &:focus ~ .menu__toggle-label {
+          .default-focus();
+        }
+
+        &:checked ~ .menu__underlay {
+          opacity: 0.7;
+          pointer-events: auto;
+        }
+        &:checked ~ .menu__nav {
+          opacity: 1;
+          transform: translate(0px);
+          animation: none;
+        }
+      }
+    }
+  }
+
+  .menu__nav {
+    list-style: none;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-grow: 1;
+      text-transform: lowercase;
+      font-weight: 100;
+      font-size: 16px;
+
+      a {
+        font-size: 16px;
+        color: #616161;
+        padding: @dim-baseline;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+          color: #1ea362;
+        }
+        &:focus {
+          background: #f0f0f0;
+        }
+      }
+    }
+  }
+
+  @keyframes hide-nav {
+    from { visibility: visible; pointer-events: none; }
+      to { visibility: hidden; pointer-events: none; }
+  }
+
+  // toggle nav mode
+  @media (max-width: @width-nav - 1px) {
+    .menu__nav {
+      border-top: @height-header solid #f6f6f6;
+      box-sizing: border-box;
+      display: block;
+      position: fixed;
+      top: 0;
+      right: 0;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      height: 100%;
+      width: 80%;
+      max-width: 320px;
+      background: #fff;
+      z-index: 2;
+      transform: translate(100%);
+      opacity: 0;
+      transition: transform @time-nav cubic-bezier(0, 0, 0.31, 1),
+          opacity @time-nav cubic-bezier(0, 0, 0.31, 1);
+      animation: hide-nav @time-nav step-end forwards;
+
+      ul {
+        flex-flow: column;
+        align-items: stretch;
+
+        a {
+          padding: 8px;
+        }
+      }
+    }
+
+    .menu__underlay {
+      display: block;
+      background: #fff;
+      opacity: 0;
+      pointer-events: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+      transition: opacity @time-nav cubic-bezier(0, 0, 0.31, 1);
+    }
+
+    .menu__toggle-label {
+      width: 24px;
+      height: 24px;
+      margin: 0 8px;
+      z-index: 4;
+      background: url(/devsummit/static/images/icons/ic_menu_black_24px.svg) center center no-repeat;
+      cursor: pointer;
+    }
+  }
+}

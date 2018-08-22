@@ -1,0 +1,21 @@
+{
+  "name": "chrome-dev-summit",
+  "version": "10.0.0",
+  "description": "Chrome Dev Summit",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoogleChrome/devsummit/"
+  },
+  "keywords": [
+    "chrome"
+  ],
+  "author": "The Chromium Authors",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-clean-css": "^3.10.0",
+    "gulp-cli": "^2.0.1",
+    "gulp-less": "^4.0.1"
+  }
+}
