@@ -1,0 +1,54 @@
+.cta {
+  @height-cta: 441px;
+  max-height: 441px;
+  min-height: 300px;
+  position: relative;
+  background: url(/devsummit/static/images/photo/cta-background.jpeg) no-repeat center;
+  background-size: cover;
+
+  .cta__lines {
+    position: absolute;
+    background: fadeout(#f9b826, 25%);
+    height: 100%;
+    width: 100%;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      height: 100%;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      max-width: 324px;
+      pointer-events: none;
+      background: url(/devsummit/static/images/lines/cta.svg) no-repeat 562px 594px;
+      mix-blend-mode: luminosity;
+      opacity: 0.25;
+    }
+
+    &:before {
+      left: 0;
+      background-position: right center;
+    }
+    &:after {
+      right: 0;
+      background-position: left center;
+    }
+  }
+
+  display: flex;
+  align-items: center;
+
+  .cta__content {
+    z-index: 1;
+    max-width: @width-nav;
+    padding: 0 32px;
+    margin: 0 auto;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  }
+}
