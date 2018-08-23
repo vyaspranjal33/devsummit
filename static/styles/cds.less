@@ -2,12 +2,18 @@
 @width-small: 600px;
 @width-nav: 700px;
 @width-normal: 864px;
+@width-contentside-min: 340px;
 @color-blue: #2196f3;
 
 .default-focus() {
   outline: @color-blue auto 5px;
   outline: Highlight auto 5px;
   outline: -webkit-focus-ring-color auto 5px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -22,6 +28,7 @@ body {
   color: #616161;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.2;
 
   @media (max-width: @width-nav - 1px) {
     overflow-x: hidden;
@@ -61,9 +68,155 @@ a {
 
 section {
   .content {
+    @padding: 48px;
     max-width: @width-normal;
-    padding: 0 16px;
+    box-sizing: border-box;
+    padding: 0 @padding;
     margin: 0 auto;
+    position: relative;
+    color: #616161;
+    font-weight: 300;
+
+    h4 {
+      font-weight: 600;
+    }
+
+    .left,
+    .right {
+      padding-bottom: 48px;
+    }
+
+    @media (min-width: @width-nav) {
+      .left,
+      .right {
+        @halfpad: (@padding / 2);  // otherwise we do extra division in calc
+        width: calc(50% - @halfpad);
+        position: relative;
+        padding-bottom: 48px;
+      }
+      .left {
+        clear: left;
+        float: left;
+      }
+      .right {
+        clear: right;
+        float: right;
+      }
+    }
+  }
+
+  // the car/building/etc extend forever effects
+  .effect {
+    width: 100%;
+    position: relative;
+    margin-bottom: 32px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100vw;
+      background-repeat: no-repeat;
+      background-position: bottom left;
+    }
+  }
+  .left .effect::before {
+    background-position: bottom right;
+  }
+
+  // overrides for L/R sides
+  .left .effect::before {
+    right: 0;
+    transform-origin: right;
+  }
+  .right .effect::before {
+    left: 0;
+    transform-origin: left;
+  }
+}
+
+// "powered by the web" section
+.section__tldr {
+  font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+
+  h2 {
+    text-transform: lowercase;
+    font-size: 4em;
+    font-weight: 400;
+
+    em {
+      font-style: normal;
+      color: @color-blue;
+    }
+  }
+
+  .section__tldr-details {
+    h3,
+    time {
+      text-transform: lowercase;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+
+      span {
+        font-size: smaller;
+        color: #888;
+      }
+    }
+    h3 {
+      margin-top: 0.5em;
+      font-size: 1.5em;
+    }
+    p {
+      font-family: 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+      margin-top: 0.5em;
+      font-size: smaller;
+      color: #888;
+    }
+  }
+}
+
+// "left/right content" section
+.section__points {
+  overflow: hidden;
+  line-height: 1.5;
+
+  p {
+    margin-bottom: 1.5em;
+  }
+
+  ul {
+    margin-left: 1.5em;
+  }
+
+  #effect-location {
+    height: 165px;
+    max-width: 231px;
+    &::before {
+      background-image: url(/devsummit/static/images/lines/effect-location.svg);
+    }
+  }
+  #effect-bycar {
+    height: 100px;
+    @media (min-width: @width-nav) {
+      height: 165px;  // aligns with #effect-location
+    }
+    &::before {
+      background-image: url(/devsummit/static/images/lines/effect-bycar.svg);
+    }
+  }
+  #effect-bypt {
+    height: 82px;
+    max-width: 260px;
+    &::before {
+      background-image: url(/devsummit/static/images/lines/effect-bypt.svg);
+    }
+  }
+  #effect-byair {
+    height: 136px;
+    &::before {
+      background-image: url(/devsummit/static/images/lines/effect-byair.svg);
+    }
   }
 }
 
