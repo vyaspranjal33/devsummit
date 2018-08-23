@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/GoogleChrome/devsummit/"
   },
+  "scripts": {
+    "lh": "lighthouse-ci"
+  },
   "keywords": [
     "chrome"
   ],
@@ -16,6 +19,7 @@
     "gulp-autoprefixer": "^5.0.0",
     "gulp-clean-css": "^3.10.0",
     "gulp-cli": "^2.0.1",
-    "gulp-less": "^4.0.1"
+    "gulp-less": "^4.0.1",
+    "lighthouse-ci": "git+https://github.com/ebidel/lighthouse-ci.git"
   }
 }

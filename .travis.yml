@@ -1,0 +1,17 @@
+language: node_js
+dist: trusty
+node_js:
+  - "node"
+addons:
+  chrome: stable
+#before_script:
+#  - npm install -g puppeteer 
+#  - npm install -g lighthouse
+#script:
+#  - node lighthouse_hook.js
+install:
+  - npm install # make sure to install the deps when Travis runs.
+after_success:
+  - ./deploy.sh 
+  - npm run lh -- https://3d313d1d.ngrok.io/
+
