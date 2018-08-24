@@ -4,14 +4,3 @@ node_js:
   - "node"
 addons:
   chrome: stable
-#before_script:
-#  - npm install -g puppeteer 
-#  - npm install -g lighthouse
-install:
-  - npm install # make sure to install the deps when Travis runs.
-script:
-  - npm test
-#  - sleep 3 && npm run lh -- http://localhost:5000/
-#after_success:
-#  - ./deploy.sh 
-#  - sleep 3 && npm run lh -- https://89f2fe63.ngrok.io
