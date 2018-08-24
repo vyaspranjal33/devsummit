@@ -9,7 +9,7 @@
   "scripts": {
     "lh": "lighthouse-ci",
     "start": "node app.js",
-    "test": "node app.js"
+    "test": "node runner.js"
   },
   "keywords": [
     "chrome"
@@ -25,7 +25,8 @@
     "lighthouse-ci": "git+https://github.com/ebidel/lighthouse-ci.git"
   },
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "ngrok": "^3.0.1"
   },
   "engines": {
     "node": "8.x.x"
