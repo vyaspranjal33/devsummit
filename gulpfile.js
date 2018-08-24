@@ -23,7 +23,7 @@ exports.css = function css() {
   // exclude IE11's broken flexbox
   const browsers = ['last 2 versions', 'not IE <= 11', 'not IE_mob <= 11'];
   return gulp.src(['static/styles/*.less', '!static/styles/_*.less'])
-    .pipe(less())
+    .pipe(less({rootpath: 'x/static/../'}))
     .pipe(autoprefixer({browsers}))
     .pipe(cleanCSS())
   .pipe(gulp.dest('./dist'));
