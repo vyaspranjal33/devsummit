@@ -9,7 +9,7 @@
   "scripts": {
     "lh": "lighthouse-ci",
     "start": "node app.js",
-    "test": "echo 'hi'"
+    "test": "node app.js"
   },
   "keywords": [
     "chrome"

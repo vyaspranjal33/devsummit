@@ -13,5 +13,6 @@ install:
   - npm install # make sure to install the deps when Travis runs.
 after_success:
   - ./deploy.sh 
-  - npm run lh -- https://3d313d1d.ngrok.io/
+  - npm run lh -- http://localhost:5000/
+#  - npm run lh -- https://3d313d1d.ngrok.io/
 
