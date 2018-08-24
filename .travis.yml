@@ -7,8 +7,8 @@ addons:
 #before_script:
 #  - npm install -g puppeteer 
 #  - npm install -g lighthouse
-#script:
-#  - node lighthouse_hook.js
+script:
+  - npm start &
 install:
   - npm install # make sure to install the deps when Travis runs.
 after_success:
