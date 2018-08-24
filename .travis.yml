@@ -7,11 +7,11 @@ addons:
 #before_script:
 #  - npm install -g puppeteer 
 #  - npm install -g lighthouse
-script:
-  - npm start &
 install:
   - npm install # make sure to install the deps when Travis runs.
-after_success:
+script:
+  - npm start &
+#after_success:
   - ./deploy.sh 
 #  - npm run lh -- http://localhost:5000/
   - npm run lh -- https://89f2fe63.ngrok.io
