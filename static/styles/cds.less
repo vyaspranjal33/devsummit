@@ -5,6 +5,7 @@
 @width-contentside-min: 340px;
 @color-blue: #2196f3;
 @color-header-hover: #1ea362;
+@height-min-header: 64px;
 
 .default-focus() {
   outline: @color-blue auto 5px;
@@ -21,6 +22,7 @@ body {
   margin: 0;
   min-height: 100vh;
   min-width: 240px;  // KaiOS device
+  padding-top: @height-min-header;
   position: relative;
   font-family: 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
   line-height: 1;

@@ -1,11 +1,13 @@
-.header {
-  @dim-baseline: 8px;
-  @time-nav: 0.3s;
-  @height-header: @dim-baseline * 10;
+@dim-baseline: 8px;
+@height-big-header: @dim-baseline * 10;
 
+.header {
+  @time-nav: 0.3s;
+
+  margin-top: -@height-min-header;
   background: #fff;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-  height: @height-header;
+  height: @height-big-header;
 
   .header__content {
     height: 100%;
@@ -38,27 +40,27 @@
       background: url(../images/header/chrome-logo-header.png) left center no-repeat;
       background-size: 32px 32px;
 
-      span {
-        display: none;
+      &::after {
+        display: block;
+        position: absolute;
+        left: @dim-baseline * 7;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        content: '';
+        background: #616161;
       }
 
-      @media (min-width: @width-tiny) {
-        &::after {
-          display: block;
-          position: absolute;
-          left: @dim-baseline * 7;
-          top: 0;
-          bottom: 0;
-          width: 1px;
-          content: '';
-          background: #616161;
-        }
+      > span {
+        display: inline-block;
+        color: #616161;
+        letter-spacing: 0.5px;
+        font-weight: 400;
 
-        span {
-          display: inline-block;
-          color: #616161;
-          letter-spacing: 0.5px;
-          font-weight: 400;
+        @media (max-width: @width-tiny - 1px) {
+          > span {
+            display: none;
+          }
         }
       }
     }
@@ -146,12 +148,20 @@
 
   // toggle nav mode
   @media (max-width: @width-nav - 1px) {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-top: 0;  // we have -ve margin normally for @height-min-header
+    height: @height-min-header;
+
     .menu__nav {
       pointer-events: auto;
-      border-top: @height-header solid #f6f6f6;
+      border-top: @height-min-header solid #f6f6f6;
       box-sizing: border-box;
       display: block;
-      position: absolute;
+      position: fixed;
       top: 0;
       width: 80%;
       right: 0;
