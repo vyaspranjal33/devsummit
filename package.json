@@ -25,7 +25,9 @@
     "lighthouse-ci": "git+https://github.com/ebidel/lighthouse-ci.git"
   },
   "dependencies": {
-    "express": "^4.16.3",
+    "koa": "^2.5.2",
+    "koa-mount": "^3.0.0",
+    "koa-static": "^5.0.0",
     "ngrok": "^3.0.1"
   },
   "engines": {

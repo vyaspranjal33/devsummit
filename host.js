@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /*
  * Copyright 2018 Google LLC. All rights reserved.
  *
@@ -16,22 +15,30 @@
  */
 
 /**
- * @fileoverview Serves the Chrome Dev Summit site at a specified prefix (/devsummit).
+ * @fileoverview Exports Koa middleware to serve the Chrome Dev Summit site at '/'.
  */
 
 'use strict';
 
-const config = Object.freeze({
-  PREFIX: 'devsummit',
-});
-
-const server = new (require('Koa'))();
+const Koa = require('Koa');
+const serve = require('koa-static');
 const mount = require('koa-mount');
+const flat = require('./deps/router.js');
 
-server.use(mount(`/${config.PREFIX}`, require('./host')));
+const app = new Koa();
 
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`App listening on :${PORT}`);
-  console.log('Press Ctrl+C to quit.');
-});
+app.use(flat(async (path, ctx) => {
+  switch (path) {
+  case 'index':
+  case 'schedule':
+  case 'location':
+  case 'code-of-conduct':
+    ctx.body = 'CoC page';
+    break;
+  }
+}));
+
+// nb. This is superceded by app.yaml in prod, which serves the static folder for us.
+app.use(mount('/static', serve('static')));
+
+module.exports = app;

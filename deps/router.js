@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /*
  * Copyright 2018 Google LLC. All rights reserved.
  *
@@ -16,22 +15,24 @@
  */
 
 /**
- * @fileoverview Serves the Chrome Dev Summit site at a specified prefix (/devsummit).
+ * @fileoverview Simple router for Koa for single-slug page components.
  */
 
-'use strict';
+// slug includes \w and "-"
+const sectionRe = /^\/([-\w]*)$/;
 
-const config = Object.freeze({
-  PREFIX: 'devsummit',
-});
+module.exports = (callback) => {
+  return (ctx, next) => {
+    const validMethod = (ctx.method === 'GET' || ctx.method === 'HEAD');
+    if (!validMethod) {
+      return next();
+    }
 
-const server = new (require('Koa'))();
-const mount = require('koa-mount');
+    const m = sectionRe.exec(ctx.path);
+    if (!m) {
+      return next();
+    }
 
-server.use(mount(`/${config.PREFIX}`, require('./host')));
-
-const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => {
-  console.log(`App listening on :${PORT}`);
-  console.log('Press Ctrl+C to quit.');
-});
+    return callback(m[1] || 'index', ctx);
+  };
+};

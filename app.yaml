@@ -24,6 +24,6 @@ handlers:
   static_dir: dist
   secure: always
 
-- url: /devsummit/.*
+- url: /.*
   secure: always
   script: auto
