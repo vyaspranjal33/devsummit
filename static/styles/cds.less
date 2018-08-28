@@ -71,18 +71,16 @@ a {
     background: url(../images/header/masthead.svg) no-repeat center;
     background-size: (8000px * @ratio) @size-masthead;
 
-    @media (max-width: 1032px) {
-      background-image: url(../images/header/masthead-1400.svg);
-      background-size: (1400px * @ratio) @size-masthead;
+    .sized-mixin(@size) {
+      @v: @size * @ratio * 1px;
+      @media (max-width: @v) {
+        background-image: url("../images/header/masthead-@{size}.svg");
+        background-size: @v @size-masthead;
+      }
     }
-    @media (max-width: 663px) {
-      background-image: url(../images/header/masthead-900.svg);
-      background-size: (900px * @ratio) @size-masthead;
-    }
-    @media (max-width: 516px) {
-      background-image: url(../images/header/masthead-700.svg);
-      background-size: (700px * @ratio) @size-masthead;
-    }
+    .sized-mixin(1400);
+    .sized-mixin(900);
+    .sized-mixin(700);
   }
 }
 
