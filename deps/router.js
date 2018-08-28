@@ -33,6 +33,11 @@ module.exports = (mw) => {
       return next();
     }
 
+    // redirect "/devsummit" => "/devsummit/"
+    if (ctx.path === '/' && !ctx.originalUrl.endsWith('/')) {
+      return ctx.redirect(ctx.originalUrl + '/');
+    }
+
     if (ctx.fresh) {
       // TODO: we don't set ETags to check this yet
       ctx.status = 304;

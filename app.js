@@ -25,7 +25,7 @@ const config = Object.freeze({
   PREFIX: 'devsummit',
 });
 
-const server = new (require('Koa'))();
+const server = new (require('koa'))();
 const mount = require('koa-mount');
 
 server.use(mount(`/${config.PREFIX}`, require('./host')));

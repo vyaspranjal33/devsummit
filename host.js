@@ -20,7 +20,7 @@
 
 'use strict';
 
-const Koa = require('Koa');
+const Koa = require('koa');
 const serve = require('koa-static');
 const mount = require('koa-mount');
 const hbs = require('koa-hbs');
@@ -30,6 +30,7 @@ const app = new Koa();
 
 // nb. This is superceded by app.yaml in prod, which serves the static folder for us.
 app.use(mount('/static', serve('static')));
+app.use(mount('/static', serve('dist')));  // nb. app.yaml just refers to cds.css, not the folder
 
 app.use(hbs.middleware({
   viewPath: `${__dirname}/sections`,

@@ -9,7 +9,8 @@
   "scripts": {
     "lh": "lighthouse-ci",
     "start": "node app.js",
-    "test": "node runner.js"
+    "test": "node runner.js",
+    "postinstall": "gulp"
   },
   "keywords": [
     "chrome"
