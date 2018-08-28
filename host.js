@@ -23,22 +23,38 @@
 const Koa = require('Koa');
 const serve = require('koa-static');
 const mount = require('koa-mount');
+const hbs = require('koa-hbs');
 const flat = require('./deps/router.js');
 
 const app = new Koa();
 
-app.use(flat(async (path, ctx) => {
+// nb. This is superceded by app.yaml in prod, which serves the static folder for us.
+app.use(mount('/static', serve('static')));
+
+app.use(hbs.middleware({
+  viewPath: `${__dirname}/sections`,
+  layoutsPath: `${__dirname}/templates`,
+  extname: '.html',
+}));
+
+app.use(flat(async (ctx, next, path) => {
   switch (path) {
   case 'index':
   case 'schedule':
   case 'location':
   case 'code-of-conduct':
-    ctx.body = 'CoC page';
     break;
+  default:
+    return next();
   }
-}));
 
-// nb. This is superceded by app.yaml in prod, which serves the static folder for us.
-app.use(mount('/static', serve('static')));
+  const scope = {
+    year: 2018,
+    layout: 'devsummit',
+    ua: 'UA-41980257-1',
+    conversion: 935743779,
+  };
+  await ctx.render(path, scope);
+}));
 
 module.exports = app;

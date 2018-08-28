@@ -21,8 +21,8 @@
 // slug includes \w and "-"
 const sectionRe = /^\/([-\w]*)$/;
 
-module.exports = (callback) => {
-  return (ctx, next) => {
+module.exports = (mw) => {
+  return async (ctx, next) => {
     const validMethod = (ctx.method === 'GET' || ctx.method === 'HEAD');
     if (!validMethod) {
       return next();
@@ -33,6 +33,13 @@ module.exports = (callback) => {
       return next();
     }
 
-    return callback(m[1] || 'index', ctx);
+    if (ctx.fresh) {
+      // TODO: we don't set ETags to check this yet
+      ctx.status = 304;
+      ctx.body = null;
+    } else {
+      const path = m[1] || 'index';
+      await mw.call(this, ctx, next, path);
+    }
   };
 };
