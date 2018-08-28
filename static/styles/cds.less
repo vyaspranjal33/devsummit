@@ -37,6 +37,9 @@ body {
   @media (max-width: @width-nav - 1px) {
     overflow-x: hidden;
   }
+  @media (max-width: @width-tiny - 1px) {
+    font-size: 0.8em;
+  }
 }
 
 a {
@@ -58,21 +61,34 @@ a {
 @import '_cta.less';
 
 .masthead {
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  max-width: 100vw;
+  .masthead__image {
+    height: 217px;
+    width: 100%;
 
-  svg {
-    width: 720px;
-    margin: 48px 0;
+    @size-masthead: 160px;
+    @ratio: (@size-masthead / 217px);
+
+    background: url(../images/header/masthead.svg) no-repeat center;
+    background-size: (8000px * @ratio) @size-masthead;
+
+    @media (max-width: 1032px) {
+      background-image: url(../images/header/masthead-1400.svg);
+      background-size: (1400px * @ratio) @size-masthead;
+    }
+    @media (max-width: 663px) {
+      background-image: url(../images/header/masthead-900.svg);
+      background-size: (900px * @ratio) @size-masthead;
+    }
+    @media (max-width: 516px) {
+      background-image: url(../images/header/masthead-700.svg);
+      background-size: (700px * @ratio) @size-masthead;
+    }
   }
 }
 
 section {
   .content {
-    @padding: 48px;
+    @padding: 3em;
     max-width: @width-normal;
     box-sizing: border-box;
     padding: 0 @padding;
@@ -96,7 +112,7 @@ section {
         @halfpad: (@padding / 2);  // otherwise we do extra division in calc
         width: calc(50% - @halfpad);
         position: relative;
-        padding-bottom: 48px;
+        padding-bottom: @padding;
       }
       .left {
         clear: left;
@@ -106,6 +122,9 @@ section {
         clear: right;
         float: right;
       }
+    }
+    @media (max-width: @width-tiny - 1px) {
+      padding: 0 8vw;
     }
   }
 
@@ -282,6 +301,17 @@ section {
       width: 100vw;
       height: 106px;
       background: transparent no-repeat bottom left;
+    }
+
+    @media (max-width: @width-tiny - 1px) {
+      margin-left: 0;
+      padding-left: 100px;
+
+      &::before {
+        left: -40px;
+        right: -40px;
+        width: auto;
+      }
     }
   }
 
