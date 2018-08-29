@@ -5,7 +5,6 @@
 @width-contentside-min: 340px;
 @color-blue: #2196f3;
 @color-header-hover: #1ea362;
-@height-min-header: 64px;
 
 .default-focus() {
   outline: @color-blue auto 5px;
@@ -22,7 +21,6 @@ body {
   margin: 0;
   min-height: 100vh;
   min-width: 240px;  // KaiOS device
-  padding-top: @height-min-header;
   box-sizing: border-box;
   position: relative;
   font-family: 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
@@ -82,6 +80,11 @@ a {
     .sized-mixin(900);
     .sized-mixin(700);
   }
+}
+
+main {
+  display: flex;
+  flex-flow: column;
 }
 
 section {

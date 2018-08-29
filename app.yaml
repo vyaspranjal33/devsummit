@@ -16,14 +16,14 @@ runtime: nodejs8
 api_version: 1
 
 handlers:
+- url: /devsummit/static/cds\.css
+  static_files: dist/cds.css
+  upload: dist/cds\.css
+
 - url: /devsummit/static
   static_dir: static
   secure: always
 
-- url: /devsummit/dist
-  static_dir: dist
-  secure: always
-
-- url: /devsummit/.*
+- url: /.*
   secure: always
   script: auto

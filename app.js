@@ -15,33 +15,23 @@
  * the License.
  */
 
+/**
+ * @fileoverview Serves the Chrome Dev Summit site at a specified prefix (/devsummit).
+ */
+
 'use strict';
 
 const config = Object.freeze({
   PREFIX: 'devsummit',
 });
 
-const express = require('express');
-const fs = require('fs');
+const server = new (require('koa'))();
+const mount = require('koa-mount');
 
-const app = express();
-
-app.get(`/${config.PREFIX}`, (req, res) => {
-  if (req.url === `/${config.PREFIX}`) {
-    res.redirect(`/${config.PREFIX}/`);
-    return;
-  }
-
-  const data = fs.readFileSync('index.html');
-
-  res.set('Content-Type', 'text/html');
-  res.status(200).send(data).end();
-});
-// nb. This is superceded by app.yaml in prod, which serves the static folder for us.
-app.use(`/${config.PREFIX}/static`, express.static('static'));
+server.use(mount(`/${config.PREFIX}`, require('./host')));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`App listening on :${PORT}`);
   console.log('Press Ctrl+C to quit.');
 });

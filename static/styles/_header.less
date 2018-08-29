@@ -1,11 +1,11 @@
 @dim-baseline: 8px;
+@height-min-header: @dim-baseline * 8;
 @height-big-header: @dim-baseline * 10;
 
 .header {
   @time-nav: 0.3s;
 
   font-size: 16px;
-  margin-top: -@height-min-header;
   background: #fff;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   height: @height-big-header;
@@ -152,7 +152,6 @@
     left: 0;
     right: 0;
     top: 0;
-    margin-top: 0;  // we have -ve margin normally for @height-min-header
     height: @height-min-header;
 
     .menu__nav {

@@ -1,3 +1,6 @@
 #!/bin/bash
 
-# TODO: Write real deploy script here later.
+set -eu
+
+gulp
+gcloud app deploy --no-promote --project chromedevsummit-site
