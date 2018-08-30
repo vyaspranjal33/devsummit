@@ -33,7 +33,10 @@ async function runner() {
       return;  // not ready yet
     }
 
-    console.log('Server is running. Calling Lighthouse CI.');
+    console.log(`Server is running. Calling Lighthouse CI with some settings:`);
+    console.log(`- API Key: ${process.env.LIGHTHOUSE_API_KEY}`);
+    console.log(`- Travis Slug: ${process.env.TRAVIS_PULL_REQUEST_SLUG}`);
+    console.log(`- Travis Event Type: ${process.env.TRAVIS_EVENT_TYPE}`);
 
     const lighthouse = spawn('./node_modules/.bin/lighthouse-ci', [url]);
     lighthouse.stdout.on('data', (data) => {
