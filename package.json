@@ -10,7 +10,8 @@
     "lh": "lighthouse-ci",
     "start": "node app.js",
     "test": "node runner.js",
-    "postinstall": "gulp"
+    "postinstall": "gulp",
+    "gcp-build": "gulp"
   },
   "keywords": [
     "chrome"
@@ -30,7 +31,8 @@
     "koa-hbs": "^1.0.0",
     "koa-mount": "^3.0.0",
     "koa-static": "^5.0.0",
-    "ngrok": "^3.0.1"
+    "ngrok": "^3.0.1",
+    "workbox-build": "^3.4.1"
   },
   "engines": {
     "node": "8.x.x"

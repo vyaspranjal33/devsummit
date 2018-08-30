@@ -20,17 +20,32 @@
 
 'use strict';
 
-const Koa = require('koa');
-const serve = require('koa-static');
-const mount = require('koa-mount');
-const hbs = require('koa-hbs');
 const flat = require('./deps/router.js');
+const hbs = require('koa-hbs');
+const Koa = require('koa');
+const mount = require('koa-mount');
+const send = require('koa-send');
+const serve = require('koa-static');
 
 const app = new Koa();
+const isProd = (process.env.NODE_ENV === 'production');
 
-// nb. This is superceded by app.yaml in prod, which serves the static folder for us.
-app.use(mount('/static', serve('static')));
-app.use(mount('/static', serve('dist')));  // nb. app.yaml just refers to cds.css, not the folder
+// nb. Superceded by app.yaml in prod, which serves the static folder for us.
+if (!isProd) {
+  app.use(mount('/static', serve('static')));
+}
+
+// Build-time resources, not served via App Engine directly.
+app.use(mount('/res', serve('res')));
+
+// Serve sw.js from top-level.
+const sourcePrefix = isProd ? 'res' : 'src';
+app.use(async (ctx, next) => {
+  if (ctx.path === '/sw.js') {
+    return send(ctx, `${sourcePrefix}/sw.js`);
+  }
+  return next();
+});
 
 app.use(hbs.middleware({
   viewPath: `${__dirname}/sections`,
@@ -51,6 +66,7 @@ app.use(flat(async (ctx, next, path) => {
 
   const scope = {
     year: 2018,
+    prod: isProd,
     layout: 'devsummit',
     ua: 'UA-41980257-1',
     conversion: 935743779,

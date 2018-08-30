@@ -40,17 +40,23 @@ the License.
   <link rel="preload" href="./static/scripts/bootstrap.js" as="script" />
   <link href="https://fonts.googleapis.com/css?family=Product+Sans:400|Open+Sans:300,400&amp;lang=en" rel="stylesheet" />
 
+{{#if prod}}
   <!-- css -->
-  <link rel="stylesheet" href="./static/cds.css" />
+  <link rel="stylesheet" href="./res/cds.css" />
+{{else}}
+  <!-- dev less -->
+  <link rel="stylesheet/less" type="text/css" href="./static/styles/cds.less" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js"></script>
+{{/if}}
+
+  <script>
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('./sw.js').catch((err) => console.error('sw reg failed', err));
+}
+  </script>
 
 </head>
 <body>
-
-<div class="_dev">
-  <!-- removed in build -->
-  <link rel="stylesheet/less" type="text/css" href="./static/styles/cds.less" />
-  <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js"></script> -->
-</div>
 
 <div id="outline">
 
