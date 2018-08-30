@@ -1,0 +1,54 @@
+{
+  "_from": "git+https://github.com/ebidel/lighthouse-ci.git",
+  "_id": "lighthouse-ci@0.0.2",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/lighthouse-ci",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "lighthouse-ci@git+https://github.com/ebidel/lighthouse-ci.git",
+    "name": "lighthouse-ci",
+    "escapedName": "lighthouse-ci",
+    "rawSpec": "git+https://github.com/ebidel/lighthouse-ci.git",
+    "saveSpec": "git+https://github.com/ebidel/lighthouse-ci.git",
+    "fetchSpec": "https://github.com/ebidel/lighthouse-ci.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#DEV:/"
+  ],
+  "_resolved": "git+https://github.com/ebidel/lighthouse-ci.git#bafe19ab8c9a593dac98d9900cffea97a1327811",
+  "_spec": "lighthouse-ci@git+https://github.com/ebidel/lighthouse-ci.git",
+  "_where": "/Users/tomgreenaway/Code/devsummit",
+  "author": {
+    "name": "Eric Bidelman",
+    "email": "ebidel@"
+  },
+  "bin": {
+    "lighthouse-ci": "runlighthouse.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ebidel/lighthouse-ci/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "node-fetch": "^1.7.3"
+  },
+  "deprecated": false,
+  "description": "Lighthouse CI Runner",
+  "devDependencies": {
+    "eslint": "^3.18.0",
+    "eslint-config-google": "^0.8.0"
+  },
+  "homepage": "https://github.com/ebidel/lighthouse-ci#readme",
+  "license": "Apache-2.0",
+  "main": "runlighthouse.js",
+  "name": "lighthouse-ci",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebidel/lighthouse-ci.git"
+  },
+  "version": "0.0.2"
+}

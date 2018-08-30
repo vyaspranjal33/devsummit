@@ -38,7 +38,9 @@ async function runner() {
     console.log(`- Travis Slug: ${process.env.TRAVIS_PULL_REQUEST_SLUG}`);
     console.log(`- Travis Event Type: ${process.env.TRAVIS_EVENT_TYPE}`);
 
-    const lighthouse = spawn('./node_modules/.bin/lighthouse-ci', [url]);
+    //const lighthouse = spawn('./node_modules/.bin/lighthouse-ci', [url]);
+    const lighthouse = spawn('./lighthouse-ci/runlighthouse.js', [url]);
+
     lighthouse.stdout.on('data', (data) => {
       console.log(`lighthouse child stdout:\n${data}`);
       const lighthouseText = String(data);
