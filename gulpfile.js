@@ -18,15 +18,34 @@ const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const less = require('gulp-less');
+const workbox = require('workbox-build');
 
 exports.css = function css() {
   // exclude IE11's broken flexbox
   const browsers = ['last 2 versions', 'not IE <= 11', 'not IE_mob <= 11'];
   return gulp.src(['static/styles/*.less', '!static/styles/_*.less'])
-    .pipe(less({rootpath: 'x/static/../'}))
+    .pipe(less({rootpath: '../static/_IGNORED_'}))
     .pipe(autoprefixer({browsers}))
     .pipe(cleanCSS())
-  .pipe(gulp.dest('./dist'));
+  .pipe(gulp.dest('./res'));
 };
 
-exports.default = gulp.series(exports.css);
+exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
+  const globPatterns = [
+    'res/*.css',
+    'static/images/**',
+  ];
+  const {count, size, warnings} = await workbox.injectManifest({
+    swSrc: './src/sw.js',
+    swDest: './res/sw.js',
+    globDirectory: './',
+    globPatterns,
+  });
+  if (!count || warnings.length) {
+    warnings.forEach((w) => console.warn(w));
+    throw new Error(`matched ${count} files in SW generation, ${warnings.length} warnings`)
+  }
+});
+
+exports.build = gulp.parallel(exports.sw, exports.css);
+exports.default = exports.build;
