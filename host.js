@@ -58,7 +58,7 @@ app.use(flat(async (ctx, next, path) => {
   case 'index':
   case 'schedule':
   case 'location':
-  case 'code-of-conduct':
+  case 'community-guidelines':
     break;
   default:
     return next();
