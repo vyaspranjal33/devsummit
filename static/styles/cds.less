@@ -267,6 +267,32 @@ section {
   }
 }
 
+// travel
+.section__feat {
+  background: #2196f3;
+  position: relative;
+  overflow: hidden;
+  padding: 3em 0;
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: -4px;
+    right: 0;
+    height: 4px;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .content {
+    color: white;
+
+    a {
+      color: inherit;
+    }
+  }
+}
+
 // links
 .section__links {
   overflow: hidden;
