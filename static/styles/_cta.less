@@ -9,6 +9,7 @@
   .cta__lines {
     position: absolute;
     background: fadeout(#f9b826, 25%);
+
     height: 100%;
     width: 100%;
 
@@ -34,6 +35,13 @@
     &:after {
       right: 0;
       background-position: left center;
+    }
+  }
+
+  &.cta-green {
+    .cta__lines {
+      // TODO(samthor): More customization.
+      background: fadeout(#179c5e, 25%);
     }
   }
 

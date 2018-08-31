@@ -134,7 +134,7 @@ section {
 
     .left,
     .right {
-      padding-bottom: 48px;
+      margin-bottom: 4em;
     }
 
     @media (min-width: @width-nav) {
@@ -143,7 +143,6 @@ section {
         @halfpad: (@padding / 2);  // otherwise we do extra division in calc
         width: calc(50% - @halfpad);
         position: relative;
-        padding-bottom: @padding;
       }
       .left {
         clear: left;
@@ -216,6 +215,8 @@ section {
 // "left/right content" section
 .section__points {
   overflow: hidden;
+  margin-bottom: 0;
+  padding-bottom: 0;
 
   p {
     margin-bottom: 1.5em;
@@ -290,6 +291,32 @@ section {
     a {
       color: inherit;
     }
+  }
+}
+
+// map
+.section__map {
+  @map-size: 640px;
+  .content {
+    background: #eee;
+    overflow: hidden;
+    background: white;
+    max-width: @map-size;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    @media (max-width: @map-size) {
+      border-radius: 0;
+    }
+  }
+  .section__map__trailer {
+    margin-top: 2px;
+    background: #666;
+    color: white;
+    padding: 1em 2em;
   }
 }
 
