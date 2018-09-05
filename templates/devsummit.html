@@ -43,24 +43,16 @@ the License.
 
 {{#if prod}}
   <!-- css -->
-  <link rel="stylesheet" href="./res/cds.css" />
-
-  <!-- js -->
-  <script src="./res/bundle.js" defer></script>
+  <link rel="stylesheet" href="./{{sourcePrefix}}/cds.css" />
 {{else}}
   <!-- dev less -->
   <link rel="stylesheet/less" type="text/css" href="./static/styles/cds.less" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js"></script>
-
-  <!-- dev js -->
-  <script src="./src/bundle.js" type="module"></script>
 {{/if}}
 
-  <script>
-if (navigator.serviceWorker) {
-  navigator.serviceWorker.register('./sw.js').catch((err) => console.error('sw reg failed', err));
-}
-  </script>
+  <!-- js -->
+  <script src="./{{sourcePrefix}}/future.js" type="module"></script>
+  <script src="./{{sourcePrefix}}/loader.js" defer></script>
 
 </head>
 <body>
@@ -140,7 +132,7 @@ ga('create', '{{ua}}', 'auto');
 ga('send', 'pageview');
 </script>
 <noscript>
-<div style="display:inline;">
+<div style="display:inline;position:fixed;">
   <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/{{conversion}}/?guid=ON&amp;script=0"/>
 </div>
 </noscript>

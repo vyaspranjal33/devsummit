@@ -14,26 +14,15 @@
  * the License.
  */
 
-const VERSION = '10.0.0';
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('./sw.js').catch(function(err) {
+    console.warn('failed to register SW', err);
+  });
 
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
-
-workbox.precaching.precacheAndRoute([]);
-workbox.googleAnalytics.initialize();
-
-self.addEventListener('install', (event) => {
-  event.waitUntil(self.skipWaiting());  // become active immediately
-});
-
-self.addEventListener('activate', (ev) => {
-  self.clients.claim();
-});
-
-self.addEventListener('message', (ev) => {
-  // for CDS 2017 and before
-  if (evt.data === 'version') {
-    evt.source.postMessage({
-      version: VERSION,
+  const hadInitialController = Boolean(navigator.serviceWorker.controller);
+  if (hadInitialController) {
+    navigator.serviceWorker.addEventListener('controllerchange', function() {
+      window.location.reload();
     });
   }
-});
+}

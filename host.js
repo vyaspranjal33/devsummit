@@ -30,14 +30,12 @@ const serve = require('koa-static');
 const app = new Koa();
 const isProd = (process.env.NODE_ENV === 'production');
 
-// nb. Superceded by app.yaml in prod, which serves the static folder for us.
-if (!isProd) {
-  app.use(mount('/static', serve('static')));
-  app.use(mount('/src', serve('src')));
+if (isProd) {
+  app.use(mount('/res', serve('res')));        // runtime build assets
+} else {
+  app.use(mount('/static', serve('static')));  // app.yaml serves this in prod
+  app.use(mount('/src', serve('src')));        // actual source folder
 }
-
-// Build-time resources, not served via App Engine directly.
-app.use(mount('/res', serve('res')));
 
 // Serve sw.js from top-level.
 const sourcePrefix = isProd ? 'res' : 'src';
@@ -71,6 +69,7 @@ app.use(flat(async (ctx, next, path) => {
     layout: 'devsummit',
     ua: 'UA-41980257-1',
     conversion: 935743779,
+    sourcePrefix,
   };
   await ctx.render(path, scope);
 }));

@@ -14,6 +14,7 @@
  * the License.
  */
 
+const fs = require('fs');
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
@@ -27,10 +28,37 @@ exports.css = function css() {
     .pipe(less({rootpath: '../static/_IGNORED_'}))
     .pipe(autoprefixer({browsers}))
     .pipe(cleanCSS())
-  .pipe(gulp.dest('./res'));
+    .pipe(gulp.dest('./res'));
+};
+
+
+exports.js = function js() {
+  // TODO(samthor): Minify/rollup.
+  return gulp.src(['src/*.js', '!src/sw.js'])
+    .pipe(gulp.dest('./res'));
 };
 
 exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
+  const now = (+new Date).toString(16);
+
+  const contentTransform = (manifest) => {
+    const sections = fs.readdirSync('./sections').map((section) => {
+      if (section === 'index.html') {
+        return './';
+      } else if (section.endsWith('.html')) {
+        return './' + section.substr(0, section.length - 5);
+      }
+      return false;
+    }).filter(Boolean);
+    sections.forEach((section) => {
+      manifest.push({
+        url: section,
+        revision: now,
+      });
+    });
+    return {manifest, warnings: []};
+  };
+
   const globPatterns = [
     'res/*.css',
     'static/images/**',
@@ -40,6 +68,7 @@ exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
     swDest: './res/sw.js',
     globDirectory: './',
     globPatterns,
+    manifestTransforms: [contentTransform],
   });
   if (!count || warnings.length) {
     warnings.forEach((w) => console.warn(w));
@@ -47,5 +76,5 @@ exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
   }
 });
 
-exports.build = gulp.parallel(exports.sw, exports.css);
+exports.build = gulp.parallel(exports.sw, exports.js, exports.css);
 exports.default = exports.build;
