@@ -68,6 +68,7 @@ exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
     swDest: './res/sw.js',
     globDirectory: './',
     globPatterns,
+    globIgnores: ['static/images/gallery/**'],
     manifestTransforms: [contentTransform],
   });
   if (!count || warnings.length) {

@@ -432,6 +432,27 @@ section {
   }
 }
 
+.section__gallery {
+  .content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-top: 20px;
+
+    > div {
+      position: relative;
+      margin: 0 0.5em 1em;
+      flex-basis: 30%;
+      flex-grow: 1;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+}
+
 .footer-logo {
   display: flex;
   justify-content: center;
