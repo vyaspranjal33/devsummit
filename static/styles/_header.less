@@ -57,8 +57,9 @@
         color: #616161;
         letter-spacing: 0.5px;
         font-weight: 400;
+        transform: translateY(1px);  // nb. just offsets Product Sans a bit
 
-        @media (max-width: @width-tiny - 1px) {
+        @media (max-width: 360px - 1px) {
           > span {
             display: none;
           }
@@ -112,6 +113,12 @@
     display: flex;
     align-items: stretch;
     justify-content: stretch;
+
+    .menu__nav-small {
+      @media (min-width: @width-nav) {
+        display: none;
+      }
+    }
 
     ul {
       list-style: none;

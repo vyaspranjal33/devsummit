@@ -31,9 +31,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.4;
 
-  @media (max-width: @width-nav - 1px) {
-    overflow-x: hidden;
-  }
   @media (max-width: @width-tiny - 1px) {
     font-size: 0.8em;
   }
@@ -47,6 +44,12 @@ a {
   min-height: 100vh;
   display: flex;
   flex-flow: column;
+  box-sizing: border-box;
+
+  @media (max-width: @width-nav - 1px) {
+    overflow-x: hidden;
+    padding-top: 64px;
+  }
 }
 
 .grow {
