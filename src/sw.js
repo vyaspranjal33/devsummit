@@ -14,15 +14,15 @@
  * the License.
  */
 
-const VERSION = '10.0.0';
+const VERSION = '10.0.2';
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
 
 workbox.precaching.precacheAndRoute([]);
 workbox.googleAnalytics.initialize();
 
-self.addEventListener('install', (event) => {
-  event.waitUntil(self.skipWaiting());  // become active immediately
+self.addEventListener('install', (ev) => {
+  ev.waitUntil(self.skipWaiting());  // become active immediately
 });
 
 self.addEventListener('activate', (ev) => {
@@ -31,9 +31,11 @@ self.addEventListener('activate', (ev) => {
 
 self.addEventListener('message', (ev) => {
   // for CDS 2017 and before
-  if (evt.data === 'version') {
-    evt.source.postMessage({
+  if (ev.data === 'version') {
+    ev.source.postMessage({
       version: VERSION,
     });
+  } else {
+    console.debug('got unhandled message', ev.data);
   }
 });
