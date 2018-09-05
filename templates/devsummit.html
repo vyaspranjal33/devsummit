@@ -44,10 +44,16 @@ the License.
 {{#if prod}}
   <!-- css -->
   <link rel="stylesheet" href="./res/cds.css" />
+
+  <!-- js -->
+  <script src="./res/bundle.js" defer></script>
 {{else}}
   <!-- dev less -->
   <link rel="stylesheet/less" type="text/css" href="./static/styles/cds.less" />
   <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.7.1/less.min.js"></script>
+
+  <!-- dev js -->
+  <script src="./src/bundle.js" type="module"></script>
 {{/if}}
 
   <script>
@@ -73,7 +79,7 @@ if (navigator.serviceWorker) {
 <div class="menu">
   <input id="menu__toggle" type="checkbox" class="menu__toggle" />
   <label class="menu__toggle-label" for="menu__toggle" aria-label="Toggle Menu" role="button"></label>
-  <div class="menu__underlay" role="presentation"></div>
+  <label class="menu__underlay" role="presentation" for="menu__toggle" aria-label="Hide Menu" role="button"></label>
 
   <nav class="menu__nav">
     <ul>
@@ -89,7 +95,7 @@ if (navigator.serviceWorker) {
   </div>
 </header>
 
-<div class="masthead">
+<div class="masthead" id="masthead">
   <div class="masthead__image"></div>
 </div>
 
@@ -100,7 +106,7 @@ if (navigator.serviceWorker) {
 <div class="grow"></div>
 
 <section>
-  <div class="content masthead-logo">
+  <div class="content footer-logo">
     <img src="./static/images/header/logo-2018.svg" width="449" height="195" />
   </div>
 </section>

@@ -33,6 +33,7 @@ const isProd = (process.env.NODE_ENV === 'production');
 // nb. Superceded by app.yaml in prod, which serves the static folder for us.
 if (!isProd) {
   app.use(mount('/static', serve('static')));
+  app.use(mount('/src', serve('src')));
 }
 
 // Build-time resources, not served via App Engine directly.

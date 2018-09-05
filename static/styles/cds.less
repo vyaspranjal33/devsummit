@@ -5,6 +5,7 @@
 @width-contentside-min: 340px;
 @color-blue: #2196f3;
 @color-header-hover: #1ea362;
+@time-pagenav: 0.25s;
 
 .default-focus() {
   outline: @color-blue auto 5px;
@@ -65,6 +66,11 @@ a {
     height: 217px;
     width: 100%;
 
+    transition: filter @time-pagenav ease-in-out;
+    .fade & {
+      filter: grayscale(1);
+    }
+
     @size-masthead: 160px;
     @ratio: (@size-masthead / 217px);
 
@@ -87,6 +93,11 @@ a {
 main {
   display: flex;
   flex-flow: column;
+  transition: opacity @time-pagenav ease-in-out;
+
+  .fade & {
+    opacity: 0;
+  }
 }
 
 section {
@@ -98,6 +109,12 @@ section {
   }
 
   .section-title {
+    transition: transform @time-pagenav ease-in-out;
+    will-change: transform;
+    .fade & {
+      transform: translateY(-32px);
+    }
+
     h3,
     time {
       font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
@@ -415,7 +432,7 @@ section {
   }
 }
 
-.masthead-logo {
+.footer-logo {
   display: flex;
   justify-content: center;
 
