@@ -14,7 +14,7 @@
  * the License.
  */
 
-const VERSION = '10.0.2';
+const VERSION = '11.1.1';
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.4.1/workbox-sw.js');
 
