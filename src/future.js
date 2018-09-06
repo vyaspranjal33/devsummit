@@ -67,7 +67,7 @@ async function tryLoad(url, fallback=null) {
 
   const state = {html: raw};
   if (window.location.href !== url.href) {
-    window.history.pushState(state, null, url);
+    window.history.pushState(state, null, url.href);
   }
   ga('send', 'pageview');
 }
