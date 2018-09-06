@@ -63,6 +63,7 @@ async function tryLoad(url, fallback=null) {
   await rAF();
   await timeout(34);  // two-ish frames
   document.body.classList.remove('fade');
+  document.scrollingElement.scrollTop = 0;  // TODO: animate
 
   const state = {html: raw};
   if (window.location.href !== url.href) {
