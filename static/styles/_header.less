@@ -4,6 +4,7 @@
 
 .header {
   @time-nav: 0.3s;
+  @padding-header: 16px;
 
   font-size: 16px;
   background: #fff;
@@ -12,15 +13,17 @@
   display: flex;
   align-items: center;
 
+  // gross Safari notch: we use two elements to manage this, so we have a minimum padding which
+  // also includes the notch width (as padding can't go below zero)
+  padding-left: calc(env(safe-area-inset-left) - @padding-header);
+  padding-right: calc(env(safe-area-inset-right) - @padding-header);
+
   .header__content {
     flex-grow: 1;
     display: flex;
     max-width: @width-normal;
     margin: 0 auto;
-    padding: 0 16px;
-    // gross Safari notch
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
+    padding: 0 @padding-header;
     // nb. does _NOT_ contain "position: relative", because the small nav must extend outside us
   }
 
