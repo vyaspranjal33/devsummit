@@ -9,13 +9,18 @@
   background: #fff;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
   height: @height-big-header;
+  display: flex;
+  align-items: center;
 
   .header__content {
-    height: 100%;
+    flex-grow: 1;
     display: flex;
     max-width: @width-normal;
     margin: 0 auto;
     padding: 0 16px;
+    // gross Safari notch
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
     // nb. does _NOT_ contain "position: relative", because the small nav must extend outside us
   }
 
