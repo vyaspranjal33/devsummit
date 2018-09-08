@@ -20,6 +20,7 @@
 
 'use strict';
 
+const fs = require('fs');
 const flat = require('./deps/router.js');
 const hbs = require('koa-hbs');
 const Koa = require('koa');
@@ -52,17 +53,17 @@ app.use(hbs.middleware({
   extname: '.html',
 }));
 
+const sections = fs.readdirSync(`${__dirname}/sections`)
+    .map((section) => {
+      if (section.endsWith('.html')) {
+        return section.substr(0, section.length - 5);
+      }
+    }).filter(Boolean);
+
 app.use(flat(async (ctx, next, path) => {
-  switch (path) {
-  case 'index':
-  case 'schedule':
-  case 'location':
-  case 'community-guidelines':
-    break;
-  default:
+  if (sections.indexOf(path) === -1) {
     return next();
   }
-
   const scope = {
     year: 2018,
     prod: isProd,
