@@ -14,12 +14,19 @@
  * the License.
  */
 
+const del = require('del');
 const fs = require('fs');
 const gulp = require('gulp');
 const autoprefixer = require('gulp-autoprefixer');
+const rollup = require('gulp-better-rollup')
+const sourcemaps = require('gulp-sourcemaps');
 const cleanCSS = require('gulp-clean-css');
 const less = require('gulp-less');
 const workbox = require('workbox-build');
+
+exports.clean = function clean() {
+  return del(['./res']);
+}
 
 exports.css = function css() {
   // exclude IE11's broken flexbox
@@ -31,14 +38,19 @@ exports.css = function css() {
     .pipe(gulp.dest('./res'));
 };
 
-
 exports.js = function js() {
-  // TODO(samthor): Minify/rollup.
+  // TODO(samthor): Minify.
+  const options = {
+    cache: false,  // cache clobbers other rollup tasks
+  };
   return gulp.src(['src/*.js', '!src/sw.js'])
+    .pipe(sourcemaps.init())
+    .pipe(rollup(options, {format: 'es'}))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('./res'));
 };
 
-exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
+exports.sw = gulp.series(gulp.parallel(exports.css, exports.js), async function sw() {
   const now = (+new Date).toString(16);
 
   const contentTransform = (manifest) => {
@@ -61,6 +73,7 @@ exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
 
   const globPatterns = [
     'res/*.css',
+    'res/*.js',
     'static/images/**',
   ];
   const {count, size, warnings} = await workbox.injectManifest({
@@ -68,7 +81,7 @@ exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
     swDest: './res/sw.js',
     globDirectory: './',
     globPatterns,
-    globIgnores: ['static/images/gallery/**'],
+    globIgnores: ['static/images/gallery/**', 'res/sw.js'],
     manifestTransforms: [contentTransform],
   });
   if (!count || warnings.length) {
@@ -77,5 +90,5 @@ exports.sw = gulp.series(gulp.parallel(exports.css), async function sw() {
   }
 });
 
-exports.build = gulp.parallel(exports.sw, exports.js, exports.css);
+exports.build = gulp.series(exports.clean, gulp.parallel(exports.sw, exports.js, exports.css));
 exports.default = exports.build;

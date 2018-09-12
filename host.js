@@ -36,6 +36,7 @@ if (isProd) {
 } else {
   app.use(mount('/static', serve('static')));  // app.yaml serves this in prod
   app.use(mount('/src', serve('src')));        // actual source folder
+  app.use(mount('/node_modules', serve('node_modules')));
 }
 
 // Serve sw.js from top-level.
