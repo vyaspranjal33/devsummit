@@ -44,7 +44,8 @@ const policies = [
   'gyroscope',
   'document-write',
   'lazyload',
-  'sync-script',
+// needed even for <script defer> with inline JS
+  // 'sync-script',
   'sync-xhr',
   'image-compression',
   'microphone',
