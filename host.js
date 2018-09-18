@@ -25,11 +25,15 @@ const flat = require('./deps/router.js');
 const hbs = require('koa-hbs');
 const Koa = require('koa');
 const mount = require('koa-mount');
+const policy = require('./deps/policy.js');
 const send = require('koa-send');
 const serve = require('koa-static');
 
 const app = new Koa();
 const isProd = (process.env.NODE_ENV === 'production');
+
+// save policy string
+const policyHeader = policy(isProd);
 
 if (isProd) {
   app.use(mount('/res', serve('res')));        // runtime build assets
@@ -73,6 +77,7 @@ app.use(flat(async (ctx, next, path) => {
     conversion: 935743779,
     sourcePrefix,
   };
+  ctx.set('Feature-Policy', policyHeader);
   await ctx.render(path, scope);
 }));
 
