@@ -32,6 +32,8 @@ const serve = require('koa-static');
 const app = new Koa();
 const isProd = (process.env.NODE_ENV === 'production');
 
+const schedule = require('./schedule.json');
+
 // save policy string
 const policyHeader = policy(isProd);
 
@@ -65,10 +67,39 @@ const sections = fs.readdirSync(`${__dirname}/sections`)
       }
     }).filter(Boolean);
 
-app.use(flat(async (ctx, next, path) => {
+app.use(flat(async (ctx, next, path, rest) => {
   if (sections.indexOf(path) === -1) {
     return next();
   }
+
+  if (rest) {
+    if (path !== 'schedule') {
+      return next();
+    }
+
+    // lookup schedule and check ID doesn't start with _
+    const data = schedule.sessions[rest];
+    if (!data || rest.startsWith('_')) {
+      return next();
+    }
+
+    ctx.set('Feature-Policy', policyHeader);
+
+    // TODO(samthor): Unify a bit with the other rendering code. Share <head>?
+    const sitePrefix = 'https://developer.chrome.com/devsummit';
+    const scope = {
+      year: 2018,
+      prod: isProd,
+      ua: 'UA-41980257-1',
+      layout: 'amp',
+      sitePrefix,
+      title: data.name || '',
+      description: data.description || '',
+      payload: data,
+    };
+    return await ctx.render('amp-session', scope);
+  }
+
   const scope = {
     year: 2018,
     prod: isProd,

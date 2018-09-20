@@ -1,0 +1,24 @@
+{
+  "sessions": {
+    "keynote-day1": {
+      "name": "Keynote",
+      "when": "2018-11-12T10:00",
+      "description": "A roundup of the year in advancements to the web platform and why and how Google products are invested in Web.",
+      "speakers": [
+        {"name": "Ben Galbraith", "role": "Director, Chrome", "image": true},
+        {"name": "Dion Almaer", "role": "Director, Web Developer Ecosystem", "image": true, "link": "https://twitter.com/dalmaer"}
+      ],
+      "youtube": ""
+    },
+    "why-the-web-matters": {
+      "name": "Get Down to Business: Why The Web Matters",
+      "when": "2018-11-12T10:30",
+      "description": "The modern web enables fast, integrated, reliable and engaging experiences. [company name] walks through how they have achieved growth and business success by focusing on speed, taking advantage of the web’s expanding capabilities and found meaningful engagement with new and existing users.",
+      "youtube": ""
+    },
+    "_break-day1": {
+      "name": "Break",
+      "when": "2018-11-12T10:55"
+    }
+  }
+}

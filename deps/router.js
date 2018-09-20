@@ -19,7 +19,7 @@
  */
 
 // slug includes \w and "-"
-const sectionRe = /^\/([-\w]*)$/;
+const sectionRe = /^\/([-\w]*)(|\/[-\w]+)$/;
 
 module.exports = (mw) => {
   return async (ctx, next) => {
@@ -44,7 +44,8 @@ module.exports = (mw) => {
       ctx.body = null;
     } else {
       const path = m[1] || 'index';
-      await mw.call(this, ctx, next, path);
+      const rest = m[2] ? m[2].slice(1) : 0;
+      await mw.call(this, ctx, next, path, rest);
     }
   };
 };
