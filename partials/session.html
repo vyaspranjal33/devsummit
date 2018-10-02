@@ -1,14 +1,6 @@
-
-<h1>{{title}}</h1>
-
-<time datetime="{{payload.when}}">{{formatTime payload.when}}</time>
-
-<p>{{description}}</p>
-
-<div class="grow"></div>
-
-<ul class="speakers">
-{{#each payload.speakers}}
+<div id="session_{{id}}" class="session">
+  <div class="session__speakers">
+{{#each data.speakers}}
   <li>
     <img src="../static/images/icons/chrome-icon@192.png" width="64" height="64" />
     <div>
@@ -17,4 +9,11 @@
     </div>
   </li>
 {{/each}}
-</ul>
+  </div>
+  <div class="session__time">
+    <time datetime="{{data.when}}">{{formatTime data.when}}</time>
+  </div>
+  <div class="session__details">
+    <h5>{{data.name}}</h5>
+  </div>
+</div>

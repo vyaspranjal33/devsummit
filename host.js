@@ -26,6 +26,7 @@ const hbs = require('koa-hbs');
 const Koa = require('koa');
 const mount = require('koa-mount');
 const policy = require('./deps/policy.js');
+const calendar = require('./deps/calendar.js')
 const send = require('koa-send');
 const serve = require('koa-static');
 
@@ -33,6 +34,7 @@ const app = new Koa();
 const isProd = (process.env.NODE_ENV === 'production');
 
 const schedule = require('./schedule.json');
+const days = calendar.days(schedule);
 
 // save policy string
 const policyHeader = policy(isProd);
@@ -57,8 +59,18 @@ app.use(async (ctx, next) => {
 app.use(hbs.middleware({
   viewPath: `${__dirname}/sections`,
   layoutsPath: `${__dirname}/templates`,
+  partialsPath: `${__dirname}/partials`,
   extname: '.html',
 }));
+
+hbs.registerHelper('formatTime', (raw) => {
+  const d = new Date(raw);
+  if (isNaN(+d)) {
+    return '?';
+  }
+  const pad = (x) => (x < 10 ? `0${x}` : '' + x);
+  return `${pad(d.getHours() + 1)}:${pad(d.getMinutes())}`;
+});
 
 const sections = fs.readdirSync(`${__dirname}/sections`)
     .map((section) => {
@@ -123,6 +135,7 @@ app.use(flat(async (ctx, next, path, rest) => {
     ua: 'UA-41980257-1',
     conversion: 935743779,
     sourcePrefix,
+    days,
   };
   ctx.set('Feature-Policy', policyHeader);
   await ctx.render(path, scope);
