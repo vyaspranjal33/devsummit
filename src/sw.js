@@ -29,6 +29,27 @@ self.addEventListener('activate', (ev) => {
   self.clients.claim();
 });
 
+// sw scope is the directory this SW is inside
+const scope = new URL('.', self.location);
+
+self.addEventListener('fetch', (ev) => {
+  const request = ev.request;
+  const url = new URL(request.url);
+  if (scope.origin !== url.origin || request.method !== 'GET') {
+    return;
+  }
+
+  const schedulePrefix = scope.pathname + 'schedule';
+  if (!url.pathname.startsWith(schedulePrefix + '/')) {
+    return;
+  }
+  const rest = url.pathname.substr(schedulePrefix.length + 1);  // include trailing '/'
+  if (rest.startsWith('_') || rest.indexOf('/') !== -1) {
+    return;
+  }
+  ev.respondWith(self.fetch(schedulePrefix));
+});
+
 self.addEventListener('message', (ev) => {
   // for CDS 2017 and before
   if (ev.data === 'version') {

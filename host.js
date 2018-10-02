@@ -72,6 +72,10 @@ app.use(flat(async (ctx, next, path, rest) => {
     return next();
   }
 
+  // TODO(samthor): Hardcoded, needed for base paths.
+  const basepath = '/devsummit/';
+  const sitePrefix = 'https://developer.chrome.com/devsummit';
+
   if (rest) {
     if (path !== 'schedule') {
       return next();
@@ -86,7 +90,6 @@ app.use(flat(async (ctx, next, path, rest) => {
     ctx.set('Feature-Policy', policyHeader);
 
     // TODO(samthor): Unify a bit with the other rendering code. Share <head>?
-    const sitePrefix = 'https://developer.chrome.com/devsummit';
     const scope = {
       year: 2018,
       prod: isProd,
@@ -103,6 +106,7 @@ app.use(flat(async (ctx, next, path, rest) => {
   const scope = {
     year: 2018,
     prod: isProd,
+    base: basepath,
     layout: 'devsummit',
     ua: 'UA-41980257-1',
     conversion: 935743779,
