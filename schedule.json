@@ -163,8 +163,8 @@
                     "name": "Adam Argyle",
                     "role": "UX Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/argyleink",
                     "dino": "dino-yellow.png"
                 }
             ]
@@ -188,10 +188,10 @@
                 {
                     "ldap": "c6e3690d5aaca6e349bc63d40729411d",
                     "name": "Mariko Kosaka",
-                    "role": "Developer Advocate",
+                    "role": "Drawsplainer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/kosamari",
                     "dino": "dino-blue.png"
                 }
             ]
@@ -243,8 +243,8 @@
                     "name": "Cheney Tsai",
                     "role": "Mobile Solutions Consultant",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/cheneytsai",
                     "dino": "dino-red.png"
                 },
                 {
@@ -270,8 +270,8 @@
                     "name": "Alberto Medina",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/ialbmedina",
                     "dino": "dino-green.png"
                 },
                 {
@@ -279,8 +279,8 @@
                     "name": "Weston Ruter",
                     "role": "Developer Programs Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/westonruter",
                     "dino": "dino-yellow.png"
                 }
             ]
@@ -332,7 +332,7 @@
                     "name": "Malte Ubl",
                     "role": "Engineering Lead",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/cramforce",
                     "dino": "dino-green.png"
                 },
@@ -357,10 +357,10 @@
                 {
                     "ldap": "b69255cf1077fbad80ada26a75ea3601",
                     "name": "Eric Bidelman",
-                    "role": "Digital Jedi",
+                    "role": "Staff Developer Programs Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/ebidel",
                     "dino": "dino-red.png"
                 }
             ]
@@ -394,8 +394,8 @@
                     "name": "Gray Norton",
                     "role": "Engineering Manager",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/graynorton",
                     "dino": "dino-green.png"
                 }
             ]
@@ -701,8 +701,8 @@
             "name": "Adam Argyle",
             "role": "UX Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/argyleink",
             "dino": "dino-yellow.png"
         },
         "bf62d98d0284b3b873ed50fdd1697704": {
@@ -717,10 +717,10 @@
         "c6e3690d5aaca6e349bc63d40729411d": {
             "ldap": "c6e3690d5aaca6e349bc63d40729411d",
             "name": "Mariko Kosaka",
-            "role": "Developer Advocate",
+            "role": "Drawsplainer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/kosamari",
             "dino": "dino-blue.png"
         },
         "48a4de34ba8674542200b5c10935f148": {
@@ -746,8 +746,8 @@
             "name": "Cheney Tsai",
             "role": "Mobile Solutions Consultant",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/cheneytsai",
             "dino": "dino-red.png"
         },
         "a191fb5d06c3902bded77b9de18c655b": {
@@ -764,8 +764,8 @@
             "name": "Alberto Medina",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/ialbmedina",
             "dino": "dino-green.png"
         },
         "16b1480cf3745ca7c6e3fad897869a6d": {
@@ -773,8 +773,8 @@
             "name": "Weston Ruter",
             "role": "Developer Programs Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/westonruter",
             "dino": "dino-yellow.png"
         },
         "891044520f379343f3bb5add2a80550b": {
@@ -800,7 +800,7 @@
             "name": "Malte Ubl",
             "role": "Engineering Lead",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/cramforce",
             "dino": "dino-green.png"
         },
@@ -816,10 +816,10 @@
         "b69255cf1077fbad80ada26a75ea3601": {
             "ldap": "b69255cf1077fbad80ada26a75ea3601",
             "name": "Eric Bidelman",
-            "role": "Digital Jedi",
+            "role": "Staff Developer Programs Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/ebidel",
             "dino": "dino-red.png"
         },
         "fcac115effef3e009c86b70f58b55a18": {
@@ -836,8 +836,8 @@
             "name": "Gray Norton",
             "role": "Engineering Manager",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/graynorton",
             "dino": "dino-green.png"
         },
         "e0882402cfa59b5a2200eea5b49b4616": {
