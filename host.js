@@ -67,14 +67,26 @@ const sections = fs.readdirSync(`${__dirname}/sections`)
       }
     }).filter(Boolean);
 
+function mountUrl(ctx) {
+  if (ctx.originalUrl === undefined) {
+    return '';
+  }
+  const index = ctx.originalUrl.lastIndexOf(ctx.url);
+  if (index === -1) {
+    return '';
+  }
+  return ctx.originalUrl.slice(0, index);
+}
+
 app.use(flat(async (ctx, next, path, rest) => {
   if (sections.indexOf(path) === -1) {
     return next();
   }
 
-  // TODO(samthor): Hardcoded, needed for base paths.
-  const basepath = '/devsummit/';
-  const sitePrefix = 'https://developer.chrome.com/devsummit';
+  // derive the mount path from Koa, so this doesn't need to have it as a const
+  const basepath = mountUrl(ctx);
+  const hostname = ctx.req.headers.host;
+  const sitePrefix = (isProd ? 'https://' : 'http://') + hostname + basepath;
 
   if (rest) {
     if (path !== 'schedule') {
