@@ -70,8 +70,6 @@ for(var i in speakers) {
     }
 }
 
-exit;
-
 //console.log(output.speakers);
 
 for(var i in sessions) {
