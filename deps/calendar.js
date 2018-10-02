@@ -48,7 +48,20 @@ module.exports = {
 
     const sessions = schedule.sessions;
     for (const id in sessions) {
-      const data = sessions[id];
+      let data = sessions[id];
+
+      if (data.name.toLowerCase() == 'break') {
+        data.classes = 'break';
+      }
+
+      if (data.name.toLowerCase() == 'lunch') {
+        data.classes = 'break';
+      }
+
+      if (data.name.toLowerCase() == 'end') {
+        data.classes = 'end';
+        continue;
+      }
 
       const when = new Date(data.when);
       if (isNaN(+when)) {

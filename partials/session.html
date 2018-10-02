@@ -1,19 +1,46 @@
-<div id="session_{{id}}" class="session">
+<div id="session_{{id}}" class="session {{data.classes}}">
+  <div class="session__time">
+    <time datetime="{{data.when}}">{{formatTime data.when}}</time>
+  </div>
+
   <div class="session__speakers">
 {{#each data.speakers}}
   <li>
-    <img src="../static/images/icons/chrome-icon@192.png" width="64" height="64" />
+      {{#if this.link}}<a href="{{this.link}}" target="_blank" rel="noopener">
+        {{#if this.photo_available}}
+          <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" />
+        {{else}}
+          <img src="static/images/icons/{{this.dino}}" width="64" height="64" />
+        {{/if}}
+      </a>
+      {{else}}
+        {{#if this.photo_available}}
+          <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" />
+        {{else}}
+          <img src="static/images/icons/{{this.dino}}" width="64" height="64" />
+        {{/if}}
+      {{/if}}
+    <!-- <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" /> -->
     <div>
-      {{#if this.link}}<a href="{{this.link}}" target="_blank" rel="noopener">{{this.name}}</a>{{else}}{{this.name}}{{/if}}
-      <span class="role">{{this.role}}</span>
+      
+      <!-- <span class="role">{{this.role}}</span> -->
     </div>
   </li>
 {{/each}}
   </div>
-  <div class="session__time">
-    <time datetime="{{data.when}}">{{formatTime data.when}}</time>
-  </div>
+  
   <div class="session__details">
     <h5>{{data.name}}</h5>
+    <div class="speakers">
+      {{#each data.speakers}}
+        <div class="role">
+          {{#if this.link}}
+            <a href="{{this.link}}" target="_blank" rel="noopener"><span class="speaker-name">{{this.name}},</span> {{this.role}}</a>
+          {{else}}
+            <span class="speaker-name">{{this.name}},</span> {{this.role}}
+          {{/if}}
+        </div>
+      {{/each}}
+    </div>
   </div>
 </div>

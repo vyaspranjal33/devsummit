@@ -490,3 +490,73 @@ section {
     border-color: @color-header-hover;
   }
 }
+
+.schedule-page {
+
+  h4 {
+    color: #4a96e3;
+    font-size: 1.6em;
+  }
+}
+
+.session {
+  display: flex;
+
+  .session__time {
+    padding: 10px;
+  }
+
+  .session__speakers {
+    padding: 10px;
+
+    li {
+      list-style: none;
+      padding-bottom: 10px;
+    }
+  }
+
+  .session__details {
+    flex-grow: 1;
+    padding: 10px;
+
+    .speaker-name {
+      // font-weight: bold;
+    }
+
+    a {
+      color: #616161;
+      text-decoration: none;
+    }
+
+    h5 {
+      margin-top: 0;
+      margin-bottom: 0.4em;
+      font-size: 1em;
+    }
+
+    .role {
+      font-size: 0.85em;
+    }
+  }
+
+  img {
+    border-radius: 50%;
+    box-shadow: 0px 2px 1px grey;
+  }
+}
+
+.session.break {
+  background: #9fdaf7;
+
+  .session__speakers {
+    display: none;
+  }
+
+  .session__details {
+    text-align: center;
+
+    h5 {
+      margin: 0;
+    }
+  }
+}
