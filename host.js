@@ -91,6 +91,8 @@ function mountUrl(ctx) {
 }
 
 app.use(flat(async (ctx, next, path, rest) => {
+  console.log(next, path, rest);
+
   if (sections.indexOf(path) === -1) {
     return next();
   }
@@ -99,6 +101,17 @@ app.use(flat(async (ctx, next, path, rest) => {
   const basepath = mountUrl(ctx);
   const hostname = ctx.req.headers.host;
   const sitePrefix = (isProd ? 'https://' : 'http://') + hostname + basepath;
+
+  let scope = {
+    year: 2018,
+    prod: isProd,
+    base: basepath,
+    layout: 'devsummit',
+    ua: 'UA-41980257-1',
+    conversion: 935743779,
+    sourcePrefix,
+    days,
+  };
 
   if (rest) {
     if (path !== 'schedule') {
@@ -112,31 +125,25 @@ app.use(flat(async (ctx, next, path, rest) => {
     }
 
     ctx.set('Feature-Policy', policyHeader);
+    const sitePrefix = 'https://developer.chrome.com/devsummit';
+    
+    scope.layout = 'amp';
+    scope.sitePrefix;
+    scope.title = data.name || '';
+    scope.description = data.description || '',
+    scope.payload = data;
 
-    // TODO(samthor): Unify a bit with the other rendering code. Share <head>?
-    const scope = {
-      year: 2018,
-      prod: isProd,
-      ua: 'UA-41980257-1',
-      layout: 'amp',
-      sitePrefix,
-      title: data.name || '',
-      description: data.description || '',
-      payload: data,
-    };
-    return await ctx.render('amp-session', scope);
-  }
+    path = 'amp-session';
 
-  const scope = {
-    year: 2018,
-    prod: isProd,
-    base: basepath,
-    layout: 'devsummit',
-    ua: 'UA-41980257-1',
-    conversion: 935743779,
-    sourcePrefix,
-    days,
-  };
+    //return await ctx.render('amp-session', scope);
+    //return await ctx.render('amp-session', scope);
+  } 
+
+  // if (path == 'schedule') {
+  //   scope.schedule = schedule;
+  //   //console.log(scope.schedule);
+  // }
+
   ctx.set('Feature-Policy', policyHeader);
   await ctx.render(path, scope);
 }));

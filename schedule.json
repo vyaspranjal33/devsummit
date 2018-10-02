@@ -1,24 +1,943 @@
 {
-  "sessions": {
-    "keynote-day1": {
-      "name": "Keynote",
-      "when": "2018-11-12T10:00",
-      "description": "A roundup of the year in advancements to the web platform and why and how Google products are invested in Web.",
-      "speakers": [
-        {"name": "Ben Galbraith", "role": "Director, Chrome", "image": true},
-        {"name": "Dion Almaer", "role": "Director, Web Developer Ecosystem", "image": true, "link": "https://twitter.com/dalmaer"}
-      ],
-      "youtube": ""
+    "sessions": {
+        "keynote-0": {
+            "day_index": "0",
+            "name": "Day 1 Keynote",
+            "theme": "",
+            "time_label": "10:00 - 10:25",
+            "when": "2018-11-12T10:00",
+            "speakers": [
+                {
+                    "ldap": "376ad68795360ead7e20ee6892bf4e0e",
+                    "name": "Ben Galbraith",
+                    "role": "Director, Chrome",
+                    "company": "Google",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/bgalbs",
+                    "dino": "dino-blue.png"
+                },
+                {
+                    "ldap": "7caa2c8d9209ce05c2996862103356a0",
+                    "name": "Dion Almaer",
+                    "role": "Director, Web Developer Ecosystem",
+                    "company": "Google",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/dalmaer",
+                    "dino": "dino-green.png"
+                }
+            ]
+        },
+        "why-the-web-matters": {
+            "day_index": "0",
+            "name": "Get Down to Business: Why the Web Matters",
+            "theme": "",
+            "time_label": "10:30 - 10:55",
+            "when": "2018-11-12T10:30",
+            "speakers": [
+                {
+                    "ldap": "9d58776bf96aa22e9e2363eced6ae56a",
+                    "name": "Aanchal Bahadur",
+                    "role": "Strategic Partner Development Manager",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "break-0-0": {
+            "day_index": "0",
+            "name": "Break",
+            "theme": "",
+            "time_label": "10:55 - 11:25",
+            "when": "2018-11-12T10:55",
+            "speakers": []
+        },
+        "speed-tooling": {
+            "day_index": "0",
+            "name": "State of the Union for Speed Tooling",
+            "theme": "Fast",
+            "time_label": "11:30 - 11:55",
+            "when": "2018-11-12T11:30",
+            "speakers": [
+                {
+                    "ldap": "990ee931a6b71e49a5bac2bded6b0e0e",
+                    "name": "Paul Irish",
+                    "role": "Performance Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "https://twitter.com/paul_irish",
+                    "dino": "dino-red.png"
+                },
+                {
+                    "ldap": "a2c1714713a8b398ee3a0887ccf47699",
+                    "name": "Elizabeth Sweeny",
+                    "role": "Product Manager",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "speed-essentials": {
+            "day_index": "0",
+            "name": "Speed Essentials: Key Techniques for Fast Websites",
+            "theme": "Fast",
+            "time_label": "12:00 - 12:25",
+            "when": "2018-11-12T12:00",
+            "speakers": [
+                {
+                    "ldap": "0933dea74b5231e219a02dfb99156d93",
+                    "name": "Houssein Djirdeh",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-green.png"
+                },
+                {
+                    "ldap": "4ca9cd2e993fcdf70686c21c8ae83260",
+                    "name": "Katie Hempenius",
+                    "role": "Chrome Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "caching-strategies": {
+            "day_index": "0",
+            "name": "Building Faster and More Resilient Apps with Service Worker: A Deep Dive into Caching Strategies",
+            "theme": "Reliable",
+            "time_label": "12:30 - 12:55",
+            "when": "2018-11-12T12:30",
+            "speakers": [
+                {
+                    "ldap": "7ec68f6b36d6f1f9105344b65d92c959",
+                    "name": "Ewa Gasperowicz",
+                    "role": "Developer Programs Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-red.png"
+                },
+                {
+                    "ldap": "209890681f391c4f768dba10db86376c",
+                    "name": "Phil Walton",
+                    "role": "Developer Programs Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "lunch-0": {
+            "day_index": "0",
+            "name": "Lunch",
+            "theme": "",
+            "time_label": "12:55 - 14:25",
+            "when": "2018-11-12T12:55",
+            "speakers": []
+        },
+        "smooth-moves": {
+            "day_index": "0",
+            "name": "Smooth Moves: Rendering at the Speed of Right ®",
+            "theme": "Smooth",
+            "time_label": "14:30 - 14:55",
+            "when": "2018-11-12T14:30",
+            "speakers": [
+                {
+                    "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
+                    "name": "Jason Miller",
+                    "role": "Developer Programs Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-green.png"
+                },
+                {
+                    "ldap": "3b75cdd826a16f5bba0076690f644dc7",
+                    "name": "Adam Argyle",
+                    "role": "UX Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "complex-js-web-apps": {
+            "day_index": "0",
+            "name": "Complex JS-heavy Web Apps, Avoiding the Slow",
+            "theme": "Smooth",
+            "time_label": "15:00 - 15:25",
+            "when": "2018-11-12T15:00",
+            "speakers": [
+                {
+                    "ldap": "bf62d98d0284b3b873ed50fdd1697704",
+                    "name": "Jake Archibald",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-red.png"
+                },
+                {
+                    "ldap": "c6e3690d5aaca6e349bc63d40729411d",
+                    "name": "Mariko Kosaka",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "modern-web-media": {
+            "day_index": "0",
+            "name": "Building Modern Web Media Experiences",
+            "theme": "Meaningful - Media",
+            "time_label": "15:30 - 15:55",
+            "when": "2018-11-12T15:30",
+            "speakers": [
+                {
+                    "ldap": "48a4de34ba8674542200b5c10935f148",
+                    "name": "François Beaufort",
+                    "role": "Developer Programs Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-green.png"
+                },
+                {
+                    "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
+                    "name": "Frank Galligan",
+                    "role": "Chrome Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "break-0-1": {
+            "day_index": "0",
+            "name": "Break",
+            "theme": "",
+            "time_label": "15:55 - 16:25",
+            "when": "2018-11-12T15:55",
+            "speakers": []
+        },
+        "modern-ecommerce": {
+            "day_index": "0",
+            "name": "Modern Websites for E-commerce in the Real World",
+            "theme": "Meaningful - Commerce",
+            "time_label": "16:30 - 16:55",
+            "when": "2018-11-12T16:30",
+            "speakers": [
+                {
+                    "ldap": "531e7c79b602cb57c6192c9dd40f53b8",
+                    "name": "Cheney Tsai",
+                    "role": "Mobile Solutions Consultant",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-red.png"
+                },
+                {
+                    "ldap": "a191fb5d06c3902bded77b9de18c655b",
+                    "name": "Ramya Raghavan",
+                    "role": "Mobile Solutions Consultant",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "progressive-cms": {
+            "day_index": "0",
+            "name": "Progressive Content Management Systems",
+            "theme": "Meaningful - Publishing",
+            "time_label": "17:00 - 17:25",
+            "when": "2018-11-12T17:00",
+            "speakers": [
+                {
+                    "ldap": "44cfd5d8bf53a3b59ad8c8cd8d43dc7f",
+                    "name": "Alberto Medina",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-green.png"
+                },
+                {
+                    "ldap": "16b1480cf3745ca7c6e3fad897869a6d",
+                    "name": "Weston Ruter",
+                    "role": "Developer Programs Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "discoverable-modern-web": {
+            "day_index": "0",
+            "name": "Making Modern Web Content Discoverable for Search",
+            "theme": "Search & Discovery",
+            "time_label": "17:30 - 17:55",
+            "when": "2018-11-12T17:30",
+            "speakers": [
+                {
+                    "ldap": "891044520f379343f3bb5add2a80550b",
+                    "name": "Martin Splitt",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-red.png"
+                },
+                {
+                    "ldap": "d87d78a8275351c3154c3232ac2284af",
+                    "name": "Tom Greenaway",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/tcmg",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "end-0": {
+            "day_index": "0",
+            "name": "END",
+            "theme": "",
+            "time_label": "",
+            "when": "2018-11-12T17:55",
+            "speakers": []
+        },
+        "keynote-1": {
+            "day_index": "1",
+            "name": "Day 2 Keynote",
+            "theme": "UX+DX",
+            "time_label": "10:00 - 10:25",
+            "when": "2018-11-13T10:00",
+            "speakers": [
+                {
+                    "ldap": "eda7396f5f2511df0646ce0e54401981",
+                    "name": "Malte Ubl",
+                    "role": "Engineering Lead",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "https://twitter.com/cramforce",
+                    "dino": "dino-green.png"
+                },
+                {
+                    "ldap": "9479c85721d840f07b253c2f98e874f9",
+                    "name": "Nicole Sullivan",
+                    "role": "Product Manager",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "https://twitter.com/stubbornella",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "feature-policy": {
+            "day_index": "1",
+            "name": "Feature Policy & the Well-Lit Path for Web Development",
+            "theme": "DX",
+            "time_label": "10:30 - 10:55",
+            "when": "2018-11-13T10:30",
+            "speakers": [
+                {
+                    "ldap": "b69255cf1077fbad80ada26a75ea3601",
+                    "name": "Eric Bidelman",
+                    "role": "Digital Jedi",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-red.png"
+                }
+            ]
+        },
+        "break-1-0": {
+            "day_index": "1",
+            "name": "Break",
+            "theme": "",
+            "time_label": "10:55 - 11:25",
+            "when": "2018-11-13T10:55",
+            "speakers": []
+        },
+        "layered-apis": {
+            "day_index": "1",
+            "name": "DRY on the Web Platform with Layered APIs & High-Level Features",
+            "theme": "DX",
+            "time_label": "11:30 - 11:55",
+            "when": "2018-11-13T11:30",
+            "speakers": [
+                {
+                    "ldap": "fcac115effef3e009c86b70f58b55a18",
+                    "name": "Natasha Pabrai",
+                    "role": "Engineering Program Manager, Chrome",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-blue.png"
+                },
+                {
+                    "ldap": "c02915a65496ddfb2542c6fe2d80bcf3",
+                    "name": "Gray Norton",
+                    "role": "Engineering Manager",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-green.png"
+                }
+            ]
+        },
+        "scheduling-on-off-main-thread": {
+            "day_index": "1",
+            "name": "The Quest to Guarantee Responsiveness: Scheduling on & off the Main Thread",
+            "theme": "DX",
+            "time_label": "12:00 - 12:25",
+            "when": "2018-11-13T12:00",
+            "speakers": [
+                {
+                    "ldap": "e0882402cfa59b5a2200eea5b49b4616",
+                    "name": "Shubhie Panicker",
+                    "role": "Chrome Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "lights-camera-action": {
+            "day_index": "1",
+            "name": "Lights, Camera, Action!",
+            "theme": "DX",
+            "time_label": "12:30 - 12:55",
+            "when": "2018-11-13T12:30",
+            "speakers": [
+                {
+                    "ldap": "b755b54531c5363b0907e46e90892c5b",
+                    "name": "Paul Lewis",
+                    "role": "Chrome Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "https://twitter.com/aerotwist",
+                    "dino": "dino-red.png"
+                },
+                {
+                    "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
+                    "name": "Surma Surma",
+                    "role": "Surma",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "https://twitter.com/DasSurma",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "lunch-1": {
+            "day_index": "1",
+            "name": "Lunch",
+            "theme": "",
+            "time_label": "12:55 - 14:25",
+            "when": "2018-11-13T12:55",
+            "speakers": []
+        },
+        "web-packaging-portals": {
+            "day_index": "1",
+            "name": "From Low Friction to Zero Friction with Web Packaging & Portals",
+            "theme": "UX",
+            "time_label": "14:30 - 14:55",
+            "when": "2018-11-13T14:30",
+            "speakers": [
+                {
+                    "ldap": "548a8839a94bfe61a436f8ce9ec380a7",
+                    "name": "Kinuko Yasuda",
+                    "role": "Chrome Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-green.png"
+                },
+                {
+                    "ldap": "92db3e5999f3dc0016b626ee57b7dbf8",
+                    "name": "Rudy Galfi",
+                    "role": "Product Manager",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "worklets": {
+            "day_index": "1",
+            "name": "Breaking Out of CSS’ Standard Tools with Houdini: Animation Worklets, Paint Worklets, Layout API, and Next Gen CSS",
+            "theme": "UX",
+            "time_label": "15:00 - 15:25",
+            "when": "2018-11-13T15:00",
+            "speakers": [
+                {
+                    "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
+                    "name": "Surma Surma",
+                    "role": "Surma",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "https://twitter.com/DasSurma",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "webxr": {
+            "day_index": "1",
+            "name": "Building Engaging Immersive Experiences with WebXR",
+            "theme": "UX",
+            "time_label": "15:30 - 15:55",
+            "when": "2018-11-13T15:30",
+            "speakers": [
+                {
+                    "ldap": "d0fe1ce07fddde1b8c7da18df6333942",
+                    "name": "Chris Wilson",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-red.png"
+                },
+                {
+                    "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
+                    "name": "John Pallett",
+                    "role": "Product Manager",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "break-1-1": {
+            "day_index": "1",
+            "name": "Break",
+            "theme": "",
+            "time_label": "15:55 - 16:25",
+            "when": "2018-11-13T15:55",
+            "speakers": []
+        },
+        "wasm": {
+            "day_index": "1",
+            "name": "Using WebAssembly and Threads",
+            "theme": "",
+            "time_label": "16:30 - 16:55",
+            "when": "2018-11-13T16:30",
+            "speakers": [
+                {
+                    "ldap": "3b562519931363f27d26b9c24464b5e9",
+                    "name": "Alex Danilo",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-green.png"
+                },
+                {
+                    "ldap": "673e7995b41f041a67fff425b6c6f824",
+                    "name": "Thomas Nattestad",
+                    "role": "Product Manager",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-yellow.png"
+                }
+            ]
+        },
+        "virtue-of-laziness": {
+            "day_index": "1",
+            "name": "The Virtue of Laziness: Leveraging Incrementality for Faster Web UI",
+            "theme": "",
+            "time_label": "17:00 - 17:25",
+            "when": "2018-11-13T17:00",
+            "speakers": [
+                {
+                    "ldap": "7ffdb3da8ce9da2d0eb62d731eaae1b5",
+                    "name": "Justin Fagnani",
+                    "role": "Chrome Engineer",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-red.png"
+                }
+            ]
+        },
+        "chrome-os": {
+            "day_index": "1",
+            "name": "Chrome OS: Ready for Web Development",
+            "theme": "",
+            "time_label": "17:30 - 18:55",
+            "when": "2018-11-13T17:30",
+            "speakers": [
+                {
+                    "ldap": "f0cac071f7b18661ec0aa0589a59d1da",
+                    "name": "Dan Dascalescu",
+                    "role": "Partner Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "",
+                    "link": "",
+                    "dino": "dino-blue.png"
+                }
+            ]
+        },
+        "end-1": {
+            "day_index": "1",
+            "name": "END",
+            "theme": "",
+            "time_label": "",
+            "when": "2018-11-13T17:55",
+            "speakers": []
+        }
     },
-    "why-the-web-matters": {
-      "name": "Get Down to Business: Why The Web Matters",
-      "when": "2018-11-12T10:30",
-      "description": "The modern web enables fast, integrated, reliable and engaging experiences. [company name] walks through how they have achieved growth and business success by focusing on speed, taking advantage of the web’s expanding capabilities and found meaningful engagement with new and existing users.",
-      "youtube": ""
-    },
-    "_break-day1": {
-      "name": "Break",
-      "when": "2018-11-12T10:55"
+    "speakers": {
+        "376ad68795360ead7e20ee6892bf4e0e": {
+            "ldap": "376ad68795360ead7e20ee6892bf4e0e",
+            "name": "Ben Galbraith",
+            "role": "Director, Chrome",
+            "company": "Google",
+            "photo_available": "1",
+            "link": "https://twitter.com/bgalbs",
+            "dino": "dino-blue.png"
+        },
+        "7caa2c8d9209ce05c2996862103356a0": {
+            "ldap": "7caa2c8d9209ce05c2996862103356a0",
+            "name": "Dion Almaer",
+            "role": "Director, Web Developer Ecosystem",
+            "company": "Google",
+            "photo_available": "1",
+            "link": "https://twitter.com/dalmaer",
+            "dino": "dino-green.png"
+        },
+        "9d58776bf96aa22e9e2363eced6ae56a": {
+            "ldap": "9d58776bf96aa22e9e2363eced6ae56a",
+            "name": "Aanchal Bahadur",
+            "role": "Strategic Partner Development Manager",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "990ee931a6b71e49a5bac2bded6b0e0e": {
+            "ldap": "990ee931a6b71e49a5bac2bded6b0e0e",
+            "name": "Paul Irish",
+            "role": "Performance Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "https://twitter.com/paul_irish",
+            "dino": "dino-red.png"
+        },
+        "a2c1714713a8b398ee3a0887ccf47699": {
+            "ldap": "a2c1714713a8b398ee3a0887ccf47699",
+            "name": "Elizabeth Sweeny",
+            "role": "Product Manager",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-blue.png"
+        },
+        "0933dea74b5231e219a02dfb99156d93": {
+            "ldap": "0933dea74b5231e219a02dfb99156d93",
+            "name": "Houssein Djirdeh",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-green.png"
+        },
+        "4ca9cd2e993fcdf70686c21c8ae83260": {
+            "ldap": "4ca9cd2e993fcdf70686c21c8ae83260",
+            "name": "Katie Hempenius",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "7ec68f6b36d6f1f9105344b65d92c959": {
+            "ldap": "7ec68f6b36d6f1f9105344b65d92c959",
+            "name": "Ewa Gasperowicz",
+            "role": "Developer Programs Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-red.png"
+        },
+        "209890681f391c4f768dba10db86376c": {
+            "ldap": "209890681f391c4f768dba10db86376c",
+            "name": "Phil Walton",
+            "role": "Developer Programs Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-blue.png"
+        },
+        "d035cf5e776a360ca4fa5eab76bb5a19": {
+            "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
+            "name": "Jason Miller",
+            "role": "Developer Programs Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-green.png"
+        },
+        "3b75cdd826a16f5bba0076690f644dc7": {
+            "ldap": "3b75cdd826a16f5bba0076690f644dc7",
+            "name": "Adam Argyle",
+            "role": "UX Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "bf62d98d0284b3b873ed50fdd1697704": {
+            "ldap": "bf62d98d0284b3b873ed50fdd1697704",
+            "name": "Jake Archibald",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-red.png"
+        },
+        "c6e3690d5aaca6e349bc63d40729411d": {
+            "ldap": "c6e3690d5aaca6e349bc63d40729411d",
+            "name": "Mariko Kosaka",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-blue.png"
+        },
+        "48a4de34ba8674542200b5c10935f148": {
+            "ldap": "48a4de34ba8674542200b5c10935f148",
+            "name": "François Beaufort",
+            "role": "Developer Programs Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-green.png"
+        },
+        "79d13a6895f16c46e1fa30a5872f7cf3": {
+            "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
+            "name": "Frank Galligan",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "531e7c79b602cb57c6192c9dd40f53b8": {
+            "ldap": "531e7c79b602cb57c6192c9dd40f53b8",
+            "name": "Cheney Tsai",
+            "role": "Mobile Solutions Consultant",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-red.png"
+        },
+        "a191fb5d06c3902bded77b9de18c655b": {
+            "ldap": "a191fb5d06c3902bded77b9de18c655b",
+            "name": "Ramya Raghavan",
+            "role": "Mobile Solutions Consultant",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-blue.png"
+        },
+        "44cfd5d8bf53a3b59ad8c8cd8d43dc7f": {
+            "ldap": "44cfd5d8bf53a3b59ad8c8cd8d43dc7f",
+            "name": "Alberto Medina",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-green.png"
+        },
+        "16b1480cf3745ca7c6e3fad897869a6d": {
+            "ldap": "16b1480cf3745ca7c6e3fad897869a6d",
+            "name": "Weston Ruter",
+            "role": "Developer Programs Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "891044520f379343f3bb5add2a80550b": {
+            "ldap": "891044520f379343f3bb5add2a80550b",
+            "name": "Martin Splitt",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-red.png"
+        },
+        "d87d78a8275351c3154c3232ac2284af": {
+            "ldap": "d87d78a8275351c3154c3232ac2284af",
+            "name": "Tom Greenaway",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "1",
+            "link": "https://twitter.com/tcmg",
+            "dino": "dino-blue.png"
+        },
+        "eda7396f5f2511df0646ce0e54401981": {
+            "ldap": "eda7396f5f2511df0646ce0e54401981",
+            "name": "Malte Ubl",
+            "role": "Engineering Lead",
+            "company": "Google",
+            "photo_available": "",
+            "link": "https://twitter.com/cramforce",
+            "dino": "dino-green.png"
+        },
+        "9479c85721d840f07b253c2f98e874f9": {
+            "ldap": "9479c85721d840f07b253c2f98e874f9",
+            "name": "Nicole Sullivan",
+            "role": "Product Manager",
+            "company": "Google",
+            "photo_available": "",
+            "link": "https://twitter.com/stubbornella",
+            "dino": "dino-yellow.png"
+        },
+        "b69255cf1077fbad80ada26a75ea3601": {
+            "ldap": "b69255cf1077fbad80ada26a75ea3601",
+            "name": "Eric Bidelman",
+            "role": "Digital Jedi",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-red.png"
+        },
+        "fcac115effef3e009c86b70f58b55a18": {
+            "ldap": "fcac115effef3e009c86b70f58b55a18",
+            "name": "Natasha Pabrai",
+            "role": "Engineering Program Manager, Chrome",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-blue.png"
+        },
+        "c02915a65496ddfb2542c6fe2d80bcf3": {
+            "ldap": "c02915a65496ddfb2542c6fe2d80bcf3",
+            "name": "Gray Norton",
+            "role": "Engineering Manager",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-green.png"
+        },
+        "e0882402cfa59b5a2200eea5b49b4616": {
+            "ldap": "e0882402cfa59b5a2200eea5b49b4616",
+            "name": "Shubhie Panicker",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "b755b54531c5363b0907e46e90892c5b": {
+            "ldap": "b755b54531c5363b0907e46e90892c5b",
+            "name": "Paul Lewis",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "https://twitter.com/aerotwist",
+            "dino": "dino-red.png"
+        },
+        "33a6f8441ba820f7ec2c6f9dea283e18": {
+            "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
+            "name": "Surma Surma",
+            "role": "Surma",
+            "company": "Google",
+            "photo_available": "",
+            "link": "https://twitter.com/DasSurma",
+            "dino": "dino-blue.png"
+        },
+        "548a8839a94bfe61a436f8ce9ec380a7": {
+            "ldap": "548a8839a94bfe61a436f8ce9ec380a7",
+            "name": "Kinuko Yasuda",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-green.png"
+        },
+        "92db3e5999f3dc0016b626ee57b7dbf8": {
+            "ldap": "92db3e5999f3dc0016b626ee57b7dbf8",
+            "name": "Rudy Galfi",
+            "role": "Product Manager",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "d0fe1ce07fddde1b8c7da18df6333942": {
+            "ldap": "d0fe1ce07fddde1b8c7da18df6333942",
+            "name": "Chris Wilson",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-red.png"
+        },
+        "85dd771aea95331dfcad8cbbacbd2d37": {
+            "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
+            "name": "John Pallett",
+            "role": "Product Manager",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-blue.png"
+        },
+        "3b562519931363f27d26b9c24464b5e9": {
+            "ldap": "3b562519931363f27d26b9c24464b5e9",
+            "name": "Alex Danilo",
+            "role": "Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-green.png"
+        },
+        "673e7995b41f041a67fff425b6c6f824": {
+            "ldap": "673e7995b41f041a67fff425b6c6f824",
+            "name": "Thomas Nattestad",
+            "role": "Product Manager",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-yellow.png"
+        },
+        "7ffdb3da8ce9da2d0eb62d731eaae1b5": {
+            "ldap": "7ffdb3da8ce9da2d0eb62d731eaae1b5",
+            "name": "Justin Fagnani",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-red.png"
+        },
+        "f0cac071f7b18661ec0aa0589a59d1da": {
+            "ldap": "f0cac071f7b18661ec0aa0589a59d1da",
+            "name": "Dan Dascalescu",
+            "role": "Partner Developer Advocate",
+            "company": "Google",
+            "photo_available": "",
+            "link": "",
+            "dino": "dino-blue.png"
+        }
     }
-  }
 }
