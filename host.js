@@ -91,8 +91,6 @@ function mountUrl(ctx) {
 }
 
 app.use(flat(async (ctx, next, path, rest) => {
-  console.log(next, path, rest);
-
   if (sections.indexOf(path) === -1) {
     return next();
   }
@@ -102,7 +100,7 @@ app.use(flat(async (ctx, next, path, rest) => {
   const hostname = ctx.req.headers.host;
   const sitePrefix = (isProd ? 'https://' : 'http://') + hostname + basepath;
 
-  let scope = {
+  const scope = {
     year: 2018,
     prod: isProd,
     base: basepath,
@@ -114,6 +112,7 @@ app.use(flat(async (ctx, next, path, rest) => {
   };
 
   if (rest) {
+    // special-case rendering /schedule/<session-id>
     if (path !== 'schedule') {
       return next();
     }
@@ -124,25 +123,14 @@ app.use(flat(async (ctx, next, path, rest) => {
       return next();
     }
 
-    ctx.set('Feature-Policy', policyHeader);
-    const sitePrefix = 'https://developer.chrome.com/devsummit';
-    
+    // render AMP for first session load
     scope.layout = 'amp';
-    scope.sitePrefix;
+    scope.sitePrefix = sitePrefix;
     scope.title = data.name || '';
     scope.description = data.description || '',
     scope.payload = data;
-
     path = 'amp-session';
-
-    //return await ctx.render('amp-session', scope);
-    //return await ctx.render('amp-session', scope);
-  } 
-
-  // if (path == 'schedule') {
-  //   scope.schedule = schedule;
-  //   //console.log(scope.schedule);
-  // }
+  }
 
   ctx.set('Feature-Policy', policyHeader);
   await ctx.render(path, scope);
