@@ -25,6 +25,13 @@ function formatDate(d) {
   return `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}`;
 }
 
+/**
+ * Builds a comparison function based on ordering of the value returned by key.
+ *
+ * @template T
+ * @param {function(T): *}
+ * @return {function(T, T): number}
+ */
 function comparisonSort(key) {
   return (a, b) => {
     const ak = key(a);
@@ -40,6 +47,14 @@ function comparisonSort(key) {
 }
 
 module.exports = {
+
+  /**
+   * Returns an Object of day IDs to an array of ordered sessions. Day IDs are specified in the
+   * form "dYYYYMMDD". The 'd' prefix is useful so Handlebars treats them as a key.
+   *
+   * @param {!Object}
+   * @return {!Object<string, *>}
+   */
   days(schedule) {
     const out = {};
     if (!schedule || !schedule.sessions) {

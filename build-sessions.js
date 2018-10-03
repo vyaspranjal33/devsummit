@@ -1,10 +1,32 @@
+#!/usr/bin/env node
+/*
+ * Copyright 2018 Google LLC. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
 
-var request = require('request');
-var fs = require('fs');
+/**
+ * @fileoverview Generates session JSON from source TSV files.
+ */
+
+'use strict';
+
+const request = require('request');
+const fs = require('fs');
 const parse = require('csv-parse/lib/sync')
 const assert = require('assert')
 const md5 = require('md5');
-var path = require('path');
+const path = require('path');
  
 const inputSessionsFilePath = "./sessions.tsv";
 const inputSpeakersFilePath = "./speakers.tsv";
@@ -14,7 +36,7 @@ const outputFilePath = "./schedule.json";
 //     console.log("Usage: .tsv file");
 //     process.exit(-1);
 // }
-// var filename = process.argv[2];
+// const filename = process.argv[2];
 
 const sessionsText = fs.readFileSync(inputSessionsFilePath, "utf8");
 const speakersText = fs.readFileSync(inputSpeakersFilePath, "utf8");
@@ -31,19 +53,19 @@ const speakers = parse(speakersText, {
     delimiter: '\t'
 })
 
-var output = {};
+const output = {};
 output.sessions = {};
 output.speakers = {};
 
-var dinoCounter = 0;
+const dinoCounter = 0;
 const dinoMap = [
     'dino-blue.png',
     'dino-green.png',
     'dino-yellow.png',
-    'dino-red.png'
-]
+    'dino-red.png',
+];
 
-for(var i in speakers) {
+for(const i in speakers) {
     let speaker = speakers[i];
     let speakerId = md5(speaker.ldap);
     
@@ -72,7 +94,7 @@ for(var i in speakers) {
 
 //console.log(output.speakers);
 
-for(var i in sessions) {
+for(const i in sessions) {
     let session = sessions[i];
 
     let sessionSpeakers = [];
@@ -90,7 +112,7 @@ for(var i in sessions) {
         "speakers": []
     }
 
-    for(var i in sessionSpeakers) {
+    for(const i in sessionSpeakers) {
         let speakerLdap = sessionSpeakers[i];
         let speakerId = md5(speakerLdap);
         output.sessions[session.key].speakers.push(
