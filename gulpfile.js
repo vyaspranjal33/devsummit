@@ -76,12 +76,17 @@ exports.sw = gulp.series(gulp.parallel(exports.css, exports.js), async function 
     'res/*.js',
     'static/images/**',
   ];
+  const globIgnores = [
+    'static/images/gallery/**',
+    'static/images/speakers/**',
+    'res/sw.js',
+  ];
   const {count, size, warnings} = await workbox.injectManifest({
     swSrc: './src/sw.js',
     swDest: './res/sw.js',
     globDirectory: './',
     globPatterns,
-    globIgnores: ['static/images/gallery/**', 'res/sw.js'],
+    globIgnores,
     manifestTransforms: [contentTransform],
   });
   if (!count || warnings.length) {
