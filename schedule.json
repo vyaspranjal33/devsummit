@@ -208,8 +208,8 @@
                     "name": "François Beaufort",
                     "role": "Developer Programs Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://plus.google.com/+FrancoisBeaufort",
                     "dino": "dino-green.png"
                 },
                 {
@@ -439,7 +439,7 @@
                     "name": "Surma Surma",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/DasSurma",
                     "dino": "dino-blue.png"
                 }
@@ -492,7 +492,7 @@
                     "name": "Surma Surma",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/DasSurma",
                     "dino": "dino-blue.png"
                 }
@@ -728,8 +728,8 @@
             "name": "François Beaufort",
             "role": "Developer Programs Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://plus.google.com/+FrancoisBeaufort",
             "dino": "dino-green.png"
         },
         "79d13a6895f16c46e1fa30a5872f7cf3": {
@@ -863,7 +863,7 @@
             "name": "Surma Surma",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/DasSurma",
             "dino": "dino-blue.png"
         },
