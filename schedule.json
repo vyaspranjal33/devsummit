@@ -101,8 +101,8 @@
                     "name": "Katie Hempenius",
                     "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/katiehempenius",
                     "dino": "dino-yellow.png"
                 }
             ]
@@ -297,7 +297,7 @@
                     "name": "Martin Splitt",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-red.png"
                 },
@@ -375,7 +375,7 @@
         },
         "layered-apis": {
             "day_index": "1",
-            "name": "DRY on the Web Platform with Layered APIs & High-Level Features",
+            "name": "Layered APIs and High-Level Web Platform Features",
             "theme": "DX",
             "time_label": "11:30 - 11:55",
             "when": "2018-11-13T11:30",
@@ -437,7 +437,7 @@
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
                     "name": "Surma Surma",
-                    "role": "Surma",
+                    "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "",
                     "link": "https://twitter.com/DasSurma",
@@ -474,7 +474,7 @@
                     "name": "Rudy Galfi",
                     "role": "Product Manager",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-yellow.png"
                 }
@@ -490,7 +490,7 @@
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
                     "name": "Surma Surma",
-                    "role": "Surma",
+                    "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "",
                     "link": "https://twitter.com/DasSurma",
@@ -500,7 +500,7 @@
         },
         "webxr": {
             "day_index": "1",
-            "name": "Building Engaging Immersive Experiences with WebXR",
+            "name": "Building Engaging Immersive Experiences",
             "theme": "UX",
             "time_label": "15:30 - 15:55",
             "when": "2018-11-13T15:30",
@@ -519,7 +519,7 @@
                     "name": "John Pallett",
                     "role": "Product Manager",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-blue.png"
                 }
@@ -545,8 +545,8 @@
                     "name": "Alex Danilo",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/alexanderdanilo",
                     "dino": "dino-green.png"
                 },
                 {
@@ -554,7 +554,7 @@
                     "name": "Thomas Nattestad",
                     "role": "Product Manager",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-yellow.png"
                 }
@@ -665,8 +665,8 @@
             "name": "Katie Hempenius",
             "role": "Chrome Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/katiehempenius",
             "dino": "dino-yellow.png"
         },
         "7ec68f6b36d6f1f9105344b65d92c959": {
@@ -782,7 +782,7 @@
             "name": "Martin Splitt",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-red.png"
         },
@@ -861,7 +861,7 @@
         "33a6f8441ba820f7ec2c6f9dea283e18": {
             "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
             "name": "Surma Surma",
-            "role": "Surma",
+            "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "",
             "link": "https://twitter.com/DasSurma",
@@ -881,7 +881,7 @@
             "name": "Rudy Galfi",
             "role": "Product Manager",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-yellow.png"
         },
@@ -899,7 +899,7 @@
             "name": "John Pallett",
             "role": "Product Manager",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-blue.png"
         },
@@ -908,8 +908,8 @@
             "name": "Alex Danilo",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/alexanderdanilo",
             "dino": "dino-green.png"
         },
         "673e7995b41f041a67fff425b6c6f824": {
@@ -917,7 +917,7 @@
             "name": "Thomas Nattestad",
             "role": "Product Manager",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-yellow.png"
         },
