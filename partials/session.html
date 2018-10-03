@@ -7,9 +7,9 @@
 {{#each data.speakers}}
     <div class="session__speakers-image">
     {{#if this.photo_available}}
-      <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" title="{{this.name}}" />
+      <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" alt="{{this.name}}" />
     {{else}}
-      <img src="static/images/icons/{{this.dino}}" width="64" height="64" title="Photo unavailable: {{this.name}}" />
+      <img src="static/images/icons/{{this.dino}}" width="64" height="64" alt="Chrome Downasour" />
     {{/if}}
     </div>
 {{/each}}
