@@ -2,30 +2,42 @@
   <div class="content">
     <div class="section-title">
       <h3>Schedule</h3>
-      <!-- <p>Monday, November 12th &amp; Tuesday, November 13th</p> -->
+      <p>Monday, November 12th &amp; Tuesday, November 13th</p>
     </div>
   </div>
 </section>
 
-<section class="section__content alt schedule-page">
+<section class="section__schedule alt">
   <div class="content">
-    <h4>Monday, November 12th</h4>
+    <h3>Monday, November 12th</h3>
 {{#each days.d20181112}}
 {{>session .}}
 {{/each}}
   </div>
 </section>
 
-<section class="section__content schedule-page">
+<section class="section__schedule">
   <div class="content">
-    <h4>Tuesday, November 13th</h4>
+    <h3>Tuesday, November 13th</h3>
 {{#each days.d20181113}}
 {{>session .}}
 {{/each}}
   </div>
 </section>
 
-<section class="section__content alt">
+<section class="cta">
+  <div class="cta__lines"></div>
+  <div class="cta__content">
+    <p>
+Join us at the 6th Chrome Dev Summit to engage with Chrome engineers and leading web developers for a two-day exploration of modern web experiences.
+    </p>
+    <p>
+We'll be diving deep into what it means to build a fast, high quality web experience using modern web technologies and best practices, as well as looking at the new and exciting capabilities coming to the web platform.
+    </p>
+  </div>
+</section>
+
+<section class="section__content">
   <div class="content">
 <div class="section-register">
   <div>

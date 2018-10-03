@@ -3,42 +3,26 @@
     <time datetime="{{data.when}}">{{formatTime data.when}}</time>
   </div>
 
-  <div class="session__speakers">
+  <div class="session__speakers speakers__{{data.speakers.length}}">
 {{#each data.speakers}}
-  <li>
-      {{#if this.link}}<a href="{{this.link}}" target="_blank" rel="noopener">
-        {{#if this.photo_available}}
-          <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" />
-        {{else}}
-          <img src="static/images/icons/{{this.dino}}" width="64" height="64" />
-        {{/if}}
-      </a>
-      {{else}}
-        {{#if this.photo_available}}
-          <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" />
-        {{else}}
-          <img src="static/images/icons/{{this.dino}}" width="64" height="64" />
-        {{/if}}
-      {{/if}}
-    <!-- <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" /> -->
-    <div>
-      
-      <!-- <span class="role">{{this.role}}</span> -->
+    <div class="session__speakers-image">
+    {{#if this.photo_available}}
+      <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" title="{{this.name}}" />
+    {{else}}
+      <img src="static/images/icons/{{this.dino}}" width="64" height="64" title="Photo unavailable: {{this.name}}" />
+    {{/if}}
     </div>
-  </li>
 {{/each}}
   </div>
-  
+
   <div class="session__details">
     <h5>{{data.name}}</h5>
     <div class="speakers">
       {{#each data.speakers}}
         <div class="role">
           {{#if this.link}}
-            <a href="{{this.link}}" target="_blank" rel="noopener"><span class="speaker-name">{{this.name}},</span> {{this.role}}</a>
-          {{else}}
-            <span class="speaker-name">{{this.name}},</span> {{this.role}}
-          {{/if}}
+            <a href="{{this.link}}" target="_blank" rel="noopener"><span class="speaker-name">{{this.name}}</span></a>{{else}}
+            <span class="speaker-name">{{this.name}}</span>{{/if}}, {{this.role}}
         </div>
       {{/each}}
     </div>
