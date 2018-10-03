@@ -439,7 +439,7 @@
                     "name": "Surma Surma",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/DasSurma",
                     "dino": "dino-blue.png"
                 }
@@ -492,7 +492,7 @@
                     "name": "Surma Surma",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/DasSurma",
                     "dino": "dino-blue.png"
                 }
@@ -863,7 +863,7 @@
             "name": "Surma Surma",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/DasSurma",
             "dino": "dino-blue.png"
         },
