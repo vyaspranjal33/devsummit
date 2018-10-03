@@ -57,7 +57,7 @@ const output = {};
 output.sessions = {};
 output.speakers = {};
 
-const dinoCounter = 0;
+var dinoCounter = 0;
 const dinoMap = [
     'dino-blue.png',
     'dino-green.png',
