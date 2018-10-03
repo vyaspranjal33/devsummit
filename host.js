@@ -69,7 +69,7 @@ hbs.registerHelper('formatTime', (raw) => {
     return '?';
   }
   const pad = (x) => (x < 10 ? `0${x}` : '' + x);
-  return `${pad(d.getHours() + 1)}:${pad(d.getMinutes())}`;
+  return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
 });
 
 const sections = fs.readdirSync(`${__dirname}/sections`)
