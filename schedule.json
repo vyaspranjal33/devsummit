@@ -92,7 +92,7 @@
                     "name": "Houssein Djirdeh",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-green.png"
                 },
@@ -298,7 +298,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
+                    "link": "https://twitter.com/g33konaut",
                     "dino": "dino-red.png"
                 },
                 {
@@ -385,7 +385,7 @@
                     "name": "Natasha Pabrai",
                     "role": "Engineering Program Manager, Chrome",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-blue.png"
                 },
@@ -430,7 +430,7 @@
                     "name": "Paul Lewis",
                     "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/aerotwist",
                     "dino": "dino-red.png"
                 },
@@ -656,7 +656,7 @@
             "name": "Houssein Djirdeh",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-green.png"
         },
@@ -783,7 +783,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
+            "link": "https://twitter.com/g33konaut",
             "dino": "dino-red.png"
         },
         "d87d78a8275351c3154c3232ac2284af": {
@@ -827,7 +827,7 @@
             "name": "Natasha Pabrai",
             "role": "Engineering Program Manager, Chrome",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-blue.png"
         },
@@ -854,7 +854,7 @@
             "name": "Paul Lewis",
             "role": "Chrome Engineer",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/aerotwist",
             "dino": "dino-red.png"
         },
