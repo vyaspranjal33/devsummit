@@ -74,11 +74,16 @@ hbs.registerHelper('formatTime', (raw) => {
 
 const sections = fs.readdirSync(`${__dirname}/sections`)
     .map((section) => {
-      if (section.endsWith('.html')) {
+      if (section.endsWith('.html') && section[0] !== '_') {
         return section.substr(0, section.length - 5);
       }
     }).filter(Boolean);
 
+/**
+ * Gets the URL prefix where this site is mounted with Koa, without the trailing /.
+ * @param {!Object} ctx
+ * @return {string}
+ */
 function mountUrl(ctx) {
   if (ctx.originalUrl === undefined) {
     return '';
@@ -129,7 +134,7 @@ app.use(flat(async (ctx, next, path, rest) => {
     scope.title = data.name || '';
     scope.description = data.description || '',
     scope.payload = data;
-    path = 'amp-session';
+    path = '_amp-session';
   }
 
   ctx.set('Feature-Policy', policyHeader);
