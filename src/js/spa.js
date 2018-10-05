@@ -15,6 +15,9 @@
  */
 
 
+import {upgrade} from './routes.js';
+
+
 /**
  * @param {!URL} url to find route for, e.g., /devsummit/foo/bar => 'foo'
  * @return {?string}
@@ -27,9 +30,11 @@ function routeForUrl(url) {
   return rest.split('/')[0];
 }
 
+
 // nb. should be in form "/devsummit/"
 const base = new URL(document.head.querySelector('base').href);
 let activeRoute = routeForUrl(window.location);
+
 
 window.addEventListener('popstate', (ev) => {
   const state = ev.state;
@@ -60,7 +65,7 @@ let tryloadRequest;
 async function tryLoad(url, fallback=null) {
   const localRequest = new Object();
   tryloadRequest = localRequest;
-  activeRoute = routeForUrl(url);
+  const localRoute = activeRoute = routeForUrl(url);
   // nb. ^ above setup happens before any await calls
 
   document.body.classList.add('fade');
@@ -79,9 +84,10 @@ async function tryLoad(url, fallback=null) {
   // just dump the HTML into a tag so we can look for main
   const node = document.createElement('div');
   node.innerHTML = raw;
-  const main = node.querySelector('main');
+  const recievedMain = node.querySelector('main');           // main from incoming DOM
+  const previousMain = document.body.querySelector('main');  // main to swap out
+  const replacementMain = document.createElement('main');    // created main to set .innerHTML on
 
-  const localMain = document.body.querySelector('main');
   await fadePromise;  // wait for animation to be done
 
   if (tryloadRequest !== localRequest) {
@@ -91,9 +97,13 @@ async function tryLoad(url, fallback=null) {
   // TODO(samthor): steal hue-rotate from new page
   mastheadSection.style.filter = `hue-rotate(0deg)`;
 
-  localMain.innerHTML = main.innerHTML;
+  replacementMain.innerHTML = recievedMain.innerHTML;
+  previousMain.parentNode.replaceChild(replacementMain, previousMain);
+  const upgradeResult = upgrade(replacementMain, localRoute);
+
   await rAF();
   await timeout(34);  // two-ish frames
+  await upgradeResult;
 
   if (tryloadRequest !== localRequest) {
     return;  // bail out
@@ -108,6 +118,7 @@ async function tryLoad(url, fallback=null) {
   }
   ga('send', 'pageview');
 }
+
 
 document.body.addEventListener('click', (ev) => {
   if (ev.shiftKey || ev.ctrlKey || ev.metaKey) {
@@ -140,3 +151,11 @@ document.body.addEventListener('click', (ev) => {
     window.location.href = t.href;  // load manually
   });
 });
+
+
+(function preparePage() {
+  const main = document.body.querySelector('main');  // main to swap out
+  upgrade(main, routeForUrl(window.location)).catch((err) => {
+    console.warn('could not upgrade page', err);
+  });
+}());

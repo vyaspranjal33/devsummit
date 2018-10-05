@@ -534,17 +534,39 @@ section {
     @speaker-size-offset: (@speaker-size / 4);
 
     img {
-      border-radius: 50%;
-      box-shadow: 0px 2px 1px rgba(66, 66, 66, 0.75);
-      background: white;
-      width: @speaker-size;
-      height: @speaker-size;
+      width: inherit;
+      height: inherit;
     }
 
     .session__speakers {
       display: flex;
       align-items: center;
       min-height: @speaker-size * 1.4;
+    }
+
+    .session__speakers-image {
+      border-radius: 50%;
+      box-shadow: 0px 2px 1px rgba(66, 66, 66, 0.75);
+      background: white center no-repeat;
+      background-size: contain;
+      width: @speaker-size;
+      min-width: @speaker-size;
+      height: @speaker-size;
+      position: relative;
+      overflow: hidden;
+
+      &.dino-0 {
+        background-image: url(../images/icons/dino-blue.png);
+      }
+      &.dino-1 {
+        background-image: url(../images/icons/dino-green.png);
+      }
+      &.dino-2 {
+        background-image: url(../images/icons/dino-red.png);
+      }
+      &.dino-3 {
+        background-image: url(../images/icons/dino-yellow.png);
+      }
     }
 
     @media (min-width: @width-small) {
@@ -558,10 +580,6 @@ section {
 
         // on large screens, align speaker heads weirdly.
         &.speakers__2 {
-          img {
-            width: @speaker-size;
-            height: @speaker-size;
-          }
           .session__speakers-image:nth-child(1) {
             margin-top: -(@speaker-size / 2);
           }
@@ -571,8 +589,9 @@ section {
         }
 
         &.speakers__1 {
-          img {
+          .session__speakers-image {
             width: @speaker-size * 1.2;
+            min-width: @speaker-size * 1.2;
             height: @speaker-size * 1.2;
           }
         }

@@ -5,11 +5,9 @@
 
   <div class="session__speakers speakers__{{data.speakers.length}}">
 {{#each data.speakers}}
-    <div class="session__speakers-image">
+    <div class="session__speakers-image dino-{{counter 'dino' 4}}">
     {{#if this.photo_available}}
-      <img src="static/images/speakers/{{this.ldap}}.jpg" width="64" height="64" alt="{{this.name}}" />
-    {{else}}
-      <img src="static/images/icons/{{this.dino}}" width="64" height="64" alt="Chrome Downasour" />
+      <img src="static/images/speakers/{{this.ldap}}-bad.jpg" width="64" height="64" alt="{{this.name}}" />
     {{/if}}
     </div>
 {{/each}}
