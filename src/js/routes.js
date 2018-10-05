@@ -23,9 +23,20 @@ export async function upgrade(node, route) {
   const allImages = document.querySelectorAll('.session__speakers-image img');
   Array.from(allImages).forEach((img) => {
     if (img.naturalWidth === 0) {
+      // already loaded, but failed to load
       img.hidden = true;
     } else if (img.naturalWidth === undefined) {
+      // not yet loaded, wait for error
       img.addEventListener('error', hideElement);
     }
   });
+}
+
+export async function subroute(node, route, subroute) {
+  if (route !== 'schedule') {
+    return;  // nothing to do
+  }
+
+  // TODO: show overlay for session details
+  console.debug('event requested', subroute);
 }

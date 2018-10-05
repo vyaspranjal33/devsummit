@@ -15,41 +15,58 @@
  */
 
 
-import {upgrade} from './routes.js';
+import * as routes from './routes.js';
 
 
 /**
  * @param {!URL} url to find route for, e.g., /devsummit/foo/bar => 'foo'
- * @return {?string}
+ * @return {{route: ?string, rest: ?string}}
  */
-function routeForUrl(url) {
+function splitUrl(url) {
   if (!url.pathname.startsWith(base.pathname)) {
-    return null;
+    return {route: null, subroute: null};
   }
   const rest = url.pathname.substr(base.pathname.length);
-  return rest.split('/')[0];
+  const parts = rest.split('/');
+  return {
+    route: parts[0],
+    rest: parts.slice(1).join('/'),
+  };
 }
 
 
 // nb. should be in form "/devsummit/"
 const base = new URL(document.head.querySelector('base').href);
-let activeRoute = routeForUrl(window.location);
+let activeRoute = splitUrl(window.location).route;
 
 
-window.addEventListener('popstate', (ev) => {
-  const state = ev.state;
+function safeLoad(url, state) {
+  let p;
+  const split = splitUrl(url);
 
-  const url = new URL(window.location);
-  if (routeForUrl(url) === activeRoute) {
+  if (split.route === activeRoute) {
+    if (window.location.href !== url.href) {
+      window.history.pushState(state, null, url.href);
+    }
+
+    const main = document.body.querySelector('main');
+    p = routes.subroute(main, split.route, split.rest);
+
     ga('send', 'pageview');
-    return;  // done, route was the same
+  } else {
+    p = tryLoad(url, state && state.html || null);
   }
 
-  tryLoad(url, state && state.html || null).catch((err) => {
-    console.warn('couldn\'t popstate to', url, err);
+  p.catch((err) => {
+    console.warn('couldn\'t load', url, err);
     window.location.href = url.href;  // load manually
   });
-});
+  return p;
+}
+
+
+window.addEventListener('popstate', (ev) => safeLoad(window.location, ev.state));
+
 
 function timeout(ms) {
   return new Promise((resolve) => window.setTimeout(resolve, ms));
@@ -65,7 +82,8 @@ let tryloadRequest;
 async function tryLoad(url, fallback=null) {
   const localRequest = new Object();
   tryloadRequest = localRequest;
-  const localRoute = activeRoute = routeForUrl(url);
+  const localSplit = splitUrl(url);
+  activeRoute = localSplit.route;
   // nb. ^ above setup happens before any await calls
 
   document.body.classList.add('fade');
@@ -99,7 +117,9 @@ async function tryLoad(url, fallback=null) {
 
   replacementMain.innerHTML = recievedMain.innerHTML;
   previousMain.parentNode.replaceChild(replacementMain, previousMain);
-  const upgradeResult = upgrade(replacementMain, localRoute);
+  const upgradeResult = routes.upgrade(replacementMain, localSplit.route).then(() => {
+    return routes.subroute(replacementMain, localSplit.route, localSplit.rest);
+  });
 
   await rAF();
   await timeout(34);  // two-ish frames
@@ -120,7 +140,7 @@ async function tryLoad(url, fallback=null) {
 }
 
 
-document.body.addEventListener('click', (ev) => {
+function clickHandler(ev) {
   if (ev.shiftKey || ev.ctrlKey || ev.metaKey) {
     return;
   }
@@ -139,23 +159,20 @@ document.body.addEventListener('click', (ev) => {
     return;  // already here
   }
 
-  if (routeForUrl(url) === routeForUrl(window.location)) {
-    // use existing state, same route
-    window.history.pushState(window.history.state, null, url.href);
-    ga('send', 'pageview');
-    return;  // already here-ish
-  }
-
-  tryLoad(url).catch((err) => {
-    console.warn('couldn\'t load', url, err)
-    window.location.href = t.href;  // load manually
-  });
-});
+  safeLoad(url, null);
+}
 
 
-(function preparePage() {
+(async function preparePage() {
   const main = document.body.querySelector('main');  // main to swap out
-  upgrade(main, routeForUrl(window.location)).catch((err) => {
-    console.warn('could not upgrade page', err);
-  });
-}());
+
+  const split = splitUrl(window.location);
+  await routes.upgrade(main, split.route);
+  await routes.subroute(main, split.route, split.rest);
+
+  // only add click handler after initial prep
+  document.body.addEventListener('click', clickHandler);
+
+}()).catch((err) => {
+  console.warn('could not prepare page', err);
+});
