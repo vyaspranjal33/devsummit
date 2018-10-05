@@ -22,12 +22,12 @@ export async function upgrade(node, route) {
   const hideElement = (ev) => ev.target.hidden = true;
   const allImages = document.querySelectorAll('.session__speakers-image img');
   Array.from(allImages).forEach((img) => {
-    if (img.naturalWidth === 0) {
-      // already loaded, but failed to load
-      img.hidden = true;
-    } else if (img.naturalWidth === undefined) {
+    if (!img.complete) {
       // not yet loaded, wait for error
       img.addEventListener('error', hideElement);
+    } else if (!img.naturalWidth) {
+      // already loaded, but failed to load
+      img.hidden = true;
     }
   });
 }
