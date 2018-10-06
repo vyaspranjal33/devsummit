@@ -65,7 +65,7 @@
                     "name": "Paul Irish",
                     "role": "Performance Engineer",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/paul_irish",
                     "dino": "dino-red.png"
                 },
@@ -75,7 +75,7 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
+                    "link": "https://twitter.com/egsweeny",
                     "dino": "dino-blue.png"
                 }
             ]
@@ -93,7 +93,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
+                    "link": "https://twitter.com/hdjirdeh",
                     "dino": "dino-green.png"
                 },
                 {
@@ -120,7 +120,7 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
+                    "link": "https://twitter.com/devnook",
                     "dino": "dino-red.png"
                 },
                 {
@@ -128,8 +128,8 @@
                     "name": "Phil Walton",
                     "role": "Developer Programs Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/philwalton",
                     "dino": "dino-blue.png"
                 }
             ]
@@ -155,7 +155,7 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
+                    "link": "https://twitter.com/_developit",
                     "dino": "dino-green.png"
                 },
                 {
@@ -182,7 +182,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
+                    "link": "https://twitter.com/jaffathecake",
                     "dino": "dino-red.png"
                 },
                 {
@@ -217,8 +217,8 @@
                     "name": "Frank Galligan",
                     "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/vanderhuge",
                     "dino": "dino-yellow.png"
                 }
             ]
@@ -252,7 +252,7 @@
                     "name": "Ramya Raghavan",
                     "role": "Mobile Solutions Consultant",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-blue.png"
                 }
@@ -465,7 +465,7 @@
                     "name": "Kinuko Yasuda",
                     "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "",
                     "dino": "dino-green.png"
                 },
@@ -555,7 +555,7 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
+                    "link": "https://twitter.com/ThomasTheDane",
                     "dino": "dino-yellow.png"
                 }
             ]
@@ -573,7 +573,7 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
+                    "link": "https://twitter.com/justinfagnani",
                     "dino": "dino-red.png"
                 }
             ]
@@ -591,7 +591,7 @@
                     "role": "Partner Developer Advocate",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
+                    "link": "https://twitter.com/dandv",
                     "dino": "dino-blue.png"
                 }
             ]
@@ -638,7 +638,7 @@
             "name": "Paul Irish",
             "role": "Performance Engineer",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/paul_irish",
             "dino": "dino-red.png"
         },
@@ -648,7 +648,7 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "",
-            "link": "",
+            "link": "https://twitter.com/egsweeny",
             "dino": "dino-blue.png"
         },
         "0933dea74b5231e219a02dfb99156d93": {
@@ -657,7 +657,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
+            "link": "https://twitter.com/hdjirdeh",
             "dino": "dino-green.png"
         },
         "4ca9cd2e993fcdf70686c21c8ae83260": {
@@ -675,7 +675,7 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "",
+            "link": "https://twitter.com/devnook",
             "dino": "dino-red.png"
         },
         "209890681f391c4f768dba10db86376c": {
@@ -683,8 +683,8 @@
             "name": "Phil Walton",
             "role": "Developer Programs Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/philwalton",
             "dino": "dino-blue.png"
         },
         "d035cf5e776a360ca4fa5eab76bb5a19": {
@@ -693,7 +693,7 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "",
+            "link": "https://twitter.com/_developit",
             "dino": "dino-green.png"
         },
         "3b75cdd826a16f5bba0076690f644dc7": {
@@ -711,7 +711,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "",
-            "link": "",
+            "link": "https://twitter.com/jaffathecake",
             "dino": "dino-red.png"
         },
         "c6e3690d5aaca6e349bc63d40729411d": {
@@ -737,8 +737,8 @@
             "name": "Frank Galligan",
             "role": "Chrome Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/vanderhuge",
             "dino": "dino-yellow.png"
         },
         "531e7c79b602cb57c6192c9dd40f53b8": {
@@ -755,7 +755,7 @@
             "name": "Ramya Raghavan",
             "role": "Mobile Solutions Consultant",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-blue.png"
         },
@@ -872,7 +872,7 @@
             "name": "Kinuko Yasuda",
             "role": "Chrome Engineer",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "",
             "dino": "dino-green.png"
         },
@@ -890,8 +890,8 @@
             "name": "Chris Wilson",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
-            "link": "",
+            "photo_available": "1",
+            "link": "https://twitter.com/cwilso",
             "dino": "dino-red.png"
         },
         "85dd771aea95331dfcad8cbbacbd2d37": {
@@ -918,7 +918,7 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
+            "link": "https://twitter.com/ThomasTheDane",
             "dino": "dino-yellow.png"
         },
         "7ffdb3da8ce9da2d0eb62d731eaae1b5": {
@@ -927,7 +927,7 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "",
+            "link": "https://twitter.com/justinfagnani",
             "dino": "dino-red.png"
         },
         "f0cac071f7b18661ec0aa0589a59d1da": {
@@ -936,7 +936,7 @@
             "role": "Partner Developer Advocate",
             "company": "Google",
             "photo_available": "",
-            "link": "",
+            "link": "https://twitter.com/dandv",
             "dino": "dino-blue.png"
         }
     }
