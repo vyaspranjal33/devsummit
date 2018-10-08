@@ -47,7 +47,10 @@ self.addEventListener('fetch', (ev) => {
   if (rest.startsWith('_') || rest.indexOf('/') !== -1) {
     return;
   }
-  ev.respondWith(self.fetch(schedulePrefix));
+
+  // nb. try to match '<SCOPE>/schedule', but fallback to fetch (needed for dev)
+  const urlToMatch = new URL(schedulePrefix, scope);
+  ev.respondWith(caches.match(urlToMatch).then((matched) => matched || self.fetch(urlToMatch)));
 });
 
 self.addEventListener('message', (ev) => {
