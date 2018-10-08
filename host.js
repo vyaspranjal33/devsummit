@@ -29,6 +29,7 @@ const policy = require('./deps/policy.js');
 const calendar = require('./deps/calendar.js')
 const send = require('koa-send');
 const serve = require('koa-static');
+require('./helpers.js');  // side-effects only
 
 const app = new Koa();
 const isProd = (process.env.NODE_ENV === 'production');
@@ -62,15 +63,6 @@ app.use(hbs.middleware({
   partialsPath: `${__dirname}/partials`,
   extname: '.html',
 }));
-
-hbs.registerHelper('formatTime', (raw) => {
-  const d = new Date(raw);
-  if (isNaN(+d)) {
-    return '?';
-  }
-  const pad = (x) => (x < 10 ? `0${x}` : '' + x);
-  return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
-});
 
 const sections = fs.readdirSync(`${__dirname}/sections`)
     .map((section) => {

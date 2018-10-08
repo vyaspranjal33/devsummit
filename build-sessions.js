@@ -57,15 +57,7 @@ const output = {};
 output.sessions = {};
 output.speakers = {};
 
-var dinoCounter = 0;
-const dinoMap = [
-    'dino-blue.png',
-    'dino-green.png',
-    'dino-yellow.png',
-    'dino-red.png',
-];
-
-for(const i in speakers) {
+for (const i in speakers) {
     let speaker = speakers[i];
     let speakerId = md5(speaker.ldap);
     
@@ -84,12 +76,6 @@ for(const i in speakers) {
     speaker.ldap = speakerId;
 
     output.speakers[speakerId] = speaker;
-    output.speakers[speakerId].dino = dinoMap[dinoCounter];
-    dinoCounter++;
-
-    if (dinoCounter == 4) {
-        dinoCounter = 0;
-    }
 }
 
 //console.log(output.speakers);
