@@ -57,7 +57,7 @@ exports.sw = gulp.series(gulp.parallel(exports.css, exports.js), async function 
     const sections = fs.readdirSync('./sections').map((section) => {
       if (section === 'index.html') {
         return './';
-      } else if (section.endsWith('.html')) {
+      } else if (section.endsWith('.html') && section[0] !== '_') {
         return './' + section.substr(0, section.length - 5);
       }
       return false;

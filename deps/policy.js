@@ -40,7 +40,8 @@ const policies = [
   'speaker',
   'unsized-media',
   'ambient-light-sensor',
-  'max-downscaling-image',
+// we downsize images 3-4 times in some places, but use them again elsewhere
+  // 'max-downscaling-image',
   'gyroscope',
   'document-write',
   'lazyload',
