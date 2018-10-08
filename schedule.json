@@ -436,7 +436,7 @@
                 },
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
-                    "name": "Surma Surma",
+                    "name": "Surma",
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
@@ -482,14 +482,14 @@
         },
         "worklets": {
             "day_index": "1",
-            "name": "Breaking Out of CSS’ Standard Tools with Houdini: Animation Worklets, Paint Worklets, Layout API, and Next Gen CSS",
+            "name": "State of Houdini",
             "theme": "UX",
             "time_label": "15:00 - 15:25",
             "when": "2018-11-13T15:00",
             "speakers": [
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
-                    "name": "Surma Surma",
+                    "name": "Surma",
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
@@ -590,7 +590,7 @@
                     "name": "Dan Dascalescu",
                     "role": "Partner Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/dandv",
                     "dino": "dino-blue.png"
                 }
@@ -860,7 +860,7 @@
         },
         "33a6f8441ba820f7ec2c6f9dea283e18": {
             "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
-            "name": "Surma Surma",
+            "name": "Surma",
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
@@ -935,7 +935,7 @@
             "name": "Dan Dascalescu",
             "role": "Partner Developer Advocate",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/dandv",
             "dino": "dino-blue.png"
         }
