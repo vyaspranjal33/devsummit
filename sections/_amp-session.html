@@ -1,20 +1,29 @@
 
 <h1>{{title}}</h1>
 
-<time datetime="{{payload.when}}">{{formatTime payload.when}}</time>
+<div id="popin">
+  <!-- <time class="time-label" datetime="{{payload.when}}">{{formatTime payload.when}}</time> -->
 
-<p>{{description}}</p>
+  <!-- TODO: do proper date time instead of text label -->
+  <time class="datetime-label" datetime="{{payload.when}}">
+    <div class="time-label">{{this.time_label}}</div>
+    
+    <div class="date-label">{{formatDate payload.when}}</div>
+  </time>
+
+  <p>{{description}}</p>
+</div>
 
 <div class="grow"></div>
-
-<ul class="speakers">
-{{#each payload.speakers}}
-  <li>
-    <img src="../static/images/icons/chrome-icon@192.png" width="64" height="64" />
-    <div>
-      {{#if this.link}}<a href="{{this.link}}" target="_blank" rel="noopener">{{this.name}}</a>{{else}}{{this.name}}{{/if}}
-      <span class="role">{{this.role}}</span>
-    </div>
-  </li>
-{{/each}}
-</ul>
+  
+  <ul class="speakers">
+  {{#each payload.speakers}}
+    <li>
+      <amp-img alt="{{this.name}}" src="../static/images/speakers/{{this.ldap}}.jpg" width="64" height="64"></amp-img>
+      <div class="speaker-info">
+        {{#if this.link}}<a href="{{this.link}}" target="_blank" rel="noopener">{{this.name}}</a>{{else}}{{this.name}}{{/if}}
+        <span class="role">{{this.role}}</span>
+      </div>
+    </li>
+  {{/each}}
+  </ul>

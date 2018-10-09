@@ -21,6 +21,7 @@
 'use strict';
 
 const hbs = require('koa-hbs');
+const dateFormat = require('dateformat');
 
 hbs.registerHelper('formatTime', (raw) => {
   const d = new Date(raw);
@@ -29,6 +30,19 @@ hbs.registerHelper('formatTime', (raw) => {
   }
   const pad = (x) => (x < 10 ? `0${x}` : '' + x);
   return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+});
+
+hbs.registerHelper('formatDate', (raw) => {
+  const d = new Date(raw);
+
+  if (isNaN(+d)) {
+    return '?';
+  }
+  const pad = (x) => (x < 10 ? `0${x}` : '' + x);
+
+  return dateFormat(d, "dddd, mmmm dS");
+
+  // return `${pad(d.getDayOfWeek())}, ${pad(d.getDate())}`;
 });
 
 const counters = {};

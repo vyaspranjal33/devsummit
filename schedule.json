@@ -6,6 +6,7 @@
             "theme": "",
             "time_label": "10:00 - 10:25",
             "when": "2018-11-12T10:00",
+            "description": "A roundup of the year in advancements to the web platform, and why and how Google products are invested in the Web.",
             "speakers": [
                 {
                     "ldap": "376ad68795360ead7e20ee6892bf4e0e",
@@ -13,8 +14,7 @@
                     "role": "Director, Chrome",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/bgalbs",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/bgalbs"
                 },
                 {
                     "ldap": "7caa2c8d9209ce05c2996862103356a0",
@@ -22,8 +22,7 @@
                     "role": "Director, Web Developer Ecosystem",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/dalmaer",
-                    "dino": "dino-green.png"
+                    "link": "https://twitter.com/dalmaer"
                 }
             ]
         },
@@ -33,6 +32,7 @@
             "theme": "",
             "time_label": "10:30 - 10:55",
             "when": "2018-11-12T10:30",
+            "description": "The modern web enables fast, integrated, reliable and engaging experiences. Hear real stories about how different companies have achieved growth and business success by focusing on speed, taking advantage of the web’s expanding capabilities, and found meaningful engagement with new and existing users.",
             "speakers": [
                 {
                     "ldap": "9d58776bf96aa22e9e2363eced6ae56a",
@@ -40,8 +40,7 @@
                     "role": "Strategic Partner Development Manager",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
-                    "dino": "dino-yellow.png"
+                    "link": ""
                 }
             ]
         },
@@ -51,6 +50,7 @@
             "theme": "",
             "time_label": "10:55 - 11:25",
             "when": "2018-11-12T11:00",
+            "description": "",
             "speakers": []
         },
         "speed-tooling": {
@@ -59,6 +59,7 @@
             "theme": "Fast",
             "time_label": "11:30 - 11:55",
             "when": "2018-11-12T11:30",
+            "description": "Measuring, optimizing, and monitoring user experience on the web has never been easier. Learn about the latest changes in performance tooling, and how to meaningfully incorporate lab and field data into your development workflow. Paul and Elizabeth will share the latest developments in Lighthouse, DevTools profiling tools, PageSpeed Insights, Chrome UX Report, and key performance metrics.",
             "speakers": [
                 {
                     "ldap": "990ee931a6b71e49a5bac2bded6b0e0e",
@@ -66,8 +67,7 @@
                     "role": "Performance Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/paul_irish",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/paul_irish"
                 },
                 {
                     "ldap": "a2c1714713a8b398ee3a0887ccf47699",
@@ -75,8 +75,7 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/egsweeny",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/egsweeny"
                 }
             ]
         },
@@ -86,6 +85,7 @@
             "theme": "Fast",
             "time_label": "12:00 - 12:25",
             "when": "2018-11-12T12:00",
+            "description": "The bad news: JavaScript, images, and web fonts often bloat modern web pages. The good news: There’s probably a ton of room to improve the performance of your site.  Katie and Houssein will guide you through the key techniques in JavaScript, images, and web fonts that you should be using to maximize the performance of your site.",
             "speakers": [
                 {
                     "ldap": "0933dea74b5231e219a02dfb99156d93",
@@ -93,8 +93,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/hdjirdeh",
-                    "dino": "dino-green.png"
+                    "link": "https://twitter.com/hdjirdeh"
                 },
                 {
                     "ldap": "4ca9cd2e993fcdf70686c21c8ae83260",
@@ -102,8 +101,7 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/katiehempenius",
-                    "dino": "dino-yellow.png"
+                    "link": "https://twitter.com/katiehempenius"
                 }
             ]
         },
@@ -113,6 +111,7 @@
             "theme": "Reliable",
             "time_label": "12:30 - 12:55",
             "when": "2018-11-12T12:30",
+            "description": "Today, most users access the web on the go, and therefore providing a fast, reliable, and smooth experience in uncertain network conditions is critical. With Service Worker now supported in all modern browsers, we can move from thinking of it as pure enhancement to considering it as part of our core application architecture.  But just as not all apps are created equal, not all service worker implementations will offer the same performance benefits. Every prefetch and cache decision comes with speed-vs-freshness and bandwidth-vs-storage trade offs.  Let's discuss how to evaluate and build the best service worker implementation for your app, that will lead to the best experience for your users.",
             "speakers": [
                 {
                     "ldap": "7ec68f6b36d6f1f9105344b65d92c959",
@@ -120,8 +119,7 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/devnook",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/devnook"
                 },
                 {
                     "ldap": "209890681f391c4f768dba10db86376c",
@@ -129,8 +127,7 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/philwalton",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/philwalton"
                 }
             ]
         },
@@ -140,6 +137,7 @@
             "theme": "",
             "time_label": "12:55 - 14:25",
             "when": "2018-11-12T13:00",
+            "description": "",
             "speakers": []
         },
         "smooth-moves": {
@@ -148,6 +146,7 @@
             "theme": "Smooth",
             "time_label": "14:30 - 14:55",
             "when": "2018-11-12T14:30",
+            "description": "Follow us as we refactor a microinteraction in some UI to unblock threads, unblock users & crank it up to 60fps. Once the site’s resources have been delivered quickly, how do we ensure that we keep that high bar for performance? We need to understand rendering and interaction within the page.",
             "speakers": [
                 {
                     "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
@@ -155,8 +154,7 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/_developit",
-                    "dino": "dino-green.png"
+                    "link": "https://twitter.com/_developit"
                 },
                 {
                     "ldap": "3b75cdd826a16f5bba0076690f644dc7",
@@ -164,8 +162,7 @@
                     "role": "UX Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/argyleink",
-                    "dino": "dino-yellow.png"
+                    "link": "https://twitter.com/argyleink"
                 }
             ]
         },
@@ -175,6 +172,7 @@
             "theme": "Smooth",
             "time_label": "15:00 - 15:25",
             "when": "2018-11-12T15:00",
+            "description": "If you can do it without JavaScript, that's usually the fastest path. But what about when JavaScript is the only way? In this session we take a JavaScript-heavy PWA and make it load in under 5 seconds on 2g, using WASM, workers, and web components.",
             "speakers": [
                 {
                     "ldap": "bf62d98d0284b3b873ed50fdd1697704",
@@ -182,8 +180,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/jaffathecake",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/jaffathecake"
                 },
                 {
                     "ldap": "c6e3690d5aaca6e349bc63d40729411d",
@@ -191,8 +188,7 @@
                     "role": "Drawsplainer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/kosamari",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/kosamari"
                 }
             ]
         },
@@ -202,6 +198,7 @@
             "theme": "Meaningful - Media",
             "time_label": "15:30 - 15:55",
             "when": "2018-11-12T15:30",
+            "description": "Learn how the latest media related capabilities available on the web platform can be used to build efficient and delightful web media experiences.",
             "speakers": [
                 {
                     "ldap": "48a4de34ba8674542200b5c10935f148",
@@ -209,8 +206,7 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://plus.google.com/+FrancoisBeaufort",
-                    "dino": "dino-green.png"
+                    "link": "https://plus.google.com/+FrancoisBeaufort"
                 },
                 {
                     "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
@@ -218,8 +214,7 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/vanderhuge",
-                    "dino": "dino-yellow.png"
+                    "link": "https://twitter.com/vanderhuge"
                 }
             ]
         },
@@ -229,6 +224,7 @@
             "theme": "",
             "time_label": "15:55 - 16:25",
             "when": "2018-11-12T16:00",
+            "description": "",
             "speakers": []
         },
         "modern-ecommerce": {
@@ -237,6 +233,7 @@
             "theme": "Meaningful - Commerce",
             "time_label": "16:30 - 16:55",
             "when": "2018-11-12T16:30",
+            "description": "While the web has provided increased capabilities, success for real-world e-commerce require taking a measured approach. In this session, you'll hear how some e-commerce companies are tackling challenges like organizational complexity, legacy code, measurement, prioritization and more to provide better experiences to their web users and prepare for future needs and demand. You'll also learn how AMP and PWA have played a role in shaping these modern consumer journeys.",
             "speakers": [
                 {
                     "ldap": "531e7c79b602cb57c6192c9dd40f53b8",
@@ -244,8 +241,7 @@
                     "role": "Mobile Solutions Consultant",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/cheneytsai",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/cheneytsai"
                 },
                 {
                     "ldap": "a191fb5d06c3902bded77b9de18c655b",
@@ -253,8 +249,7 @@
                     "role": "Mobile Solutions Consultant",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
-                    "dino": "dino-blue.png"
+                    "link": ""
                 }
             ]
         },
@@ -264,6 +259,7 @@
             "theme": "Meaningful - Publishing",
             "time_label": "17:00 - 17:25",
             "when": "2018-11-12T17:00",
+            "description": "",
             "speakers": [
                 {
                     "ldap": "44cfd5d8bf53a3b59ad8c8cd8d43dc7f",
@@ -271,8 +267,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/ialbmedina",
-                    "dino": "dino-green.png"
+                    "link": "https://twitter.com/ialbmedina"
                 },
                 {
                     "ldap": "16b1480cf3745ca7c6e3fad897869a6d",
@@ -280,8 +275,7 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/westonruter",
-                    "dino": "dino-yellow.png"
+                    "link": "https://twitter.com/westonruter"
                 }
             ]
         },
@@ -291,6 +285,7 @@
             "theme": "Search & Discovery",
             "time_label": "17:30 - 17:55",
             "when": "2018-11-12T17:30",
+            "description": "",
             "speakers": [
                 {
                     "ldap": "891044520f379343f3bb5add2a80550b",
@@ -298,8 +293,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/g33konaut",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/g33konaut"
                 },
                 {
                     "ldap": "d87d78a8275351c3154c3232ac2284af",
@@ -307,8 +301,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/tcmg",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/tcmg"
                 }
             ]
         },
@@ -318,6 +311,7 @@
             "theme": "",
             "time_label": "",
             "when": "2018-11-12T17:55",
+            "description": "",
             "speakers": []
         },
         "keynote-1": {
@@ -326,6 +320,7 @@
             "theme": "UX+DX",
             "time_label": "10:00 - 10:25",
             "when": "2018-11-13T10:00",
+            "description": "",
             "speakers": [
                 {
                     "ldap": "eda7396f5f2511df0646ce0e54401981",
@@ -333,8 +328,7 @@
                     "role": "Engineering Lead",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/cramforce",
-                    "dino": "dino-green.png"
+                    "link": "https://twitter.com/cramforce"
                 },
                 {
                     "ldap": "9479c85721d840f07b253c2f98e874f9",
@@ -342,8 +336,7 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/stubbornella",
-                    "dino": "dino-yellow.png"
+                    "link": "https://twitter.com/stubbornella"
                 }
             ]
         },
@@ -353,6 +346,7 @@
             "theme": "DX",
             "time_label": "10:30 - 10:55",
             "when": "2018-11-13T10:30",
+            "description": "Feature Policy is a new primitive which allows developers to selectively enable, disable, and modify the behavior of certain APIs and features in the browser. It's like CSP, but for features & APIs! Teams can use new tools like Feature Policy and the Reporting API to catch errors before they grow out of control, ensure site performance stays high, keep code quality healthy, and help avoid the web's biggest footguns.",
             "speakers": [
                 {
                     "ldap": "b69255cf1077fbad80ada26a75ea3601",
@@ -360,8 +354,7 @@
                     "role": "Staff Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/ebidel",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/ebidel"
                 }
             ]
         },
@@ -371,6 +364,7 @@
             "theme": "",
             "time_label": "10:55 - 11:25",
             "when": "2018-11-13T11:00",
+            "description": "",
             "speakers": []
         },
         "layered-apis": {
@@ -379,6 +373,7 @@
             "theme": "DX",
             "time_label": "11:30 - 11:55",
             "when": "2018-11-13T11:30",
+            "description": "",
             "speakers": [
                 {
                     "ldap": "fcac115effef3e009c86b70f58b55a18",
@@ -386,8 +381,7 @@
                     "role": "Engineering Program Manager, Chrome",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
-                    "dino": "dino-blue.png"
+                    "link": ""
                 },
                 {
                     "ldap": "c02915a65496ddfb2542c6fe2d80bcf3",
@@ -395,8 +389,7 @@
                     "role": "Engineering Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/graynorton",
-                    "dino": "dino-green.png"
+                    "link": "https://twitter.com/graynorton"
                 }
             ]
         },
@@ -406,6 +399,7 @@
             "theme": "DX",
             "time_label": "12:00 - 12:25",
             "when": "2018-11-13T12:00",
+            "description": "",
             "speakers": [
                 {
                     "ldap": "e0882402cfa59b5a2200eea5b49b4616",
@@ -413,8 +407,7 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "",
-                    "dino": "dino-yellow.png"
+                    "link": ""
                 }
             ]
         },
@@ -424,6 +417,7 @@
             "theme": "DX",
             "time_label": "12:30 - 12:55",
             "when": "2018-11-13T12:30",
+            "description": "",
             "speakers": [
                 {
                     "ldap": "b755b54531c5363b0907e46e90892c5b",
@@ -431,8 +425,7 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/aerotwist",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/aerotwist"
                 },
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -440,8 +433,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/DasSurma",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/DasSurma"
                 }
             ]
         },
@@ -451,6 +443,7 @@
             "theme": "",
             "time_label": "12:55 - 14:25",
             "when": "2018-11-13T13:00",
+            "description": "",
             "speakers": []
         },
         "web-packaging-portals": {
@@ -459,6 +452,7 @@
             "theme": "UX",
             "time_label": "14:30 - 14:55",
             "when": "2018-11-13T14:30",
+            "description": "In this talk we’ll look at emerging technologies to build better web experiences. Web packaging enables a next level of content portability that can be used to speed up content delivery or improve modes of content consumption, such as offline. Furthermore, combining web packaging with a new primitive called portals, we’ll show how we can take the web’s low friction trait a notch further with zero-friction user experiences.",
             "speakers": [
                 {
                     "ldap": "548a8839a94bfe61a436f8ce9ec380a7",
@@ -466,8 +460,7 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
-                    "dino": "dino-green.png"
+                    "link": ""
                 },
                 {
                     "ldap": "92db3e5999f3dc0016b626ee57b7dbf8",
@@ -475,8 +468,7 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
-                    "dino": "dino-yellow.png"
+                    "link": ""
                 }
             ]
         },
@@ -486,6 +478,7 @@
             "theme": "UX",
             "time_label": "15:00 - 15:25",
             "when": "2018-11-13T15:00",
+            "description": "Houdini continues to expand the power and capabilities of CSS. Houdini exposes the parts of the CSS engine that make APIs like CSS Grid, Scroll Snap Points, conic gradients et al possible. Extend CSS’ capabilities yourself without questionable hacks and better performance.  In this talk we are going to take a look at the overall structure of the Houdini effort and take a closer look at CSS Pain, Animation Worklets and Custom Layout API. We can get a taste of waht the future holds: An ecosystem of modules that bring powerful effects from the shelf to your app.",
             "speakers": [
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -493,8 +486,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/DasSurma",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/DasSurma"
                 }
             ]
         },
@@ -504,6 +496,7 @@
             "theme": "UX",
             "time_label": "15:30 - 15:55",
             "when": "2018-11-13T15:30",
+            "description": "The Web is emerging as an ideal platform for immersive reality experiences, particularly in augmented reality. In this talk, we will cover the progress in the WebXR Device API, show how partners are building compelling augmented reality experiences on the web today, and point you in the right direction to explore this space yourself.",
             "speakers": [
                 {
                     "ldap": "d0fe1ce07fddde1b8c7da18df6333942",
@@ -511,8 +504,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/cwilso",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/cwilso"
                 },
                 {
                     "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
@@ -520,8 +512,7 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "",
-                    "dino": "dino-blue.png"
+                    "link": ""
                 }
             ]
         },
@@ -531,6 +522,7 @@
             "theme": "",
             "time_label": "15:55 - 16:25",
             "when": "2018-11-13T16:00",
+            "description": "",
             "speakers": []
         },
         "wasm": {
@@ -539,6 +531,7 @@
             "theme": "",
             "time_label": "16:30 - 16:55",
             "when": "2018-11-13T16:30",
+            "description": "WebAssembly enables new experiences that we’ve never been able to get on the web before and now even more so with WebAssembly threads. This talk will show you some examples of what WebAssembly enables, highlighting a few real-world examples.  You'll also learn about the tools and debugging capabilities available so that you can take advantage of WebAssembly and threads in your web applications today.",
             "speakers": [
                 {
                     "ldap": "3b562519931363f27d26b9c24464b5e9",
@@ -546,8 +539,7 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/alexanderdanilo",
-                    "dino": "dino-green.png"
+                    "link": "https://twitter.com/alexanderdanilo"
                 },
                 {
                     "ldap": "673e7995b41f041a67fff425b6c6f824",
@@ -555,8 +547,7 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/ThomasTheDane",
-                    "dino": "dino-yellow.png"
+                    "link": "https://twitter.com/ThomasTheDane"
                 }
             ]
         },
@@ -566,6 +557,7 @@
             "theme": "",
             "time_label": "17:00 - 17:25",
             "when": "2018-11-13T17:00",
+            "description": "If the first rule of performance is “do less,” the second is surely “be lazy.” Using LitElement-based web components, we’ll explore the use of bleeding-edge techniques and browser APIs to spread work out so that your UI is faster to load, render and respond to user input. Topics we’ll cover include route-based dynamic module loading, async rendering, chunked rendering, IntersectionObserver, display-locking, and scheduling long-running tasks.",
             "speakers": [
                 {
                     "ldap": "7ffdb3da8ce9da2d0eb62d731eaae1b5",
@@ -573,8 +565,7 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/justinfagnani",
-                    "dino": "dino-red.png"
+                    "link": "https://twitter.com/justinfagnani"
                 }
             ]
         },
@@ -584,6 +575,7 @@
             "theme": "",
             "time_label": "17:30 - 18:55",
             "when": "2018-11-13T17:30",
+            "description": "Chrome OS not only powers devices from sticks to tablets to desktops, but it can also run web, Android, and now Linux applications, making Chromebooks premier machines for web development.This talk will provide a high-level overview of Chrome OS and discuss core and new features available to Web Developers. Topics will include best practices for Web development, including Progressive Web Apps and optimizing input and touch for tablets, while having desktop users in mind.",
             "speakers": [
                 {
                     "ldap": "f0cac071f7b18661ec0aa0589a59d1da",
@@ -591,8 +583,7 @@
                     "role": "Partner Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/dandv",
-                    "dino": "dino-blue.png"
+                    "link": "https://twitter.com/dandv"
                 }
             ]
         },
@@ -602,6 +593,7 @@
             "theme": "",
             "time_label": "",
             "when": "2018-11-13T17:55",
+            "description": "",
             "speakers": []
         }
     },
@@ -612,8 +604,7 @@
             "role": "Director, Chrome",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/bgalbs",
-            "dino": "dino-blue.png"
+            "link": "https://twitter.com/bgalbs"
         },
         "7caa2c8d9209ce05c2996862103356a0": {
             "ldap": "7caa2c8d9209ce05c2996862103356a0",
@@ -621,8 +612,7 @@
             "role": "Director, Web Developer Ecosystem",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/dalmaer",
-            "dino": "dino-green.png"
+            "link": "https://twitter.com/dalmaer"
         },
         "9d58776bf96aa22e9e2363eced6ae56a": {
             "ldap": "9d58776bf96aa22e9e2363eced6ae56a",
@@ -630,8 +620,7 @@
             "role": "Strategic Partner Development Manager",
             "company": "Google",
             "photo_available": "",
-            "link": "",
-            "dino": "dino-yellow.png"
+            "link": ""
         },
         "990ee931a6b71e49a5bac2bded6b0e0e": {
             "ldap": "990ee931a6b71e49a5bac2bded6b0e0e",
@@ -639,8 +628,7 @@
             "role": "Performance Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/paul_irish",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/paul_irish"
         },
         "a2c1714713a8b398ee3a0887ccf47699": {
             "ldap": "a2c1714713a8b398ee3a0887ccf47699",
@@ -648,8 +636,7 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/egsweeny",
-            "dino": "dino-blue.png"
+            "link": "https://twitter.com/egsweeny"
         },
         "0933dea74b5231e219a02dfb99156d93": {
             "ldap": "0933dea74b5231e219a02dfb99156d93",
@@ -657,8 +644,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/hdjirdeh",
-            "dino": "dino-green.png"
+            "link": "https://twitter.com/hdjirdeh"
         },
         "4ca9cd2e993fcdf70686c21c8ae83260": {
             "ldap": "4ca9cd2e993fcdf70686c21c8ae83260",
@@ -666,8 +652,7 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/katiehempenius",
-            "dino": "dino-yellow.png"
+            "link": "https://twitter.com/katiehempenius"
         },
         "7ec68f6b36d6f1f9105344b65d92c959": {
             "ldap": "7ec68f6b36d6f1f9105344b65d92c959",
@@ -675,8 +660,7 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/devnook",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/devnook"
         },
         "209890681f391c4f768dba10db86376c": {
             "ldap": "209890681f391c4f768dba10db86376c",
@@ -684,8 +668,7 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/philwalton",
-            "dino": "dino-blue.png"
+            "link": "https://twitter.com/philwalton"
         },
         "d035cf5e776a360ca4fa5eab76bb5a19": {
             "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
@@ -693,8 +676,7 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/_developit",
-            "dino": "dino-green.png"
+            "link": "https://twitter.com/_developit"
         },
         "3b75cdd826a16f5bba0076690f644dc7": {
             "ldap": "3b75cdd826a16f5bba0076690f644dc7",
@@ -702,8 +684,7 @@
             "role": "UX Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/argyleink",
-            "dino": "dino-yellow.png"
+            "link": "https://twitter.com/argyleink"
         },
         "bf62d98d0284b3b873ed50fdd1697704": {
             "ldap": "bf62d98d0284b3b873ed50fdd1697704",
@@ -711,8 +692,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/jaffathecake",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/jaffathecake"
         },
         "c6e3690d5aaca6e349bc63d40729411d": {
             "ldap": "c6e3690d5aaca6e349bc63d40729411d",
@@ -720,8 +700,7 @@
             "role": "Drawsplainer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/kosamari",
-            "dino": "dino-blue.png"
+            "link": "https://twitter.com/kosamari"
         },
         "48a4de34ba8674542200b5c10935f148": {
             "ldap": "48a4de34ba8674542200b5c10935f148",
@@ -729,8 +708,7 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://plus.google.com/+FrancoisBeaufort",
-            "dino": "dino-green.png"
+            "link": "https://plus.google.com/+FrancoisBeaufort"
         },
         "79d13a6895f16c46e1fa30a5872f7cf3": {
             "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
@@ -738,8 +716,7 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/vanderhuge",
-            "dino": "dino-yellow.png"
+            "link": "https://twitter.com/vanderhuge"
         },
         "531e7c79b602cb57c6192c9dd40f53b8": {
             "ldap": "531e7c79b602cb57c6192c9dd40f53b8",
@@ -747,8 +724,7 @@
             "role": "Mobile Solutions Consultant",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/cheneytsai",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/cheneytsai"
         },
         "a191fb5d06c3902bded77b9de18c655b": {
             "ldap": "a191fb5d06c3902bded77b9de18c655b",
@@ -756,8 +732,7 @@
             "role": "Mobile Solutions Consultant",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
-            "dino": "dino-blue.png"
+            "link": ""
         },
         "44cfd5d8bf53a3b59ad8c8cd8d43dc7f": {
             "ldap": "44cfd5d8bf53a3b59ad8c8cd8d43dc7f",
@@ -765,8 +740,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/ialbmedina",
-            "dino": "dino-green.png"
+            "link": "https://twitter.com/ialbmedina"
         },
         "16b1480cf3745ca7c6e3fad897869a6d": {
             "ldap": "16b1480cf3745ca7c6e3fad897869a6d",
@@ -774,8 +748,7 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/westonruter",
-            "dino": "dino-yellow.png"
+            "link": "https://twitter.com/westonruter"
         },
         "891044520f379343f3bb5add2a80550b": {
             "ldap": "891044520f379343f3bb5add2a80550b",
@@ -783,8 +756,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/g33konaut",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/g33konaut"
         },
         "d87d78a8275351c3154c3232ac2284af": {
             "ldap": "d87d78a8275351c3154c3232ac2284af",
@@ -792,8 +764,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/tcmg",
-            "dino": "dino-blue.png"
+            "link": "https://twitter.com/tcmg"
         },
         "eda7396f5f2511df0646ce0e54401981": {
             "ldap": "eda7396f5f2511df0646ce0e54401981",
@@ -801,8 +772,7 @@
             "role": "Engineering Lead",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/cramforce",
-            "dino": "dino-green.png"
+            "link": "https://twitter.com/cramforce"
         },
         "9479c85721d840f07b253c2f98e874f9": {
             "ldap": "9479c85721d840f07b253c2f98e874f9",
@@ -810,8 +780,7 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/stubbornella",
-            "dino": "dino-yellow.png"
+            "link": "https://twitter.com/stubbornella"
         },
         "b69255cf1077fbad80ada26a75ea3601": {
             "ldap": "b69255cf1077fbad80ada26a75ea3601",
@@ -819,8 +788,7 @@
             "role": "Staff Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/ebidel",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/ebidel"
         },
         "fcac115effef3e009c86b70f58b55a18": {
             "ldap": "fcac115effef3e009c86b70f58b55a18",
@@ -828,8 +796,7 @@
             "role": "Engineering Program Manager, Chrome",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
-            "dino": "dino-blue.png"
+            "link": ""
         },
         "c02915a65496ddfb2542c6fe2d80bcf3": {
             "ldap": "c02915a65496ddfb2542c6fe2d80bcf3",
@@ -837,8 +804,7 @@
             "role": "Engineering Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/graynorton",
-            "dino": "dino-green.png"
+            "link": "https://twitter.com/graynorton"
         },
         "e0882402cfa59b5a2200eea5b49b4616": {
             "ldap": "e0882402cfa59b5a2200eea5b49b4616",
@@ -846,8 +812,7 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "",
-            "dino": "dino-yellow.png"
+            "link": ""
         },
         "b755b54531c5363b0907e46e90892c5b": {
             "ldap": "b755b54531c5363b0907e46e90892c5b",
@@ -855,8 +820,7 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/aerotwist",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/aerotwist"
         },
         "33a6f8441ba820f7ec2c6f9dea283e18": {
             "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -864,8 +828,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/DasSurma",
-            "dino": "dino-blue.png"
+            "link": "https://twitter.com/DasSurma"
         },
         "548a8839a94bfe61a436f8ce9ec380a7": {
             "ldap": "548a8839a94bfe61a436f8ce9ec380a7",
@@ -873,8 +836,7 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
-            "dino": "dino-green.png"
+            "link": ""
         },
         "92db3e5999f3dc0016b626ee57b7dbf8": {
             "ldap": "92db3e5999f3dc0016b626ee57b7dbf8",
@@ -882,8 +844,7 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
-            "dino": "dino-yellow.png"
+            "link": ""
         },
         "d0fe1ce07fddde1b8c7da18df6333942": {
             "ldap": "d0fe1ce07fddde1b8c7da18df6333942",
@@ -891,8 +852,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/cwilso",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/cwilso"
         },
         "85dd771aea95331dfcad8cbbacbd2d37": {
             "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
@@ -900,8 +860,7 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "",
-            "dino": "dino-blue.png"
+            "link": ""
         },
         "3b562519931363f27d26b9c24464b5e9": {
             "ldap": "3b562519931363f27d26b9c24464b5e9",
@@ -909,8 +868,7 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/alexanderdanilo",
-            "dino": "dino-green.png"
+            "link": "https://twitter.com/alexanderdanilo"
         },
         "673e7995b41f041a67fff425b6c6f824": {
             "ldap": "673e7995b41f041a67fff425b6c6f824",
@@ -918,8 +876,7 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/ThomasTheDane",
-            "dino": "dino-yellow.png"
+            "link": "https://twitter.com/ThomasTheDane"
         },
         "7ffdb3da8ce9da2d0eb62d731eaae1b5": {
             "ldap": "7ffdb3da8ce9da2d0eb62d731eaae1b5",
@@ -927,8 +884,7 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/justinfagnani",
-            "dino": "dino-red.png"
+            "link": "https://twitter.com/justinfagnani"
         },
         "f0cac071f7b18661ec0aa0589a59d1da": {
             "ldap": "f0cac071f7b18661ec0aa0589a59d1da",
@@ -936,8 +892,7 @@
             "role": "Partner Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/dandv",
-            "dino": "dino-blue.png"
+            "link": "https://twitter.com/dandv"
         }
     }
 }

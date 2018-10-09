@@ -94,7 +94,7 @@ for(const i in sessions) {
         "theme": session.theme,
         "time_label": session.time_label,
         "when": session.when,
-//        "description": session.description,
+       "description": session.description,
         "speakers": []
     }
 

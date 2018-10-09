@@ -108,7 +108,10 @@ app.use(flat(async (ctx, next, path, rest) => {
     days,
   };
 
+  //console.log('test:', path, rest)
   if (rest) {
+//console.log('rest: ', path, rest);
+
     // special-case rendering /schedule/<session-id>
     if (path !== 'schedule') {
       return next();
@@ -124,6 +127,7 @@ app.use(flat(async (ctx, next, path, rest) => {
     scope.layout = 'amp';
     scope.sitePrefix = sitePrefix;
     scope.title = data.name || '';
+    scope.time_label = data.time_label || '';
     scope.description = data.description || '',
     scope.payload = data;
     path = '_amp-session';
