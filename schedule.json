@@ -6,7 +6,7 @@
             "theme": "",
             "time_label": "10:00 - 10:25",
             "when": "2018-11-12T10:00",
-            "description": "A roundup of the year in advancements to the web platform, and why and how Google products are invested in the Web.",
+            "description": "A round-up of the web platform's latest advancements and the evolving landscape. The keynote also covers the Chrome team's continued investment towards moving the platform forward and supporting the community.",
             "speakers": [
                 {
                     "ldap": "376ad68795360ead7e20ee6892bf4e0e",
@@ -32,14 +32,38 @@
             "theme": "",
             "time_label": "10:30 - 10:55",
             "when": "2018-11-12T10:30",
-            "description": "The modern web enables fast, integrated, reliable and engaging experiences. Hear real stories about how different companies have achieved growth and business success by focusing on speed, taking advantage of the web’s expanding capabilities, and found meaningful engagement with new and existing users.",
+            "description": "Music? Coffee? Ideas? By focusing on speed and taking advantage of the Web’s expanding capabilities, three global businesses found meaningful engagement with new and existing users everywhere. Hear directly from Spotify, Starbucks and Pinterest about the unique methods they’ve used to build and continually improve their PWAs and as a result, achieved growth and business success. ",
             "speakers": [
                 {
                     "ldap": "9d58776bf96aa22e9e2363eced6ae56a",
                     "name": "Aanchal Bahadur",
                     "role": "Strategic Partner Development Manager",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/aanchalbahadur"
+                },
+                {
+                    "ldap": "b259ae8c7193c2ea501456cdbcfcc22c",
+                    "name": "Zack Argyle",
+                    "role": "Engineering Lead",
+                    "company": "Pinterest",
+                    "photo_available": "1",
+                    "link": ""
+                },
+                {
+                    "ldap": "0d3daad691d2ecf0ba8c58cc844d9213",
+                    "name": "David Brunelle",
+                    "role": "director, product engineering",
+                    "company": "Starbucks",
+                    "photo_available": "1",
+                    "link": ""
+                },
+                {
+                    "ldap": "b54ae377534372a44ef007e79524a128",
+                    "name": "Matt Rizzo",
+                    "role": "Senior Product Manager",
+                    "company": "Spotify",
+                    "photo_available": "1",
                     "link": ""
                 }
             ]
@@ -59,7 +83,7 @@
             "theme": "Fast",
             "time_label": "11:30 - 11:55",
             "when": "2018-11-12T11:30",
-            "description": "Measuring, optimizing, and monitoring user experience on the web has never been easier. Learn about the latest changes in performance tooling, and how to meaningfully incorporate lab and field data into your development workflow. Paul and Elizabeth will share the latest developments in Lighthouse, DevTools profiling tools, PageSpeed Insights, Chrome UX Report, and key performance metrics.",
+            "description": "Measuring, optimizing, and monitoring user experience on the Web has never been easier. Learn about the latest changes in performance tooling, and how to meaningfully incorporate lab and field data into your development workflow. Paul and Elizabeth share the latest developments in Lighthouse, DevTools profiling tools, PageSpeed Insights, Chrome UX Report, and key performance metrics.",
             "speakers": [
                 {
                     "ldap": "990ee931a6b71e49a5bac2bded6b0e0e",
@@ -74,7 +98,7 @@
                     "name": "Elizabeth Sweeny",
                     "role": "Product Manager",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/egsweeny"
                 }
             ]
@@ -85,7 +109,7 @@
             "theme": "Fast",
             "time_label": "12:00 - 12:25",
             "when": "2018-11-12T12:00",
-            "description": "The bad news: JavaScript, images, and web fonts often bloat modern web pages. The good news: There’s probably a ton of room to improve the performance of your site.  Katie and Houssein will guide you through the key techniques in JavaScript, images, and web fonts that you should be using to maximize the performance of your site.",
+            "description": "The bad news: JavaScript, images, and web fonts often bloat modern web pages. The good news: There’s probably a ton of room to improve the performance of your site.   Katie and Houssein guide you through the key techniques in JavaScript, images, [CSS] and web fonts that you can use to maximize the performance of your site.",
             "speakers": [
                 {
                     "ldap": "0933dea74b5231e219a02dfb99156d93",
@@ -111,14 +135,14 @@
             "theme": "Reliable",
             "time_label": "12:30 - 12:55",
             "when": "2018-11-12T12:30",
-            "description": "Today, most users access the web on the go, and therefore providing a fast, reliable, and smooth experience in uncertain network conditions is critical. With Service Worker now supported in all modern browsers, we can move from thinking of it as pure enhancement to considering it as part of our core application architecture.  But just as not all apps are created equal, not all service worker implementations will offer the same performance benefits. Every prefetch and cache decision comes with speed-vs-freshness and bandwidth-vs-storage trade offs.  Let's discuss how to evaluate and build the best service worker implementation for your app, that will lead to the best experience for your users.",
+            "description": "Because most users access the Web on the go, it's critical that we deliver experiences that load quickly and run smoothly, regardless of network conditions. And with service worker now supported in all modern browsers, we can leverage it as a core part of our application architecture and performance strategy.  But not all service worker implementations are created equal, and they can offer vastly different performance benefits. Every prefetch and cache decision comes with speed vs. freshness and bandwidth vs. storage trade offs. Join us to discover how to evaluate and build different service worker flows for your app, giving the best experience for your users.",
             "speakers": [
                 {
                     "ldap": "7ec68f6b36d6f1f9105344b65d92c959",
                     "name": "Ewa Gasperowicz",
                     "role": "Developer Programs Engineer",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/devnook"
                 },
                 {
@@ -146,14 +170,14 @@
             "theme": "Smooth",
             "time_label": "14:30 - 14:55",
             "when": "2018-11-12T14:30",
-            "description": "Follow us as we refactor a microinteraction in some UI to unblock threads, unblock users & crank it up to 60fps. Once the site’s resources have been delivered quickly, how do we ensure that we keep that high bar for performance? We need to understand rendering and interaction within the page.",
+            "description": "Follow us as we refactor a microinteraction to unblock threads, unblock users, and crank it up to 60fps. Once the site’s resources have been delivered quickly, how do we ensure that we keep that high bar for performance? We need to understand rendering and interaction within the page.",
             "speakers": [
                 {
                     "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
                     "name": "Jason Miller",
                     "role": "Developer Programs Engineer",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/_developit"
                 },
                 {
@@ -172,7 +196,7 @@
             "theme": "Smooth",
             "time_label": "15:00 - 15:25",
             "when": "2018-11-12T15:00",
-            "description": "If you can do it without JavaScript, that's usually the fastest path. But what about when JavaScript is the only way? In this session we take a JavaScript-heavy PWA and make it load in under 5 seconds on 2g, using WASM, workers, and web components.",
+            "description": "If you can do it without JavaScript, that's usually the fastest path. But what about when JavaScript is the only way? In this session we take a JavaScript-heavy PWA and make it load in less than 5 seconds on 2G, using Web Assembly, workers, and web components.",
             "speakers": [
                 {
                     "ldap": "bf62d98d0284b3b873ed50fdd1697704",
@@ -198,7 +222,7 @@
             "theme": "Meaningful - Media",
             "time_label": "15:30 - 15:55",
             "when": "2018-11-12T15:30",
-            "description": "Learn how the latest media related capabilities available on the web platform can be used to build efficient and delightful web media experiences.",
+            "description": "Learn about how the latest media-related capabilities on the web platform can be used to build efficient and delightful web media experiences. This talk covers both APIs (such as Picture-in-Picture) and codecs (AV1), reviewing some of the nuances of how they can be successfully implemented, along with examples and demos.",
             "speakers": [
                 {
                     "ldap": "48a4de34ba8674542200b5c10935f148",
@@ -209,12 +233,12 @@
                     "link": "https://plus.google.com/+FrancoisBeaufort"
                 },
                 {
-                    "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
-                    "name": "Frank Galligan",
+                    "ldap": "ee74708b5aba7056bc4621495b3f2f2f",
+                    "name": "Angie Bird",
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/vanderhuge"
+                    "link": ""
                 }
             ]
         },
@@ -233,7 +257,7 @@
             "theme": "Meaningful - Commerce",
             "time_label": "16:30 - 16:55",
             "when": "2018-11-12T16:30",
-            "description": "While the web has provided increased capabilities, success for real-world e-commerce require taking a measured approach. In this session, you'll hear how some e-commerce companies are tackling challenges like organizational complexity, legacy code, measurement, prioritization and more to provide better experiences to their web users and prepare for future needs and demand. You'll also learn how AMP and PWA have played a role in shaping these modern consumer journeys.",
+            "description": "While the Web has provided increased capabilities, success for real-world ecommerce requires taking a measured approach. In this session, you'll hear how some ecommerce companies are tackling challenges like organizational complexity, legacy code, measurement, prioritization, and more to provide better experiences to their web users and prepare for future needs and demand. You'll also learn how AMP and PWA have played a role in shaping these modern consumer journeys.",
             "speakers": [
                 {
                     "ldap": "531e7c79b602cb57c6192c9dd40f53b8",
@@ -259,7 +283,7 @@
             "theme": "Meaningful - Publishing",
             "time_label": "17:00 - 17:25",
             "when": "2018-11-12T17:00",
-            "description": "",
+            "description": "Content Management Systems (CMS) are software platforms designed to simplify the creation and management of websites and their content. Nowadays, about 50% of websites are powered by some sort of CMS platform. In this talk, we discuss our experience moving a complex CMS (i.e. WordPress) forward along the Progressive Web Road by integrating modern capabilities (e.g. Service Worker API) and progressive technologies (e.g. AMP) into its platform and ecosystem, and how the lessons learned can be applied to other CMSes.",
             "speakers": [
                 {
                     "ldap": "44cfd5d8bf53a3b59ad8c8cd8d43dc7f",
@@ -285,7 +309,7 @@
             "theme": "Search & Discovery",
             "time_label": "17:30 - 17:55",
             "when": "2018-11-12T17:30",
-            "description": "",
+            "description": "Many modern JavaScript frameworks render their HTML content on the client-side assuming that every environment that is accessing their pages is as modern as they are. However, many search engines – including Google Search – do not behave exactly the same as a user’s browser.  In this session, you will learn some facts about Google Search, its rendering pipeline and the various tools which can help you diagnose the gap between what your users see versus what Google Search sees. You have built a fast & engaging website – let’s make sure it’s discoverable too.",
             "speakers": [
                 {
                     "ldap": "891044520f379343f3bb5add2a80550b",
@@ -320,7 +344,7 @@
             "theme": "UX+DX",
             "time_label": "10:00 - 10:25",
             "when": "2018-11-13T10:00",
-            "description": "",
+            "description": "Join us for a look at web frameworks and the web platform and how they can be stronger together–creating great user experiences at scale! Speaking of user experience: We’ve talked about things like jank and 60 frames per seconds for years, but some of these things remain hard to reliably achieve on the web. With a new set of web standards this is changing, and we’re super excited to introduce them to you!",
             "speakers": [
                 {
                     "ldap": "eda7396f5f2511df0646ce0e54401981",
@@ -349,12 +373,12 @@
             "description": "Feature Policy is a new primitive which allows developers to selectively enable, disable, and modify the behavior of certain APIs and features in the browser. It's like CSP, but for features & APIs! Teams can use new tools like Feature Policy and the Reporting API to catch errors before they grow out of control, ensure site performance stays high, keep code quality healthy, and help avoid the web's biggest footguns.",
             "speakers": [
                 {
-                    "ldap": "b69255cf1077fbad80ada26a75ea3601",
-                    "name": "Eric Bidelman",
-                    "role": "Staff Developer Programs Engineer",
+                    "ldap": "480407ea47efd1aa2d14fb007fee6f36",
+                    "name": "Jason Chase",
+                    "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "1",
-                    "link": "https://twitter.com/ebidel"
+                    "photo_available": "",
+                    "link": ""
                 }
             ]
         },
@@ -369,20 +393,12 @@
         },
         "layered-apis": {
             "day_index": "1",
-            "name": "Layered APIs and High-Level Web Platform Features",
+            "name": "virtual-scroller: Let there be less (DOM)",
             "theme": "DX",
             "time_label": "11:30 - 11:55",
             "when": "2018-11-13T11:30",
-            "description": "",
+            "description": "Rendering performance is mainly a function of how much you render - too much DOM will slow your site to a crawl. Native platforms actually have the same problem, but they stay fast by promoting virtual scrolling: rendering just enough content to fill the screen and continuously updating as the user scrolls. On today’s Web, virtualization breaks basic features like links and find-in-page, but hope is in sight. We’ll take an early peek at an effort to add a first-class virtual scroller to HTML, building on an exciting new platform concept called Layered APIs.",
             "speakers": [
-                {
-                    "ldap": "fcac115effef3e009c86b70f58b55a18",
-                    "name": "Natasha Pabrai",
-                    "role": "Engineering Program Manager, Chrome",
-                    "company": "Google",
-                    "photo_available": "1",
-                    "link": ""
-                },
                 {
                     "ldap": "c02915a65496ddfb2542c6fe2d80bcf3",
                     "name": "Gray Norton",
@@ -399,25 +415,33 @@
             "theme": "DX",
             "time_label": "12:00 - 12:25",
             "when": "2018-11-13T12:00",
-            "description": "",
+            "description": "Rendering performance is mainly a function of how much you render - too much DOM will slow your site to a crawl. Native platforms actually have the same problem, but they stay fast by promoting virtual scrolling: rendering just enough content to fill the screen and continuously updating as the user scrolls. On today’s Web, virtualization breaks basic features like links and find-in-page, but hope is in sight. We’ll take an early peek at an effort to add a first-class virtual scroller to HTML, building on an exciting new platform concept called Layered APIs.",
             "speakers": [
                 {
                     "ldap": "e0882402cfa59b5a2200eea5b49b4616",
                     "name": "Shubhie Panicker",
                     "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": ""
+                },
+                {
+                    "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
+                    "name": "Jason Miller",
+                    "role": "Developer Programs Engineer",
+                    "company": "Google",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/_developit"
                 }
             ]
         },
         "lights-camera-action": {
             "day_index": "1",
-            "name": "Lights, Camera, Action!",
+            "name": "Architecting Web Apps - Lights, Camera, Action!",
             "theme": "DX",
             "time_label": "12:30 - 12:55",
             "when": "2018-11-13T12:30",
-            "description": "",
+            "description": "Architecting web apps continues to be challenging, whether it's accounting for performance, the latest and greatest platform APIs, or simply trying to figure out what part of the app should do what!  In this talk, we explore how you can architect apps for maximum flexibility, and to that end we're going to reintroduce something that's 45-years old which might, in the end, pave the way for the future of web apps.",
             "speakers": [
                 {
                     "ldap": "b755b54531c5363b0907e46e90892c5b",
@@ -448,11 +472,11 @@
         },
         "web-packaging-portals": {
             "day_index": "1",
-            "name": "From Low Friction to Zero Friction with Web Packaging & Portals",
+            "name": "From Low Friction to Zero Friction with Web Packaging and Portals",
             "theme": "UX",
             "time_label": "14:30 - 14:55",
             "when": "2018-11-13T14:30",
-            "description": "In this talk we’ll look at emerging technologies to build better web experiences. Web packaging enables a next level of content portability that can be used to speed up content delivery or improve modes of content consumption, such as offline. Furthermore, combining web packaging with a new primitive called portals, we’ll show how we can take the web’s low friction trait a notch further with zero-friction user experiences.",
+            "description": "In this talk, we’ll look at emerging technologies to build better web experiences. Web packaging enables a next level of content portability that can be used to speed up content delivery or improve modes of content consumption, such as offline. Furthermore, by combining web packaging with a new primitive called Portals, we’ll show how we can take the web’s low friction trait a notch further with zero-friction user experiences.",
             "speakers": [
                 {
                     "ldap": "548a8839a94bfe61a436f8ce9ec380a7",
@@ -478,7 +502,7 @@
             "theme": "UX",
             "time_label": "15:00 - 15:25",
             "when": "2018-11-13T15:00",
-            "description": "Houdini continues to expand the power and capabilities of CSS. Houdini exposes the parts of the CSS engine that make APIs like CSS Grid, Scroll Snap Points, conic gradients et al possible. Extend CSS’ capabilities yourself without questionable hacks and better performance.  In this talk we are going to take a look at the overall structure of the Houdini effort and take a closer look at CSS Pain, Animation Worklets and Custom Layout API. We can get a taste of waht the future holds: An ecosystem of modules that bring powerful effects from the shelf to your app.",
+            "description": "Houdini continues to expand the power and capabilities of CSS. Houdini exposes the parts of the CSS engine that make possible APIs like CSS Grid, Scroll Snap Points, conic gradients, et al. Extend CSS’ capabilities yourself without questionable hacks and better performance.  In this talk, we look at the overall structure of the Houdini effort and take a closer look at CSS Paint, Animation Worklets and Custom Layout API. We can get a taste of what the future holds: An ecosystem of modules that bring powerful effects from the shelf to your app.",
             "speakers": [
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -531,7 +555,7 @@
             "theme": "",
             "time_label": "16:30 - 16:55",
             "when": "2018-11-13T16:30",
-            "description": "WebAssembly enables new experiences that we’ve never been able to get on the web before and now even more so with WebAssembly threads. This talk will show you some examples of what WebAssembly enables, highlighting a few real-world examples.  You'll also learn about the tools and debugging capabilities available so that you can take advantage of WebAssembly and threads in your web applications today.",
+            "description": "WebAssembly enables new experiences that we’ve never been able to get on the Web before and now WebAssembly threads takes that even further. This talk shows some examples of what WebAssembly enables, highlighting a few real-world examples and demos.  You'll also learn about the tools and debugging capabilities available to help you  take advantage of WebAssembly and threads in your web applications today.",
             "speakers": [
                 {
                     "ldap": "3b562519931363f27d26b9c24464b5e9",
@@ -575,7 +599,7 @@
             "theme": "",
             "time_label": "17:30 - 18:55",
             "when": "2018-11-13T17:30",
-            "description": "Chrome OS not only powers devices from sticks to tablets to desktops, but it can also run web, Android, and now Linux applications, making Chromebooks premier machines for web development.This talk will provide a high-level overview of Chrome OS and discuss core and new features available to Web Developers. Topics will include best practices for Web development, including Progressive Web Apps and optimizing input and touch for tablets, while having desktop users in mind.",
+            "description": "Chrome OS not only powers devices from sticks to tablets to desktops, but it can also run web, Android, and now Linux applications, making Chromebooks premier machines for web development.  This talk provides a high-level overview of Chrome OS and discusses core and new features available to Web Developers. Topics include best practices for web development, including Progressive Web Apps, and optimizing input and touch for tablets, while having desktop users in mind.",
             "speakers": [
                 {
                     "ldap": "f0cac071f7b18661ec0aa0589a59d1da",
@@ -619,8 +643,8 @@
             "name": "Aanchal Bahadur",
             "role": "Strategic Partner Development Manager",
             "company": "Google",
-            "photo_available": "",
-            "link": ""
+            "photo_available": "1",
+            "link": "https://twitter.com/aanchalbahadur"
         },
         "990ee931a6b71e49a5bac2bded6b0e0e": {
             "ldap": "990ee931a6b71e49a5bac2bded6b0e0e",
@@ -635,7 +659,7 @@
             "name": "Elizabeth Sweeny",
             "role": "Product Manager",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/egsweeny"
         },
         "0933dea74b5231e219a02dfb99156d93": {
@@ -659,7 +683,7 @@
             "name": "Ewa Gasperowicz",
             "role": "Developer Programs Engineer",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/devnook"
         },
         "209890681f391c4f768dba10db86376c": {
@@ -675,7 +699,7 @@
             "name": "Jason Miller",
             "role": "Developer Programs Engineer",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/_developit"
         },
         "3b75cdd826a16f5bba0076690f644dc7": {
@@ -793,10 +817,10 @@
         "fcac115effef3e009c86b70f58b55a18": {
             "ldap": "fcac115effef3e009c86b70f58b55a18",
             "name": "Natasha Pabrai",
-            "role": "Engineering Program Manager, Chrome",
+            "role": "Engineering Program Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": ""
+            "link": "www.natashapabrai.com"
         },
         "c02915a65496ddfb2542c6fe2d80bcf3": {
             "ldap": "c02915a65496ddfb2542c6fe2d80bcf3",
@@ -811,7 +835,7 @@
             "name": "Shubhie Panicker",
             "role": "Chrome Engineer",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": ""
         },
         "b755b54531c5363b0907e46e90892c5b": {
@@ -893,6 +917,46 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/dandv"
+        },
+        "ee74708b5aba7056bc4621495b3f2f2f": {
+            "ldap": "ee74708b5aba7056bc4621495b3f2f2f",
+            "name": "Angie Bird",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "1",
+            "link": ""
+        },
+        "480407ea47efd1aa2d14fb007fee6f36": {
+            "ldap": "480407ea47efd1aa2d14fb007fee6f36",
+            "name": "Jason Chase",
+            "role": "Chrome Engineer",
+            "company": "Google",
+            "photo_available": "",
+            "link": ""
+        },
+        "b259ae8c7193c2ea501456cdbcfcc22c": {
+            "ldap": "b259ae8c7193c2ea501456cdbcfcc22c",
+            "name": "Zack Argyle",
+            "role": "Engineering Lead",
+            "company": "Pinterest",
+            "photo_available": "1",
+            "link": ""
+        },
+        "0d3daad691d2ecf0ba8c58cc844d9213": {
+            "ldap": "0d3daad691d2ecf0ba8c58cc844d9213",
+            "name": "David Brunelle",
+            "role": "director, product engineering",
+            "company": "Starbucks",
+            "photo_available": "1",
+            "link": ""
+        },
+        "b54ae377534372a44ef007e79524a128": {
+            "ldap": "b54ae377534372a44ef007e79524a128",
+            "name": "Matt Rizzo",
+            "role": "Senior Product Manager",
+            "company": "Spotify",
+            "photo_available": "1",
+            "link": ""
         }
     }
 }

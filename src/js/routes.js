@@ -39,4 +39,10 @@ export async function subroute(node, route, subroute) {
 
   // TODO: show overlay for session details
   console.debug('event requested', subroute);
+
+  fetch('fragments/session/' + subroute).then(() =>
+    {
+      
+    }
+  )
 }
