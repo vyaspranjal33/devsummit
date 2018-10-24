@@ -1,29 +1,26 @@
 
-<h1>{{title}}</h1>
+<h1>{{title}}<a class="close" href="../schedule"></a></h1>
 
-<div id="popin">
+<article>
   <time class="datetime-label" datetime="{{payload.when}}">
     <div class="time-label">{{this.time_label}}</div>
     <div class="date-label">{{formatDate payload.when}}</div>
   </time>
-
   <p>{{description}}</p>
-</div>
+</article>
 
-<div class="grow"></div>
-  
-  <ul class="speakers">
-  {{#each payload.speakers}}
-    <li>
+<ul class="speakers">
+{{#each payload.speakers}}
+  <li>
+    <div class="speakers-image dino-amp">
       {{#if this.photo_available}}
-        <amp-img alt="{{this.name}}" src="../static/images/speakers/{{this.ldap}}.jpg" width="64" height="64"></amp-img>
-      {{else}}
-        <amp-img alt="{{this.name}}" src="../static/images/icons/dino-blue.png" width="64" height="64"></amp-img>
+      <amp-img layout="responsive" alt="{{this.name}}" src="../static/images/speakers/{{this.ldap}}.jpg" width="64" height="64"></amp-img>
       {{/if}}
-      <div class="speaker-info">
-        {{#if this.link}}<a href="{{this.link}}" target="_blank" rel="noopener">{{this.name}}</a>{{else}}{{this.name}}{{/if}}
-        <span class="role">{{this.role}}</span>
-      </div>
-    </li>
-  {{/each}}
-  </ul>
+    </div>
+    <div class="speaker-info">
+      {{#if this.link}}<a href="{{this.link}}" target="_blank" rel="noopener">{{this.name}}</a>{{else}}{{this.name}}{{/if}}
+      <span class="role">{{this.role}}</span>
+    </div>
+  </li>
+{{/each}}
+</ul>

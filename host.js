@@ -26,6 +26,7 @@ const hbs = require('koa-hbs');
 const Koa = require('koa');
 const mount = require('koa-mount');
 const policy = require('./deps/policy.js');
+const less = require('less');
 const calendar = require('./deps/calendar.js')
 const send = require('koa-send');
 const serve = require('koa-static');
@@ -47,6 +48,9 @@ if (isProd) {
   app.use(mount('/src', serve('src')));        // actual source folder
   app.use(mount('/node_modules', serve('node_modules')));
 }
+
+// In prod, we want to render AMP CSS from the generated file directly.
+const prodAmpCss = (isProd ? fs.readFileSync(`${__dirname}/res/amp.css`) : undefined);
 
 // Serve sw.js from top-level.
 const sourcePrefix = isProd ? 'res' : 'src';
@@ -71,6 +75,7 @@ app.use(hbs.middleware({
   partialsPath: `${__dirname}/partials`,
   extname: '.html',
 }));
+
 
 const sections = fs.readdirSync(`${__dirname}/sections`)
     .map((section) => {
@@ -117,27 +122,33 @@ app.use(flat(async (ctx, next, path, rest) => {
   };
 
   if (rest) {
+    if (path !== 'schedule') {
+      return next();
+    }
+
     // lookup schedule and check ID doesn't start with _
     const data = schedule.sessions[rest];
     if (!data || rest.startsWith('_')) {
       return next();
     }
 
-    switch (path) {
-      case 'schedule':
-        // render AMP for first session load
-        scope.layout = 'amp';
-        scope.sitePrefix = sitePrefix;
-        scope.title = data.name || '';
-        scope.time_label = data.time_label || '';
-        scope.description = data.description || '',
-        scope.payload = data;
-        path = '_amp-session';
-        break;
-
-      default:
-        return next();
+    let css = prodAmpCss;
+    if (css === undefined) {
+      // We provide a "fake" file to Less.CSS, as otherwise it needs the file and its filename.
+      const filename = `${__dirname}/static/styles/amp.less`;
+      const result = await less.render(`@import '${filename}';`);
+      css = result.css;
     }
+
+    // render AMP for first session load
+    scope.layout = 'amp';
+    scope.sitePrefix = sitePrefix;
+    scope.title = data.name || '';
+    scope.time_label = data.time_label || '';
+    scope.description = data.description || '',
+    scope.payload = data;
+    scope.styles = css;
+    path = '_amp-session';
   }
 
   ctx.set('Feature-Policy', policyHeader);

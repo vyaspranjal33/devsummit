@@ -35,6 +35,11 @@ const scope = new URL('.', self.location);
 self.addEventListener('fetch', (ev) => {
   const request = ev.request;
   const url = new URL(request.url);
+
+  if (url.searchParams.has('amp')) {
+    return;  // go through to the keeper
+  }
+
   if (scope.origin !== url.origin || request.method !== 'GET') {
     return;
   }
