@@ -1,0 +1,117 @@
+
+#popup {
+  min-height: 550px;
+  max-height: calc(100vh - 32px);
+  width: 550px;
+  max-width: calc(100vw - 32px);
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  font-weight: 300;
+  overflow: scroll;
+  display: flex;
+  flex-flow: column;
+  position: relative;
+
+  @media (max-width: @width-small - 1px), (max-height: @width-small - 1px) {
+    margin: 0;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  button.close {
+    cursor: pointer;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1565C0 url(../images/icons/ic_close_white_24px.svg) center no-repeat;
+    border: 0;
+    z-index: 1000;
+
+    &:focus {
+      outline: white auto 5px;
+    }
+  }
+
+  p {
+    margin: 1em 0;
+  }
+
+  h1 {
+    font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    display: block;
+    line-height: 1.2em;
+    background: #2196f3;
+    padding: 16px;
+    padding-right: 48px;
+    color: white;
+    position: relative;
+  }
+
+  ul.speakers {
+    list-style: none;
+    color: #111;
+    background: #f2f2f2;
+    padding: 8px 16px;
+
+    li {
+      display: flex;
+      align-items: center;
+      font-weight: 400;
+
+      .role {
+        display: block;
+        font-weight: 300;
+      }
+
+      .speaker-info {
+        padding-left: 12px;
+      }
+    
+      .speakers-image {
+        width: 40px;
+        min-width: 40px;
+        height: 40px;
+        margin: 5px 5px 5px 0;
+      }
+
+      @media (min-width: @width-small) {
+        .speakers-image {
+          width: 64px;
+          min-width: 64px;
+          height: 64px;
+        }
+      }
+    }
+  }
+}
+
+article {
+  margin: 0;
+  padding: 16px;
+  flex-grow: 1;
+}
+
+time {
+  font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+  display: block;
+
+  .date-label {
+    color: #616161;
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+  .time-label {
+    font-weight: 400;
+    color: #212121;
+  }
+}

@@ -1,17 +1,5 @@
-@width-tiny: 424px;
-@width-small: 600px;
-@width-nav: 700px;
-@width-normal: 864px;
-@width-contentside-min: 340px;
-@color-blue: #2196f3;
-@color-header-hover: #1ea362;
-@time-pagenav: 0.25s;
 
-.default-focus() {
-  outline: @color-blue auto 5px;
-  outline: Highlight auto 5px;
-  outline: -webkit-focus-ring-color auto 5px;
-}
+@import '_shared.less';
 
 * {
   margin: 0;
@@ -662,101 +650,7 @@ section {
   align-items: center;
   justify-content: center;
 
-  .grow {
-    flex-grow: 1;
-  }
-  #popup {
-    min-height: 550px;
-    max-height: calc(100vh - 32px);
-    width: 550px;
-    max-width: calc(100vw - 32px);
-    background: white;
-    border-radius: 4px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    font-weight: 300;
-    overflow: scroll;
-    display: flex;
-    flex-flow: column;
-
-    @media (max-width: @width-small - 1px), (max-height: @width-small - 1px) {
-      margin: 0;
-      width: 100vw;
-      height: 100vh;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    p {
-      margin: 1em 0;
-    }
-
-    h1 {
-      font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
-      letter-spacing: 0.5px;
-      font-weight: 400;
-      display: block;
-      line-height: 1.2em;
-      margin: 0 0 0.2em 0;
-      background: #2196f3;
-      padding: 16px 16px;
-      color: white;
-    }
-
-    ul.speakers {
-      list-style: none;
-      color: #111;
-      background: #f2f2f2;
-      padding: 8px 16px;
-
-      li {
-        display: flex;
-        align-items: center;
-        font-weight: 400;
-
-        .role {
-          display: block;
-          font-weight: 300;
-        }
-
-        .speaker-info {
-          padding-left: 12px;
-        }
-      
-        .speakers-image {
-          width: 40px;
-          min-width: 40px;
-          height: 40px;
-          margin: 5px 5px 5px 0;
-        }
-
-        @media (min-width: @width-small) {
-          .speakers-image {
-            width: 64px;
-            min-width: 64px;
-            height: 64px;
-          }
-        }
-      }
-    }
-  }
-  #popin {
-    padding: 8px 16px;
-  }
-
-  time {
-    font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
-    display: block;
-
-    .date-label {
-      color: #616161;
-      font-weight: 300;
-      text-transform: lowercase;
-    }
-    .time-label {
-      font-weight: 400;
-      color: #212121;
-    }
-  }
+  @import '_popup';
 }
 
 

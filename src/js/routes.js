@@ -23,7 +23,7 @@ export async function upgrade(node, route) {
   }
 
   const hideElement = (ev) => ev.target.hidden = true;
-  const allImages = document.querySelectorAll('.session__speakers-image img');
+  const allImages = document.querySelectorAll('.speakers-image img');
   Array.from(allImages).forEach((img) => {
     if (!img.complete) {
       // not yet loaded, wait for error
@@ -91,18 +91,27 @@ export async function subroute(node, route, subroute) {
     throw new Error('session not found');
   }
 
+  const closeHelper = () => {
+    const ev = new CustomEvent(SPA_GOTO_EVENT, {detail: './schedule', bubbles: true});
+    document.body.dispatchEvent(ev);
+  };
+
   const lightbox = document.createElement('div')
   lightbox.setAttribute('id', 'lightbox');
 
   const popup = document.createElement('div');
   popup.setAttribute('id', 'popup');
-  
+
   const h1 = $g('h1', {'text': session.name});
   popup.appendChild(h1);
 
-  const popin = $g('div', {'id': 'popin'});
+  const closeButton = $g('button', {'class': 'close'});
+  closeButton.addEventListener('click', (ev) => closeHelper());
+  h1.appendChild(closeButton);
+
+  const popin = $g('article');
   const time = $g('time', {'class': 'datetime-label', 'datetime': session.when});
-  
+
   const timeLabel = $g('div', {'class': 'time-label', 'text': session.time_label});
   const dateLabel = $g('div', {'class': 'date-label', 'text': format.date(session.when)});
   time.appendChild(timeLabel);
@@ -158,7 +167,7 @@ export async function subroute(node, route, subroute) {
 
   lightbox.addEventListener('click', (ev) => {
     if (ev.target === lightbox) {
-      lightbox.dispatchEvent(new CustomEvent(SPA_GOTO_EVENT, {detail: './schedule', bubbles: true}));
+      closeHelper();
     }
   });
 }
