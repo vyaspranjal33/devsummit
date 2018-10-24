@@ -14,13 +14,15 @@
   </div>
 
   <div class="session__details">
-    <h5>{{data.name}}</h5>
+    <a href="schedule/{{id}}">
+      <h5>{{data.name}}</h5>
+    </a>
     <div class="speakers">
       {{#each data.speakers}}
         <div class="role">
           {{#if this.link}}
             <a href="{{this.link}}" target="_blank" rel="noopener"><span class="speaker-name">{{this.name}}</span></a>{{else}}
-            <span class="speaker-name">{{this.name}}</span>{{/if}}, {{this.role}}
+            <span class="speaker-name">{{this.name}}</span>{{/if}}, {{this.role}}{{#ifCond this.company "Google"}}{{else}}, {{this.company}}{{/ifCond}}
         </div>
       {{/each}}
     </div>

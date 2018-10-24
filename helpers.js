@@ -21,6 +21,7 @@
 'use strict';
 
 const hbs = require('koa-hbs');
+const dateFormat = require('dateformat');
 
 hbs.registerHelper('formatTime', (raw) => {
   const d = new Date(raw);
@@ -31,6 +32,16 @@ hbs.registerHelper('formatTime', (raw) => {
   return `${pad(d.getHours())}:${pad(d.getMinutes())}`;
 });
 
+hbs.registerHelper('formatDate', (raw) => {
+  const d = new Date(raw);
+
+  if (isNaN(+d)) {
+    return '?';
+  }
+  
+  return dateFormat(d, "dddd, mmmm dS");
+});
+
 const counters = {};
 
 hbs.registerHelper('counter', (key='', mod=0) => {
@@ -38,4 +49,11 @@ hbs.registerHelper('counter', (key='', mod=0) => {
   const update = (prev === undefined ? 0 : prev + 1);
   counters[key] = update;
   return update % mod;
+});
+
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
 });
