@@ -54,6 +54,11 @@ app.use(async (ctx, next) => {
   if (ctx.path === '/sw.js') {
     return send(ctx, `${sourcePrefix}/sw.js`);
   }
+  return next();
+});
+
+// Serve schedule.json from top-level.
+app.use(async (ctx, next) => {
   if (ctx.path === '/schedule.json') {
     return send(ctx, `schedule.json`);
   }
@@ -112,21 +117,14 @@ app.use(flat(async (ctx, next, path, rest) => {
   };
 
   if (rest) {
-    // special-case rendering /schedule/<session-id>
-    // if (path !== 'schedule') {
-    //   console.log('bar2');
-    //   return next();
-    // }
-
     // lookup schedule and check ID doesn't start with _
     const data = schedule.sessions[rest];
     if (!data || rest.startsWith('_')) {
       return next();
     }
 
-    switch(path) {
+    switch (path) {
       case 'schedule':
-      console.log('schedule hit');
         // render AMP for first session load
         scope.layout = 'amp';
         scope.sitePrefix = sitePrefix;
@@ -139,8 +137,7 @@ app.use(flat(async (ctx, next, path, rest) => {
 
       default:
         return next();
-        break;
-    }    
+    }
   }
 
   ctx.set('Feature-Policy', policyHeader);

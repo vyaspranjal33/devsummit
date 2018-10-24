@@ -75,6 +75,7 @@ exports.sw = gulp.series(gulp.parallel(exports.css, exports.js), async function 
     'res/*.css',
     'res/*.js',
     'static/images/**',
+    'schedule.json',
   ];
   const globIgnores = [
     'static/images/gallery/**',

@@ -14,6 +14,9 @@
  * the License.
  */
 
+import * as format from './format.js';
+import {SPA_GOTO_EVENT} from './spa.js';
+
 export async function upgrade(node, route) {
   if (route !== 'schedule') {
     return;  // nothing to do
@@ -32,152 +35,130 @@ export async function upgrade(node, route) {
   });
 }
 
-function $g(tag, config, children) {
-  config = config || null;
-  children = children || null;
-  var element = document.createElement(tag);
-
-  if (config == null) return element;
+/**
+ * Templating helper.
+ * @param {string} tag element to create with this name
+ * @param {!Object<string, string>} config properties to attach
+ * @return {!HTMLElement}
+ */
+function $g(tag, config) {
+  const element = document.createElement(tag);
+  if (!config) {
+    return element;
+  }
 
   if ('text' in config) {
     element.textContent = config.text;
     delete config['text'];
   }
-  if ('id' in config) {
-    element.setAttribute('id', config.id)
-    delete config['id'];
-  }
   if ('class' in config) {
-    var classes = config.class.split(' ')
-    classes.forEach((className) => {
-      element.classList.add(className);
-    })
+    element.className = config.class;
     delete config['class'];
   }
-
-  for (var keyId in config) {
-    if (config.hasOwnProperty(keyId)) {
-        element.setAttribute(keyId, config[keyId]);
+  for (const keyId in config) {
+    if (config[keyId] != null) {  // explicit !=
+      element.setAttribute(keyId, config[keyId]);
     }
-}
-
-  if (children == null) return element;
-
-  children.foreach((child) => {
-    element.appendChild(child);
-  })
+  }
 
   return element;
 }
 
-function formatTime(foo) {
-  return foo;
+let scheduleFetchCache;
+function scheduleFetch() {
+  if (!scheduleFetchCache) {
+    scheduleFetchCache = window.fetch('./schedule.json').then((r) => r.json());
+  }
+  return scheduleFetchCache;
 }
 
-function formatDate(foo) {
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-  const dateEnding = ['st', 'nd', 'rd', 'th'];
-
-  var date = new Date(foo);
-  return days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate() + dateEnding[Math.min(date.getDate(), 3)];
-}
+let activeLightbox;
 
 export async function subroute(node, route, subroute) {
+  activeLightbox && activeLightbox.remove();
+
   if (route !== 'schedule') {
     return;  // nothing to do
   }
 
-  if (subroute == '') {
-    return;  // nothing to do
+  if (subroute === '') {
+    return;  // nothing to do, we've cleaned up lightbox
   }
 
-  fetch(`schedule.json`).then((result) => {
-    return result.json();
-  }).then((json) => {
-    const session = json.sessions[subroute];
-    const base = new URL(document.head.querySelector('base').href);
+  const json = await scheduleFetch();
+  const session = json.sessions[subroute];
+  if (!session) {
+    throw new Error('session not found');
+  }
 
-    var oldBox = document.getElementById('lightbox');
-    if (oldBox) oldBox.remove();
+  const lightbox = document.createElement('div')
+  lightbox.setAttribute('id', 'lightbox');
 
-    var lightbox = document.createElement('div')
-    lightbox.setAttribute('id', 'lightbox');
+  const popup = document.createElement('div');
+  popup.setAttribute('id', 'popup');
+  
+  const h1 = $g('h1', {'text': session.name});
+  popup.appendChild(h1);
 
-    var popup = document.createElement('div');
-    popup.setAttribute('id', 'popup');
-    
-    var h1 = $g('h1', { 'text': session.name});
-    popup.appendChild(h1);
+  const popin = $g('div', {'id': 'popin'});
+  const time = $g('time', {'class': 'datetime-label', 'datetime': session.when});
+  
+  const timeLabel = $g('div', {'class': 'time-label', 'text': session.time_label});
+  const dateLabel = $g('div', {'class': 'date-label', 'text': format.date(session.when)});
+  time.appendChild(timeLabel);
+  time.appendChild(dateLabel);
 
-    var popin = $g('div', { 'id': 'popin'});
-    var time = $g('time', {'class': 'datetime-label', 'datetime': 'foobar'});
-   
-    //var timeLabel = $g('div', {'text': formatTime(session.when)});
-    var timeLabel = $g('div', {'class': 'time-label', 'text': session.time_label});
-    var dateLabel = $g('div', {'class': 'date-label', 'text': formatDate(session.when)});
-    time.appendChild(timeLabel);
-    time.appendChild(dateLabel);
+  popin.appendChild(time);
 
-    popin.appendChild(time);
+  const description = $g('p', {'text': session.description});
+  popin.appendChild(description);
 
-    var description = $g('p', {'text': session.description});
-    popin.appendChild(description);
+  // End
+  popup.appendChild(popin);
+  
+  const grow = $g('div', {'class': 'grow'});
+  popup.appendChild(grow);
 
-    // End
-    popup.appendChild(popin);
-    
-    var grow = $g('div', {'class': 'grow'});
-    popup.appendChild(grow);
+  const speakerList = $g('ul', {'class': 'speakers'});
+  popup.appendChild(speakerList);
+  session.speakers.forEach((speaker) => {
+    const listItem = $g('li');
+    const speakerImage = $g('div', {'class': 'speakers-image'});
+    speakerImage.classList.add('dino-' + ~~(Math.random() * 4));
 
-    var speakerList = $g('ul', {'class': 'speakers'});
-
-    session.speakers.forEach((speaker) => {
-      var listItem = $g('li');
-
-      let imageSrc = base.href + `static/images/icons/dino-blue.png`;
-
-      if (speaker.photo_available) {
-        imageSrc = base.href + `static/images/speakers/` + speaker.ldap + `.jpg`;
-      }
-
-      var img = $g('img', {
+    if (speaker.photo_available) {
+      const imageSrc = `./static/images/speakers/${speaker.ldap}.jpg`;
+      const img = $g('img', {
         'alt': speaker.name,
         'src': imageSrc,
-        'width': 64,
-        'height': 64
       });
-      listItem.appendChild(img);
+      speakerImage.appendChild(img);
+    }
+    listItem.appendChild(speakerImage);
 
-      var speakerInfo = $g('div', {'class': 'speaker-info'});      
-      if (speaker.link) {
-        speakerInfo.innerHTML = `<a href="`+speaker.link+`">` + speaker.name + `</a><span class="role">` + speaker.role + `</span>`;
-      } else {
-        speakerInfo.innerHTML = speaker.name + `<span class="role">` + speaker.role + `</span>`;
-      }
-      listItem.appendChild(speakerInfo);
+    const speakerInfo = $g('div', {'class': 'speaker-info'});
+    speakerInfo.appendChild($g(speaker.link ? 'a' : 'span', {
+      'target': '_blank',
+      'rel': 'noopener',
+      'href': speaker.link || null,
+      'text': speaker.name,
+    }));
+    speakerInfo.appendChild($g('span', {'class': 'role', 'text': speaker.role}));
 
-      // End
-      speakerList.appendChild(listItem)
-    })
+    listItem.appendChild(speakerInfo);
 
-    popup.appendChild(speakerList);
+    // End
+    speakerList.appendChild(listItem)
+  });
 
-    lightbox.appendChild(popup);
-    document.body.appendChild(lightbox);
+  lightbox.appendChild(popup);
+  document.body.appendChild(lightbox);
 
-    var darkBox = document.getElementById('darkbox');
-    if (darkBox) darkBox.remove();
+  activeLightbox = lightbox;
 
-    var darkbox = document.createElement('div')
-    darkbox.setAttribute('id', 'darkbox');
-
-    darkbox.addEventListener('click', () => {
-      lightbox.remove();
-      darkbox.remove();
-
-      window.history.pushState(null, null, base.href + 'schedule');
-    })
-    document.body.appendChild(darkbox);
-  })
+  lightbox.addEventListener('click', (ev) => {
+    if (ev.target === lightbox) {
+      lightbox.dispatchEvent(new CustomEvent(SPA_GOTO_EVENT, {detail: './schedule', bubbles: true}));
+    }
+  });
 }

@@ -238,6 +238,36 @@ section {
   }
 }
 
+// shared speakers' image
+.speakers-image {
+  border-radius: 50%;
+  box-shadow: 0px 2px 1px rgba(66, 66, 66, 0.75);
+  background: white center no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: inherit;
+    height: inherit;
+  }
+
+  &.dino-0 {
+    background-image: url(../images/icons/dino-blue.png);
+  }
+  &.dino-1 {
+    background-image: url(../images/icons/dino-green.png);
+  }
+  &.dino-2 {
+    background-image: url(../images/icons/dino-red.png);
+  }
+  &.dino-3 {
+    background-image: url(../images/icons/dino-yellow.png);
+  }
+}
+
 // "powered by the web" section
 .section__tldr {
   text-align: center;
@@ -516,7 +546,7 @@ section {
         flex-wrap: wrap;
         margin-bottom: 12px;
       }
-      .session__speakers-image {
+      .speakers-image {
         margin-right: 8px;
       }
     }
@@ -533,40 +563,16 @@ section {
     @speaker-size: 40px;
     @speaker-size-offset: (@speaker-size / 4);
 
-    img {
-      width: inherit;
-      height: inherit;
-    }
-
     .session__speakers {
       display: flex;
       align-items: center;
       min-height: @speaker-size * 1.4;
     }
 
-    .session__speakers-image {
-      border-radius: 50%;
-      box-shadow: 0px 2px 1px rgba(66, 66, 66, 0.75);
-      background: white center no-repeat;
-      background-size: contain;
+    .speakers-image {
       width: @speaker-size;
       min-width: @speaker-size;
       height: @speaker-size;
-      position: relative;
-      overflow: hidden;
-
-      &.dino-0 {
-        background-image: url(../images/icons/dino-blue.png);
-      }
-      &.dino-1 {
-        background-image: url(../images/icons/dino-green.png);
-      }
-      &.dino-2 {
-        background-image: url(../images/icons/dino-red.png);
-      }
-      &.dino-3 {
-        background-image: url(../images/icons/dino-yellow.png);
-      }
     }
 
     @media (min-width: @width-small) {
@@ -577,53 +583,24 @@ section {
         min-width: (@speaker-size * 2);
         justify-content: center;
         position: relative;
+        flex-wrap: wrap;
+        margin: -(@speaker-size / 4) 20px;
+        margin-left: 0;
 
         // on large screens, align speaker heads weirdly.
-        &.speakers__2 {
-          .session__speakers-image:nth-child(1) {
-            margin-top: -(@speaker-size / 2);
+        &:not(.speakers__1) {
+          .speakers-image {
+            margin-bottom: -(@speaker-size / 4);
           }
-          .session__speakers-image:nth-child(2) {
+          .speakers-image:nth-child(2n+0) {
             margin-top: (@speaker-size / 2);
           }
-        }
-
-        &.speakers__4 {
-          .session__speakers-image {
-            width: @speaker-size * 0.9;
-            min-width: @speaker-size * 0.9;
-            height: @speaker-size * 0.9;
-            position: absolute;
-            margin: 0;
-          }
-          .session__speakers-image:nth-child(1) {
-            margin-top: -(@speaker-size / 4);
-            margin-top: 0;
-            left: 0;
-            top: -30%;
-          }
-          .session__speakers-image:nth-child(2) {
-            margin-top: (@speaker-size / 4);
-            margin-top: 0;
-            top: -10%;
-            right: 0;
-          }
-          .session__speakers-image:nth-child(3) {
-            margin-top: (@speaker-size / 4);
-            margin-top: 0;
-            top: 50%;
-            left: 0;
-          }
-          .session__speakers-image:nth-child(4) {
-            margin-top: (@speaker-size / 4);
-            margin-top: 0;
-            top: 70%;
-            right: 0;
+          .speakers-image:nth-child(2n+1) {
+            margin-top: -(@speaker-size / 2);
           }
         }
-
         &.speakers__1 {
-          .session__speakers-image {
+          .speakers-image {
             width: @speaker-size * 1.2;
             min-width: @speaker-size * 1.2;
             height: @speaker-size * 1.2;
@@ -635,10 +612,6 @@ section {
     .session__details {
       flex-grow: 1;
       padding: 10px 0;
-
-      .speaker-name {
-        // font-weight: bold;
-      }
 
       h5 {
         margin-top: 0;
@@ -659,6 +632,10 @@ section {
     padding: 0 10px;
     border-radius: 2px;
 
+    a {
+      color: inherit;
+    }
+
     .session__speakers {
       display: none;
     }
@@ -674,112 +651,111 @@ section {
 }
 
 #lightbox {
+  background: rgba(0, 0, 0, 0.5);
   z-index: 102;
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  max-width: 600px;
-  // height: 500px;
-  max-height: max-content;
-
-  margin: auto;
-  // box-shadow: 5px 5px 5px grey;
-  background: transparent;
-  // background: grey;
-}
-
-#darkbox {
-  z-index: 101;
-  background: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-}
-
-#lightbox {
-  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .grow {
     flex-grow: 1;
   }
   #popup {
-    max-width: 600px;
-    /* box-sizing: border-box; */
+    min-height: 550px;
+    max-height: calc(100vh - 32px);
+    width: 550px;
+    max-width: calc(100vw - 32px);
     background: white;
     border-radius: 4px;
-    /* min-height: 80vh; */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
     font-weight: 300;
-    /* display: flex;
-    flex-flow: column; */
+    overflow: scroll;
+    display: flex;
+    flex-flow: column;
+
+    @media (max-width: @width-small - 1px), (max-height: @width-small - 1px) {
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    p {
+      margin: 1em 0;
+    }
+
+    h1 {
+      font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+      display: block;
+      line-height: 1.2em;
+      margin: 0 0 0.2em 0;
+      background: #2196f3;
+      padding: 16px 16px;
+      color: white;
+    }
+
+    ul.speakers {
+      list-style: none;
+      color: #111;
+      background: #f2f2f2;
+      padding: 8px 16px;
+
+      li {
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+
+        .role {
+          display: block;
+          font-weight: 300;
+        }
+
+        .speaker-info {
+          padding-left: 12px;
+        }
+      
+        .speakers-image {
+          width: 40px;
+          min-width: 40px;
+          height: 40px;
+          margin: 5px 5px 5px 0;
+        }
+
+        @media (min-width: @width-small) {
+          .speakers-image {
+            width: 64px;
+            min-width: 64px;
+            height: 64px;
+          }
+        }
+      }
+    }
   }
   #popin {
     padding: 8px 16px;
-    min-height: 40vh;
-    box-sizing: border-box;
-    display: flex;
-    flex-flow: column;
   }
-  #popup h1 {
+
+  time {
     font-family: 'Product Sans', 'Open Sans', 'Roboto', 'Arial', 'Helvetica', sans-serif;
-    /* text-transform: lowercase; */
-    letter-spacing: 0.5px;
-    font-weight: 400;
     display: block;
-    line-height: 1.2em;
-    margin: 0 0 0.2em 0;
-    background: #2196f3;
-    padding: 16px 16px;
-    border-radius: 4px 4px 0 0;
-    color: white;
-  /*  color: #2196f3;
-  */}
-  #popup ul.speakers {
-    list-style: none;
-    color: #111;
-    background: #f2f2f2;
-    padding: 8px 16px;
-    border-radius: 0 0 4px 4px;
-  }
-  #popup ul.speakers li {
-    display: flex;
-    align-items: center;
-    font-weight: 400;
-  }
-  #popup ul.speakers img {
-    /* margin: 6px 12px 6px 0; */
-  }
-  #popup ul.speakers li .role {
-    display: block;
-    font-weight: 300;
-  }
-  #popup img {
-    border-radius: 50%;
-    box-shadow: 0px 2px 1px rgba(66, 66, 66, 0.75);
-    background: white center no-repeat;
-    background-size: contain;
-    margin: 5px 5px 5px 0;
-  }
-  .datetime-label {
-    color: #616161;
-    font-weight: 400;
-  }
-  .time-label {
-    font-weight: 600;
-    color: #212121;
-    margin-bottom: 4px;
-  }
-  .date-label {
-    margin-bottom: 20px;
-  }
-  .speaker-info {
-    padding-left: 12px;
+
+    .date-label {
+      color: #616161;
+      font-weight: 300;
+      text-transform: lowercase;
+    }
+    .time-label {
+      font-weight: 400;
+      color: #212121;
+    }
   }
 }
 

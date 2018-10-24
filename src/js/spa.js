@@ -17,6 +17,8 @@
 
 import * as routes from './routes.js';
 
+export const SPA_GOTO_EVENT = '-spa-goto';
+
 
 /**
  * @param {!URL} url to find route for, e.g., /devsummit/foo/bar => 'foo'
@@ -161,6 +163,12 @@ function clickHandler(ev) {
 
   safeLoad(url, null);
 }
+
+
+document.body.addEventListener(SPA_GOTO_EVENT, (ev) => {
+  const url = new URL(ev.detail, base);
+  safeLoad(url, null);
+});
 
 
 (async function preparePage() {
