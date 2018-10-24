@@ -50,7 +50,17 @@ if (isProd) {
 }
 
 // In prod, we want to render AMP CSS from the generated file directly.
-const prodAmpCss = (isProd ? fs.readFileSync(`${__dirname}/res/amp.css`) : undefined);
+function readProdAmpCss() {
+  const p = `${__dirname}/res/amp.css`;
+  try {
+    return fs.readFileSync(p);
+  } catch (err) {
+    // not found for some reason
+  }
+  return undefined;
+}
+const prodAmpCss = isProd ? readProdAmpCss() : undefined;
+let fallbackProdAmpCss = undefined;
 
 // Serve sw.js from top-level.
 const sourcePrefix = isProd ? 'res' : 'src';
@@ -132,12 +142,17 @@ app.use(flat(async (ctx, next, path, rest) => {
       return next();
     }
 
-    let css = prodAmpCss;
+    let css = prodAmpCss || fallbackProdAmpCss;
     if (css === undefined) {
       // We provide a "fake" file to Less.CSS, as otherwise it needs the file and its filename.
       const filename = `${__dirname}/static/styles/amp.less`;
       const result = await less.render(`@import '${filename}';`);
       css = result.css;
+
+      if (isProd) {
+        console.debug('saving rendered CSS to fallback in prod', css.length, 'bytes');
+        fallbackProdAmpCss = css;
+      }
     }
 
     // render AMP for first session load
