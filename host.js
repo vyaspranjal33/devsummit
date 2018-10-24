@@ -54,6 +54,9 @@ app.use(async (ctx, next) => {
   if (ctx.path === '/sw.js') {
     return send(ctx, `${sourcePrefix}/sw.js`);
   }
+  if (ctx.path === '/schedule.json') {
+    return send(ctx, `schedule.json`);
+  }
   return next();
 });
 
@@ -108,14 +111,12 @@ app.use(flat(async (ctx, next, path, rest) => {
     days,
   };
 
-  //console.log('test:', path, rest)
   if (rest) {
-//console.log('rest: ', path, rest);
-
     // special-case rendering /schedule/<session-id>
-    if (path !== 'schedule') {
-      return next();
-    }
+    // if (path !== 'schedule') {
+    //   console.log('bar2');
+    //   return next();
+    // }
 
     // lookup schedule and check ID doesn't start with _
     const data = schedule.sessions[rest];
@@ -123,14 +124,23 @@ app.use(flat(async (ctx, next, path, rest) => {
       return next();
     }
 
-    // render AMP for first session load
-    scope.layout = 'amp';
-    scope.sitePrefix = sitePrefix;
-    scope.title = data.name || '';
-    scope.time_label = data.time_label || '';
-    scope.description = data.description || '',
-    scope.payload = data;
-    path = '_amp-session';
+    switch(path) {
+      case 'schedule':
+      console.log('schedule hit');
+        // render AMP for first session load
+        scope.layout = 'amp';
+        scope.sitePrefix = sitePrefix;
+        scope.title = data.name || '';
+        scope.time_label = data.time_label || '';
+        scope.description = data.description || '',
+        scope.payload = data;
+        path = '_amp-session';
+        break;
+
+      default:
+        return next();
+        break;
+    }    
   }
 
   ctx.set('Feature-Policy', policyHeader);

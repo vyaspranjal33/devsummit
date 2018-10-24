@@ -44,13 +44,15 @@ const speakersText = fs.readFileSync(inputSpeakersFilePath, "utf8");
 const sessions = parse(sessionsText, {
     columns: true,
     skip_empty_lines: true,
-    delimiter: '\t'
+    delimiter: '\t',
+    quote: null
 })
 
 const speakers = parse(speakersText, {
     columns: true,
     skip_empty_lines: true,
-    delimiter: '\t'
+    delimiter: '\t',
+    quote: null
 })
 
 const output = {};

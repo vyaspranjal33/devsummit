@@ -2,11 +2,9 @@
 <h1>{{title}}</h1>
 
 <div id="popin">
-  <!-- <time class="time-label" datetime="{{payload.when}}">{{formatTime payload.when}}</time> -->
-
-  <!-- TODO: do proper date time instead of text label -->
   <time class="datetime-label" datetime="{{payload.when}}">
     <div class="time-label">{{this.time_label}}</div>
+    <!-- <div class="time-label">{{formatTime payload.when}}</div> -->
     
     <div class="date-label">{{formatDate payload.when}}</div>
   </time>

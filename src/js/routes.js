@@ -32,17 +32,163 @@ export async function upgrade(node, route) {
   });
 }
 
+function $g(tag, config, children) {
+  config = config || null;
+  children = children || null;
+  var element = document.createElement(tag);
+
+  if (config == null) return element;
+
+  if ('text' in config) {
+    element.textContent = config.text;
+    delete config['text'];
+  }
+  if ('id' in config) {
+    element.setAttribute('id', config.id)
+    delete config['id'];
+  }
+  if ('class' in config) {
+    var classes = config.class.split(' ')
+    classes.forEach((className) => {
+      element.classList.add(className);
+    })
+    delete config['class'];
+  }
+
+  for (var keyId in config) {
+    if (config.hasOwnProperty(keyId)) {
+        element.setAttribute(keyId, config[keyId]);
+    }
+}
+
+  if (children == null) return element;
+
+  children.foreach((child) => {
+    element.appendChild(child);
+  })
+
+  return element;
+}
+
+function formatTime(foo) {
+  var date = new Date(foo);
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + " " + strTime;
+}
+
+function formatDate(foo) {
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  const dateEnding = ['st', 'nd', 'rd', 'th'];
+
+  var date = new Date(foo);
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+
+  return days[date.getDay()] + ", " + months[date.getMonth()] + " " + date.getDate() + dateEnding[Math.min(date.getDate(), 3)];
+  return date.getMonth()+1 + "/" + date.getDate() + "/" + date.getFullYear() + " " + strTime;
+}
+
 export async function subroute(node, route, subroute) {
   if (route !== 'schedule') {
     return;  // nothing to do
   }
 
-  // TODO: show overlay for session details
-  console.debug('event requested', subroute);
+  if (subroute == '') {
+    return;  // nothing to do
+  }
 
-  fetch('fragments/session/' + subroute).then(() =>
-    {
-      
-    }
-  )
+  fetch(`schedule.json`).then((result) => {
+    return result.json();
+  }).then((json) => {
+    const session = json.sessions[subroute];
+    const base = new URL(document.head.querySelector('base').href);
+
+    var oldBox = document.getElementById('lightbox');
+    if (oldBox) oldBox.remove();
+
+    var lightbox = document.createElement('div')
+    lightbox.setAttribute('id', 'lightbox');
+
+    var popup = document.createElement('div');
+    popup.setAttribute('id', 'popup');
+    
+    var h1 = $g('h1', { 'text': session.name});
+    popup.appendChild(h1);
+
+    var popin = $g('div', { 'id': 'popin'});
+    var time = $g('time', {'class': 'datetime-label', 'datetime': 'foobar'});
+   
+    //var timeLabel = $g('div', {'text': formatTime(session.when)});
+    var timeLabel = $g('div', {'class': 'time-label', 'text': session.time_label});
+    var dateLabel = $g('div', {'class': 'date-label', 'text': formatDate(session.when)});
+    time.appendChild(timeLabel);
+    time.appendChild(dateLabel);
+
+    popin.appendChild(time);
+
+    var description = $g('p', {'text': session.description});
+    popin.appendChild(description);
+
+    // End
+    popup.appendChild(popin);
+    
+    var grow = $g('div', {'class': 'grow'});
+    popup.appendChild(grow);
+
+    var speakerList = $g('ul', {'class': 'speakers'});
+
+    session.speakers.forEach((speaker) => {
+      var listItem = $g('li');
+
+      var img = $g('img', {
+        'alt': speaker.name,
+        'src': base.href + `static/images/speakers/` + speaker.ldap + `.jpg`,
+        'width': 64,
+        'height': 64
+      });
+      listItem.appendChild(img);
+
+      var speakerInfo = $g('div', {'class': 'speaker-info'});      
+      if (speaker.link) {
+        speakerInfo.innerHTML = `<a href="`+speaker.link+`">` + speaker.name + `</a><span class="role">` + speaker.role + `</span>`;
+      } else {
+        speakerInfo.innerHTML = speaker.name + `<span class="role">` + speaker.role + `</span>`;
+      }
+      listItem.appendChild(speakerInfo);
+
+      // End
+      speakerList.appendChild(listItem)
+    })
+
+    popup.appendChild(speakerList);
+
+    lightbox.appendChild(popup);
+    document.body.appendChild(lightbox);
+
+    var darkBox = document.getElementById('darkbox');
+    if (darkBox) darkBox.remove();
+
+    var darkbox = document.createElement('div')
+    darkbox.setAttribute('id', 'darkbox');
+
+    darkbox.addEventListener('click', () => {
+      lightbox.remove();
+      darkbox.remove();
+
+      window.history.pushState(null, null, base.href + 'schedule');
+    })
+    document.body.appendChild(darkbox);
+  })
 }

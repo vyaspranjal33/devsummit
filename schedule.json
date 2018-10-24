@@ -14,7 +14,8 @@
                     "role": "Director, Chrome",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/bgalbs"
+                    "link": "https://twitter.com/bgalbs",
+                    "Speaker Bio": "Ben Galbraith is the Product Management Director for the Web Platform at Google. His past roles have included heading Product and Design for Walmart Global eCommerce as well as leadership roles at HP / Palm, Mozilla, MediaOcean, and several startups. Ben has been writing code since he was six and started his first business at ten. He lives in Palo Alto with his wife and eight children."
                 },
                 {
                     "ldap": "7caa2c8d9209ce05c2996862103356a0",
@@ -22,7 +23,8 @@
                     "role": "Director, Web Developer Ecosystem",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/dalmaer"
+                    "link": "https://twitter.com/dalmaer",
+                    "Speaker Bio": "Dion Almaer is striving for a better Web as Director of the Web Developer Ecosystem in Chrome. He works on tools, services, and libraries that aim to make it easier for developers to build successful products that load fast and delight users. He also enjoys working with developers throughout the ecosystem, across many of Google’s Web initiatives beyond Chrome itself. Previously, he has enjoyed building software products and platforms from his own startups to companies such as Mozilla (developer tools), Palm (webOS), and Walmart Labs (VPE for native mobile and Web). "
                 }
             ]
         },
@@ -40,7 +42,8 @@
                     "role": "Strategic Partner Development Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/aanchalbahadur"
+                    "link": "https://twitter.com/aanchalbahadur",
+                    "Speaker Bio": "Aanchal Bahadur has been at Google for eight years, contributing to the core of Google's scale in Ad Operations and managing talented YouTube creators on the Creator and Artist Development Partnerships team in India. For the past three years, she's been leading business development for Chrome/Web Platform driving adoption for modern web tech including - PWAs (#modernweb), web media (#nobuffering), and AMP4Email (#dynamicmail), to move the open web platform forward. In her free time, you'll find her reading, writing, or having a conversation about how dogs > people. "
                 },
                 {
                     "ldap": "b259ae8c7193c2ea501456cdbcfcc22c",
@@ -48,7 +51,8 @@
                     "role": "Engineering Lead",
                     "company": "Pinterest",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "https://twitter.com/zackargyle",
+                    "Speaker Bio": "Zack Argyle leads the web platform team at Pinterest with a deep passion for fast, engaging PWAs."
                 },
                 {
                     "ldap": "0d3daad691d2ecf0ba8c58cc844d9213",
@@ -56,7 +60,8 @@
                     "role": "director, product engineering",
                     "company": "Starbucks",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "https://twitter.com/@davidbrunelle",
+                    "Speaker Bio": "David is an engineering leader who believes in the ability of digital products to improve the lives of people in both big and small ways. He’s been building products for the Web since the days of table-based layouts and transparent gifs. Today, David leads the Starbucks digital products engineering team where he is focused on extending the Starbucks experience to all of the digital touch points that matter to Starbucks’ customers including web, native, and voice."
                 },
                 {
                     "ldap": "b54ae377534372a44ef007e79524a128",
@@ -64,7 +69,8 @@
                     "role": "Senior Product Manager",
                     "company": "Spotify",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "https://twitter.com/mrizzo10",
+                    "Speaker Bio": "Matt Rizzo is a Senior Product Manager on the Growth Opportunities team at Spotify. His team’s focus is on using the power of the Web to drive sustained user growth around the world. Most recently, his team launched a mobile web Spotify player to extend access beyond native apps. In his free time, Matt enjoys running and cheering on the New York Knicks."
                 }
             ]
         },
@@ -91,7 +97,8 @@
                     "role": "Performance Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/paul_irish"
+                    "link": "https://twitter.com/paul_irish",
+                    "Speaker Bio": "Paul Irish is a front-end developer who loves the Web. He works on Lighthouse, Chrome DevTools, and performance metrics. Elizabeth Sweeny is a product manager on the Chrome Platform team, working on Lighthouse, CrUX, and other developer insights products."
                 },
                 {
                     "ldap": "a2c1714713a8b398ee3a0887ccf47699",
@@ -99,7 +106,8 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/egsweeny"
+                    "link": "https://twitter.com/egsweeny",
+                    "Speaker Bio": "Elizabeth Sweeny is a product manager on the Chrome Platform team, working on Lighthouse, CrUX, and other developer insights products."
                 }
             ]
         },
@@ -117,7 +125,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/hdjirdeh"
+                    "link": "https://twitter.com/hdjirdeh",
+                    "Speaker Bio": "Houssein works on the performance team at Chrome. He is passionate about progressive enhancement and building for the mobile web."
                 },
                 {
                     "ldap": "4ca9cd2e993fcdf70686c21c8ae83260",
@@ -125,13 +134,14 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/katiehempenius"
+                    "link": "https://twitter.com/katiehempenius",
+                    "Speaker Bio": "Katie is an engineer working on making the Web faster with the Chrome team. Previously, she built things for Google Ad Exchange and Fitbit."
                 }
             ]
         },
         "caching-strategies": {
             "day_index": "0",
-            "name": "Building Faster and More Resilient Apps with Service Worker: A Deep Dive into Caching Strategies",
+            "name": "Building Faster, More Resilient Apps with Service Worker: A Caching Strategy Deep Dive",
             "theme": "Reliable",
             "time_label": "12:30 - 12:55",
             "when": "2018-11-12T12:30",
@@ -143,7 +153,8 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/devnook"
+                    "link": "https://twitter.com/devnook",
+                    "Speaker Bio": "Ewa is a developer platform engineer at Google Web team. A front-end engineer, focused mainly on making the Web faster and more user friendly. Interested in Progressive Web Apps development and analysis, EWA is always keen to investigate common scenarios and emerging app design patterns."
                 },
                 {
                     "ldap": "209890681f391c4f768dba10db86376c",
@@ -151,7 +162,8 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/philwalton"
+                    "link": "https://twitter.com/philwalton",
+                    "Speaker Bio": "Philip is a senior developer programs engineer for Chrome with a focus on web performance and tooling. Prior to working at Google, Philip was lead front-end software engineer at AppFolio where he built component libraries and tools for a variety of different web teams. Philip also has experience working in agencies, with non-profit organizations, and as a freelancer."
                 }
             ]
         },
@@ -178,7 +190,8 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/_developit"
+                    "link": "https://twitter.com/_developit",
+                    "Speaker Bio": "Jason is with Web DevRel at Google, working on making the Web faster. Created Preact and a few other things."
                 },
                 {
                     "ldap": "3b75cdd826a16f5bba0076690f644dc7",
@@ -186,7 +199,8 @@
                     "role": "UX Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/argyleink"
+                    "link": "https://twitter.com/argyleink",
+                    "Speaker Bio": "Adam is a UX Engineer on Google Cloud; Developer += Designer; parentNode + 2 leafs; CSS/JS addict; fullstack+Ui hax0r; repeat(∞, [empathize, define, design, develop, deploy]); 🖖"
                 }
             ]
         },
@@ -203,8 +217,9 @@
                     "name": "Jake Archibald",
                     "role": "Developer Advocate",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": "https://twitter.com/jaffathecake"
+                    "photo_available": "1",
+                    "link": "https://twitter.com/jaffathecake",
+                    "Speaker Bio": ""
                 },
                 {
                     "ldap": "c6e3690d5aaca6e349bc63d40729411d",
@@ -212,13 +227,14 @@
                     "role": "Drawsplainer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/kosamari"
+                    "link": "https://twitter.com/kosamari",
+                    "Speaker Bio": ""
                 }
             ]
         },
         "modern-web-media": {
             "day_index": "0",
-            "name": "Building Modern Web Media Experiences",
+            "name": "Building Modern Web Media Experiences: Picture-in-Picture and AV1",
             "theme": "Meaningful - Media",
             "time_label": "15:30 - 15:55",
             "when": "2018-11-12T15:30",
@@ -230,7 +246,8 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://plus.google.com/+FrancoisBeaufort"
+                    "link": "https://plus.google.com/+FrancoisBeaufort",
+                    "Speaker Bio": "François loves to dive into Chromium source code and share his findings."
                 },
                 {
                     "ldap": "ee74708b5aba7056bc4621495b3f2f2f",
@@ -238,7 +255,8 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "",
+                    "Speaker Bio": ""
                 }
             ]
         },
@@ -265,7 +283,8 @@
                     "role": "Mobile Solutions Consultant",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/cheneytsai"
+                    "link": "https://twitter.com/cheneytsai",
+                    "Speaker Bio": "Cheney is a solutions consultant at Google, currently focused on advancing the mobile web. He works closely with top partners to adopt modern web technologies (like PWA and AMP) and raise the bar of mobile UX. Prior to Google, Cheney was an engineer at Pickie (acquired by RetailMeNot) and a consultant at Deloitte."
                 },
                 {
                     "ldap": "a191fb5d06c3902bded77b9de18c655b",
@@ -273,7 +292,8 @@
                     "role": "Mobile Solutions Consultant",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "",
+                    "Speaker Bio": ""
                 }
             ]
         },
@@ -291,7 +311,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/ialbmedina"
+                    "link": "https://twitter.com/ialbmedina",
+                    "Speaker Bio": "Alberto Medina is a Developer Advocate in the Web Content Ecosystems Team at Google, focusing on AMP, Progressive Technologies, and Content Management Systems. Alberto is a Computer Scientist by training and has worked in academic environments, research labs, startups, medium companies (~300M users), and large companies (~1B+ users). Passionate about enabling awesome web experiences for all users."
                 },
                 {
                     "ldap": "16b1480cf3745ca7c6e3fad897869a6d",
@@ -299,7 +320,8 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/westonruter"
+                    "link": "https://twitter.com/westonruter",
+                    "Speaker Bio": "Weston Ruter is a Developer Programs Engineer working on the Content Ecosystems team at Google. For the past decade he has worked extensively with WordPress, including the development of extensions and leading a release of the core CMS. During the past year he has been working to improve the user experience for a third of the Web by advancing AMP and PWA in WordPress."
                 }
             ]
         },
@@ -317,7 +339,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/g33konaut"
+                    "link": "https://twitter.com/g33konaut",
+                    "Speaker Bio": "Martin is a developer advocate on the Webmaster Trends Analyst team at Google Switzerland.  In this role, he helps developers and content creators to build great content on the Web. He is involved with the W3C as well as the global web and JavaScript developer community, working to keep the Web open."
                 },
                 {
                     "ldap": "d87d78a8275351c3154c3232ac2284af",
@@ -325,7 +348,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/tcmg"
+                    "link": "https://twitter.com/tcmg",
+                    "Speaker Bio": "Tom Greenaway is a Developer Advocate for Chrome & the Web. His focus is on web & HTML gaming. He is also an expert on the indexability of JavaScript-powered websites. Before joining Google he ran his own independent game development studio and created the multi award-winning mobile game \"Duet\" which was downloaded over 15 million times."
                 }
             ]
         },
@@ -352,7 +376,8 @@
                     "role": "Engineering Lead",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/cramforce"
+                    "link": "https://twitter.com/cramforce",
+                    "Speaker Bio": ""
                 },
                 {
                     "ldap": "9479c85721d840f07b253c2f98e874f9",
@@ -360,7 +385,8 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/stubbornella"
+                    "link": "https://twitter.com/stubbornella",
+                    "Speaker Bio": ""
                 }
             ]
         },
@@ -377,8 +403,9 @@
                     "name": "Jason Chase",
                     "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "",
-                    "link": ""
+                    "photo_available": "1",
+                    "link": "",
+                    "Speaker Bio": ""
                 }
             ]
         },
@@ -405,13 +432,14 @@
                     "role": "Engineering Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/graynorton"
+                    "link": "https://twitter.com/graynorton",
+                    "Speaker Bio": ""
                 }
             ]
         },
         "scheduling-on-off-main-thread": {
             "day_index": "1",
-            "name": "The Quest to Guarantee Responsiveness: Scheduling on & off the Main Thread",
+            "name": "A Quest to Guarantee Responsiveness: Scheduling On and Off the Main Thread",
             "theme": "DX",
             "time_label": "12:00 - 12:25",
             "when": "2018-11-13T12:00",
@@ -423,7 +451,8 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "https://twitter.com/shubhie",
+                    "Speaker Bio": ""
                 },
                 {
                     "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
@@ -431,7 +460,8 @@
                     "role": "Developer Programs Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/_developit"
+                    "link": "https://twitter.com/_developit",
+                    "Speaker Bio": "Jason is with Web DevRel at Google, working on making the Web faster. Created Preact and a few other things."
                 }
             ]
         },
@@ -449,7 +479,8 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/aerotwist"
+                    "link": "https://twitter.com/aerotwist",
+                    "Speaker Bio": "Paul has been building stuff for the Web for the past 15 years. Today he works as an engineer in the Chrome team, where he tries to figure out the most effective ways to build web apps."
                 },
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -457,7 +488,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/DasSurma"
+                    "link": "https://twitter.com/DasSurma",
+                    "Speaker Bio": "Surma is an engineer working with the Chrome team. He likes to cut himself on the bleeding edge, goes full-stack every once in a while and prefers good code over functional one."
                 }
             ]
         },
@@ -484,7 +516,8 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "",
+                    "Speaker Bio": "Kinuko is a software engineer at Google working on Chrome. She is leading loading related implementation projects for Chrome, like Service Workers, Web Packaging, and various loading improvements."
                 },
                 {
                     "ldap": "92db3e5999f3dc0016b626ee57b7dbf8",
@@ -492,7 +525,8 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "",
+                    "Speaker Bio": "Rudy Galfi is the lead product manager for the AMP Project at Google. Prior to Google, he was a software engineer at Microsoft. Rudy earned a bachelor's degree in computer engineering from Northwestern University."
                 }
             ]
         },
@@ -510,7 +544,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/DasSurma"
+                    "link": "https://twitter.com/DasSurma",
+                    "Speaker Bio": "Surma is an engineer working with the Chrome team. He likes to cut himself on the bleeding edge, goes full-stack every once in a while and prefers good code over functional one."
                 }
             ]
         },
@@ -528,7 +563,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/cwilso"
+                    "link": "https://twitter.com/cwilso",
+                    "Speaker Bio": ""
                 },
                 {
                     "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
@@ -536,7 +572,8 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": ""
+                    "link": "",
+                    "Speaker Bio": "John works on augmented reality for the Web. His background includes over two decades working on media and 3D graphics software."
                 }
             ]
         },
@@ -563,7 +600,8 @@
                     "role": "Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/alexanderdanilo"
+                    "link": "https://twitter.com/alexanderdanilo",
+                    "Speaker Bio": "Alex has spent over 15 years on various W3C working groups developing the standards we all know and love, all while running a couple of start ups doing web engines for mobile and embedded markets. He now works at Google, spreading the good word about HTML5 and WebAssembly."
                 },
                 {
                     "ldap": "673e7995b41f041a67fff425b6c6f824",
@@ -571,7 +609,8 @@
                     "role": "Product Manager",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/ThomasTheDane"
+                    "link": "https://twitter.com/ThomasTheDane",
+                    "Speaker Bio": "Thomas is the Product Manager for V8, WebAssembly, and new web capabilities. He is passionate about enabling developers to meet more user needs through the web platform and expanding what experiences are possible. "
                 }
             ]
         },
@@ -581,7 +620,7 @@
             "theme": "",
             "time_label": "17:00 - 17:25",
             "when": "2018-11-13T17:00",
-            "description": "If the first rule of performance is “do less,” the second is surely “be lazy.” Using LitElement-based web components, we’ll explore the use of bleeding-edge techniques and browser APIs to spread work out so that your UI is faster to load, render and respond to user input. Topics we’ll cover include route-based dynamic module loading, async rendering, chunked rendering, IntersectionObserver, display-locking, and scheduling long-running tasks.",
+            "description": "If the first rule of performance is \"do less,\" the second is surely \"be lazy.\" Using LitElement-based web components, we’ll explore the use of bleeding-edge techniques and browser APIs to spread work out so that your UI is faster to load, render and respond to user input. Topics we’ll cover include route-based dynamic module loading, async rendering, chunked rendering, IntersectionObserver, display-locking, and scheduling long-running tasks.",
             "speakers": [
                 {
                     "ldap": "7ffdb3da8ce9da2d0eb62d731eaae1b5",
@@ -589,7 +628,8 @@
                     "role": "Chrome Engineer",
                     "company": "Google",
                     "photo_available": "",
-                    "link": "https://twitter.com/justinfagnani"
+                    "link": "https://twitter.com/justinfagnani",
+                    "Speaker Bio": ""
                 }
             ]
         },
@@ -607,7 +647,8 @@
                     "role": "Partner Developer Advocate",
                     "company": "Google",
                     "photo_available": "1",
-                    "link": "https://twitter.com/dandv"
+                    "link": "https://twitter.com/dandv",
+                    "Speaker Bio": "Dan Dascalescu is a Partner Developer Advocate at Google, specializing in web technologies and helping partners build excellent web experiences. Prior to Google, Dan has co-founded two web startups (in EdTech and FinTech), the Quantified Self Forum (the largest online community for self-trackers), and Blueseed (the visa-free startup ship for entrepreneurs). Dan studied Computer Science in Romania and scored 2nd place nationwide at the Olympiad in Informatics. He is a supporter of open source software, transhumanism, and seasteading."
                 }
             ]
         },
@@ -628,7 +669,8 @@
             "role": "Director, Chrome",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/bgalbs"
+            "link": "https://twitter.com/bgalbs",
+            "Speaker Bio": "Ben Galbraith is the Product Management Director for the Web Platform at Google. His past roles have included heading Product and Design for Walmart Global eCommerce as well as leadership roles at HP / Palm, Mozilla, MediaOcean, and several startups. Ben has been writing code since he was six and started his first business at ten. He lives in Palo Alto with his wife and eight children."
         },
         "7caa2c8d9209ce05c2996862103356a0": {
             "ldap": "7caa2c8d9209ce05c2996862103356a0",
@@ -636,7 +678,8 @@
             "role": "Director, Web Developer Ecosystem",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/dalmaer"
+            "link": "https://twitter.com/dalmaer",
+            "Speaker Bio": "Dion Almaer is striving for a better Web as Director of the Web Developer Ecosystem in Chrome. He works on tools, services, and libraries that aim to make it easier for developers to build successful products that load fast and delight users. He also enjoys working with developers throughout the ecosystem, across many of Google’s Web initiatives beyond Chrome itself. Previously, he has enjoyed building software products and platforms from his own startups to companies such as Mozilla (developer tools), Palm (webOS), and Walmart Labs (VPE for native mobile and Web). "
         },
         "9d58776bf96aa22e9e2363eced6ae56a": {
             "ldap": "9d58776bf96aa22e9e2363eced6ae56a",
@@ -644,7 +687,8 @@
             "role": "Strategic Partner Development Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/aanchalbahadur"
+            "link": "https://twitter.com/aanchalbahadur",
+            "Speaker Bio": "Aanchal Bahadur has been at Google for eight years, contributing to the core of Google's scale in Ad Operations and managing talented YouTube creators on the Creator and Artist Development Partnerships team in India. For the past three years, she's been leading business development for Chrome/Web Platform driving adoption for modern web tech including - PWAs (#modernweb), web media (#nobuffering), and AMP4Email (#dynamicmail), to move the open web platform forward. In her free time, you'll find her reading, writing, or having a conversation about how dogs > people. "
         },
         "990ee931a6b71e49a5bac2bded6b0e0e": {
             "ldap": "990ee931a6b71e49a5bac2bded6b0e0e",
@@ -652,7 +696,8 @@
             "role": "Performance Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/paul_irish"
+            "link": "https://twitter.com/paul_irish",
+            "Speaker Bio": "Paul Irish is a front-end developer who loves the Web. He works on Lighthouse, Chrome DevTools, and performance metrics. Elizabeth Sweeny is a product manager on the Chrome Platform team, working on Lighthouse, CrUX, and other developer insights products."
         },
         "a2c1714713a8b398ee3a0887ccf47699": {
             "ldap": "a2c1714713a8b398ee3a0887ccf47699",
@@ -660,7 +705,8 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/egsweeny"
+            "link": "https://twitter.com/egsweeny",
+            "Speaker Bio": "Elizabeth Sweeny is a product manager on the Chrome Platform team, working on Lighthouse, CrUX, and other developer insights products."
         },
         "0933dea74b5231e219a02dfb99156d93": {
             "ldap": "0933dea74b5231e219a02dfb99156d93",
@@ -668,7 +714,8 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/hdjirdeh"
+            "link": "https://twitter.com/hdjirdeh",
+            "Speaker Bio": "Houssein works on the performance team at Chrome. He is passionate about progressive enhancement and building for the mobile web."
         },
         "4ca9cd2e993fcdf70686c21c8ae83260": {
             "ldap": "4ca9cd2e993fcdf70686c21c8ae83260",
@@ -676,7 +723,8 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/katiehempenius"
+            "link": "https://twitter.com/katiehempenius",
+            "Speaker Bio": "Katie is an engineer working on making the Web faster with the Chrome team. Previously, she built things for Google Ad Exchange and Fitbit."
         },
         "7ec68f6b36d6f1f9105344b65d92c959": {
             "ldap": "7ec68f6b36d6f1f9105344b65d92c959",
@@ -684,7 +732,8 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/devnook"
+            "link": "https://twitter.com/devnook",
+            "Speaker Bio": "Ewa is a developer platform engineer at Google Web team. A front-end engineer, focused mainly on making the Web faster and more user friendly. Interested in Progressive Web Apps development and analysis, EWA is always keen to investigate common scenarios and emerging app design patterns."
         },
         "209890681f391c4f768dba10db86376c": {
             "ldap": "209890681f391c4f768dba10db86376c",
@@ -692,7 +741,8 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/philwalton"
+            "link": "https://twitter.com/philwalton",
+            "Speaker Bio": "Philip is a senior developer programs engineer for Chrome with a focus on web performance and tooling. Prior to working at Google, Philip was lead front-end software engineer at AppFolio where he built component libraries and tools for a variety of different web teams. Philip also has experience working in agencies, with non-profit organizations, and as a freelancer."
         },
         "d035cf5e776a360ca4fa5eab76bb5a19": {
             "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
@@ -700,7 +750,8 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/_developit"
+            "link": "https://twitter.com/_developit",
+            "Speaker Bio": "Jason is with Web DevRel at Google, working on making the Web faster. Created Preact and a few other things."
         },
         "3b75cdd826a16f5bba0076690f644dc7": {
             "ldap": "3b75cdd826a16f5bba0076690f644dc7",
@@ -708,15 +759,17 @@
             "role": "UX Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/argyleink"
+            "link": "https://twitter.com/argyleink",
+            "Speaker Bio": "Adam is a UX Engineer on Google Cloud; Developer += Designer; parentNode + 2 leafs; CSS/JS addict; fullstack+Ui hax0r; repeat(∞, [empathize, define, design, develop, deploy]); 🖖"
         },
         "bf62d98d0284b3b873ed50fdd1697704": {
             "ldap": "bf62d98d0284b3b873ed50fdd1697704",
             "name": "Jake Archibald",
             "role": "Developer Advocate",
             "company": "Google",
-            "photo_available": "",
-            "link": "https://twitter.com/jaffathecake"
+            "photo_available": "1",
+            "link": "https://twitter.com/jaffathecake",
+            "Speaker Bio": ""
         },
         "c6e3690d5aaca6e349bc63d40729411d": {
             "ldap": "c6e3690d5aaca6e349bc63d40729411d",
@@ -724,7 +777,8 @@
             "role": "Drawsplainer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/kosamari"
+            "link": "https://twitter.com/kosamari",
+            "Speaker Bio": ""
         },
         "48a4de34ba8674542200b5c10935f148": {
             "ldap": "48a4de34ba8674542200b5c10935f148",
@@ -732,7 +786,8 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://plus.google.com/+FrancoisBeaufort"
+            "link": "https://plus.google.com/+FrancoisBeaufort",
+            "Speaker Bio": "François loves to dive into Chromium source code and share his findings."
         },
         "79d13a6895f16c46e1fa30a5872f7cf3": {
             "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
@@ -740,7 +795,8 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/vanderhuge"
+            "link": "https://twitter.com/vanderhuge",
+            "Speaker Bio": ""
         },
         "531e7c79b602cb57c6192c9dd40f53b8": {
             "ldap": "531e7c79b602cb57c6192c9dd40f53b8",
@@ -748,7 +804,8 @@
             "role": "Mobile Solutions Consultant",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/cheneytsai"
+            "link": "https://twitter.com/cheneytsai",
+            "Speaker Bio": "Cheney is a solutions consultant at Google, currently focused on advancing the mobile web. He works closely with top partners to adopt modern web technologies (like PWA and AMP) and raise the bar of mobile UX. Prior to Google, Cheney was an engineer at Pickie (acquired by RetailMeNot) and a consultant at Deloitte."
         },
         "a191fb5d06c3902bded77b9de18c655b": {
             "ldap": "a191fb5d06c3902bded77b9de18c655b",
@@ -756,7 +813,8 @@
             "role": "Mobile Solutions Consultant",
             "company": "Google",
             "photo_available": "1",
-            "link": ""
+            "link": "",
+            "Speaker Bio": ""
         },
         "44cfd5d8bf53a3b59ad8c8cd8d43dc7f": {
             "ldap": "44cfd5d8bf53a3b59ad8c8cd8d43dc7f",
@@ -764,7 +822,8 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/ialbmedina"
+            "link": "https://twitter.com/ialbmedina",
+            "Speaker Bio": "Alberto Medina is a Developer Advocate in the Web Content Ecosystems Team at Google, focusing on AMP, Progressive Technologies, and Content Management Systems. Alberto is a Computer Scientist by training and has worked in academic environments, research labs, startups, medium companies (~300M users), and large companies (~1B+ users). Passionate about enabling awesome web experiences for all users."
         },
         "16b1480cf3745ca7c6e3fad897869a6d": {
             "ldap": "16b1480cf3745ca7c6e3fad897869a6d",
@@ -772,7 +831,8 @@
             "role": "Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/westonruter"
+            "link": "https://twitter.com/westonruter",
+            "Speaker Bio": "Weston Ruter is a Developer Programs Engineer working on the Content Ecosystems team at Google. For the past decade he has worked extensively with WordPress, including the development of extensions and leading a release of the core CMS. During the past year he has been working to improve the user experience for a third of the Web by advancing AMP and PWA in WordPress."
         },
         "891044520f379343f3bb5add2a80550b": {
             "ldap": "891044520f379343f3bb5add2a80550b",
@@ -780,7 +840,8 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/g33konaut"
+            "link": "https://twitter.com/g33konaut",
+            "Speaker Bio": "Martin is a developer advocate on the Webmaster Trends Analyst team at Google Switzerland.  In this role, he helps developers and content creators to build great content on the Web. He is involved with the W3C as well as the global web and JavaScript developer community, working to keep the Web open."
         },
         "d87d78a8275351c3154c3232ac2284af": {
             "ldap": "d87d78a8275351c3154c3232ac2284af",
@@ -788,7 +849,8 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/tcmg"
+            "link": "https://twitter.com/tcmg",
+            "Speaker Bio": "Tom Greenaway is a Developer Advocate for Chrome & the Web. His focus is on web & HTML gaming. He is also an expert on the indexability of JavaScript-powered websites. Before joining Google he ran his own independent game development studio and created the multi award-winning mobile game \"Duet\" which was downloaded over 15 million times."
         },
         "eda7396f5f2511df0646ce0e54401981": {
             "ldap": "eda7396f5f2511df0646ce0e54401981",
@@ -796,7 +858,8 @@
             "role": "Engineering Lead",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/cramforce"
+            "link": "https://twitter.com/cramforce",
+            "Speaker Bio": ""
         },
         "9479c85721d840f07b253c2f98e874f9": {
             "ldap": "9479c85721d840f07b253c2f98e874f9",
@@ -804,7 +867,8 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/stubbornella"
+            "link": "https://twitter.com/stubbornella",
+            "Speaker Bio": ""
         },
         "b69255cf1077fbad80ada26a75ea3601": {
             "ldap": "b69255cf1077fbad80ada26a75ea3601",
@@ -812,7 +876,8 @@
             "role": "Staff Developer Programs Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/ebidel"
+            "link": "https://twitter.com/ebidel",
+            "Speaker Bio": "Eric is a senior staff engineer at Google working with the Chrome team on web projects like Puppeteer, headless Chrome, Lighthouse, Polymer, and web components. He's the author of \"Using the HTML5 Filesystem API,\" and has led front-end projects like the Google I/O web app, Google's Santa tracker, chromestatus.com, and html5rocks.com. Prior to Google, Eric worked as a software engineer at the University of Michigan where he designed rich web applications and APIs for the university's 19 libraries."
         },
         "fcac115effef3e009c86b70f58b55a18": {
             "ldap": "fcac115effef3e009c86b70f58b55a18",
@@ -820,7 +885,8 @@
             "role": "Engineering Program Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "www.natashapabrai.com"
+            "link": "www.natashapabrai.com",
+            "Speaker Bio": "Natasha joined the Chrome team this past January and expanded her focus from enterprise cloud security to web platform development.   Prior to joining Chrome, she lead several security programs for GSuite. Before joining Google, Natasha lead several security programs at Salesforce, IBM, and a small startup called Reflexion Health. "
         },
         "c02915a65496ddfb2542c6fe2d80bcf3": {
             "ldap": "c02915a65496ddfb2542c6fe2d80bcf3",
@@ -828,7 +894,8 @@
             "role": "Engineering Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/graynorton"
+            "link": "https://twitter.com/graynorton",
+            "Speaker Bio": ""
         },
         "e0882402cfa59b5a2200eea5b49b4616": {
             "ldap": "e0882402cfa59b5a2200eea5b49b4616",
@@ -836,7 +903,8 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": ""
+            "link": "https://twitter.com/shubhie",
+            "Speaker Bio": ""
         },
         "b755b54531c5363b0907e46e90892c5b": {
             "ldap": "b755b54531c5363b0907e46e90892c5b",
@@ -844,7 +912,8 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/aerotwist"
+            "link": "https://twitter.com/aerotwist",
+            "Speaker Bio": "Paul has been building stuff for the Web for the past 15 years. Today he works as an engineer in the Chrome team, where he tries to figure out the most effective ways to build web apps."
         },
         "33a6f8441ba820f7ec2c6f9dea283e18": {
             "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -852,7 +921,8 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/DasSurma"
+            "link": "https://twitter.com/DasSurma",
+            "Speaker Bio": "Surma is an engineer working with the Chrome team. He likes to cut himself on the bleeding edge, goes full-stack every once in a while and prefers good code over functional one."
         },
         "548a8839a94bfe61a436f8ce9ec380a7": {
             "ldap": "548a8839a94bfe61a436f8ce9ec380a7",
@@ -860,7 +930,8 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": ""
+            "link": "",
+            "Speaker Bio": "Kinuko is a software engineer at Google working on Chrome. She is leading loading related implementation projects for Chrome, like Service Workers, Web Packaging, and various loading improvements."
         },
         "92db3e5999f3dc0016b626ee57b7dbf8": {
             "ldap": "92db3e5999f3dc0016b626ee57b7dbf8",
@@ -868,7 +939,8 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": ""
+            "link": "",
+            "Speaker Bio": "Rudy Galfi is the lead product manager for the AMP Project at Google. Prior to Google, he was a software engineer at Microsoft. Rudy earned a bachelor's degree in computer engineering from Northwestern University."
         },
         "d0fe1ce07fddde1b8c7da18df6333942": {
             "ldap": "d0fe1ce07fddde1b8c7da18df6333942",
@@ -876,7 +948,8 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/cwilso"
+            "link": "https://twitter.com/cwilso",
+            "Speaker Bio": ""
         },
         "85dd771aea95331dfcad8cbbacbd2d37": {
             "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
@@ -884,7 +957,8 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": ""
+            "link": "",
+            "Speaker Bio": "John works on augmented reality for the Web. His background includes over two decades working on media and 3D graphics software."
         },
         "3b562519931363f27d26b9c24464b5e9": {
             "ldap": "3b562519931363f27d26b9c24464b5e9",
@@ -892,7 +966,8 @@
             "role": "Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/alexanderdanilo"
+            "link": "https://twitter.com/alexanderdanilo",
+            "Speaker Bio": "Alex has spent over 15 years on various W3C working groups developing the standards we all know and love, all while running a couple of start ups doing web engines for mobile and embedded markets. He now works at Google, spreading the good word about HTML5 and WebAssembly."
         },
         "673e7995b41f041a67fff425b6c6f824": {
             "ldap": "673e7995b41f041a67fff425b6c6f824",
@@ -900,7 +975,8 @@
             "role": "Product Manager",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/ThomasTheDane"
+            "link": "https://twitter.com/ThomasTheDane",
+            "Speaker Bio": "Thomas is the Product Manager for V8, WebAssembly, and new web capabilities. He is passionate about enabling developers to meet more user needs through the web platform and expanding what experiences are possible. "
         },
         "7ffdb3da8ce9da2d0eb62d731eaae1b5": {
             "ldap": "7ffdb3da8ce9da2d0eb62d731eaae1b5",
@@ -908,7 +984,8 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "",
-            "link": "https://twitter.com/justinfagnani"
+            "link": "https://twitter.com/justinfagnani",
+            "Speaker Bio": ""
         },
         "f0cac071f7b18661ec0aa0589a59d1da": {
             "ldap": "f0cac071f7b18661ec0aa0589a59d1da",
@@ -916,7 +993,8 @@
             "role": "Partner Developer Advocate",
             "company": "Google",
             "photo_available": "1",
-            "link": "https://twitter.com/dandv"
+            "link": "https://twitter.com/dandv",
+            "Speaker Bio": "Dan Dascalescu is a Partner Developer Advocate at Google, specializing in web technologies and helping partners build excellent web experiences. Prior to Google, Dan has co-founded two web startups (in EdTech and FinTech), the Quantified Self Forum (the largest online community for self-trackers), and Blueseed (the visa-free startup ship for entrepreneurs). Dan studied Computer Science in Romania and scored 2nd place nationwide at the Olympiad in Informatics. He is a supporter of open source software, transhumanism, and seasteading."
         },
         "ee74708b5aba7056bc4621495b3f2f2f": {
             "ldap": "ee74708b5aba7056bc4621495b3f2f2f",
@@ -924,15 +1002,17 @@
             "role": "Chrome Engineer",
             "company": "Google",
             "photo_available": "1",
-            "link": ""
+            "link": "",
+            "Speaker Bio": ""
         },
         "480407ea47efd1aa2d14fb007fee6f36": {
             "ldap": "480407ea47efd1aa2d14fb007fee6f36",
             "name": "Jason Chase",
             "role": "Chrome Engineer",
             "company": "Google",
-            "photo_available": "",
-            "link": ""
+            "photo_available": "1",
+            "link": "",
+            "Speaker Bio": ""
         },
         "b259ae8c7193c2ea501456cdbcfcc22c": {
             "ldap": "b259ae8c7193c2ea501456cdbcfcc22c",
@@ -940,7 +1020,8 @@
             "role": "Engineering Lead",
             "company": "Pinterest",
             "photo_available": "1",
-            "link": ""
+            "link": "https://twitter.com/zackargyle",
+            "Speaker Bio": "Zack Argyle leads the web platform team at Pinterest with a deep passion for fast, engaging PWAs."
         },
         "0d3daad691d2ecf0ba8c58cc844d9213": {
             "ldap": "0d3daad691d2ecf0ba8c58cc844d9213",
@@ -948,7 +1029,8 @@
             "role": "director, product engineering",
             "company": "Starbucks",
             "photo_available": "1",
-            "link": ""
+            "link": "https://twitter.com/@davidbrunelle",
+            "Speaker Bio": "David is an engineering leader who believes in the ability of digital products to improve the lives of people in both big and small ways. He’s been building products for the Web since the days of table-based layouts and transparent gifs. Today, David leads the Starbucks digital products engineering team where he is focused on extending the Starbucks experience to all of the digital touch points that matter to Starbucks’ customers including web, native, and voice."
         },
         "b54ae377534372a44ef007e79524a128": {
             "ldap": "b54ae377534372a44ef007e79524a128",
@@ -956,7 +1038,8 @@
             "role": "Senior Product Manager",
             "company": "Spotify",
             "photo_available": "1",
-            "link": ""
+            "link": "https://twitter.com/mrizzo10",
+            "Speaker Bio": "Matt Rizzo is a Senior Product Manager on the Growth Opportunities team at Spotify. His team’s focus is on using the power of the Web to drive sustained user growth around the world. Most recently, his team launched a mobile web Spotify player to extend access beyond native apps. In his free time, Matt enjoys running and cheering on the New York Knicks."
         }
     }
 }

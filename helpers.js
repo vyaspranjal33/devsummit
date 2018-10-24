@@ -41,8 +41,6 @@ hbs.registerHelper('formatDate', (raw) => {
   const pad = (x) => (x < 10 ? `0${x}` : '' + x);
 
   return dateFormat(d, "dddd, mmmm dS");
-
-  // return `${pad(d.getDayOfWeek())}, ${pad(d.getDate())}`;
 });
 
 const counters = {};
@@ -52,4 +50,11 @@ hbs.registerHelper('counter', (key='', mod=0) => {
   const update = (prev === undefined ? 0 : prev + 1);
   counters[key] = update;
   return update % mod;
+});
+
+hbs.registerHelper('ifCond', function(v1, v2, options) {
+  if(v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
 });
