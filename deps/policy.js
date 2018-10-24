@@ -26,7 +26,7 @@ const policies = [
   'accelerometer',
   'midi',
   'payment',
-  'vertical-scroll',
+  // 'vertical-scroll',
   'camera',
   'usb',
   'magnetometer',
@@ -38,7 +38,7 @@ const policies = [
   'encrypted-media',
   'autoplay',
   'speaker',
-  'unsized-media',
+  // 'unsized-media',
   'ambient-light-sensor',
 // we downsize images 3-4 times in some places, but use them again elsewhere
   // 'max-downscaling-image',
