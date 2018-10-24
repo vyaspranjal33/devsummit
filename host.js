@@ -76,6 +76,9 @@ app.use(async (ctx, next) => {
   if (ctx.path === '/schedule.json') {
     return send(ctx, `schedule.json`);
   }
+  if (ctx.path === '/googlec6dfdf23945d0d0c.html') {
+    return send(ctx, `googlec6dfdf23945d0d0c.html`);
+  }
   return next();
 });
 
