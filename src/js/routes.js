@@ -135,9 +135,15 @@ export async function subroute(node, route, subroute) {
     session.speakers.forEach((speaker) => {
       var listItem = $g('li');
 
+      let imageSrc = base.href + `static/images/icons/dino-blue.png`;
+
+      if (speaker.photo_available) {
+        imageSrc = base.href + `static/images/speakers/` + speaker.ldap + `.jpg`;
+      }
+
       var img = $g('img', {
         'alt': speaker.name,
-        'src': base.href + `static/images/speakers/` + speaker.ldap + `.jpg`,
+        'src': imageSrc,
         'width': 64,
         'height': 64
       });

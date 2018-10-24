@@ -38,8 +38,7 @@ hbs.registerHelper('formatDate', (raw) => {
   if (isNaN(+d)) {
     return '?';
   }
-  const pad = (x) => (x < 10 ? `0${x}` : '' + x);
-
+  
   return dateFormat(d, "dddd, mmmm dS");
 });
 
