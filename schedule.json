@@ -1,5 +1,14 @@
 {
     "sessions": {
+        "break-breakfast-0": {
+            "day_index": "0",
+            "name": "Registration and Breakfast",
+            "theme": "",
+            "time_label": "8:00 - 10:00",
+            "when": "2018-11-12T08:00",
+            "description": "",
+            "speakers": []
+        },
         "keynote-0": {
             "day_index": "0",
             "name": "Day 1 Keynote",
@@ -219,7 +228,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/jaffathecake",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Jake works in Google Chrome’s developer relations team, working on specs, testing implementations, and ensuring developers have tools to make their jobs less painful. He’s a big fan of time-to-render optimisations, progressive enhancement, and all of that responsive stuff."
                 },
                 {
                     "ldap": "c6e3690d5aaca6e349bc63d40729411d",
@@ -228,7 +237,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/kosamari",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Mariko Kosaka is a software engineer who loves data and knitting. When she is not coding applications for other people, she uses code to help her design textiles, and organize local meetup BrooklynJS."
                 }
             ]
         },
@@ -247,7 +256,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://plus.google.com/+FrancoisBeaufort",
-                    "Speaker Bio": "François loves to dive into Chromium source code and share his findings."
+                    "Speaker Bio": "He loves to dive into Chromium source code and shares his findings."
                 },
                 {
                     "ldap": "ee74708b5aba7056bc4621495b3f2f2f",
@@ -256,7 +265,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Angie is a software engineer in Google. She has been working on AV1 core design for more than three years. Prior to her software engineering career at Google, she studied in the Computer Science Master Program at NYU."
                 }
             ]
         },
@@ -293,7 +302,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Ramya is a technical consultant at Google working with e-commerce and Pharma partners on improving the mobile web experience through the use of modern web technologies (like PWA, AMP, open web APIs). Prior to Google, Ramya was a full-stack developer at USA Today (Gannett), PBDewberry and Wipro Technologies."
                 }
             ]
         },
@@ -353,12 +362,30 @@
                 }
             ]
         },
+        "break-after-party-0": {
+            "day_index": "0",
+            "name": "After Party",
+            "theme": "",
+            "time_label": "18:00 until late",
+            "when": "2018-11-12T18:00",
+            "description": "Registered attendees are invited to join us for an onsite afterparty to enjoy food, drinks, music, games, and more. Don't forget your badge! It is required for entry.",
+            "speakers": []
+        },
         "end-0": {
             "day_index": "0",
             "name": "END",
             "theme": "",
             "time_label": "",
             "when": "2018-11-12T17:55",
+            "description": "",
+            "speakers": []
+        },
+        "break-breakfast-1": {
+            "day_index": "0",
+            "name": "Registration and Breakfast",
+            "theme": "",
+            "time_label": "8:00 - 10:00",
+            "when": "2018-11-13T08:00",
             "description": "",
             "speakers": []
         },
@@ -377,16 +404,16 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/cramforce",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Malte is a Principal Engineer at Google working on JavaScript infrastructure, a member of the AMP Project Technical Steering Committee, and helps curate JSConf EU in Berlin."
                 },
                 {
                     "ldap": "9479c85721d840f07b253c2f98e874f9",
                     "name": "Nicole Sullivan",
                     "role": "Product Manager",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/stubbornella",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Nicole is a PM on Chrome at Google. OOCSS, CSSLint, Smush It, Dr Frankenstyle, typeOmatic. CSSConf founder, author, speaker."
                 }
             ]
         },
@@ -405,7 +432,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Jason leads a Chrome team that helps developers understand and control the features available on the web platform. Prior to Google, Jason was building enterprise-class systems delivered on the web, experiencing the challenges of web development directly. Jason has computer science degrees (BMath, MMath) from the University of Waterloo."
                 }
             ]
         },
@@ -433,7 +460,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/graynorton",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Gray is a passionate Web advocate and an engineering manager on the Chrome team. Prior to joining Google he led the framework team at webOS, helping developers build apps for several generations of phones, tablets, TVs and watches. In past lives, he has worked on software tools for creating chatbots, 3D games and pretty pictures. When not at work, Gray enjoys spending time with his family and occasionally singing."
                 }
             ]
         },
@@ -443,7 +470,7 @@
             "theme": "DX",
             "time_label": "12:00 - 12:25",
             "when": "2018-11-13T12:00",
-            "description": "Rendering performance is mainly a function of how much you render - too much DOM will slow your site to a crawl. Native platforms actually have the same problem, but they stay fast by promoting virtual scrolling: rendering just enough content to fill the screen and continuously updating as the user scrolls. On today’s Web, virtualization breaks basic features like links and find-in-page, but hope is in sight. We’ll take an early peek at an effort to add a first-class virtual scroller to HTML, building on an exciting new platform concept called Layered APIs.",
+            "description": "To achieve a truly responsive experience, developers have to execute their code in 10ms chunks. That’s nearly impossible. In this talk, we'll explore two high-level strategies: Main thread scheduling, and moving work into backgrounds threads. We’ll dive into our latest performance research on multi-threading Javascript, demystify when to utilize web workers, and dive into what it really takes to guarantee responsiveness. Finally, we'll introduce a few exciting new proposals that we'd love your feedback on.",
             "speakers": [
                 {
                     "ldap": "e0882402cfa59b5a2200eea5b49b4616",
@@ -452,7 +479,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/shubhie",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Shubhie Panicker, Staff Software Engineer driving performance related efforts on Chrome’s Web Platform team -- working on web standards and chromium implementation. Prior to Chrome, she worked on server infrastructure and web frameworks for products like Google Search, Google Photos, and so on."
                 },
                 {
                     "ldap": "d035cf5e776a360ca4fa5eab76bb5a19",
@@ -480,7 +507,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/aerotwist",
-                    "Speaker Bio": "Paul has been building stuff for the Web for the past 15 years. Today he works as an engineer in the Chrome team, where he tries to figure out the most effective ways to build web apps."
+                    "Speaker Bio": "Prior to Chrome, she worked on server infrastructure and web frameworks for products like Google Search, Google Photos etc."
                 },
                 {
                     "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -527,6 +554,24 @@
                     "photo_available": "1",
                     "link": "",
                     "Speaker Bio": "Rudy Galfi is the lead product manager for the AMP Project at Google. Prior to Google, he was a software engineer at Microsoft. Rudy earned a bachelor's degree in computer engineering from Northwestern University."
+                },
+                {
+                    "ldap": "6c7c22f7756e42403829f400418da068",
+                    "name": "Sumantro Das",
+                    "role": "Director, Product Innovation and Growth Brands",
+                    "company": "1-800-Flowers",
+                    "photo_available": "1",
+                    "link": "",
+                    "Speaker Bio": "Sumo is the Director of Product Innovation and Growth Brands. He is responsible for discovering new technologies and building new customer experiences and brands to drive growth at 1800Flowers. He is the GM of the international business division and Personalization Universe customized gifts brand and is currently leading the launch of the new international delivery brand, 0800Flowers. Sumo chairs the Mobile Roundtable which is an industry consortium of 35 of the Internet Retailer 100 mobile product and marketing leaders."
+                },
+                {
+                    "ldap": "0e9ac15d6e92d22c6d8fca4395ae71a1",
+                    "name": "Rustam Lalkaka",
+                    "role": "Director of Product",
+                    "company": "Cloudflare",
+                    "photo_available": "1",
+                    "link": "",
+                    "Speaker Bio": ""
                 }
             ]
         },
@@ -564,7 +609,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/cwilso",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Chris has worked on building the web platform for the past 25 years. He's currently a product manager on the Immersive Web team at Google, as well as co-chair of the Immersive Web Working Group at the W3C."
                 },
                 {
                     "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
@@ -573,7 +618,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "",
-                    "Speaker Bio": "John works on augmented reality for the Web. His background includes over two decades working on media and 3D graphics software."
+                    "Speaker Bio": "John works on augmented reality for the web. His background includes over two decades working on media and 3D graphics software."
                 }
             ]
         },
@@ -627,9 +672,9 @@
                     "name": "Justin Fagnani",
                     "role": "Chrome Engineer",
                     "company": "Google",
-                    "photo_available": "",
+                    "photo_available": "1",
                     "link": "https://twitter.com/justinfagnani",
-                    "Speaker Bio": ""
+                    "Speaker Bio": "Justin has been working on developer tools for 10 years at Google. He founded the Google App Maker project, worked on Web Components and JavaScript interop for the Dart programming language, and then tools for the Polymer Project. Recently he's been building Polymer's next-generation UI libraries like lit-html and LitElement."
                 }
             ]
         },
@@ -769,7 +814,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/jaffathecake",
-            "Speaker Bio": ""
+            "Speaker Bio": "Jake works in Google Chrome’s developer relations team, working on specs, testing implementations, and ensuring developers have tools to make their jobs less painful. He’s a big fan of time-to-render optimisations, progressive enhancement, and all of that responsive stuff."
         },
         "c6e3690d5aaca6e349bc63d40729411d": {
             "ldap": "c6e3690d5aaca6e349bc63d40729411d",
@@ -778,7 +823,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/kosamari",
-            "Speaker Bio": ""
+            "Speaker Bio": "Mariko Kosaka is a software engineer who loves data and knitting. When she is not coding applications for other people, she uses code to help her design textiles, and organize local meetup BrooklynJS."
         },
         "48a4de34ba8674542200b5c10935f148": {
             "ldap": "48a4de34ba8674542200b5c10935f148",
@@ -787,7 +832,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://plus.google.com/+FrancoisBeaufort",
-            "Speaker Bio": "François loves to dive into Chromium source code and share his findings."
+            "Speaker Bio": "He loves to dive into Chromium source code and shares his findings."
         },
         "79d13a6895f16c46e1fa30a5872f7cf3": {
             "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
@@ -814,7 +859,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "",
-            "Speaker Bio": ""
+            "Speaker Bio": "Ramya is a technical consultant at Google working with e-commerce and Pharma partners on improving the mobile web experience through the use of modern web technologies (like PWA, AMP, open web APIs). Prior to Google, Ramya was a full-stack developer at USA Today (Gannett), PBDewberry and Wipro Technologies."
         },
         "44cfd5d8bf53a3b59ad8c8cd8d43dc7f": {
             "ldap": "44cfd5d8bf53a3b59ad8c8cd8d43dc7f",
@@ -859,16 +904,16 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/cramforce",
-            "Speaker Bio": ""
+            "Speaker Bio": "Malte is a Principal Engineer at Google working on JavaScript infrastructure, a member of the AMP Project Technical Steering Committee, and helps curate JSConf EU in Berlin."
         },
         "9479c85721d840f07b253c2f98e874f9": {
             "ldap": "9479c85721d840f07b253c2f98e874f9",
             "name": "Nicole Sullivan",
             "role": "Product Manager",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/stubbornella",
-            "Speaker Bio": ""
+            "Speaker Bio": "Nicole is a PM on Chrome at Google. OOCSS, CSSLint, Smush It, Dr Frankenstyle, typeOmatic. CSSConf founder, author, speaker."
         },
         "b69255cf1077fbad80ada26a75ea3601": {
             "ldap": "b69255cf1077fbad80ada26a75ea3601",
@@ -895,7 +940,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/graynorton",
-            "Speaker Bio": ""
+            "Speaker Bio": "Gray is a passionate Web advocate and an engineering manager on the Chrome team. Prior to joining Google he led the framework team at webOS, helping developers build apps for several generations of phones, tablets, TVs and watches. In past lives, he has worked on software tools for creating chatbots, 3D games and pretty pictures. When not at work, Gray enjoys spending time with his family and occasionally singing."
         },
         "e0882402cfa59b5a2200eea5b49b4616": {
             "ldap": "e0882402cfa59b5a2200eea5b49b4616",
@@ -904,7 +949,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/shubhie",
-            "Speaker Bio": ""
+            "Speaker Bio": "Shubhie Panicker, Staff Software Engineer driving performance related efforts on Chrome’s Web Platform team -- working on web standards and chromium implementation. Prior to Chrome, she worked on server infrastructure and web frameworks for products like Google Search, Google Photos, and so on."
         },
         "b755b54531c5363b0907e46e90892c5b": {
             "ldap": "b755b54531c5363b0907e46e90892c5b",
@@ -913,7 +958,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/aerotwist",
-            "Speaker Bio": "Paul has been building stuff for the Web for the past 15 years. Today he works as an engineer in the Chrome team, where he tries to figure out the most effective ways to build web apps."
+            "Speaker Bio": "Prior to Chrome, she worked on server infrastructure and web frameworks for products like Google Search, Google Photos etc."
         },
         "33a6f8441ba820f7ec2c6f9dea283e18": {
             "ldap": "33a6f8441ba820f7ec2c6f9dea283e18",
@@ -949,7 +994,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/cwilso",
-            "Speaker Bio": ""
+            "Speaker Bio": "Chris has worked on building the web platform for the past 25 years. He's currently a product manager on the Immersive Web team at Google, as well as co-chair of the Immersive Web Working Group at the W3C."
         },
         "85dd771aea95331dfcad8cbbacbd2d37": {
             "ldap": "85dd771aea95331dfcad8cbbacbd2d37",
@@ -958,7 +1003,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "",
-            "Speaker Bio": "John works on augmented reality for the Web. His background includes over two decades working on media and 3D graphics software."
+            "Speaker Bio": "John works on augmented reality for the web. His background includes over two decades working on media and 3D graphics software."
         },
         "3b562519931363f27d26b9c24464b5e9": {
             "ldap": "3b562519931363f27d26b9c24464b5e9",
@@ -983,9 +1028,9 @@
             "name": "Justin Fagnani",
             "role": "Chrome Engineer",
             "company": "Google",
-            "photo_available": "",
+            "photo_available": "1",
             "link": "https://twitter.com/justinfagnani",
-            "Speaker Bio": ""
+            "Speaker Bio": "Justin has been working on developer tools for 10 years at Google. He founded the Google App Maker project, worked on Web Components and JavaScript interop for the Dart programming language, and then tools for the Polymer Project. Recently he's been building Polymer's next-generation UI libraries like lit-html and LitElement."
         },
         "f0cac071f7b18661ec0aa0589a59d1da": {
             "ldap": "f0cac071f7b18661ec0aa0589a59d1da",
@@ -1003,7 +1048,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "",
-            "Speaker Bio": ""
+            "Speaker Bio": "Angie is a software engineer in Google. She has been working on AV1 core design for more than three years. Prior to her software engineering career at Google, she studied in the Computer Science Master Program at NYU."
         },
         "480407ea47efd1aa2d14fb007fee6f36": {
             "ldap": "480407ea47efd1aa2d14fb007fee6f36",
@@ -1012,7 +1057,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "",
-            "Speaker Bio": ""
+            "Speaker Bio": "Jason leads a Chrome team that helps developers understand and control the features available on the web platform. Prior to Google, Jason was building enterprise-class systems delivered on the web, experiencing the challenges of web development directly. Jason has computer science degrees (BMath, MMath) from the University of Waterloo."
         },
         "b259ae8c7193c2ea501456cdbcfcc22c": {
             "ldap": "b259ae8c7193c2ea501456cdbcfcc22c",
@@ -1040,6 +1085,24 @@
             "photo_available": "1",
             "link": "https://twitter.com/mrizzo10",
             "Speaker Bio": "Matt Rizzo is a Senior Product Manager on the Growth Opportunities team at Spotify. His team’s focus is on using the power of the Web to drive sustained user growth around the world. Most recently, his team launched a mobile web Spotify player to extend access beyond native apps. In his free time, Matt enjoys running and cheering on the New York Knicks."
+        },
+        "6c7c22f7756e42403829f400418da068": {
+            "ldap": "6c7c22f7756e42403829f400418da068",
+            "name": "Sumantro Das",
+            "role": "Director, Product Innovation and Growth Brands",
+            "company": "1-800-Flowers",
+            "photo_available": "1",
+            "link": "",
+            "Speaker Bio": "Sumo is the Director of Product Innovation and Growth Brands. He is responsible for discovering new technologies and building new customer experiences and brands to drive growth at 1800Flowers. He is the GM of the international business division and Personalization Universe customized gifts brand and is currently leading the launch of the new international delivery brand, 0800Flowers. Sumo chairs the Mobile Roundtable which is an industry consortium of 35 of the Internet Retailer 100 mobile product and marketing leaders."
+        },
+        "0e9ac15d6e92d22c6d8fca4395ae71a1": {
+            "ldap": "0e9ac15d6e92d22c6d8fca4395ae71a1",
+            "name": "Rustam Lalkaka",
+            "role": "Director of Product",
+            "company": "Cloudflare",
+            "photo_available": "1",
+            "link": "",
+            "Speaker Bio": ""
         }
     }
 }

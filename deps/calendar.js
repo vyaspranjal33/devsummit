@@ -73,6 +73,10 @@ module.exports = {
         data.classes = 'break';
       }
 
+      if (id.toLowerCase().indexOf('break') != -1) {
+        data.classes = 'break';
+      }
+
       if (data.name.toLowerCase() == 'end') {
         data.classes = 'end';
         continue;
