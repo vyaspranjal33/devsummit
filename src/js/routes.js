@@ -74,40 +74,12 @@ function scheduleFetch() {
 
 let activeLightbox;
 
-export async function subroute(node, route, subroute) {
-  activeLightbox && activeLightbox.remove();
+function generateSessionPopup(popup, session) {
+  const base = new URL(document.head.querySelector('base').href);  
 
-  if (route !== 'schedule') {
-    return;  // nothing to do
-  }
-
-  if (subroute === '') {
-    return;  // nothing to do, we've cleaned up lightbox
-  }
-
-  const json = await scheduleFetch();
-  const session = json.sessions[subroute];
-  if (!session) {
-    throw new Error('session not found');
-  }
-
-  const closeHelper = () => {
-    const ev = new CustomEvent(SPA_GOTO_EVENT, {detail: './schedule', bubbles: true});
-    document.body.dispatchEvent(ev);
-  };
-
-  const lightbox = document.createElement('div')
-  lightbox.setAttribute('id', 'lightbox');
-
-  const popup = document.createElement('div');
-  popup.setAttribute('id', 'popup');
-
-  const h1 = $g('h1', {'text': session.name});
-  popup.appendChild(h1);
-
-  const closeButton = $g('button', {'class': 'close'});
-  closeButton.addEventListener('click', (ev) => closeHelper());
-  h1.appendChild(closeButton);
+  popup.classList.add('session-popup');
+  
+  popup.querySelector('h1').textContent = session.name;
 
   const popin = $g('article');
   const time = $g('time', {'class': 'datetime-label', 'datetime': session.when});
@@ -122,7 +94,6 @@ export async function subroute(node, route, subroute) {
   const description = $g('p', {'text': session.description});
   popin.appendChild(description);
 
-  // End
   popup.appendChild(popin);
   
   const grow = $g('div', {'class': 'grow'});
@@ -146,21 +117,107 @@ export async function subroute(node, route, subroute) {
     listItem.appendChild(speakerImage);
 
     const speakerInfo = $g('div', {'class': 'speaker-info'});
-    speakerInfo.appendChild($g(speaker.link ? 'a' : 'span', {
-      'target': '_blank',
-      'rel': 'noopener',
-      'href': speaker.link || null,
+    speakerInfo.appendChild($g(speaker.bio ? 'a' : 'span', {
+      'href': `${base}schedule/speaker/${speaker.ldap}`,
       'text': speaker.name,
     }));
-    speakerInfo.appendChild($g('span', {'class': 'role', 'text': speaker.role}));
+    speakerInfo.appendChild($g('span', {'class': 'role', 'text': `${speaker.role}, ${speaker.company}`}));
 
     listItem.appendChild(speakerInfo);
 
-    // End
     speakerList.appendChild(listItem)
   });
+}
 
+function generateSpeakerPopup(popup, speaker) {
+  popup.classList.add('speaker-popup');
+
+  const h1 = popup.querySelector('h1');
+  h1.textContent = speaker.name;
+
+  const popin = $g('article');
+
+  const speakerImage = $g('div', {'class': 'speakers-image'});
+  speakerImage.classList.add('dino-' + ~~(Math.random() * 4));
+
+  if (speaker.photo_available) {
+    const imageSrc = `./static/images/speakers/${speaker.ldap}.jpg`;
+    const img = $g('img', {
+      'alt': speaker.name,
+      'src': imageSrc,
+    });
+    speakerImage.appendChild(img);
+
+    popin.appendChild(speakerImage);
+  }
+
+  const titleCompany = $g('div', {'class': 'speaker-role', 'text': `${speaker.role}, ${speaker.company}`});
+  popin.appendChild(titleCompany);
+
+  const description = $g('p', {'text': speaker.bio});
+  popin.appendChild(description);
+
+  if (speaker.link) {
+    const externalLink = $g('a', {
+      'text': `Follow ${speaker.name}`,
+      'target': '_blank',
+      'rel': 'noopener',
+      'href': speaker.link || null,
+    });
+    popin.appendChild(externalLink);
+  }
+
+  popup.appendChild(popin);
+}
+
+export async function subroute(node, route, subroute) {
+  activeLightbox && activeLightbox.remove();
+
+  if (route !== 'schedule') {
+    return;  // nothing to do
+  }
+
+  if (subroute === '') {
+    return;  // nothing to do, we've cleaned up lightbox
+  }
+
+  const json = await scheduleFetch();
+
+  const lightbox = $g('div', {'id': 'lightbox'});
+  const popup = $g('div', {'id': 'popup'});
   lightbox.appendChild(popup);
+  
+  const h1 = $g('h1');
+  popup.appendChild(h1);
+
+  if (subroute.startsWith("speaker/")) {
+    const speakerId = subroute.slice(8);
+    const speaker = json.speakers[speakerId];
+
+    if (!speaker) {
+      throw new Error('speaker not found');
+    }
+
+    generateSpeakerPopup(popup, speaker);
+  } else {
+    const session = json.sessions[subroute];
+    
+    if (!session) {
+      throw new Error('session not found');
+    }
+
+    generateSessionPopup(popup, session);
+  }
+
+  const closeHelper = () => {
+    const ev = new CustomEvent(SPA_GOTO_EVENT, {detail: './schedule', bubbles: true});
+    document.body.dispatchEvent(ev);
+  };
+
+  const closeButton = $g('button', {'class': 'close'});
+  closeButton.addEventListener('click', (ev) => closeHelper());
+  h1.appendChild(closeButton);
+  
   document.body.appendChild(lightbox);
 
   activeLightbox = lightbox;
