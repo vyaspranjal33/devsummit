@@ -15,4 +15,4 @@ Once you have that, you'll need to:
 
 # License
 
-Please see the LICENSE file.
+Please see the [LICENSE](LICENSE) file.
