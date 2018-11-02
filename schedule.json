@@ -221,7 +221,15 @@
             "when": "2018-11-12T15:00",
             "description": "If you can do it without JavaScript, that's usually the fastest path. But what about when JavaScript is the only way? In this session we take a JavaScript-heavy PWA and make it load in less than 5 seconds on 2G, using Web Assembly, workers, and web components.",
             "speakers": [
-                null,
+                {
+                    "ldap": "bf62d98d0284b3b873ed50fdd1697704",
+                    "name": "Jake Archibald",
+                    "role": "Developer Advocate",
+                    "company": "Google",
+                    "photo_available": "1",
+                    "link": "https://twitter.com/jaffathecake",
+                    "bio": "Jake works in Google Chrome’s developer relations team, working on specs, testing implementations, and ensuring developers have tools to make their jobs less painful. He’s a big fan of time-to-render optimisations, progressive enhancement, and all of that responsive stuff."
+                },
                 {
                     "ldap": "c6e3690d5aaca6e349bc63d40729411d",
                     "name": "Mariko Kosaka",
@@ -799,8 +807,8 @@
             "link": "https://twitter.com/argyleink",
             "bio": "Adam is a UX Engineer on Google Cloud; Developer += Designer; parentNode + 2 leafs; CSS/JS addict; fullstack+Ui hax0r; repeat(∞, [empathize, define, design, develop, deploy]); 🖖"
         },
-        "adbfc5923bfb00cdc62a2a78a06e983c": {
-            "ldap": "adbfc5923bfb00cdc62a2a78a06e983c",
+        "bf62d98d0284b3b873ed50fdd1697704": {
+            "ldap": "bf62d98d0284b3b873ed50fdd1697704",
             "name": "Jake Archibald",
             "role": "Developer Advocate",
             "company": "Google",

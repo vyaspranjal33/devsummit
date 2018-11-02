@@ -13,7 +13,6 @@
 # the License.
 
 runtime: nodejs8
-api_version: 1
 
 handlers:
 - url: /devsummit/static

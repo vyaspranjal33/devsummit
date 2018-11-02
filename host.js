@@ -71,6 +71,13 @@ app.use(async (ctx, next) => {
   return next();
 });
 
+app.use(hbs.middleware({
+  viewPath: `${__dirname}/sections`,
+  layoutsPath: `${__dirname}/templates`,
+  partialsPath: `${__dirname}/partials`,
+  extname: '.html',
+}));
+
 // Serve schedule.json from top-level.
 app.use(async (ctx, next) => {
   if (ctx.path === '/schedule.json') {
@@ -79,15 +86,24 @@ app.use(async (ctx, next) => {
   if (ctx.path === '/googlec6dfdf23945d0d0c.html') {
     return send(ctx, `googlec6dfdf23945d0d0c.html`);
   }
+  if (ctx.path === '/sitemap.xml') {
+    const basepath = mountUrl(ctx);
+    const hostname = ctx.req.headers.host;
+    const sitePrefix = (isProd ? 'https://' : 'http://') + hostname + basepath;
+
+    ctx.type = 'text/xml';
+
+    return await ctx.render('sitemap', {
+      layout: 'generic',
+      path: 'sitemap',
+      data: schedule,
+      prod: isProd,
+      base: basepath,
+      sitePrefix: sitePrefix,
+    });
+  }
   return next();
 });
-
-app.use(hbs.middleware({
-  viewPath: `${__dirname}/sections`,
-  layoutsPath: `${__dirname}/templates`,
-  partialsPath: `${__dirname}/partials`,
-  extname: '.html',
-}));
 
 const sections = fs.readdirSync(`${__dirname}/sections`)
     .map((section) => {
