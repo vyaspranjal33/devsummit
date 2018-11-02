@@ -89,7 +89,6 @@ app.use(hbs.middleware({
   extname: '.html',
 }));
 
-
 const sections = fs.readdirSync(`${__dirname}/sections`)
     .map((section) => {
       if (section.endsWith('.html') && section[0] !== '_') {
@@ -118,6 +117,10 @@ app.use(flat(async (ctx, next, path, rest) => {
     return next();
   }
 
+  var data;
+  var bodyClass;
+  var template = path;
+
   // derive the mount path from Koa, so this doesn't need to have it as a const
   const basepath = mountUrl(ctx);
   const hostname = ctx.req.headers.host;
@@ -135,14 +138,33 @@ app.use(flat(async (ctx, next, path, rest) => {
   };
 
   if (rest) {
-    if (path !== 'schedule') {
-      return next();
-    }
+    switch (path) {
+      case 'schedule':
+        // lookup schedule and check ID doesn't start with _
+        data = schedule.sessions[rest];
+        path = '_amp-session';
+        bodyClass = 'schedule-popup';
+        
+        if (!data || rest.startsWith('_')) {
+          return next();
+        }
+        break;
+      case 'speaker':
+        // lookup speaker and check ID doesn't start with _
+        data = schedule.speakers[rest];
+        template = 'schedule';
+        path = '_amp-speaker';
+        bodyClass = 'speaker-popup';
 
-    // lookup schedule and check ID doesn't start with _
-    const data = schedule.sessions[rest];
-    if (!data || rest.startsWith('_')) {
-      return next();
+        if (!data || rest.startsWith('_')) {
+          return next();
+        }
+        break;
+      default:
+        return next();
+    }
+    if (path == 'speaker') {
+      path = 'schedule';
     }
 
     let css = prodAmpCss || fallbackProdAmpCss;
@@ -160,13 +182,13 @@ app.use(flat(async (ctx, next, path, rest) => {
 
     // render AMP for first session load
     scope.layout = 'amp';
+    scope.bodyClass = bodyClass;
     scope.sitePrefix = sitePrefix;
     scope.title = data.name || '';
     scope.time_label = data.time_label || '';
     scope.description = data.description || '',
     scope.payload = data;
     scope.styles = css;
-    path = '_amp-session';
   }
 
   ctx.set('Feature-Policy', policyHeader);

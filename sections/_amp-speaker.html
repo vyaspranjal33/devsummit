@@ -1,0 +1,16 @@
+
+<h1>{{title}}<a class="close" href="../schedule"></a></h1>
+
+<article>
+  <div class="speakers-image">
+    <amp-img layout="responsive" alt="{{this.name}}" src="../static/images/speakers/{{this.payload.ldap}}.jpg" width="128" height="128"></amp-img>
+  </div>
+
+  <div class="speaker-role">{{this.payload.role}}, {{this.payload.company}}</div>
+
+  <p>{{this.payload.bio}}</p>
+
+  {{#if this.payload.link}}
+    <a target="_blank" rel="noopener" href="{{this.payload.link}}">Follow {{this.payload.name}}</a>
+  {{/if}}
+</article>

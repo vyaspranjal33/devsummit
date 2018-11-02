@@ -45,9 +45,15 @@ self.addEventListener('fetch', (ev) => {
   }
 
   const schedulePrefix = scope.pathname + 'schedule';
-  if (!url.pathname.startsWith(schedulePrefix + '/')) {
+  const speakerPrefix = scope.pathname + 'speaker';
+
+  if (
+    !url.pathname.startsWith(schedulePrefix + '/')
+    && !url.pathname.startsWith(speakerPrefix + '/')
+  ) {
     return;
   }
+
   const rest = url.pathname.substr(schedulePrefix.length + 1);  // include trailing '/'
   if (rest.startsWith('_') || rest.indexOf('/') !== -1) {
     return;

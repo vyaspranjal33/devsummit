@@ -118,7 +118,7 @@ function generateSessionPopup(popup, session) {
 
     const speakerInfo = $g('div', {'class': 'speaker-info'});
     speakerInfo.appendChild($g(speaker.bio ? 'a' : 'span', {
-      'href': `${base}schedule/speaker/${speaker.ldap}`,
+      'href': `${base}speaker/${speaker.ldap}`,
       'text': speaker.name,
     }));
     speakerInfo.appendChild($g('span', {'class': 'role', 'text': `${speaker.role}, ${speaker.company}`}));
@@ -173,7 +173,7 @@ function generateSpeakerPopup(popup, speaker) {
 export async function subroute(node, route, subroute) {
   activeLightbox && activeLightbox.remove();
 
-  if (route !== 'schedule') {
+  if (route !== 'schedule' && route !== 'speaker') {
     return;  // nothing to do
   }
 
@@ -190,23 +190,25 @@ export async function subroute(node, route, subroute) {
   const h1 = $g('h1');
   popup.appendChild(h1);
 
-  if (subroute.startsWith("speaker/")) {
-    const speakerId = subroute.slice(8);
-    const speaker = json.speakers[speakerId];
+  switch(route) {
+    case 'speaker':
+      const speaker = json.speakers[subroute];
 
-    if (!speaker) {
-      throw new Error('speaker not found');
-    }
+      if (!speaker) {
+        throw new Error('speaker not found');
+      }
 
-    generateSpeakerPopup(popup, speaker);
-  } else {
-    const session = json.sessions[subroute];
-    
-    if (!session) {
-      throw new Error('session not found');
-    }
+      generateSpeakerPopup(popup, speaker);
+      break;
+    case 'schedule':
+      const session = json.sessions[subroute];
+      
+      if (!session) {
+        throw new Error('session not found');
+      }
 
-    generateSessionPopup(popup, session);
+      generateSessionPopup(popup, session);
+      break;
   }
 
   const closeHelper = () => {
