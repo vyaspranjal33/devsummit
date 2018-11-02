@@ -33,7 +33,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://twitter.com/dalmaer",
-                    "bio": "Dion Almaer is striving for a better Web as Director of the Web Developer Ecosystem in Chrome. He works on tools, services, and libraries that aim to make it easier for developers to build successful products that load fast and delight users. He also enjoys working with developers throughout the ecosystem, across many of Google’s Web initiatives beyond Chrome itself. Previously, he has enjoyed building software products and platforms from his own startups to companies such as Mozilla (developer tools), Palm (webOS), and Walmart Labs (VPE for native mobile and Web). "
+                    "bio": "Dion Almaer is striving for a better Web as Director of the Web Developer Ecosystem in Chrome. He works on tools, services, and libraries that aim to make it easier for developers to build successful products that load fast and delight users. He also enjoys working with developers throughout the ecosystem, across many of Google’s Web initiatives beyond Chrome itself. Previously, he has enjoyed building software products and platforms from his own startups to companies such as Mozilla (developer tools), Palm (webOS), and Walmart Labs (VPE for native mobile and Web)."
                 }
             ]
         },
@@ -221,15 +221,7 @@
             "when": "2018-11-12T15:00",
             "description": "If you can do it without JavaScript, that's usually the fastest path. But what about when JavaScript is the only way? In this session we take a JavaScript-heavy PWA and make it load in less than 5 seconds on 2G, using Web Assembly, workers, and web components.",
             "speakers": [
-                {
-                    "ldap": "bf62d98d0284b3b873ed50fdd1697704",
-                    "name": "Jake Archibald",
-                    "role": "Developer Advocate",
-                    "company": "Google",
-                    "photo_available": "1",
-                    "link": "https://twitter.com/jaffathecake",
-                    "bio": "Jake works in Google Chrome’s developer relations team, working on specs, testing implementations, and ensuring developers have tools to make their jobs less painful. He’s a big fan of time-to-render optimisations, progressive enhancement, and all of that responsive stuff."
-                },
+                null,
                 {
                     "ldap": "c6e3690d5aaca6e349bc63d40729411d",
                     "name": "Mariko Kosaka",
@@ -256,7 +248,7 @@
                     "company": "Google",
                     "photo_available": "1",
                     "link": "https://plus.google.com/+FrancoisBeaufort",
-                    "bio": "He loves to dive into Chromium source code and shares his findings."
+                    "bio": "He loves to dive into Chromium source code and share his findings."
                 },
                 {
                     "ldap": "ee74708b5aba7056bc4621495b3f2f2f",
@@ -571,7 +563,7 @@
                     "company": "Cloudflare",
                     "photo_available": "1",
                     "link": "",
-                    "bio": ""
+                    "bio": "Rustam is Director of Product at Cloudflare, focused on building Cloudflare's network into products that make the Internet fast, secure, and reliable. He has previously spent time at early stage health startups and Microsoft. Rustam has a BA in Economics from the University of Wisconsin–Madison."
                 }
             ]
         },
@@ -724,7 +716,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://twitter.com/dalmaer",
-            "bio": "Dion Almaer is striving for a better Web as Director of the Web Developer Ecosystem in Chrome. He works on tools, services, and libraries that aim to make it easier for developers to build successful products that load fast and delight users. He also enjoys working with developers throughout the ecosystem, across many of Google’s Web initiatives beyond Chrome itself. Previously, he has enjoyed building software products and platforms from his own startups to companies such as Mozilla (developer tools), Palm (webOS), and Walmart Labs (VPE for native mobile and Web). "
+            "bio": "Dion Almaer is striving for a better Web as Director of the Web Developer Ecosystem in Chrome. He works on tools, services, and libraries that aim to make it easier for developers to build successful products that load fast and delight users. He also enjoys working with developers throughout the ecosystem, across many of Google’s Web initiatives beyond Chrome itself. Previously, he has enjoyed building software products and platforms from his own startups to companies such as Mozilla (developer tools), Palm (webOS), and Walmart Labs (VPE for native mobile and Web)."
         },
         "9d58776bf96aa22e9e2363eced6ae56a": {
             "ldap": "9d58776bf96aa22e9e2363eced6ae56a",
@@ -807,8 +799,8 @@
             "link": "https://twitter.com/argyleink",
             "bio": "Adam is a UX Engineer on Google Cloud; Developer += Designer; parentNode + 2 leafs; CSS/JS addict; fullstack+Ui hax0r; repeat(∞, [empathize, define, design, develop, deploy]); 🖖"
         },
-        "bf62d98d0284b3b873ed50fdd1697704": {
-            "ldap": "bf62d98d0284b3b873ed50fdd1697704",
+        "adbfc5923bfb00cdc62a2a78a06e983c": {
+            "ldap": "adbfc5923bfb00cdc62a2a78a06e983c",
             "name": "Jake Archibald",
             "role": "Developer Advocate",
             "company": "Google",
@@ -832,7 +824,7 @@
             "company": "Google",
             "photo_available": "1",
             "link": "https://plus.google.com/+FrancoisBeaufort",
-            "bio": "He loves to dive into Chromium source code and shares his findings."
+            "bio": "He loves to dive into Chromium source code and share his findings."
         },
         "79d13a6895f16c46e1fa30a5872f7cf3": {
             "ldap": "79d13a6895f16c46e1fa30a5872f7cf3",
@@ -1102,7 +1094,7 @@
             "company": "Cloudflare",
             "photo_available": "1",
             "link": "",
-            "bio": ""
+            "bio": "Rustam is Director of Product at Cloudflare, focused on building Cloudflare's network into products that make the Internet fast, secure, and reliable. He has previously spent time at early stage health startups and Microsoft. Rustam has a BA in Economics from the University of Wisconsin–Madison."
         }
     }
 }

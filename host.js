@@ -138,33 +138,21 @@ app.use(flat(async (ctx, next, path, rest) => {
   };
 
   if (rest) {
-    switch (path) {
-      case 'schedule':
-        // lookup schedule and check ID doesn't start with _
-        data = schedule.sessions[rest];
-        path = '_amp-session';
-        bodyClass = 'schedule-popup';
-        
-        if (!data || rest.startsWith('_')) {
-          return next();
-        }
-        break;
-      case 'speaker':
-        // lookup speaker and check ID doesn't start with _
-        data = schedule.speakers[rest];
-        template = 'schedule';
-        path = '_amp-speaker';
-        bodyClass = 'speaker-popup';
+    // lookup schedule
+    data = schedule.sessions[rest];
+    path = '_amp-session';
+    bodyClass = 'schedule-popup';
 
-        if (!data || rest.startsWith('_')) {
-          return next();
-        }
-        break;
-      default:
-        return next();
+    // session not found, checking for potential speaker
+    if (!data) {
+      data = schedule.speakers[rest];
+      path = '_amp-speaker';
+      bodyClass = 'speaker-popup';
     }
-    if (path == 'speaker') {
-      path = 'schedule';
+    
+    // no session, no pseaker or ID starts with _
+    if (!data || rest.startsWith('_')) {
+      return next();
     }
 
     let css = prodAmpCss || fallbackProdAmpCss;
